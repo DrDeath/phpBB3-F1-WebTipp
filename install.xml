@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.0.xsd">
+  <header>
+    <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+    <title lang="en-gb">Formula 1 WebTip</title>
+	<title lang="de">Formel 1 WebTipp</title>
+    <description lang="en-gb"><![CDATA[With this mod you can add a Formula 1 tipp game to your forum.
+Your user can tipp race results and collect points.
+Current season standings ( users / drivers / teams ) are listet on a statistics page and in the memberlist view profile.]]>
+</description>
+<description lang="de"><![CDATA[Mit diesem MOD fügst Du ein Formel 1 WebTipp Spiel Deinem Forum hinzu.
+Deine Benutzer können auf die Rennergebnisse tippen und erhalten dadurch Punkte.
+Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den eingebauten Statistseiten und im Benutzerprofil begutachten.]]>
+</description>
+    <author-notes lang="en-gb"><![CDATA[Dr.Death ported and enhanced the origin phpBB2 MOD to phpBB3 Olympus
+AceVentura is the origin Author of the Formula 1 WebTip MOD for phpBB2.
+OXPUS is the author of the "Advanced countdown MOD" ( used some code for the "Countdown till deadline" )]]></author-notes>
+    <author-notes lang="de"><![CDATA[Dr.Death hat das Original phpBB2 MOD auf phpBB3 Olympus portiert ( Neu programmiert )
+AceVentura ist der Autor des Formula 1 WebTip MOD für phpBB2.
+OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Codes für den "Countdown bis deadline" verwendet )]]></author-notes>
+    <author-group>
+      <author>
+        <realname>Stefan Temath</realname>
+        <email>dr.death@lpi-clan.de</email>
+        <username>Dr.Death</username>
+        <homepage>http://www.lpi-clan.de</homepage>
+        <contributions />
+      </author>
+      <author>
+        <realname>Christian Neumann</realname>
+        <email>2714323@web.de</email>
+        <username>AceVentura</username>
+        <homepage>http://www.uptempo.de.vu</homepage>
+        <contributions />
+      </author>
+      <author>
+        <realname>Karsten Ude</realname>
+        <email>webmaster@oxpus.de</email>
+        <username>OXPUS</username>
+        <homepage>http://www.oxpus.de</homepage>
+        <contributions />
+      </author>
+    </author-group>
+    <mod-version>
+      <major>0</major>
+      <minor>1</minor>
+      <revision>22</revision>
+    </mod-version>
+    <installation>
+      <level>easy</level>
+      <time>692</time>
+      <target-version>
+        <target-primary>3.0.RC4</target-primary>
+        <target-major allow="exact">3</target-major>
+        <target-minor allow="exact">0</target-minor>
+      </target-version>
+    </installation>
+    <history>
+      <entry>
+        <date>2007-05-28T00:00:00+02:00</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>20</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change> first public version for phpbb3 Olympus RC1</change>
+        </changelog>
+        <changelog lang="de">
+          <change> Erste öffentliche Version für phpbb3 Olympus RC1</change>
+        </changelog>
+      </entry>
+      <entry>
+        <date>2007-06-06T00:00:00+02:00</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>21</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change> Installerfile updatet. Fix for mysql smaller than 4.1.3</change>
+		  <change> Added german language to this installer modx </change>
+		  <change> Changed the rank counting on user, driver, team stats and profile page</change>
+		  <change> Update Info: If you update vom prior version 0.1.20: Have a look to the changes in memberlist.php !
+		  Copy formel.php to ROOT/formel.php</change>
+        </changelog>
+        <changelog lang="de">
+          <change> Installationsdatei aktualisiert. Fix für MySQl kleiner als 4.1.3</change>
+          <change> Deutsche Sprache diesem Installationsanleitung hinzugefügt.</change>
+		  <change> Änderung der Rangberechnung auf Spieler, Fahrer, Team Statistik und Profil Seite</change>
+		  <change> Achtung: Wenn Ihr von Version 0.1.20 updatet: Änderung an der memberlist.php beachten! 
+		  Kopiere formel.php nach ROOT/formel.php</change>
+        </changelog>
+      </entry>
+     <entry>
+        <date>2007-06-06T00:00:00+02:00</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>22</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>Changes for meeting the new coding guidelines: != bad.</change>
+		  <change>Added french language files. Thank to the translator fafa</change>
+		  <change>Changed package to the MODX Guideline http://www.phpbb.com/mods/documentation/modx/packaging/index.php</change>
+		  <change>Style changes are now located in the subfolder templates</change>
+		  <change>Additonal languages german and french are now located in the subfolder language</change>
+		</changelog>
+        <changelog lang="de">
+          <change>Änderung Aufgrund neuer Coding Guidelines: != schlecht.</change>
+		  <change>Französische Sprachdateien hinzugefügt. Danke an den Übersetzer fafa.</change>
+		  <change>MOD Paket angepasst auf die MODX Richtlinien. Siehe auch  http://www.phpbb.com/mods/documentation/modx/packaging/index.php</change>
+		  <change>Anleitung für Änderungen an den Styles findet Ihr im Ordner templates</change>
+		  <change>Die Anleitung für deutsche und französische Sprachdateien findet Ihr im Ordner language</change>
+        </changelog>
+      </entry>
+    </history>
+    <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
+  </header>
+  <action-group>
+    <copy>
+      <file from="formel.php" to="ROOT/formel.php" />
+      <file from="install_f1webtipp.php" to="ROOT/install_f1webtipp.php" />
+      <file from="adm/style/acp_formel.html" to="ROOT/adm/style/acp_formel.html" />
+      <file from="includes/acp/info/acp_formel.php" to="ROOT/includes/acp/info/acp_formel.php" />
+      <file from="includes/acp/acp_formel.php" to="ROOT/includes/acp/acp_formel.php" />
+      <file from="includes/functions_formel.php" to="ROOT/includes/functions_formel.php" />
+      <file from="language/en/mods/acp_formel.php" to="ROOT/language/en/mods/acp_formel.php" />
+      <file from="language/en/mods/info_acp_formel.php" to="ROOT/language/en/mods/info_acp_formel.php" />
+      <file from="language/en/mods/formel.php" to="ROOT/language/en/mods/formel.php" />
+      <file from="language/en/mods/permissions_formel.php" to="ROOT/language/en/mods/permissions_formel.php" />
+      <file from="images/formel/*.*" to="ROOT/images/formel/*.*" />
+    </copy>
+    <open src="includes/constants.php">
+      <edit>
+        <find><![CDATA[// Additional tables]]></find>
+        <action type="after-add"><![CDATA[
+// F1 WebTipp
+define('FORMEL_TEAMS_TABLE', 		$table_prefix . 'formel_teams');
+define('FORMEL_DRIVERS_TABLE', 		$table_prefix . 'formel_drivers');
+define('FORMEL_RACES_TABLE', 		$table_prefix . 'formel_races');
+define('FORMEL_TIPPS_TABLE', 		$table_prefix . 'formel_tipps');
+define('FORMEL_CONFIG_TABLE', 		$table_prefix . 'formel_config');
+define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
+// F1 WebTipp End
+]]></action>
+      </edit>
+    </open>
+    <open src="memberlist.php">
+      <edit>
+        <find><![CDATA[$user->setup(array('memberlist', 'groups'));]]></find>
+        <action type="replace-with"><![CDATA[$user->setup(array('memberlist', 'groups', 'mods/formel'));]]></action>
+      </edit>
+      <edit>
+        <find><![CDATA[	// Now generate page tilte]]></find>
+        <action type="before-add"><![CDATA[
+		//
+		// F1 WebTipp
+		//
+		include($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
+		$formel_config  = get_formel_config();
+
+		if ( $formel_config['show_in_profile'] ) 
+		{
+			// Check if this user has one of the formular 1 admin permission. If this user has one or more of these permissions, he gets also moderator permissions.
+			$is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_teams', 'a_formel_races');
+			
+			if ( $formel_config['restrict_to'] == 0 || get_formel_auth() || $is_admin == 1 || $user->data['user_id'] == $formel_config['mod_id'] ) 
+			{
+				$tippers_rank   = $user->lang['formel_profile_norank'];
+				$tippers_points = 0;
+				$race_done      = 0;
+				
+				// Get tipp data for this user
+				$sql = 'SELECT *, sum(tipp_points) as total_points, count(tipp_points) as tipps_made 
+					FROM ' . FORMEL_TIPPS_TABLE . '
+					GROUP BY tipp_user
+					ORDER BY total_points DESC';
+				$result = $db->sql_query($sql);
+
+				$rank_count = $real_rank  = 1;
+				$previous_points = false;
+				while ($row = $db->sql_fetchrow($result)) 
+				{ 
+					
+					if($row['total_points'] != $previous_points) 
+					{ 
+						$rank_count = $real_rank; 
+						$previous_points = $row['total_points']; 
+					}
+
+					if ( $row['tipp_user'] == $member['user_id'] ) 
+					{
+						$tippers_points = $row['total_points'];
+						$race_done      = $row['tipps_made'];
+						$tippers_rank   = sprintf($user->lang['formel_profile_rank'], $rank_count);
+						break;
+					}
+					$real_rank++; 
+				}
+				$db->sql_freeresult($result);
+
+				// Count total races with existing results
+				$sql = 'SELECT * 
+					FROM ' . FORMEL_RACES_TABLE . '
+					WHERE race_result <> 0';
+				$result = $db->sql_query($sql);
+
+				$race_total = $db->sql_affectedrows($result);
+				$db->sql_freeresult($result);
+
+				$template->assign_block_vars('formel_webtipp', array(
+					'L_PROFILE_WEBTIPP' => $user->lang['formel_profile_title'],
+					'TIPPER_POINTS'     => $tippers_points,
+					'TIPPER_RANK'       => $tippers_rank,
+					'RACE_DONE'         => sprintf($user->lang['formel_profile_tipps'], $race_done, $race_total),
+					'U_FORMEL_STATS'    => append_sid("formel.$phpEx?mode=stats"))
+				);
+			}
+		}		
+		//
+		// END of F1 WebTipp
+		//
+		]]></action>
+      </edit>
+    </open>
+	<diy-instructions lang="en-gb"><![CDATA[After installing this MOD, you have to point your web browser to the install_f1webtipp.php file
+like:  http://your-domian.tld/path-to-your-forum/install_f1webtipp.php
+
+Now you are able to activate the new Formel 1 WebTipp modules:
+
+ACP - SYSTEM - Module Management - Administration Control Panel
+Create a new Modul Category.
+
+1. Hit the Button "Create new module"
+2. Enter in field "Module Language Name:" --> "ACP_FORMEL_MANAGEMENT"
+3. Module type: --> "Category"
+4. Parent: --> ".Mods"
+5. Module enabled: --> "Yes"
+
+After that you have to enable the new Formel 1 WebTipp Modules separately by doing the following steps:
+
+1. Go to ACP - SYSTEM - Module Management - Administration Control Panel - .Mods - Formula 1 WebTip
+2. Select in the dropdown list "Formular 1 Settings" and hit "Add module"
+3. After adding the module you have to click on the "Enable" link.
+4. Do the steps 1-3 also for the F1 WebTipp Modules: "Formular 1 Drivers" , "Formular 1 Teams" and "Formular 1 Races"
+5. If the tab ".mods" is not shown you have to clear the cache!
+6. Finaly delete the file: install_f1webtipp.php from your webspace to prevent erasing tables from your database.
+
+
+After creating , adding and enabling the F1 WebTipp modules your are able to give ACP permissions to certain users/groups.
+You'll find the new permission in:
+ACP - Permissions - Administrative Permissions  - F1:
+Can alter Formular 1 settings
+Can alter Formular 1 driver
+Can alter Formular 1 teams
+Can alter Formular 1 races
+
+Finaly you have to create a link for your users to reach the new formula 1 webtip mod.
+Go to your ACP - Forums - Manage forums - Create new forum.
+Select as Wähle als Forum-ype : "Link" 
+Select a parent forum
+Insert a name for the link ( i.e ) : "Formula 1 WebTip"
+As Forums-link : "formel.php"
+
+And now: Have fun!]]></diy-instructions>
+	<diy-instructions lang="de"><![CDATA[Nach der Installation des MODs musst Du noch die Installationsdatei mit Deinem Browser aufrufen.
+Beispiel: http://deine-domaene.tld/pfad-zum-forum/install_f1webtipp.php
+
+Aktiviere nun die F1 WebTipp Module:
+
+ACP - SYSTEM - Modul-Konfiguration - Administrations-Bereich
+Erstelle eine neue Modul Kategorie
+
+1. Klicke auf den Button "Neues Modul erstellen"
+2. Im Feld "Name des Moduls:" --> "ACP_FORMEL_MANAGEMENT" eintragen.
+3. Modul-Typ: --> "Kategorie" waehlen.
+4. Übergeordnet: "Mods" waehlen.
+5. Modul aktiviert: "ja" waehlen.
+6. "Absenden" anklicken.
+
+Danach musst Du nun jedes Formel 1 WebTipp Modul einzelnd hinzufügen und aktivieren:
+
+1. Gehe ins ACP - SYSTEM - Modul-Konfiguration - Administrations-Bereich - Mods - Formel 1 WebTipp
+2. Wähle aus der Dropdown Liste "Formel 1 Einstellungen" und klicke auf "Modul hinzufügen".
+3. Nach dem Hinzufügen des Moduls klicke auf den "Aktivieren" Link.
+4. Wiederhole die Schritte 1-3 auch fuer die folgenden F1 WebTipp Module: "Formel 1 Rennen", "Formel 1 Teams" und "Formel 1 Fahrer".
+5. Sollte der extra Reiter "MODS" nicht im ACP sichtbar sein, leere den Cache!
+6. Zum Schluss solltest Du nicht vergessen die Datei "install_f1webtipp.php" von Deinem WebSpace zu löschen!
+
+Nach dem Erstellen, Hinzufügen und Aktivieren der F1 WebTipp Module
+kannst Du nun ACP Berechtigunen fuer Deinen Gruppen/Benutzer vergeben.
+Du findest die neuen Berechtigungen unter:
+ACP - Berechtigungen - Allgemeine Berechtigungen - Administratoren - F1
+Kann Formel 1 Fahrer verwalten
+Kann Formel 1 Rennen verwalten
+Kann Formel 1 Einstellungen verwalten
+Kann Formel 1 Teams verwalten
+
+Schlussendlich musst Du nun einen Link für Deine Benutzer erstellen, damit sie den Formel 1 WebTipp auch erreichen können.
+Im Adminbereich: Foren - Verwalte Foren - Neues Forum erstellen.
+Wähle als Forum-Typ : "Link" 
+Wähle ein Übergeordnetes Forum Deiner Wahl
+Vergebe einen Namen für den Link ( Beispiel ) : "Formel 1 WebTipp"
+Als Forums-Link : "formel.php"
+
+Und nun: Viel Spass !
+]]></diy-instructions>
+  </action-group>
+</mod>

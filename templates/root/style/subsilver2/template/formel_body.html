@@ -1,0 +1,818 @@
+<!-- IF  S_USERTIPP == 0 -->
+
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF S_STANDARD -->
+<script language="JavaScript" type="text/javascript">
+<!--
+function showtipps(showtipps) 
+{ 
+	window.open(showtipps, "_showtipps", "width=400,height=600,scrollbars,resizable=yes");
+} 
+//-->
+</script>
+
+<br />
+<form name="countdown" action="{U_FORM_ACTION}" method="POST" enctype="multipart/form-data">
+	<table width="100%" align="center"  cellpadding="2" cellspacing="1">
+		<tr>
+			<th colspan="4">{L_FORMEL_TITLE}</th>
+		</tr>
+		<tr>
+			<td class="row1" align="left" colspan="4">
+				<table cellpadding="0" cellspacing="0" width="100%" align="center">
+					<!-- BEGIN head_on -->
+					<tr>
+						<td align="center" colspan="3"><a href="{HEADER_URL}"><img src="{HEADER_IMG}" width="{HEADER_WIDTH}" height="{HEADER_HEIGHT}" alt="" border="0" /></a></td>
+					</tr>
+					<!-- END head_on -->
+					<tr>
+						<td align="center" colspan="3">&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center" colspan="3">
+							<input type="button" onClick="window.location.href='{U_FORMEL_RULES}'"      value="{L_FORMEL_RULES}">&nbsp;&nbsp;
+							{U_FORMEL_FORUM}
+							<input type="button" onClick="window.location.href='{U_FORMEL_STATISTICS}'" value="{L_FORMEL_STATISTICS}">&nbsp;&nbsp;
+							<input type="button" onClick="window.location.href='{U_FORMEL_CALL_MOD}'"   value="{L_FORMEL_CALL_MOD}"></td>
+					</tr>
+					<tr>
+						   <td align="center" colspan="3">&nbsp;</td>
+					</tr>
+					<tr>
+						<td width="33%" align="center" valign="top">
+							<table cellpadding="2" cellspacing="1" width="95%" align="center">
+								<tr>
+									<th nowrap="nowrap" colspan="2" align="center">&nbsp;{L_TOP_NAME}&nbsp;</th>
+									<th nowrap="nowrap" align="center">&nbsp;{L_TOP_POINTS}&nbsp;</th>
+								</tr>
+								<!-- BEGIN top_tippers -->
+								<!-- IF top_tippers.S_ROW_COUNT is even -->
+								<tr class="row1">
+								<!-- ELSE -->
+								<tr class="row2">
+								<!-- ENDIF -->
+									<td class="row2" nowrap="nowrap" align="center"><span class="gen">&nbsp;{top_tippers.RANK}&nbsp;</span></td>
+									<td nowrap="nowrap" width="100%" align="left"><span class="gen">&nbsp;{top_tippers.TIPPER_NAME}&nbsp;</span></td>
+									<td class="row2" nowrap="nowrap" align="center"><span class="gen">&nbsp;{top_tippers.TIPPER_POINTS}&nbsp;</span></td>
+								</tr>
+								<!-- END top_tippers -->
+								<tr>
+									<td valign="middle" class="cat" nowrap="nowrap" colspan="3" align="center"><span class="gensmall">[<a href="{U_TOP_MORE_USERS}">{L_TOP_MORE}</a>]</span></td>
+								</tr>
+							</table>
+						</td>
+						<td width="33%" align="center" valign="top">
+							<table cellpadding="2" cellspacing="1" width="95%" align="center">
+								<tr>
+									<th nowrap="nowrap" colspan="2" align="center">&nbsp;{L_TOP_DRIVER}&nbsp;</th>
+									<th nowrap="nowrap" align="center">&nbsp;{L_TOP_POINTS}&nbsp;</th>
+								</tr>
+								<!-- BEGIN top_drivers -->
+								<!-- IF top_drivers.S_ROW_COUNT is even -->
+								<tr class="row1">
+								<!-- ELSE -->
+								<tr class="row2">
+								<!-- ENDIF -->
+									<td class="row2" nowrap="nowrap" align="center"><span class="gen">&nbsp;{top_drivers.RANK}&nbsp;</span></td>
+									<td nowrap="nowrap" width="100%" align="left"><span class="gen">&nbsp;{top_drivers.WM_DRIVERNAME}&nbsp;</span></td>
+									<td class="row2" nowrap="nowrap" align="center"><span class="gen">&nbsp;{top_drivers.WM_POINTS}&nbsp;</span></td>
+								</tr>
+								<!-- END top_drivers -->
+								<tr>
+									<td valign="middle" class="cat" nowrap="nowrap" colspan="3" align="center"><span class="gensmall">[<a href="{U_TOP_MORE_DRIVERS}">{L_TOP_MORE}</a>]</span></td>
+								</tr>
+							</table>
+						</td>
+						<td width="33%" align="center" valign="top">
+							<table cellpadding="2" cellspacing="1" width="95%" align="center">
+								<tr>
+									<th nowrap="nowrap" colspan="2" align="center">&nbsp;{L_TOP_TEAMS}&nbsp;</th>
+									<th nowrap="nowrap" align="center">&nbsp;{L_TOP_POINTS}&nbsp;</th>
+								</tr>
+								<!-- BEGIN top_teams -->
+								<!-- IF top_teams.S_ROW_COUNT is even -->
+								<tr class="row1">
+								<!-- ELSE -->
+								<tr class="row2">
+								<!-- ENDIF -->
+									<td class="row2" nowrap="nowrap" align="center"><span class="gen">&nbsp;{top_teams.RANK}&nbsp;</span></td>
+									<td nowrap="nowrap" width="100%" align="left"><span class="gen">&nbsp;{top_teams.WM_TEAMNAME}&nbsp;</span></td>
+									<td class="row2" nowrap="nowrap" align="center"><span class="gen">&nbsp;{top_teams.WM_POINTS}&nbsp;</span></td>
+								</tr>
+								<!-- END top_teams -->
+								<tr>
+									<td valign="middle" class="cat" nowrap="nowrap" colspan="3" align="center"><span class="gensmall">[<a href="{U_TOP_MORE_TEAMS}">{L_TOP_MORE}</a>]</span></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						   <td align="center" colspan="3">&nbsp;</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<th align="center" colspan="4">{L_CURRENT_RACE}</th>
+		</tr>
+		<!-- BEGIN racerow -->
+		<tr>
+			<td class="row2" colspan="4">
+				<table cellpadding="3" cellspacing="0" align="center" width="100%">
+					<tr>
+						<td valign="middle" width="50%" align="center"><input type="submit" name="prev" value="{L_PREV_RACE}"></td>
+						<!-- BEGIN racegfx -->
+						<td align="right" class="row1">&nbsp;{racerow.RACEIMG}&nbsp;</td>
+						<!-- END racegfx -->
+						<td align="center" class="row1" nowrap="nowrap">
+						&nbsp;<span class="gen"><strong>{racerow.RACENAME}</strong>&nbsp;</span><br />
+						<span class="gen">&nbsp;<strong>{L_RACETIME}:</strong> {racerow.RACETIME}</span><br />
+						<span class="gen">&nbsp;<strong>{L_RACEDEAD}:</span> <span class="gen" style="color:#ff0000">{racerow.RACEDEAD}</span></strong><br /><br />
+						<!-- IF S_COUNTDOWN == true -->
+						<fieldset class="row2">
+							<div><span class="gen"><strong>{L_COUNTDOWN}</strong></span></div>
+							<div id="time_event" class="row2" style="display:"><span class="gen"><strong>{L_DAYS}&nbsp;<input name="days" class="row2" size=2 style="border: 0px; padding: 1px; color:#ff0000; font-weight: bold;"></span>
+							<span style="display:" class="gen" name="time_string">{L_HOURS}
+							<input name="hours" class="row2" size=1 style="border: 0px; padding: 1px; color:#ff0000; font-weight: bold;">:
+							<input name="mins" class="row2" size=1 style="border: 0px; padding: 1px; color:#ff0000; font-weight: bold;">:
+							<input name="secs" class="row2" size=1 style="border: 0px; padding: 1px; color:#ff0000; font-weight: bold;">
+							</strong></span></div>
+							<div id="event_time" class="gen" style="display:none">{L_DEADLINE_REACHED}</div>
+						</fieldset>
+						<br />
+						<script language="JavaScript" type="text/javascript">countdown();</script>
+						<!-- ENDIF -->						
+						<table cellpadding="2" cellspacing="0" align="center" width="100%">
+							<tr>
+								<td width="50%" align="right"><span class="gen"><strong>{L_RACELENGTH}:</strong></span></td>
+								<td width="50%" align="left" ><span class="gen">{racerow.RACELENGTH}</span></td>
+							</tr>
+							<tr>
+								<td width="50%" align="right"><span class="gen"><strong>{L_RACELAPS}:</strong></span></td>
+								<td width="50%" align="left" ><span class="gen">{racerow.RACELAPS}</span></td>
+							</tr>
+							<tr>
+								<td width="50%" align="right"><span class="gen"><strong>{L_RACEDISTANCE}:</strong></span></td>
+								<td width="50%" align="left" ><span class="gen">{racerow.RACEDISTANCE}</span></td>
+							</tr>
+							<tr>
+								<td width="50%" align="right"><span class="gen"><strong>{L_RACEDEBUT}:</strong></span></td>
+								<td width="50%" align="left" ><span class="gen">{racerow.RACEDEBUT}</span></td>
+							</tr>
+						</table>
+						<img src="images/spacer.gif" alt="" width="264" height="1"/></span></td>
+						<td valign="middle" width="50%" align="center"><input type="submit" name="next" value="{L_NEXT_RACE}"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<!-- END racerow -->
+		<tr>
+			<td class="row1" colspan="4" valign="middle" align="left"><span class="genmed"><strong>{L_TIPPS_MADE}</strong>
+			<!-- BEGIN tipps_made -->
+			<a href="javascript:void(0)" onClick="javascript:showtipps('{tipps_made.USERTIPP}')" {tipps_made.STYLE}>{tipps_made.USERNAME}</a>{tipps_made.SEPARATOR}
+			<!-- END tipps_made -->
+			<!-- BEGIN no_tipps_made -->
+			{no_tipps_made.NOTIPPS}
+			<!-- END no_tipps_made -->
+			</span></td>
+		</tr>
+		<tr>
+			<td class="row3" >
+				<table width="100%" cellpadding="0" cellspacing="1">
+					<tr>
+						<td valign="top" width="30%">
+							<table width="100%" align="top">
+								<tr>
+									 <th colspan="2" align="center">{L_CURRENT_QUALI}</th>
+								</tr>
+								<!-- BEGIN no_quali -->
+								<tr>
+									 <td class="row1" colspan="2" align="center"><span class="gen">{no_quali.NO_QUALI}</span></td>
+								</tr>
+								<!-- END no_quali -->
+								<!-- BEGIN qualirow_gfx -->
+								<!-- IF qualirow_gfx.S_ROW_COUNT < 10 -->
+								<tr class="row1">
+								<!-- ELSEIF qualirow_gfx.S_ROW_COUNT < 16 -->
+								<tr class="row2">
+								<!-- ELSE -->
+								<tr class="row1">
+								<!-- ENDIF -->
+									<td align="center" width="30%" >&nbsp;{qualirow_gfx.DRIVERIMG}&nbsp;</td>
+									<td align="left" width="70%">
+										<span class="gen"><strong>&nbsp;{qualirow_gfx.L_PLACE}&nbsp;</strong></span><br />
+										<span class="gen">&nbsp;{qualirow_gfx.DRIVERNAME}&nbsp;</span><br />
+										<span class="gen">&nbsp;{qualirow_gfx.DRIVERTEAMNAME}&nbsp;</span>
+									</td>
+								</tr>
+								<!-- END qualirow_gfx -->
+								<!-- BEGIN qualirow -->
+								<!-- IF qualirow.S_ROW_COUNT < 10 -->
+								<tr class="row1">
+								<!-- ELSEIF qualirow.S_ROW_COUNT < 16 -->
+								<tr class="row2">
+								<!-- ELSE -->
+								<tr class="row1">
+								<!-- ENDIF -->
+									 <td align="right" width="50%" ><span class="gen"><strong>&nbsp;{qualirow.L_PLACE}&nbsp;</strong></span></td>
+									 <td align="left" width="50%" nowrap="nowrap"><span class="gen">&nbsp;{qualirow.DRIVERNAME}&nbsp;</span></td>
+								</tr>
+								<!-- END qualirow -->
+							</table>
+						</td>
+						<td valign="top" width="30%">
+							<table width="100%" align="top">
+								<tr>
+									<th colspan="2" align="center" >{L_CURRENT_RESULT}</th>
+								</tr>
+								<!-- BEGIN no_results -->
+								<tr>
+									<td class="row1" colspan="2" align="center"><span class="gen">{no_results.NO_RESULTS}</span></td>
+								</tr>
+								<!-- END no_results -->
+								<!-- BEGIN resultsrow_gfx -->
+								<!-- IF resultsrow_gfx.S_ROW_COUNT < 3 -->
+								<tr class="row1">
+								<!-- ELSE -->
+								<tr class="row2">
+								<!-- ENDIF -->
+									<td align="center" width="30%" >&nbsp;{resultsrow_gfx.DRIVERIMG}&nbsp;</td>
+									<td align="left" width="70%"  nowrap="nowrap">
+										<span class="gen"><strong>&nbsp;{resultsrow_gfx.L_PLACE}</strong></span><br />
+										<span class="gen">&nbsp;{resultsrow_gfx.DRIVERNAME}&nbsp;</span><br />
+										<span class="gen">&nbsp;{resultsrow_gfx.DRIVERTEAMNAME}&nbsp;</span>
+									</td>
+								</tr>
+								<!-- END resultsrow_gfx -->
+								<!-- BEGIN resultsrow -->
+								<!-- IF resultsrow.S_ROW_COUNT < 3 -->
+								<tr class="row1">
+								<!-- ELSE -->
+								<tr class="row2">
+								<!-- ENDIF -->
+									<td align="right" width="50%" ><span class="gen"><strong>&nbsp;{resultsrow.L_PLACE}</strong></span></td>
+									<td align="left" width="50%"  nowrap="nowrap"><span class="gen">&nbsp;{resultsrow.DRIVERNAME}&nbsp;</span></td>
+								</tr>
+								<!-- END resultsrow -->
+								<!-- BEGIN extended_results -->
+								<tr class="row1">
+									<td align="right" width="50%" ><span class="gen">&nbsp;<strong>{extended_results.L_PACE}:</strong></span></td>
+									<td align="left" width="50%" ><span class="gen">&nbsp;{extended_results.PACE}&nbsp;</span></td>
+								</tr>
+								<tr class="row1">
+									<td align="right" width="50%" ><span class="gen">&nbsp;<strong>{extended_results.L_TIRED}:</strong></span></td>
+									<td align="left" width="50%" ><span class="gen">&nbsp;{extended_results.TIRED}&nbsp;</span></td>
+								</tr>
+								<!-- END extended_results -->
+								<!-- BEGIN extended_results_gfx -->
+								<tr class="row1">
+									<td align="right" width="30%"  nowrap="nowrap"><span class="gen">&nbsp;<strong>{extended_results_gfx.L_PACE}:</strong></span></td>
+									<td align="left" width="70%" ><span class="gen">&nbsp;{extended_results_gfx.PACE}&nbsp;</span></td>
+								</tr>
+								<tr class="row1">
+									<td align="right" width="30%"  nowrap="nowrap"><span class="gen">&nbsp;<strong>{extended_results_gfx.L_TIRED}:</strong></span></td>
+									<td align="left" width="70%" ><span class="gen">&nbsp;{extended_results_gfx.TIRED}&nbsp;</span></td>
+								</tr>
+								<!-- END extended_results_gfx -->
+								<!-- BEGIN extended_results -->
+								<tr class="row3">
+									<td width="50%" align="right"><span class="gen" style="color:#009900"><strong>&nbsp;</strong></span></td>
+									<td width="50%" align="left"><span class="gen" style="color:#009900"><strong>&nbsp;</strong></span></td>
+								</tr>
+								<!-- END extended_results -->
+								<!-- BEGIN extended_results_gfx -->
+								<tr class="row3">
+									<td width="30%" align="right"><span class="gen" style="color:#009900"><strong>&nbsp;</strong></span></td>
+									<td width="70%" align="left"><span class="gen" style="color:#009900"><strong>&nbsp;</strong></span></td>
+								</tr>
+								<!-- END extended_results_gfx -->
+							</table>
+						</td>
+						<td valign="top" width="40%">
+							<table width="100%" align="top">
+								<tr>
+									<th colspan="3" align="center">{L_YOUR_TIPP}</th>
+								</tr>
+								<!-- BEGIN users_tipp -->
+								<!-- IF users_tipp.S_ROW_COUNT < 3 -->
+								<tr class="row1">
+								<!-- ELSE -->
+								<tr class="row2">
+								<!-- ENDIF -->
+									<td width="40%" align="right"><span class="gen"><strong>&nbsp;{users_tipp.L_PLACE}:</strong></span></td>
+									<td width="50%" align="left"><span class="gen">&nbsp;{users_tipp.DRIVERCOMBO}&nbsp;</span></td>
+									<td width="10%" align="middle"><span class="gen">&nbsp;{users_tipp.SINGLE_POINTS}&nbsp;</span></td>
+								</tr>
+								<!-- END users_tipp -->
+								<!-- BEGIN gfx_users_tipp -->
+								<!-- IF gfx_users_tipp.S_ROW_COUNT < 3 -->
+								<tr class="row1">
+								<!-- ELSE -->
+								<tr class="row2">
+								<!-- ENDIF -->
+									<td width="30%" align="right"><span class="gen"><strong>&nbsp;{gfx_users_tipp.GFXDRIVERCOMBO}&nbsp;</strong></span></td>
+									<td width="60%" align="left">
+										<span class="gen"><strong>{gfx_users_tipp.L_PLACE}</strong></span>
+										<span class="gen">&nbsp;{gfx_users_tipp.DRIVERCOMBO}</span>
+										<span class="gen">{gfx_users_tipp.DRIVERTEAMNAME}</span>
+									</td>
+									<td width="10%" align="middle"><span class="gen">&nbsp;{gfx_users_tipp.SINGLE_POINTS}&nbsp;</span></td>
+								</tr>
+								<!-- END gfx_users_tipp -->
+								<!-- BEGIN extended_users_tipp -->
+								<tr class="row1">
+									<td width="40%" align="right"><span class="gen"><strong>&nbsp;{extended_users_tipp.L_PACE}:</strong></span></td>
+									<td width="50%" align="left"><span class="gen">&nbsp;{extended_users_tipp.DRIVERCOMBO}&nbsp;</span></td>
+									<td width="10%" align="middle"><span class="gen">&nbsp;{extended_users_tipp.SINGLE_FASTEST}&nbsp;</span></td>
+								</tr>
+								<tr class="row1">
+									<td width="50%" align="right"><span class="gen"><strong>&nbsp;{extended_users_tipp.L_TIRED}:</strong></span></td>
+									<td width="50%" align="left"><span class="gen">&nbsp;{extended_users_tipp.TIREDCOMBO}&nbsp;</span></td>
+									<td width="50%" align="middle"><span class="gen">&nbsp;{extended_users_tipp.SINGLE_TIRED}&nbsp;</span></td>
+								</tr>
+								<!-- END extended_users_tipp -->
+								<!-- BEGIN extended_users_tipp_gfx -->
+								<tr class="row1">
+									<td width="30%" align="right" nowrap="nowrap"><span class="gen"><strong>&nbsp;{extended_users_tipp_gfx.L_PACE}:</strong></span></td>
+									<td width="60%" align="left"><span class="gen">&nbsp;{extended_users_tipp_gfx.DRIVERCOMBO}&nbsp;</span></td>
+									<td width="10%" align="middle"><span class="gen">&nbsp;{extended_users_tipp_gfx.SINGLE_FASTEST}&nbsp;</span></td>
+								</tr>
+								<tr class="row1">
+									<td width="30%" align="right" nowrap="nowrap"><span class="gen"><strong>&nbsp;{extended_users_tipp_gfx.L_TIRED}:</strong></span></td>
+									<td width="60%" align="left"><span class="gen">&nbsp;{extended_users_tipp_gfx.TIREDCOMBO}&nbsp;</span></td>
+									<td width="10%" align="middle"><span class="gen">&nbsp;{extended_users_tipp_gfx.SINGLE_TIRED}&nbsp;</span></td>
+								</tr>
+								<!-- END extended_users_tipp_gfx -->
+								<!-- BEGIN add_tipp -->
+								<!-- IF add_tipp.S_ROW_COUNT < 3 -->
+								<tr class="row1">
+								<!-- ELSE -->
+								<tr class="row2">
+								<!-- ENDIF -->
+									<td width="40%" align="right"><span class="gen"><strong>&nbsp;{add_tipp.L_PLACE}&nbsp;</strong></span></td>
+									<td width="50%" align="left"><span class="gen">&nbsp;{add_tipp.DRIVERCOMBO}</span></td>
+									<td width="10%" align="left">&nbsp;</td>
+								</tr>
+								<!-- END add_tipp -->
+								<!-- BEGIN extended_add_tipp -->
+								<tr class="row1">
+									<td width="40%" align="right" nowrap="nowrap"><span class="gen"><strong>&nbsp;{extended_add_tipp.L_PACE}:</strong></span></td>
+									<td width="50%" align="left"><span class="gen">&nbsp;{extended_add_tipp.DRIVERCOMBO}&nbsp;</span></td>
+									<td width="10%" align="left">&nbsp;</td>
+								</tr>
+								<tr class="row1">
+									<td width="40%" align="right" nowrap="nowrap"><span class="gen"><strong>&nbsp;{extended_add_tipp.L_TIRED}:</strong></span></td>
+									<td width="50%" align="left"><span class="gen">&nbsp;{extended_add_tipp.TIREDCOMBO}&nbsp;</span></td>
+									<td width="10%" align="left">&nbsp;</td>
+								</tr>
+								<!-- END extended_add_tipp -->
+								<!-- BEGIN extended_results -->
+								<tr class="row1">
+									<td width="40%" align="right"><span class="gen" style="color:#009900"><strong>&nbsp;{extended_results.L_YOUR_POINTS}:</strong></span></td>
+									<td width="50%" align="left">&nbsp;</td>
+									<td width="10%" align="middle"><span class="gen" style="color:#009900"><strong>&nbsp;{extended_results.YOUR_POINTS}</strong></span></td>
+								</tr>
+								<!-- END extended_results -->
+								<!-- BEGIN extended_results_gfx -->
+								<tr class="row1">
+									<td width="30%" align="right" nowrap="nowrap"><span class="gen" style="color:#009900"><strong>&nbsp;{extended_results_gfx.L_YOUR_POINTS}:</strong></span></td>
+									<td width="60%" align="left">&nbsp;</td>
+									<td width="10%" align="middle"><span class="gen" style="color:#009900"><strong>&nbsp;{extended_results_gfx.YOUR_POINTS}</strong></span></td>
+								</tr>
+								<!-- END extended_results_gfx -->
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<!-- BEGIN game_over -->
+		<tr>
+			<td class="row1" colspan="4" align="center"><span class="gen">{game_over.GAME_OVER}</span></td>
+		</tr>
+		<!-- END game_over -->
+		<!-- BEGIN place_tipp -->
+		<tr>
+			<td class="row2" colspan="4" align="center"><input type="submit" name="{place_tipp.PLACE_TIPP}" value="{place_tipp.L_PLACE_TIPP}">{place_tipp.DELETE_TIPP}</td>
+		</tr>
+		<!-- END place_tipp -->
+	</table>
+	<input type="hidden" name="race_offset" value="{RACE_OFFSET}">
+	<input type="hidden" name="race_id" value="{RACE_ID}">
+	<input type="hidden" name="tipp_time" value="{RACE_TIME}">
+</form>
+<!-- ENDIF -->
+
+<!-- IF S_RESULTS -->
+<br />
+<table width="100%" align="center" cellpadding="2" cellspacing="1" border="0">
+	<tr>
+		<th colspan="4">{L_FORMEL_RESULTS_TITLE}</th>
+	</tr>
+	<tr>
+		<td class="row1" align="left" colspan="4"><span class="gen">{L_FORMEL_RESULTS_TITLE_EXP}</span></td>
+	</tr>
+	<tr>
+		<td class="cat" align="center" height="28" valign="middle" nowrap="nowrap" colspan="2"><span class="cattitle">&nbsp;<strong>{L_FORMEL_RACE}</strong>&nbsp;</span></td>
+		<td class="cat" align="center" height="28" valign="middle" nowrap="nowrap"><span class="cattitle">&nbsp;<strong>{L_FORMEL_QUALI}</strong>&nbsp;</span></td>
+		<td class="cat" align="center" height="28" valign="middle" nowrap="nowrap"><span class="cattitle">&nbsp;<strong>{L_FORMEL_RESULT}</strong>&nbsp;</span></td>
+	</tr>
+	<!-- BEGIN racerow_gfxr -->
+		<form action="{S_FORM_ACTION}" method="POST" enctype="multipart/form-data">
+			<!-- IF racerow_gfxr.S_ROW_COUNT is even -->
+			<tr class="row1">
+			<!-- ELSE -->
+			<tr class="row2">
+			<!-- ENDIF -->
+				<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow_gfxr.RACEIMG}&nbsp;</td>
+				<td nowrap="nowrap" align="left" width="100%" valign="middle"><span class="gen"><strong>{racerow_gfxr.L_RACE}:</strong> {racerow_gfxr.RACENAME}<br />
+					<strong>{racerow_gfxr.L_TIME}:</strong> {racerow_gfxr.RACETIME}<br />
+					<strong>{racerow_gfxr.L_DEAD}:</strong> {racerow_gfxr.RACEDEAD}</span>
+				</td>
+				<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow_gfxr.QUALI_BUTTONS}&nbsp;</td>
+				<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow_gfxr.RESULT_BUTTONS}&nbsp;
+					<input type="hidden" name="race_id" value="{racerow_gfxr.RACEID}">
+				</td>
+			</tr>
+		</form>
+	<!-- END racerow_gfxr -->
+	<!-- BEGIN racerow -->
+		<form action="{S_FORM_ACTION}" method="POST" enctype="multipart/form-data">
+			<!-- IF racerow.S_ROW_COUNT is even -->
+			<tr class="row1">
+			<!-- ELSE -->
+			<tr class="row2">
+			<!-- ENDIF -->
+				<td colspan="2" nowrap="nowrap" align="left" width="100%" valign="middle"><span class="gen"><strong>{racerow.L_RACE}:</strong> {racerow.RACENAME}<br />
+					<strong>{racerow.L_TIME}:</strong> {racerow.RACETIME}<br />
+					<strong>{racerow.L_DEAD}:</strong> {racerow.RACEDEAD}</span>
+				</td>
+				<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow.QUALI_BUTTONS}&nbsp;</td>
+				<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow.RESULT_BUTTONS}&nbsp;
+					<input type="hidden" name="race_id" value="{racerow.RACEID}">
+				</td>
+			</tr>
+		</form>
+	<!-- END racerow -->
+</table>
+<!-- ENDIF -->
+
+
+<!-- IF S_ADDRESULTS -->
+<br />
+<form action="{S_FORM_ACTION}" method="POST" enctype="multipart/form-data">
+	<table width="100%" align="center" cellpadding="2" cellspacing="1" border="0">
+		<tr>
+			<th colspan="5">{L_FORMEL_RESULTS_TITLE}</th>
+		</tr>
+		<tr>
+			<td class="row1" align="left" colspan="5"><span class="gen">{L_FORMEL_RESULTS_TITLE_EXP}</span></td>
+		</tr>
+		<!-- BEGIN quali -->
+		<tr>
+			<td class="cat" align="center" height="28" colspan="2" valign="middle" nowrap="nowrap"><span class="cattitle">&nbsp;<strong>{quali.L_TITLE}</strong>&nbsp;</span></td>
+		</tr>
+		<!-- END quali -->
+		<!-- BEGIN qualirow -->
+		<!-- IF qualirow.S_ROW_COUNT < 10 -->
+		<tr class="row1">
+		<!-- ELSEIF qualirow.S_ROW_COUNT < 16 -->
+		<tr class="row2">
+		<!-- ELSE -->
+		<tr class="row3">
+		<!-- ENDIF -->
+			<td width="50%" nowrap="nowrap" align="right" valign="middle"><span class="gen">&nbsp;{qualirow.L_PLACE}&nbsp;</td>
+			<td width="50%" nowrap="nowrap" align="left"  valign="middle">&nbsp;{qualirow.DRIVERCOMBO}&nbsp;</td>
+		</tr>
+		<!-- END qualirow -->
+		<!-- BEGIN quali -->
+		<tr>
+			<td class="row3" align="center" colspan="2" valign="middle" nowrap="nowrap">&nbsp;<input type="submit" name="addquali" value="{quali.L_ADD}">&nbsp;</td>
+		</tr>
+		<!-- END quali -->
+		<!-- BEGIN result -->
+		<tr>
+			<td class="cat" align="center" height="28" colspan="2" valign="middle" nowrap="nowrap"><span class="cattitle">&nbsp;<strong>{result.L_TITLE}</strong>&nbsp;</span></td>
+		</tr>
+		<!-- END result -->
+		<!-- BEGIN resultrow -->
+		<!-- IF resultrow.S_ROW_COUNT < 3 -->
+		<tr class="row1">
+		<!-- ELSE -->
+		<tr class="row2">
+		<!-- ENDIF -->
+			<td width="50%" nowrap="nowrap" align="right" valign="middle"><span class="gen">&nbsp;{resultrow.L_PLACE}&nbsp;</span></td>
+			<td width="50%" nowrap="nowrap" align="left"  valign="middle">&nbsp;{resultrow.DRIVERCOMBO}&nbsp;</td>
+		</tr>
+		<!-- END resultrow -->
+		<!-- BEGIN result -->
+		<tr>
+			<td class="row1" width="50%" nowrap="nowrap" align="right" valign="middle"><span class="gen">&nbsp;{result.L_FASTEST}&nbsp;</span></td>
+			<td class="row1" width="50%" nowrap="nowrap" align="left"  valign="middle">&nbsp;{result.PACECOMBO}&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="row1" width="50%" nowrap="nowrap" align="right" valign="middle"><span class="gen">&nbsp;{result.L_TIRED}&nbsp;</span></td>
+			<td class="row1" width="50%" nowrap="nowrap" align="left"  valign="middle">&nbsp;{result.TIREDCOMBO}&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="row3" align="center" colspan="2" valign="middle" nowrap="nowrap">&nbsp;<input type="submit" name="{result.MODE}" value="{result.L_ADD}">&nbsp;</td>
+		</tr>
+		<!-- END result -->
+	</table>
+<input type="hidden" name="race_id" value="{RACE_ID}">
+</form>
+<!-- ENDIF -->
+
+<!-- IF S_STATS -->
+<table cellspacing="1" width="100%">
+	<thead>
+		<tr>
+			<th>{L_FORMEL_STATS_TITLE}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="row1" align="center">
+				<table>
+					<!-- BEGIN head_on -->
+					<tr>
+						<td align="center"><a href="{HEADER_URL}"><img src="{HEADER_IMG}" width="{HEADER_WIDTH}" height="{HEADER_HEIGHT}" alt="" border="0" /></a></td>
+					</tr>
+					<!-- END head_on -->
+					<tr>
+						<td align="center">
+							<form action="{S_FORM_ACTION}" method="POST" enctype="multipart/form-data">
+								<br/>
+								<input type="button" onClick="window.location.href='{U_BACK_TO_TIPP}'" value="{L_BACK_TO_TIPP}">&nbsp;&nbsp;
+								<input type="submit" name="show_users" value="{L_BUTTON_USERS}">&nbsp;&nbsp;
+								<input type="submit" name="show_drivers" value="{L_BUTTON_DRIVERS}">&nbsp;&nbsp;
+								<input type="submit" name="show_teams" value="{L_BUTTON_TEAMS}">
+								<br/>&nbsp;
+							</form>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<th valign="middle" align="center"><span class="cattitle"><strong>{L_STAT_TABLE_TITLE}</strong></span></th>
+		</tr>
+	</tbody>
+<table>
+
+<table cellspacing="1" width="100%">
+	<!-- BEGIN top_tippers -->
+	<!-- IF top_tippers.S_ROW_COUNT == 1 -->
+	<thead>
+		<tr>
+			<td class="row3" valign="middle" align="center"><span class="gen"><strong>#</strong></span></td>
+			<td class="row3" valign="middle" align="center" colspan="<!-- IF top_tippers.S_AVATAR_SWITCH == true -->2<!-- ELSE -->1<!-- ENDIF -->"><span class="gen"><strong>Name</strong></span></td>
+			<td class="row3" valign="middle" align="center" ><span class="gen"><strong>{L_FORMEL_TOP_POINTS}</strong></span></td>
+		</tr>
+	</thead>
+	<tbody>
+	<!-- ENDIF -->
+		<!-- IF top_tippers.S_ROW_COUNT < 3 -->
+		<tr class="row1">
+		<!-- ELSE -->
+		<tr class="row2">
+		<!-- ENDIF -->
+			<td align="center" valign="middle"><span class="gen">{top_tippers.RANK}</span></td>
+			<!-- IF top_tippers.S_AVATAR_SWITCH == true -->
+			<td width="{top_tippers.TIPPER_AVATAR_WIDTH}" height="{top_tippers.TIPPER_AVATAR_HEIGHT}" valign="middle"><center>{top_tippers.TIPPER_AVATAR}</center></td>
+			<!-- ENDIF -->
+			<td align="center" valign="middle" nowrap="nowrap"><span class="gen">{top_tippers.TIPPER_NAME}</span></td>
+			<td align="center" valign="middle" ><span class="gen">{top_tippers.TIPPER_POINTS}</span></td>
+		</tr>
+	<!-- END top_tippers -->
+	
+	<!-- BEGIN top_drivers_gfx -->
+	<!-- IF top_drivers_gfx.S_ROW_COUNT == 1 -->
+	<thead>
+		<tr>
+			<td class="row3" valign="middle" align="center"><span class="gen"><strong>#</strong></span></td>
+			<td class="row3" width="50%" valign="middle" align="center" colspan="4"><span class="gen"><strong>Name</strong></span></td>
+			<td class="row3" valign="middle" align="center" ><span class="gen"><strong>{L_FORMEL_TOP_POINTS}</strong></span></td>
+		</tr>
+	</thead>
+	<tbody>
+	<!-- ENDIF -->
+		<!-- IF top_drivers_gfx.S_ROW_COUNT < 3 -->
+		<tr class="row1">
+		<!-- ELSE -->
+		<tr class="row2">
+		<!-- ENDIF -->
+			<td align="center" valign="middle"><span class="gen">{top_drivers_gfx.RANK}</span></td>
+			<td valign="middle" align="center">&nbsp;{top_drivers_gfx.WM_DRIVERTEAM}&nbsp;</td>
+			<td valign="middle" align="center">&nbsp;{top_drivers_gfx.WM_DRIVERCAR}&nbsp;</td>
+			<td valign="middle" align="center">&nbsp;{top_drivers_gfx.WM_DRIVERIMG}&nbsp;</td>
+			<td align="left" width="50%" valign="middle" nowrap="nowrap"><span class="gen">&nbsp;{top_drivers_gfx.WM_DRIVERNAME}</span></td>
+			<td align="center" valign="middle" ><span class="gen">{top_drivers_gfx.WM_POINTS}</span></td>
+		</tr>
+	<!-- END top_drivers_gfx -->
+	
+	<!-- BEGIN top_drivers -->
+	<!-- IF top_drivers.S_ROW_COUNT == 1 -->
+	<thead>
+		<tr>
+			<td class="row3" valign="middle" align="center"><span class="gen"><strong>#</strong></span></td>
+			<td class="row3" width="50%" valign="middle" align="center"><span class="gen"><strong>Name</strong></span></td>
+			<td class="row3" valign="middle" align="center" ><span class="gen"><strong>{L_FORMEL_TOP_POINTS}</strong></span></td>
+		</tr>
+	</thead>
+	<tbody>
+	<!-- ENDIF -->
+		<!-- IF top_drivers.S_ROW_COUNT < 3 -->
+		<tr class="row1">
+		<!-- ELSE -->
+		<tr class="row2">
+		<!-- ENDIF -->
+			<td align="center" valign="middle" nowrap="nowrap"><span class="gen">{top_drivers.RANK}</span></td>
+			<td align="left" width="50%" valign="middle" nowrap="nowrap"><span class="gen">&nbsp;{top_drivers.WM_DRIVERNAME}</span></td>
+			<td align="center" valign="middle" nowrap="nowrap" ><span class="gen">{top_drivers.WM_POINTS}</span></td>
+		</tr>
+	<!-- END top_drivers -->
+	
+	<!-- BEGIN top_teams_gfx -->
+	<!-- IF top_teams_gfx.S_ROW_COUNT == 1 -->
+	<thead>
+		<tr>
+			<td class="row3" valign="middle" align="center"><span class="gen"><strong>#</strong></span></td>
+			<td class="row3" width="50%" valign="middle" align="center" colspan="3"><span class="gen"><strong>Name</strong></span></td>
+			<td class="row3" valign="middle" align="center" ><span class="gen"><strong>{L_FORMEL_TOP_POINTS}</strong></span></td>
+		</tr>
+	</thead>
+	<tbody>
+	<!-- ENDIF -->
+		<!-- IF top_teams_gfx.S_ROW_COUNT < 3 -->
+		<tr class="row1">
+		<!-- ELSE -->
+		<tr class="row2">
+		<!-- ENDIF -->
+			<td align="center" valign="middle" nowrap="nowrap"><span class="gen">{top_teams_gfx.RANK}</span></td>
+			<td align="center" valign="middle" nowrap="nowrap">{top_teams_gfx.WM_TEAMIMG}</td>
+			<td align="center" valign="middle" nowrap="nowrap">{top_teams_gfx.WM_TEAMCAR}</td>
+			<td align="left" width="50%" valign="middle" nowrap="nowrap" ><span class="gen">&nbsp;{top_teams_gfx.WM_TEAMNAME}</span></td>
+			<td align="center" valign="middle" nowrap="nowrap"><span class="gen">{top_teams_gfx.WM_POINTS}</span></td>
+		</tr>
+	<!-- END top_teams_gfx -->
+	
+	<!-- BEGIN top_teams -->
+	<!-- IF top_teams.S_ROW_COUNT == 1 -->
+	<thead>
+		<tr>
+			<td class="row3" valign="middle" align="center"><span class="gen"><strong>#</strong></span></td>
+			<td class="row3" width="50%" valign="middle" align="center"><span class="gen"><strong>Name</strong></span></td>
+			<td class="row3" valign="middle" align="center" ><span class="gen"><strong>{L_FORMEL_TOP_POINTS}</strong></span></td>
+		</tr>
+	</thead>
+	<tbody>
+	<!-- ENDIF -->
+		<!-- IF top_teams.S_ROW_COUNT < 3 -->
+		<tr class="row1">
+		<!-- ELSE -->
+		<tr class="row2">
+		<!-- ENDIF -->
+			<td align="center" valign="middle" nowrap="nowrap"><span class="gen">{top_teams.RANK}</span></td>
+			<td align="left" width="50%" valign="middle"nowrap="nowrap"><span class="gen">&nbsp;{top_teams.WM_TEAMNAME}</span></td>
+			<td align="center" valign="middle" nowrap="nowrap" ><span class="gen">{top_teams.WM_POINTS}</span></td>
+		</tr>
+	<!-- END top_teams -->
+	</tbody>
+</table>
+
+<div class="cat" width="100%"></div>
+<!-- ENDIF -->
+
+
+<!-- IF S_RULES -->
+<table cellspacing="1">
+	<thead>
+		<tr>
+			<th colspan="2">{L_FORMEL_TITLE}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="row1" align="center" colspan="2">
+				<table>
+					<!-- BEGIN head_on -->
+					<tr>
+						<td align="center"><a href="{HEADER_URL}"><img src="{HEADER_IMG}" width="{HEADER_WIDTH}" height="{HEADER_HEIGHT}" alt="" border="0" /></a></td>
+					</tr>
+					<!-- END head_on -->
+					<tr>
+						<td align="center"><br/><input type="button" onClick="window.location.href='{U_FORMEL}'" value="{L_BACK_TO_TIPP}"><br/>&nbsp;</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<th align="center" colspan="2"><span class="cattitle"><strong>{L_FORMEL_RULES_TITLE}</strong></span></th>
+		</tr>
+		<tr>
+			<td class="row2" valign="top" align="right"><span class="cattitle">&nbsp;<strong>{L_FORMEL_RULES_GEN}</strong>&nbsp;</span></td>
+			<td class="row1" valign="top" align="left"><span class="gen">{FORMEL_RULES_GEN}<br /><br /></span></td>
+		</tr>
+		<tr>
+			<td class="row2" valign="top" align="right"><span class="cattitle">&nbsp;<strong>{L_FORMEL_RULES_POINTS}</strong>&nbsp;</span></td>
+			<td class="row1" valign="top" align="left">
+				<span class="gen">
+					- {FORMEL_RULES_MENTIONED}<br/>
+					- {FORMEL_RULES_PLACED}<br/>
+					- {FORMEL_RULES_FASTEST}<br/>
+					- {FORMEL_RULES_TIRED}<br/>
+					<br />
+					{FORMEL_RULES_TOTAL}
+					<br />
+					<br />
+				</span>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!-- ENDIF -->
+
+<!--
+Please leave the copyright information at the bottom of your page for our mod.
+//-->
+<small>
+	<span class="genmed">&copy;<a href="http://uptempo.emule-webring.de">Uptempo Mods</a> - Ported by <a href="http://www.lpi-clan.de">LPI-Clan</a> ( Dr.Death )</span>
+</small>
+<br />
+<center /><a href="http://sourceforge.net/donate/index.php?group_id=176449"><img src="http://images.sourceforge.net/images/project-support.jpg" width="88" height="32" border="0" alt="Support This Project" /> </a></center>
+<br />
+<!-- INCLUDE overall_footer.html -->
+<!-- ENDIF -->
+
+<!-- IF S_USERTIPP -->
+<!-- INCLUDE simple_header.html -->
+
+<table cellspacing="1">
+	<thead>
+		<tr>
+			<th colspan="3">{L_FORMEL_TITLE}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<!-- BEGIN user_tipp -->
+		<tr>
+			<td colspan="3" class="cat" align="center" nowrap="nowrap" ><span class="gen">{user_tipp.TIPPER}</span></td>
+		</tr>
+		<!-- END user_tipp -->
+		<!-- BEGIN user_drivers -->
+		<!-- IF user_drivers.S_ROW_COUNT < 3 -->
+		<tr class="row1">
+		<!-- ELSE -->
+		<tr class="row2">
+		<!-- ENDIF -->
+			<td width="30%" class="row3" align="right"><strong><span class="gen">&nbsp;{user_drivers.POSITION}:&nbsp;</span></strong></td>
+			<td width="50%"><span class="gen">&nbsp;{user_drivers.DRIVER_PLACED}&nbsp;</span></td>
+			<td width="20%"><span class="gen">&nbsp;{user_drivers.SINGLE_POINTS}&nbsp;</span></td>
+		</tr>
+		<!-- END user_drivers -->
+		<!-- BEGIN user_tipp -->
+		<tr class="row1">
+			<td width="30%" class="row3" align="right"><strong><span class="gen">&nbsp;{user_tipp.L_FASTEST}:&nbsp;</span></strong></td>
+			<td width="50%"><span class="gen">&nbsp;{user_tipp.FASTEST_DRIVER}&nbsp;</span></td>
+			<td width="20%"><span class="gen">&nbsp;{user_tipp.SINGLE_FASTEST}&nbsp;</span></td>
+		</tr>
+		<tr class="row1">
+			<td width="30%" class="row3" align="right"><strong><span class="gen">&nbsp;{user_tipp.L_TIRED}:&nbsp;</span></strong></td>
+			<td width="50%"><span class="gen">&nbsp;{user_tipp.TIRED}&nbsp;</span></td>
+			<td width="20%"><span class="gen">&nbsp;{user_tipp.SINGLE_TIRED}&nbsp;</span></td>
+		</tr>
+		<tr>
+			<td colspan="3" class="row2">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="50%" class="row3" align="right"><strong><span class="gen">&nbsp;{user_tipp.L_POINTS}:&nbsp;</span></strong></td>
+			<td width="50%" class="row1" align="right" colspan="2"><strong><span class="gen">&nbsp;{user_tipp.POINTS}&nbsp;</span></strong></td>
+		</tr>
+		<tr>
+			<td width="50%" class="row3" align="right"><strong><span class="gen">&nbsp;{user_tipp.L_ALL_POINTS}:&nbsp;</span></strong></td>
+			<td width="50%" class="row2" align="left" colspan="2"><span class="gen">&nbsp;{user_tipp.ALL_POINTS}&nbsp;</span></td>
+		</tr>
+		<!-- END user_tipp -->
+		<!-- BEGIN no_tipp -->
+		<tr>
+			<td class="row1" align="center" colspan="2"><span class="gen">&nbsp;{no_tipp.NO_TIPP}&nbsp;</span></td>
+		</tr>
+		<!-- END no_tipp -->
+	</tbody>
+</table>
+
+<br />
+
+<center>
+	<p class="submit-buttons">
+		<input class="button1" id="submit" type="submit" onClick="javascript:window.close()" value="{L_CLOSE_WINDOW}">
+	</p>
+</center>
+
+<br />
+
+<!-- INCLUDE simple_footer.html -->
+<!-- ENDIF -->

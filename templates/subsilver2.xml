@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.0.xsd">
+  <header>
+    <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+    <title lang="en-gb">Formula 1 WebTip - subsilver2 modifications</title>
+	<title lang="de">Formel 1 WebTipp - subsilver2 Änderungen</title>
+    <description lang="en-gb"><![CDATA[These are the instructions to install this MOD for subsilver2.]]>
+</description>
+<description lang="de"><![CDATA[Dies ist die Installationsanleitung für die Änderungen am Style subsilver2]]>
+</description>
+    <author-group>
+      <author>
+        <realname>Stefan Temath</realname>
+        <email>dr.death@lpi-clan.de</email>
+        <username>Dr.Death</username>
+        <homepage>http://www.lpi-clan.de</homepage>
+        <contributions />
+      </author>
+    </author-group>
+    <mod-version>
+      <major>0</major>
+      <minor>1</minor>
+      <revision>22</revision>
+    </mod-version>
+    <installation>
+      <level>easy</level>
+      <time>120</time>
+      <target-version>
+        <target-primary>3.0.RC4</target-primary>
+        <target-major allow="exact">3</target-major>
+        <target-minor allow="exact">0</target-minor>
+      </target-version>
+    </installation>
+    <history>
+      <entry>
+        <date>2007-07-29</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>22</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change> first public version for phpbb3 Olympus RC4</change>
+        </changelog>
+        <changelog lang="de">
+          <change> Erste öffentliche Version für phpbb3 Olympus RC4</change>
+        </changelog>
+      </entry>
+    </history>
+    <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
+  </header>
+  <action-group>
+    <copy>
+      <file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
+    </copy>
+    <open src="styles/subsilver2/templates/memberlist_view.html">
+      <edit>
+        <find><![CDATA[			<!-- END custom_fields -->]]></find>
+        <action type="after-add"><![CDATA[			<!-- BEGIN formel_webtipp -->
+				<tr>
+					<td valign="top" class="gen" align="right" nowrap="nowrap">{formel_webtipp.L_PROFILE_WEBTIPP}:</td>
+					<td valign="top"><b class="genmed">{formel_webtipp.TIPPER_POINTS}</b><br /><a href="{formel_webtipp.U_FORMEL_STATS}" class="genmed">{formel_webtipp.TIPPER_RANK}</a><br /><span class="genmed">({formel_webtipp.RACE_DONE})</span></td>
+				</tr>
+			<!-- END formel_webtipp -->]]></action>
+      </edit>
+    </open>
+    <open src="styles/subsilver2/templates/overall_header.html">
+      <edit>
+        <find><![CDATA[</head>
+<body class="{S_CONTENT_DIRECTION}">]]></find>
+        <action type="replace-with"><![CDATA[{COUNTDOWN}
+</head>
+<body class="{S_CONTENT_DIRECTION}" {COUNTDOWN_ON}>]]></action>
+      </edit>
+    </open>
+  </action-group>
+</mod>
