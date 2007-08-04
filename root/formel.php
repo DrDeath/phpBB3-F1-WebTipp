@@ -106,7 +106,7 @@ switch ($mode)
 		{
 			for ($i = 0; $i < 8; $i++) 
 			{
-				$value = $_POST['place'.($i+1)];
+				$value = request_var('place' . ( $i + 1 ), 0);
 				if (checkarrayforvalue($value,$my_tipp_array)) 
 				{
 					$tipp_msg = sprintf($user->lang['formel_doublicate_values'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
@@ -114,8 +114,8 @@ switch ($mode)
 				}
 				$my_tipp_array[$i] = $value;
 			}
-			$my_tipp_array[8] = $_POST['place9'];  //[8] --> fastest driver
-			$my_tipp_array[9] = $_POST['place10']; //[9] --> tired count
+			$my_tipp_array[8] = request_var('place9', 0);  //[8] --> fastest driver
+			$my_tipp_array[9] = request_var('place10', 0); //[9] --> tired count
 			$my_tipp = implode(",",$my_tipp_array);
 
 			if ($place_my_tipp) 
@@ -485,8 +485,8 @@ switch ($mode)
 							{
 								//Race is over - Show driverimage and so on
 								$template->assign_block_vars('gfx_users_tipp', array(
-									'L_PLACE'			=>	'&nbsp;' . $position . '<br>',
-									'DRIVERCOMBO'		=>	$drivercombo . '<br>',
+									'L_PLACE'			=>	'&nbsp;' . $position . '<br />',
+									'DRIVERCOMBO'		=>	$drivercombo . '<br />',
 									'DRIVERTEAMNAME'	=>	'&nbsp;' . $driverteamname,
 									'GFXDRIVERCOMBO'	=>	$gfxdrivercombo,
 									'GXFDRIVERCAR'		=>	$gfxdrivercar,
@@ -1026,7 +1026,7 @@ switch ($mode)
 				//We have 11 Teams with 2 cars each --> 22 drivers
 				for ($i = 0; $i < 22; $i++) 
 				{
-					$value = $_POST['place'.($i+1)];
+					$value = request_var('place' . ( $i + 1 ), 0);
 					if (checkarrayforvalue($value,$quali_array)) 
 					{
 						$quali_msg = sprintf($user->lang['formel_results_double'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
@@ -1064,7 +1064,7 @@ switch ($mode)
 				
 				for ($i = 0; $i < 8; $i++) 
 				{
-					$value = $_POST['place'.($i+1)];
+					$value = request_var('place' . ( $i + 1 ), 0);
 					if (checkarrayforvalue($value,$result_array)) 
 					{
 						$result_msg = sprintf($user->lang['formel_results_double'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
@@ -1073,8 +1073,8 @@ switch ($mode)
 					$result_array[$i] = $value;
 				}
 				
-				$result_array[8] = $_POST['place9'];	//[8] --> fastest driver
-				$result_array[9] = $_POST['place10'];	//[9] --> tired count
+				$result_array[8] = request_var('place9' , 0);	//[8] --> fastest driver
+				$result_array[9] = request_var('place10' , 0);	//[9] --> tired count
 				$new_result = implode(",",$result_array);
 				$sql_ary = array(
 					'race_result'	=> $new_result
