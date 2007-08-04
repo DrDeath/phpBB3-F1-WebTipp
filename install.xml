@@ -46,7 +46,7 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
     <mod-version>
       <major>0</major>
       <minor>1</minor>
-      <revision>22</revision>
+      <revision>23</revision>
     </mod-version>
     <installation>
       <level>easy</level>
@@ -94,7 +94,7 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
 		  Kopiere formel.php nach ROOT/formel.php</change>
         </changelog>
       </entry>
-     <entry>
+      <entry>
         <date>2007-06-06T00:00:00+02:00</date>
         <rev-version>
           <major>0</major>
@@ -114,6 +114,20 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
 		  <change>MOD Paket angepasst auf die MODX Richtlinien. Siehe auch  http://www.phpbb.com/mods/documentation/modx/packaging/index.php</change>
 		  <change>Anleitung für Änderungen an den Styles findet Ihr im Ordner templates</change>
 		  <change>Die Anleitung für deutsche und französische Sprachdateien findet Ihr im Ordner language</change>
+        </changelog>
+      </entry>
+      <entry>
+        <date>2007-08-04T00:00:00+02:00</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>23</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>Change: unsecure $_POST replaced with request_var() in formel.php</change>
+		</changelog>
+        <changelog lang="de">
+          <change>Änderung: Unsichere $_POST ersetzt durch request_var() in der formel.php</change>
         </changelog>
       </entry>
     </history>
