@@ -52,7 +52,7 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
       <level>easy</level>
       <time>692</time>
       <target-version>
-        <target-primary>3.0.RC4</target-primary>
+        <target-primary>3.0.RC5</target-primary>
         <target-major allow="exact">3</target-major>
         <target-minor allow="exact">0</target-minor>
       </target-version>
@@ -125,9 +125,13 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
         </rev-version>
         <changelog lang="en-gb">
           <change>Change: unsecure $_POST replaced with request_var() in formel.php</change>
+		  <change>fix: template input fields used not XHTML self closing tags</change>
+		  <change>fix: Typo in this installer</change>
 		</changelog>
         <changelog lang="de">
-          <change>Änderung: Unsichere $_POST ersetzt durch request_var() in der formel.php</change>
+          <change>Fix: Unsichere $_POST ersetzt durch request_var() in der formel.php</change>
+		  <change>Fix: Template INPUT Felder benutzen bisher keine XHTML selbst schliessende TAGS</change>
+		  <change>Fix: Tippfehler in dieser Anleitung korrigiert</change>
         </changelog>
       </entry>
     </history>
