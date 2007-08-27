@@ -155,7 +155,7 @@ switch ($mode)
 
 		// Get all drivers
 		$drivers = get_formel_drivers();
-		$driversCOMBODATA = get_formel_drivers_data();
+		$driver_combodata = get_formel_drivers_data();
 
 		// Get all tips and fill top10
 		$sql = 'SELECT sum(tipp_points) AS total_points, tipp_user 
@@ -469,10 +469,10 @@ switch ($mode)
 						{
 							//Actual race is not over
 							$drivercombo = '<select name="' . $box_name . '" size="1">';   
-							for ($k = 0; $k < count($driversCOMBODATA); $k++) 
+							for ($k = 0; $k < count($driver_combodata); $k++) 
 							{
-								$this_driver_id 	 = $driversCOMBODATA[$k]['driver_id'];
-								$this_driver_name 	 = $driversCOMBODATA[$k]['driver_name'];
+								$this_driver_id 	 = $driver_combodata[$k]['driver_id'];
+								$this_driver_name 	 = $driver_combodata[$k]['driver_name'];
 								$selected 			 = ( $this_driver_id == $tipp_array[$i]) ? 'selected' : '';
 								$drivercombo 		.= '<option value="' . $this_driver_id . '" ' . $selected . '>' . $this_driver_name . '</option>';
 							}
@@ -544,10 +544,10 @@ switch ($mode)
 					{
 						//Actual Race is not over
 						$drivercombo = '<select name="place9" size="1">';
-						for ($k = 0; $k < count($driversCOMBODATA); $k++) 
+						for ($k = 0; $k < count($driver_combodata); $k++) 
 						{
-							$this_driver_id		 = $driversCOMBODATA[$k]['driver_id'];
-							$this_driver_name	 = $driversCOMBODATA[$k]['driver_name'];
+							$this_driver_id		 = $driver_combodata[$k]['driver_id'];
+							$this_driver_name	 = $driver_combodata[$k]['driver_name'];
 							$selected			 = ( $this_driver_id == $tipp_array[8]) ? 'selected' : '';
 							$drivercombo		.= '<option value="' . $this_driver_id . '" ' . $selected .'>' . $this_driver_name . '</option>';
 						}
@@ -603,10 +603,10 @@ switch ($mode)
 							$box_name = 'place' . ($i+1);
 
 							$drivercombo = '<select name="' . $box_name . '" size="1">';
-							for ($k = 0; $k < count($driversCOMBODATA); $k++) 
+							for ($k = 0; $k < count($driver_combodata); $k++) 
 							{
-								$this_driver_id		 = $driversCOMBODATA[$k]['driver_id'];
-								$this_driver_name	 = $driversCOMBODATA[$k]['driver_name'];
+								$this_driver_id		 = $driver_combodata[$k]['driver_id'];
+								$this_driver_name	 = $driver_combodata[$k]['driver_name'];
 								$drivercombo		.= '<option value="' . $this_driver_id . '">' . $this_driver_name . '</option>';
 							}
 							$drivercombo .= '</select>';
@@ -618,10 +618,10 @@ switch ($mode)
 						}
 
 						$drivercombo = '<select name="place9" size="1">';
-						for ($k = 0; $k < count($driversCOMBODATA); $k++) 
+						for ($k = 0; $k < count($driver_combodata); $k++) 
 						{
-							$this_driver_id		 = $driversCOMBODATA[$k]['driver_id'];
-							$this_driver_name	 = $driversCOMBODATA[$k]['driver_name'];
+							$this_driver_id		 = $driver_combodata[$k]['driver_id'];
+							$this_driver_name	 = $driver_combodata[$k]['driver_name'];
 							$drivercombo 		.= '<option value="' . $this_driver_id . '">' . $this_driver_name . '</option>';
 						}
 						$drivercombo .= '</select>';

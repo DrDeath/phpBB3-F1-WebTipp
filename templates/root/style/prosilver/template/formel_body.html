@@ -23,10 +23,10 @@ function showtipps(showtipps)
 				<a href="{HEADER_URL}"><img src="{HEADER_IMG}" width="{HEADER_WIDTH}" height="{HEADER_HEIGHT}" alt="" border="0" /></a><br/>
 				<!-- END head_on -->
 				<br/>
-				<input class="button1" type="button" onClick="window.location.href='{U_FORMEL_RULES}'"      value="{L_FORMEL_RULES}">&nbsp;&nbsp;
+				<input class="button1" type="button" onClick="window.location.href='{U_FORMEL_RULES}'" 		value="{L_FORMEL_RULES}" />&nbsp;&nbsp;
 				{U_FORMEL_FORUM}
-				<input class="button1" type="button" onClick="window.location.href='{U_FORMEL_STATISTICS}'" value="{L_FORMEL_STATISTICS}">&nbsp;&nbsp;
-				<input class="button1" type="button" onClick="window.location.href='{U_FORMEL_CALL_MOD}'"   value="{L_FORMEL_CALL_MOD}">
+				<input class="button1" type="button" onClick="window.location.href='{U_FORMEL_STATISTICS}'" value="{L_FORMEL_STATISTICS}" />&nbsp;&nbsp;
+				<input class="button1" type="button" onClick="window.location.href='{U_FORMEL_CALL_MOD}'"   value="{L_FORMEL_CALL_MOD}" />
 				<br/>
 				<br/>
 			</center>
@@ -145,12 +145,12 @@ function showtipps(showtipps)
 					<!-- END racegfx -->
 			
 					<div class="column1" style="text-align: center;">
-						<input class="button1" type="submit" name="prev" value="{L_PREV_RACE}">
+						<input class="button1" type="submit" name="prev" value="{L_PREV_RACE}" />
 						<br/><br/>
 					</div>
 					
 					<div class="column2" style="text-align: center;">
-						<input class="button1" type="submit" name="next" value="{L_NEXT_RACE}">
+						<input class="button1" type="submit" name="next" value="{L_NEXT_RACE}" />
 						<br/><br/>
 					</div>
 							
@@ -197,11 +197,11 @@ function showtipps(showtipps)
 						<dl style="font-size : 1.1em; font-weight: bold;">
 							<dt style="padding: 2px 10px; width : 40%; white-space:nowrap;">{L_COUNTDOWN}</dt>
 							<dd id="time_event" style="display: ; padding: 2px 10px; white-space:nowrap;">
-								{L_DAYS}&nbsp;<input name="days" class="bg2" size=2 style="border: 0px;  color:#ff0000; font-weight: bold;">
+								{L_DAYS}&nbsp;<input name="days" class="bg2" size=2 style="border: 0px;  color:#ff0000; font-weight: bold;" />
 								<span style="display:" name="time_string">{L_HOURS}
-									<input name="hours" class="bg2" size=1 style="border: 0px;  color:#ff0000; font-weight: bold;">:
-									<input name="mins" class="bg2" size=1 style="border: 0px;  color:#ff0000; font-weight: bold;">:
-									<input name="secs" class="bg2" size=1 style="border: 0px;  color:#ff0000; font-weight: bold;">
+									<input name="hours" class="bg2" size=1 style="border: 0px;  color:#ff0000; font-weight: bold;" />:
+									<input name="mins" class="bg2" size=1 style="border: 0px;  color:#ff0000; font-weight: bold;" />:
+									<input name="secs" class="bg2" size=1 style="border: 0px;  color:#ff0000; font-weight: bold;" />
 								</span>
 							</dd>
 							<dd id="event_time" style="display:none ; padding: 2px 10px;">
@@ -501,12 +501,12 @@ function showtipps(showtipps)
 				</tbody>
 			</table>
 
-			<input type="hidden" name="race_offset" value="{RACE_OFFSET}">
-			<input type="hidden" name="race_id" value="{RACE_ID}">
-			<input type="hidden" name="tipp_time" value="{RACE_TIME}">	
+			<input type="hidden" name="race_offset" value="{RACE_OFFSET}" />
+			<input type="hidden" name="race_id" value="{RACE_ID}" />
+			<input type="hidden" name="tipp_time" value="{RACE_TIME}" />	
 
 			<!-- BEGIN place_tipp -->
-			<div align="center"><input class="button1" type="submit" name="{place_tipp.PLACE_TIPP}" value="{place_tipp.L_PLACE_TIPP}">{place_tipp.DELETE_TIPP}</div>
+			<div align="center"><input class="button1" type="submit" name="{place_tipp.PLACE_TIPP}" value="{place_tipp.L_PLACE_TIPP}" />{place_tipp.DELETE_TIPP}</div>
 			<!-- END place_tipp -->
 			<!-- BEGIN game_over -->
 			<div align="center">{game_over.GAME_OVER}</div>
@@ -549,7 +549,7 @@ function showtipps(showtipps)
 						</td>
 						<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow_gfxr.QUALI_BUTTONS}&nbsp;</td>
 						<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow_gfxr.RESULT_BUTTONS}&nbsp;
-							<input type="hidden" name="race_id" value="{racerow_gfxr.RACEID}">
+							<input type="hidden" name="race_id" value="{racerow_gfxr.RACEID}" />
 						</td>
 					</tr>
 				</form>
@@ -567,7 +567,7 @@ function showtipps(showtipps)
 						</td>
 						<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow.QUALI_BUTTONS}&nbsp;</td>
 						<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow.RESULT_BUTTONS}&nbsp;
-							<input type="hidden" name="race_id" value="{racerow.RACEID}">
+							<input type="hidden" name="race_id" value="{racerow.RACEID}" />
 						</td>
 					</tr>
 				</form>
@@ -611,7 +611,7 @@ function showtipps(showtipps)
 				<!-- END qualirow -->
 				<!-- BEGIN quali -->
 					<tr>
-						<td class="bg3" align="center" colspan="2" valign="middle" nowrap="nowrap">&nbsp;<input class="button1" type="submit" name="addquali" value="{quali.L_ADD}">&nbsp;</td>
+						<td class="bg3" align="center" colspan="2" valign="middle" nowrap="nowrap">&nbsp;<input class="button1" type="submit" name="addquali" value="{quali.L_ADD}" />&nbsp;</td>
 					</tr>
 				<!-- END quali -->
 				<!-- BEGIN result -->
@@ -642,12 +642,12 @@ function showtipps(showtipps)
 						<td width="50%" align="left">&nbsp;{result.TIREDCOMBO}</td>
 					</tr>
 					<tr class="bg3">
-						<td align="center" colspan="2"><input class="button1" type="submit" name="{result.MODE}" value="{result.L_ADD}"></td>
+						<td align="center" colspan="2"><input class="button1" type="submit" name="{result.MODE}" value="{result.L_ADD}" /></td>
 					</tr>
 					<!-- END result -->
 				</tbody>
 			</table>
-			<input type="hidden" name="race_id" value="{RACE_ID}">
+			<input type="hidden" name="race_id" value="{RACE_ID}" />
 		</form>
 		
 	<span class="corners-bottom"><span></span></span></div>
@@ -667,10 +667,10 @@ function showtipps(showtipps)
 			<!-- END head_on -->
 			<form action="{S_FORM_ACTION}" method="POST" enctype="multipart/form-data">
 				<br/>
-				<input class="button1" type="button" onClick="window.location.href='{U_BACK_TO_TIPP}'" value="{L_BACK_TO_TIPP}">&nbsp;&nbsp;
-				<input class="button1" type="submit" name="show_users" value="{L_BUTTON_USERS}">&nbsp;&nbsp;
-				<input class="button1" type="submit" name="show_drivers" value="{L_BUTTON_DRIVERS}">&nbsp;&nbsp;
-				<input class="button1" type="submit" name="show_teams" value="{L_BUTTON_TEAMS}">
+				<input class="button1" type="button" onClick="window.location.href='{U_BACK_TO_TIPP}'" value="{L_BACK_TO_TIPP}" />&nbsp;&nbsp;
+				<input class="button1" type="submit" name="show_users" value="{L_BUTTON_USERS}" />&nbsp;&nbsp;
+				<input class="button1" type="submit" name="show_drivers" value="{L_BUTTON_DRIVERS}" />&nbsp;&nbsp;
+				<input class="button1" type="submit" name="show_teams" value="{L_BUTTON_TEAMS}" />
 				<br/>&nbsp;
 			</form>
 		</center>
@@ -822,7 +822,7 @@ function showtipps(showtipps)
 			<!-- END head_on -->
 			<form action="{S_FORM_ACTION}" method="POST" enctype="multipart/form-data">
 				<br/>
-				<input class="button1" type="button" onClick="window.location.href='{U_FORMEL}'" value="{L_BACK_TO_TIPP}">
+				<input class="button1" type="button" onClick="window.location.href='{U_FORMEL}'" value="{L_BACK_TO_TIPP}" />
 				<br/><br/>
 			</form>
 		</center>
@@ -950,7 +950,7 @@ Please leave the copyright information at the bottom of your page for our mod.
 		<br />
 		<center>
 			<p class="submit-buttons">
-				<input class="button1" id="submit" type="submit" onClick="javascript:window.close()" value="{L_CLOSE_WINDOW}">
+				<input class="button1" id="submit" type="submit" onClick="javascript:window.close()" value="{L_CLOSE_WINDOW}" />
 			</p>
 		</center>
 		<br />

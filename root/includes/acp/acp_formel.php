@@ -22,7 +22,7 @@ class acp_formel
 
 		$user->add_lang('mods/acp_formel');    
 
-		include("../includes/functions_formel.php");
+		include($phpbb_root_path . 'includes/functions_formel.' . $phpEx);
 
 		//Select the template file
 		$this->tpl_name = 'acp_formel';
