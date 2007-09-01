@@ -121,7 +121,6 @@ switch ($mode)
 			if ($place_my_tipp) 
 			{
 				$sql_ary = array(
-					'tipp_id'		=> '',
 					'tipp_user'		=> $user_id,
 					'tipp_race'		=> $race_id,
 					'tipp_result'	=> $my_tipp,
@@ -1163,7 +1162,6 @@ switch ($mode)
 						$current_team 	= $teams[$current_driver];
 						$wm_points 		= $wm[$i];
 						$sql_ary = array(
-							'wm_id'		=> '',
 							'wm_race'	=> $race_id,
 							'wm_driver'	=> $current_driver,
 							'wm_team'	=> $current_team,

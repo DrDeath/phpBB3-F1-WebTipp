@@ -391,7 +391,6 @@ class acp_formel
 					if ( $driver_id == 0 )
 					{
 						$sql_ary = array(
-							'driver_id'		=> '',
 							'driver_name'	=> $drivername,
 							'driver_img'	=> $driverimg,
 							'driver_team'	=> $driverteam
@@ -630,7 +629,6 @@ class acp_formel
 					if ( $team_id == 0 )
 					{
 						$sql_ary = array(
-							'team_id'		=> '',
 							'team_name'		=> $teamname,
 							'team_img'		=> $teamimg,
 							'team_car'		=> $teamcar
@@ -846,7 +844,6 @@ class acp_formel
 					if ( $race_id == 0 )
 					{
 						$sql_ary = array(
-							'race_id'		=> '',
 							'race_name'		=> $racename,
 							'race_img'		=> $raceimg,
 							'race_time'		=> $racetime,

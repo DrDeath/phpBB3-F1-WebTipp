@@ -326,11 +326,11 @@ if (isset($_POST['submit']))
 	$cache->purge();
 	
 	//Add new permission set to the module system
-	$sql = 'INSERT INTO '.$table_prefix."acl_options VALUES 
-		('', 'a_formel_settings', 1, 0, 0),
-		('', 'a_formel_drivers', 1, 0, 0),
-		('', 'a_formel_teams', 1, 0, 0),
-		('', 'a_formel_races', 1, 0, 0)
+	$sql = 'INSERT INTO '.$table_prefix."acl_options (auth_option, is_global, is_local, founder_only) VALUES 
+		('a_formel_settings', 1, 0, 0),
+		('a_formel_drivers', 1, 0, 0),
+		('a_formel_teams', 1, 0, 0),
+		('a_formel_races', 1, 0, 0)
 		";
 	$result = $db->sql_query($sql);
 	$db->sql_freeresult($result);	
