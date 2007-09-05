@@ -125,13 +125,15 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
         </rev-version>
         <changelog lang="en-gb">
           <change>Change: unsecure $_POST replaced with request_var() in formel.php</change>
+          <change>Change: Installfile install_f1webtipp.php meets now the Coding Guidelines</change>
 		  <change>fix: template input fields used not XHTML self closing tags</change>
 		  <change>fix: Typo in this installer</change>
 		  <change>fix: removed some empty INSERT statements for strikt mysql databases</change>
 		  <change>Changed files: formel.php and includes/acp/acp_formel.php</change>
 		</changelog>
         <changelog lang="de">
-          <change>Fix: Unsichere $_POST ersetzt durch request_var() in der formel.php</change>
+          <change>Aktualisiert: Unsichere $_POST ersetzt durch request_var() in der formel.php</change>
+          <change>Aktualisiert: Installationsdatei install_f1webtipp.php den Coding Guidelines angepasst</change>
 		  <change>Fix: Template INPUT Felder benutzen bisher keine XHTML selbst schliessende TAGS</change>
 		  <change>Fix: Tippfehler in dieser Anleitung korrigiert</change>
 		  <change>Fix: Es wurden einige leere INSERT Befehle für strikt eingestellte MySQL Datenbanken entfernt</change>
