@@ -214,11 +214,33 @@ if ($submit == 'continue')
 		),
 		'primary_key'	=> 'tipp_id',
 	);
+
+// Development Code start	
+// ALTER TABLE
+// ALTER TABLE `phpbb_forums` ADD `forum_recent_topics` mediumint(1) unsigned DEFAULT "1" NOT NULL AFTER forum_topics_real;
+/*
+	$sql_ary[] = array(
+		'type'	=> 'ALTER TABLE',
+		'name'	=> $table_prefix . 'forums',
+		'fields'	=> array(
+			'forum_recent_topics'	=> array('mediumint', 1, 1),
+		),
+		'after'	=> 'forum_topics_real',
+	);
+*/
+// Development Code end
 	
 	// And now create all needed tables
 	foreach ($sql_ary as $row)
 	{
-		$query = "{$row['type']} {$row['name']} (";
+		if ($row['type'] == 'CREATE TABLE')
+		{
+			$query = "{$row['type']} {$row['name']} (";
+		}
+		else if ($row['type'] == 'ALTER TABLE')
+		{
+			$query = "{$row['type']} {$row['name']} ADD ";
+		}
 		
 		foreach ($row['fields'] as $field => $value)
 		{
@@ -231,7 +253,7 @@ if ($submit == 'continue')
 				}
 				else
 				{
-					$query .= 'UNSIGNED ';
+					$query .= ' UNSIGNED ';
 				}
 			}
 			
@@ -253,14 +275,24 @@ if ($submit == 'continue')
 			}
 			$query .= ', ';
 		}
-		$query .= "PRIMARY KEY ({$row['primary_key']}),";
 		
-		$query = substr($query, 0, -1);
-		$query .= ") {$type['character_set']};";
+		if ($row['type'] == 'CREATE TABLE')
+		{
+			$query .= "PRIMARY KEY ({$row['primary_key']}),";
+			$query = substr($query, 0, -1);
+			$query .= ") ";
+			
+		}
+		else if ($row['type'] == 'ALTER TABLE')
+		{
+			$query .= " AFTER {$row['after']}";
+		}
+				
+		$query .= " {$type['character_set']};";
 		
 		$db->sql_query($query);
 	}	
-	
+
 	// Now fill the tables with defaults
 
 	// Insert config values into formel_config table
