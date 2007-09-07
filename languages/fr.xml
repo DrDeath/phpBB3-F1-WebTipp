@@ -19,13 +19,13 @@
     <mod-version>
       <major>0</major>
       <minor>1</minor>
-      <revision>22</revision>
+      <revision>23</revision>
     </mod-version>
     <installation>
       <level>easy</level>
       <time>60</time>
       <target-version>
-        <target-primary>3.0.RC4</target-primary>
+        <target-primary>3.0.RC5</target-primary>
         <target-major allow="exact">3</target-major>
         <target-minor allow="exact">0</target-minor>
       </target-version>
@@ -36,10 +36,10 @@
         <rev-version>
           <major>0</major>
           <minor>1</minor>
-          <revision>22</revision>
+          <revision>23</revision>
         </rev-version>
         <changelog lang="en-gb">
-          <change> first public version for phpbb3 Olympus RC4. Thank to the translator fafa</change>
+          <change> first public version for phpbb3 Olympus RC5. Thank to the translator fafa</change>
         </changelog>
       </entry>
     </history>
