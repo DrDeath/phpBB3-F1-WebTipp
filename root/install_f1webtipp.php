@@ -150,7 +150,7 @@ if ($submit == 'continue')
 			'driver_id'					=> array('mediumint', 8, 0, true, true),
 			'driver_name'				=> array('varchar', 32, ''),
 			'driver_img'				=> array('varchar', 255, ''),
-			'driver_team'				=> array('mediumint', 8, 0),			
+			'driver_team'				=> array('mediumint', 8, 0),
 		),
 		'primary_key'	=> 'driver_id',
 	);
@@ -163,7 +163,7 @@ if ($submit == 'continue')
 			'team_id'				=> array('mediumint', 8, 0, true, true),
 			'team_name'				=> array('varchar', 64, ''),
 			'team_img'				=> array('varchar', 255, ''),
-			'team_car'				=> array('varchar', 255, ''),			
+			'team_car'				=> array('varchar', 255, ''),
 		),
 		'primary_key'	=> 'team_id',
 	);
@@ -422,7 +422,7 @@ if ($submit == 'continue')
 		('a_formel_races', 1, 0, 0)
 		";
 	$result = $db->sql_query($sql);
-	$db->sql_freeresult($result);	
+	$db->sql_freeresult($result);
 	
 	//Destroy the old permission chache again to enable the new set :-)
 	$cache->purge();
@@ -452,7 +452,7 @@ else
 				<br />
 				<span style="color:red; font-weight: bold;">Diese Script wird alle F1 WebTipp Einstellungen, Fahrer, Team, Rennen und abgegebene Benutzer Tipps von vorherigen Installationen löschen!</span><br />
 				Bist Du Dir absolut sicher ? Dann klicke auf "Continue / Weiter"<br />
-				<br />			
+				<br />
 				';
 	$message .= '%sContinue / Weiter%s ----- %sCancel / Abbrechen%s';
 	$message  = sprintf($message, '<a href="'.append_sid("install_f1webtipp.$phpEx?install=continue").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
