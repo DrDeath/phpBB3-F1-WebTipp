@@ -46,7 +46,7 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
     <mod-version>
       <major>0</major>
       <minor>1</minor>
-      <revision>23</revision>
+      <revision>24</revision>
     </mod-version>
     <installation>
       <level>easy</level>
@@ -138,6 +138,24 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
 		  <change>Fix: Tippfehler in dieser Anleitung korrigiert</change>
 		  <change>Fix: Es wurden einige leere INSERT Befehle für strikt eingestellte MySQL Datenbanken entfernt</change>
 		  <change>Aktualisierte Dateien: formel.php und includes/acp/acp_formel.php</change>
+        </changelog>
+      </entry>
+     <entry>
+        <date>2007-09-15T00:00:00+02:00</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>24</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>Change: unsecure $_POST replaced with request_var() in includes/acp/acp_formel.php</change>
+          <change>Fix: Path corrected for installerfile templates prosilver and subsilver2</change>
+		  <change>Changed files: includes/acp/acp_formel.php</change>
+		</changelog>
+        <changelog lang="de">
+          <change>Aktualisiert: Unsichere $_POST ersetzt durch request_var() in der includes/acp/acp_formel.php</change>
+          <change>Fix: Pfadangabe in Installationsdatei für die Templates prosilver und subsilver2 angepasst</change>
+		  <change>Aktualisierte Dateien: includes/acp/acp_formel.php</change>
         </changelog>
       </entry>
     </history>

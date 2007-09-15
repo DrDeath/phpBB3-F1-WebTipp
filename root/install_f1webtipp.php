@@ -438,7 +438,7 @@ if ($submit == 'continue')
 } 
 else 
 {
-	$message = '<span style="color:green; font-weight: bold;font-size: 1.5em;">Formel 1 WebTipp MOD v0.1.23 (beta)</span><br />
+	$message = '<span style="color:green; font-weight: bold;font-size: 1.5em;">Formel 1 WebTipp MOD v0.1.24 (beta)</span><br />
 				<br />
 				English:<br />
 				Script for automated Formula 1 WebTip table generation.<br />
