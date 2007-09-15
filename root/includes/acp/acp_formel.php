@@ -94,7 +94,7 @@ class acp_formel
 					$config_name = $row['config_name'];
 					$config_value = $row['config_value'];
 					$default_config[$config_name] = isset($_POST['submit']) ? str_replace("'", "\'", $config_value) : $config_value;
-					$new[$config_name] = ( isset($_POST[$config_name]) ) ? $_POST[$config_name] : $default_config[$config_name];
+					$new[$config_name] = request_var( $config_name , $default_config[$config_name]);
 
 					if( isset($_POST['submit']) )
 					{
