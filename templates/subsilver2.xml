@@ -42,10 +42,10 @@
           <revision>22</revision>
         </rev-version>
         <changelog lang="en-gb">
-          <change> first public version for phpbb3 Olympus RC4</change>
+          <change> first public version for phpbb3 Olympus RC4 or higher</change>
         </changelog>
         <changelog lang="de">
-          <change> Erste öffentliche Version für phpbb3 Olympus RC4</change>
+          <change> Erste öffentliche Version für phpbb3 Olympus RC4 oder höher</change>
         </changelog>
       </entry>
     </history>
@@ -55,7 +55,7 @@
     <copy>
       <file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
     </copy>
-    <open src="styles/subsilver2/templates/memberlist_view.html">
+    <open src="styles/subsilver2/template/memberlist_view.html">
       <edit>
         <find><![CDATA[			<!-- END custom_fields -->]]></find>
         <action type="after-add"><![CDATA[			<!-- BEGIN formel_webtipp -->
@@ -66,7 +66,7 @@
 			<!-- END formel_webtipp -->]]></action>
       </edit>
     </open>
-    <open src="styles/subsilver2/templates/overall_header.html">
+    <open src="styles/subsilver2/template/overall_header.html">
       <edit>
         <find><![CDATA[</head>
 <body class="{S_CONTENT_DIRECTION}">]]></find>

@@ -42,10 +42,10 @@
           <revision>22</revision>
         </rev-version>
         <changelog lang="en-gb">
-          <change> first public version for phpbb3 Olympus RC4</change>
+          <change> first public version for phpbb3 Olympus RC4 or higher</change>
         </changelog>
         <changelog lang="de">
-          <change> Erste öffentliche Version für phpbb3 Olympus RC4</change>
+          <change> Erste öffentliche Version für phpbb3 Olympus RC4 oder höher</change>
         </changelog>
       </entry>
     </history>
@@ -55,7 +55,7 @@
     <copy>
       <file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
     </copy>
-    <open src="styles/prosilver/templates/memberlist_view.html">
+    <open src="styles/prosilver/template/memberlist_view.html">
       <edit>
         <find><![CDATA[			<!-- IF S_SHOW_ACTIVITY and POSTS -->
 				<dt>{L_ACTIVE_IN_FORUM}:</dt> <dd><!-- IF ACTIVE_FORUM_PCT neq '' --><strong><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br />({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
@@ -73,7 +73,7 @@
 	<!-- END formel_webtipp -->]]></action>
       </edit>
     </open>
-    <open src="styles/prosilver/templates/overall_header.html">
+    <open src="styles/prosilver/template/overall_header.html">
       <edit>
         <find><![CDATA[</head>
 
