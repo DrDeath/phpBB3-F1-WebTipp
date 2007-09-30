@@ -46,13 +46,13 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
     <mod-version>
       <major>0</major>
       <minor>1</minor>
-      <revision>24</revision>
+      <revision>25</revision>
     </mod-version>
     <installation>
       <level>easy</level>
       <time>692</time>
       <target-version>
-        <target-primary>3.0.RC5</target-primary>
+        <target-primary>3.0.RC6</target-primary>
         <target-major allow="exact">3</target-major>
         <target-minor allow="exact">0</target-minor>
       </target-version>
@@ -158,6 +158,22 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
 		  <change>Aktualisierte Dateien: includes/acp/acp_formel.php</change>
         </changelog>
       </entry>
+     <entry>
+        <date>2007-09-30T00:00:00+02:00</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>25</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>Added: New installer. Now (hopefully) support for all databases.</change>
+          <change>Removed some xml files for modx install files.</change>
+		</changelog>
+        <changelog lang="de">
+          <change>Hinzugefügt: Neue Installationsroutine. Unterstützt nun (hoffentlich) alle Datenbanktypen.</change>
+          <change>Entfernt: Überflüssige XML Dateien für das MODX Format dieser Installationsanleitung</change>
+        </changelog>
+      </entry>
     </history>
     <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
   </header>
@@ -174,6 +190,7 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
       <file from="language/en/mods/formel.php" to="ROOT/language/en/mods/formel.php" />
       <file from="language/en/mods/permissions_formel.php" to="ROOT/language/en/mods/permissions_formel.php" />
       <file from="images/formel/*.*" to="ROOT/images/formel/*.*" />
+	  <file from="install_f1/*.*" to="ROOT/install_f1/*.*" />
     </copy>
     <open src="includes/constants.php">
       <edit>
@@ -268,8 +285,8 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
 		]]></action>
       </edit>
     </open>
-	<diy-instructions lang="en-gb"><![CDATA[After installing this MOD, you have to point your web browser to the install_f1webtipp.php file
-like:  http://your-domian.tld/path-to-your-forum/install_f1webtipp.php
+	<diy-instructions lang="en-gb"><![CDATA[After installing this MOD, you have to point your web browser to the install_f1/install.php file
+like:  http://your-domian.tld/path-to-your-forum/install_f1/install.php
 
 Now you are able to activate the new Formel 1 WebTipp modules:
 
@@ -289,7 +306,7 @@ After that you have to enable the new Formel 1 WebTipp Modules separately by doi
 3. After adding the module you have to click on the "Enable" link.
 4. Do the steps 1-3 also for the F1 WebTipp Modules: "Formular 1 Drivers" , "Formular 1 Teams" and "Formular 1 Races"
 5. If the tab ".mods" is not shown you have to clear the cache!
-6. Finaly delete the file: install_f1webtipp.php from your webspace to prevent erasing tables from your database.
+6. Finaly delete the folder: install_f1/ from your webspace to prevent erasing tables from your database.
 
 
 After creating , adding and enabling the F1 WebTipp modules your are able to give ACP permissions to certain users/groups.
@@ -302,14 +319,14 @@ Can alter Formular 1 races
 
 Finaly you have to create a link for your users to reach the new formula 1 webtip mod.
 Go to your ACP - Forums - Manage forums - Create new forum.
-Select as Wähle als Forum-ype : "Link" 
+Select Forum-ype : "Link" 
 Select a parent forum
 Insert a name for the link ( i.e ) : "Formula 1 WebTip"
-As Forums-link : "formel.php"
+Insert in the field Forums-link : "formel.php"
 
 And now: Have fun!]]></diy-instructions>
-	<diy-instructions lang="de"><![CDATA[Nach der Installation des MODs musst Du noch die Installationsdatei mit Deinem Browser aufrufen.
-Beispiel: http://deine-domaene.tld/pfad-zum-forum/install_f1webtipp.php
+	<diy-instructions lang="de"><![CDATA[Nach der Installation des MODs musst Du noch die Installationsdatei install_f1/install.php mit Deinem Browser aufrufen.
+Beispiel: http://deine-domaene.tld/pfad-zum-forum/install_f1/install.php
 
 Aktiviere nun die F1 WebTipp Module:
 
@@ -330,7 +347,7 @@ Danach musst Du nun jedes Formel 1 WebTipp Modul einzelnd hinzufügen und aktivi
 3. Nach dem Hinzufügen des Moduls klicke auf den "Aktivieren" Link.
 4. Wiederhole die Schritte 1-3 auch fuer die folgenden F1 WebTipp Module: "Formel 1 Rennen", "Formel 1 Teams" und "Formel 1 Fahrer".
 5. Sollte der extra Reiter "MODS" nicht im ACP sichtbar sein, leere den Cache!
-6. Zum Schluss solltest Du nicht vergessen die Datei "install_f1webtipp.php" von Deinem WebSpace zu löschen!
+6. Zum Schluss solltest Du nicht vergessen den Ordner "install_f1/" von Deinem WebSpace zu löschen!
 
 Nach dem Erstellen, Hinzufügen und Aktivieren der F1 WebTipp Module
 kannst Du nun ACP Berechtigunen fuer Deinen Gruppen/Benutzer vergeben.
