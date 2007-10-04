@@ -57,6 +57,10 @@ $template->assign_block_vars('navlinks', array(
 	'FORUM_NAME' 		=> $user->lang['formel_title'],
 ));
 
+// Salting the form...yumyum ...
+add_form_key('formel');
+
+
 // Start switching the mode...
 $mode = request_var('mode', 'standard');
 
@@ -98,12 +102,24 @@ switch ($mode)
 		// Delete a tip
 		if ( $del_tipp ) 
 		{
+			// Check the salt... yumyum
+			if (!check_form_key('formel'))
+			{
+				trigger_error('FORM_INVALID');
+			}
+			
 			formel_del_tip($user_id,$race_id);
 		}
 
 		// Add or edit a tip
 		if ( ($place_my_tipp || $edit_my_tipp) && $tipp_time - $formel_config['deadline_offset'] >= time() ) 
 		{
+			// Check the salt... yumyum
+			if (!check_form_key('formel'))
+			{
+				trigger_error('FORM_INVALID');
+			}
+			
 			for ($i = 0; $i < 8; $i++) 
 			{
 				$value = request_var('place' . ( $i + 1 ), 0);
@@ -771,7 +787,7 @@ switch ($mode)
 		}
 
 		// Moderator switch and options
-		$u_call_mod = append_sid("ucp.$phpEx?i=pm&mode=compose&u=$formel_mod_id");
+		$u_call_mod = append_sid("ucp.$phpEx?i=pm&amp;mode=compose&amp;u=$formel_mod_id");
 		$l_call_mod = $user->lang['formel_call_mod'];
 		
 		// Some debug code to test the $auth
@@ -964,6 +980,12 @@ switch ($mode)
 		// Reset a quali
 		if ( $resetquali && $race_id <> 0 ) 
 		{
+			// Check the salt... yumyum
+			if (!check_form_key('formel'))
+			{
+				trigger_error('FORM_INVALID');
+			}
+			
 			$sql_ary = array(
 				'race_quali'		=> 0
 			);
@@ -980,6 +1002,12 @@ switch ($mode)
 		// Reset a result
 		if ( $resetresult && $race_id <> 0 ) 
 		{
+			// Check the salt... yumyum
+			if (!check_form_key('formel'))
+			{
+				trigger_error('FORM_INVALID');
+			}
+			
 			// Delete all WM points for this race
 			$sql = 'DELETE 
 				FROM ' . FORMEL_WM_TABLE . " 
@@ -1020,6 +1048,12 @@ switch ($mode)
 		// Add a quali
 		if ( $addquali ) 
 		{
+			// Check the salt... yumyum
+			if (!check_form_key('formel'))
+			{
+				trigger_error('FORM_INVALID');
+			}
+			
 			if ( $race_id <> 0 ) 
 			{
 				//We have 11 Teams with 2 cars each --> 22 drivers
@@ -1051,6 +1085,12 @@ switch ($mode)
 		// Add a result
 		if ( $addresult || $addeditresult ) 
 		{
+			// Check the salt... yumyum
+			if (!check_form_key('formel'))
+			{
+				trigger_error('FORM_INVALID');
+			}
+			
 			if ( $race_id <> 0 ) 
 			{
 				if ( $addeditresult ) 

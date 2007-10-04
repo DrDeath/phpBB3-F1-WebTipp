@@ -52,7 +52,7 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
       <level>easy</level>
       <time>692</time>
       <target-version>
-        <target-primary>3.0.RC6</target-primary>
+        <target-primary>3.0.RC6 </target-primary>
         <target-major allow="exact">3</target-major>
         <target-minor allow="exact">0</target-minor>
       </target-version>
@@ -167,11 +167,15 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
         </rev-version>
         <changelog lang="en-gb">
           <change>Added: New installer. Now (hopefully) support for all databases.</change>
+		  <change>Added: add_form_key() and check_form_key() functions ( salt functions for submit security ).</change>
           <change>Removed some xml files for modx install files.</change>
+		  <change>Changed files: formel.php , style/prosilver/template/formel_body.html and style/subsilver2/template/formel_body.html</change>
 		</changelog>
         <changelog lang="de">
           <change>Hinzugefügt: Neue Installationsroutine. Unterstützt nun (hoffentlich) alle Datenbanktypen.</change>
+		  <change>Hinzugefügt: add_form_key() und check_form_key() Funktionen ( Sicherheitsfunktionen für übermittelte Daten )</change>
           <change>Entfernt: Überflüssige XML Dateien für das MODX Format dieser Installationsanleitung</change>
+		  <change>Aktualisierte Dateien: formel.php , style/prosilver/template/formel_body.html und style/subsilver2/template/formel_body.html</change>
         </changelog>
       </entry>
     </history>
