@@ -14,12 +14,12 @@ Current season standings ( users / drivers / teams ) are listet on a statistics 
 Deine Benutzer können auf die Rennergebnisse tippen und erhalten dadurch Punkte.
 Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den eingebauten Statistseiten und im Benutzerprofil begutachten.]]>
 </description>
-    <author-notes lang="en-gb"><![CDATA[Dr.Death ported and enhanced the origin phpBB2 MOD to phpBB3 Olympus
-AceVentura is the origin Author of the Formula 1 WebTip MOD for phpBB2.
-OXPUS is the author of the "Advanced countdown MOD" ( used some code for the "Countdown till deadline" )]]></author-notes>
-    <author-notes lang="de"><![CDATA[Dr.Death hat das Original phpBB2 MOD auf phpBB3 Olympus portiert ( Neu programmiert )
-AceVentura ist der Autor des Formula 1 WebTip MOD für phpBB2.
-OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Codes für den "Countdown bis deadline" verwendet )]]></author-notes>
+    <author-notes lang="en-gb"><![CDATA[- Dr.Death ported and enhanced the origin phpBB2 MOD to phpBB3 Olympus
+- AceVentura is the origin Author of the Formula 1 WebTip MOD for phpBB2.
+- OXPUS is the author of the "Advanced countdown MOD" ( used some code for the "Countdown till deadline" )]]></author-notes>
+    <author-notes lang="de"><![CDATA[- Dr.Death hat das Original phpBB2 MOD auf phpBB3 Olympus portiert ( Neu programmiert und erweitert )
+- AceVentura ist der Autor des Formula 1 WebTip MOD für phpBB2.
+- OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Codes für den "Countdown bis deadline" verwendet )]]></author-notes>
     <author-group>
       <author>
         <realname>Stefan Temath</realname>
@@ -169,13 +169,23 @@ OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Co
           <change>Added: New installer. Now (hopefully) support for all databases.</change>
 		  <change>Added: add_form_key() and check_form_key() functions ( salt functions for submit security ).</change>
           <change>Removed some xml files for modx install files.</change>
-		  <change>Changed files: formel.php , style/prosilver/template/formel_body.html and style/subsilver2/template/formel_body.html</change>
+		  <change>Changed files: 
+		  formel.php, 
+		  includes/acp/acp_formel.php, 
+		  style/prosilver/template/formel_body.html, 
+		  style/subsilver2/template/formel_body.html 
+		  and all language files.</change>
 		</changelog>
         <changelog lang="de">
           <change>Hinzugefügt: Neue Installationsroutine. Unterstützt nun (hoffentlich) alle Datenbanktypen.</change>
 		  <change>Hinzugefügt: add_form_key() und check_form_key() Funktionen ( Sicherheitsfunktionen für übermittelte Daten )</change>
           <change>Entfernt: Überflüssige XML Dateien für das MODX Format dieser Installationsanleitung</change>
-		  <change>Aktualisierte Dateien: formel.php , style/prosilver/template/formel_body.html und style/subsilver2/template/formel_body.html</change>
+		  <change>Aktualisierte Dateien: 
+		  formel.php, 
+		  includes/acp/acp_formel.php, 
+		  style/prosilver/template/formel_body.html, 
+		  style/subsilver2/template/formel_body.html 
+		  und alle Sprachdateien.</change>
         </changelog>
       </entry>
     </history>
@@ -328,6 +338,13 @@ Select a parent forum
 Insert a name for the link ( i.e ) : "Formula 1 WebTip"
 Insert in the field Forums-link : "formel.php"
 
+Don't forgett to edit your style templates. You'll find the instructions in the folder templates/
+Open the prosilver.xml or subsilver2.xml with your browser.
+
+Additional translations are located in the folder languages/
+Open de.xml for german or fr.xml with your browser to read the install instructions.
+
+
 And now: Have fun!]]></diy-instructions>
 	<diy-instructions lang="de"><![CDATA[Nach der Installation des MODs musst Du noch die Installationsdatei install_f1/install.php mit Deinem Browser aufrufen.
 Beispiel: http://deine-domaene.tld/pfad-zum-forum/install_f1/install.php
@@ -339,9 +356,9 @@ Erstelle eine neue Modul Kategorie
 
 1. Klicke auf den Button "Neues Modul erstellen"
 2. Im Feld "Name des Moduls:" --> "ACP_FORMEL_MANAGEMENT" eintragen.
-3. Modul-Typ: --> "Kategorie" waehlen.
-4. Übergeordnet: "Mods" waehlen.
-5. Modul aktiviert: "ja" waehlen.
+3. Modul-Typ: --> "Kategorie" wählen.
+4. Übergeordnet: "Mods" wählen.
+5. Modul aktiviert: "ja" wählen.
 6. "Absenden" anklicken.
 
 Danach musst Du nun jedes Formel 1 WebTipp Modul einzelnd hinzufügen und aktivieren:
@@ -368,6 +385,15 @@ Wähle als Forum-Typ : "Link"
 Wähle ein Übergeordnetes Forum Deiner Wahl
 Vergebe einen Namen für den Link ( Beispiel ) : "Formel 1 WebTipp"
 Als Forums-Link : "formel.php"
+
+Vergesst nicht Eure Style Templates zu editieren. Anleitung dazu findet Ihr im Ordner templates/
+Öffnet die Datei prosilver.xml oder subsilver2.xml mit Eurem Browser.
+
+Die deutsche Übersetzung findet Ihr im Ordner languages/
+Öffnet die Datei de.xml mit Eurem Browser um die Installationsanleitung zu lesen.
+
+Zusätzlich findet Ihr dort auch die französische Übersetzung ( fr.xml ).
+
 
 Und nun: Viel Spass !
 ]]></diy-instructions>

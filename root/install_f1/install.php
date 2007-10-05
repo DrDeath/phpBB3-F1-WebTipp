@@ -239,7 +239,7 @@ if ($submit == 'continue')
 	$cache->purge();
 
 	$message = '<span style="color:green; font-weight: bold;font-size: 1.5em;">Formula 1 WebTip database successfully installed.</span><br />
-				To finish installing this mod, edit all files according to the install.xml, then open up templates/prosilver.xml and follow those instructions.<br />
+				To finish installing this mod, edit all files according to the install.xml, then open templates/prosilver.xml and follow those instructions.<br />
 				When you are finished, go to the ACP and purge the cache.<br />
 				<br />
 				<span style="color:green; font-weight: bold;font-size: 1.5em;">Formel 1 WebTipp Datenbank erfolgreich installiert.</span><br />
