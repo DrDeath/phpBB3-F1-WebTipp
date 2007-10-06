@@ -10,6 +10,14 @@
 *
 */
 
+/*
+ * @ignore 
+*/ 
+if (!defined('IN_PHPBB')) 
+{ 
+	exit; 
+}
+
 /**
 * @package phpbb3f1webtipp
 */

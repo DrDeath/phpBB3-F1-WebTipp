@@ -8,6 +8,14 @@
 *
 */
 
+/*
+ * @ignore 
+*/ 
+if (!defined('IN_PHPBB')) 
+{ 
+	exit; 
+}
+
 /**
 * @package phpbb3f1webtipp
 */
@@ -27,6 +35,9 @@ class acp_formel
 		//Select the template file
 		$this->tpl_name = 'acp_formel';
 
+		// Salting the form...yumyum ...
+		add_form_key('acp_formel');
+		
 		// What are we working on?
 		switch ($mode)
 		{
@@ -63,6 +74,12 @@ class acp_formel
 				// Reset all config data
 				if ( isset($_POST['reset_all']) )
 				{
+					// Is it salty ?
+					if (!check_form_key('acp_formel'))
+					{
+						trigger_error('FORM_INVALID');
+					}
+
 					$sql = 'TRUNCATE TABLE ' . FORMEL_TIPPS_TABLE;
 					$result = $db->sql_query($sql);
 
@@ -98,6 +115,12 @@ class acp_formel
 
 					if( isset($_POST['submit']) )
 					{
+						// Is it salty ?
+						if (!check_form_key('acp_formel'))
+						{
+							trigger_error('FORM_INVALID');
+						}
+						
 						$sql_ary = array(
 							'config_value'		=> $new[$config_name],
 						);
@@ -388,6 +411,12 @@ class acp_formel
 				// Add a new entry
 				if( $button_add && $drivername <> '')
 				{
+					// Is it salty ?
+					if (!check_form_key('acp_formel'))
+					{
+						trigger_error('FORM_INVALID');
+					}
+					
 					if ( $driver_id == 0 )
 					{
 						$sql_ary = array(
@@ -430,6 +459,12 @@ class acp_formel
 				// Delete an entry
 				if( $button_del && $driver_id <> 0 )
 				{
+					// Is it salty ?
+					if (!check_form_key('acp_formel'))
+					{
+						trigger_error('FORM_INVALID');
+					}
+					
 					$sql = 'DELETE FROM ' . FORMEL_DRIVERS_TABLE . " 
 							WHERE driver_id = $driver_id";
 					$db->sql_query($sql);
@@ -626,6 +661,12 @@ class acp_formel
 				// Add a new team
 				if( $button_add && $teamname <> '' )
 				{
+					// Is it salty ?
+					if (!check_form_key('acp_formel'))
+					{
+						trigger_error('FORM_INVALID');
+					}
+					
 					if ( $team_id == 0 )
 					{
 						$sql_ary = array(
@@ -669,6 +710,12 @@ class acp_formel
 				// Delete an entry
 				if( $button_del && $team_id <> 0 )
 				{
+					// Is it salty ?
+					if (!check_form_key('acp_formel'))
+					{
+						trigger_error('FORM_INVALID');
+					}
+					
 					$sql = 'DELETE FROM ' . FORMEL_TEAMS_TABLE . " 
 							WHERE team_id = $team_id";
 					$db->sql_query($sql);
@@ -838,8 +885,15 @@ class acp_formel
 					$error  = $user->lang[$lang . '_ERROR_RACENAME'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
+				
 				if( $button_add && $racename <> '' )
 				{
+					// Is it salty ?
+					if (!check_form_key('acp_formel'))
+					{
+						trigger_error('FORM_INVALID');
+					}
+					
 					$racetime = mktime($b_hour, $b_minute, $b_second, $b_month, $b_day, $b_year, date("I"));
 					if ( $race_id == 0 )
 					{
@@ -897,6 +951,12 @@ class acp_formel
 				// Delete a race
 				if( $button_del && $race_id <> 0 )
 				{
+					// Is it salty ?
+					if (!check_form_key('acp_formel'))
+					{
+						trigger_error('FORM_INVALID');
+					}				
+
 					$sql = 'DELETE FROM ' . FORMEL_RACES_TABLE . " 
 							WHERE race_id = $race_id";
 					$db->sql_query($sql);

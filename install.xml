@@ -159,7 +159,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
         </changelog>
       </entry>
      <entry>
-        <date>2007-09-30T00:00:00+02:00</date>
+        <date>2007-10-06T00:00:00+02:00</date>
         <rev-version>
           <major>0</major>
           <minor>1</minor>
@@ -169,23 +169,13 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
           <change>Added: New installer. Now (hopefully) support for all databases.</change>
 		  <change>Added: add_form_key() and check_form_key() functions ( salt functions for submit security ).</change>
           <change>Removed some xml files for modx install files.</change>
-		  <change>Changed files: 
-		  formel.php, 
-		  includes/acp/acp_formel.php, 
-		  style/prosilver/template/formel_body.html, 
-		  style/subsilver2/template/formel_body.html 
-		  and all language files.</change>
+		  <change>Important for Updaters: replace all files (except the images). Security functions are added.</change>
 		</changelog>
         <changelog lang="de">
           <change>Hinzugefügt: Neue Installationsroutine. Unterstützt nun (hoffentlich) alle Datenbanktypen.</change>
 		  <change>Hinzugefügt: add_form_key() und check_form_key() Funktionen ( Sicherheitsfunktionen für übermittelte Daten )</change>
           <change>Entfernt: Überflüssige XML Dateien für das MODX Format dieser Installationsanleitung</change>
-		  <change>Aktualisierte Dateien: 
-		  formel.php, 
-		  includes/acp/acp_formel.php, 
-		  style/prosilver/template/formel_body.html, 
-		  style/subsilver2/template/formel_body.html 
-		  und alle Sprachdateien.</change>
+		  <change>Wichtig für Updater: Ersetze alle Dateien (ausser den Bildern). Es wurden zusätzliche Sicherheitsfunktionen hinzugefügt.</change>
         </changelog>
       </entry>
     </history>
