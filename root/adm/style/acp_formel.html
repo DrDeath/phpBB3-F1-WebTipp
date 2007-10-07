@@ -237,7 +237,7 @@
 				<td width="50%" valign="middle"  nowrap="nowrap"><span class="genmed">{driverrow_gfx.DRIVERTEAM}</span></td>
 				<td valign="middle"  nowrap="nowrap"><span class="genmed">&nbsp;{driverrow_gfx.DRIVERPOINTS}&nbsp;</span></td>
 				<td valign="middle" nowrap="nowrap"><span class="genmed"><input type="hidden" name="driver_id" value="{driverrow_gfx.DRIVERID}" /><input class="button2" type="submit" name="edit" value="{L_EDIT_DRIVER}" /></span></td>
-				<td valign="middle" nowrap="nowrap"><span class="genmed"><input type="hidden" name="driver_id" value="{driverrow_gfx.DRIVERID}" /><input class="button2" type="submit" name="del"  value="{L_DEL_DRIVER}" /></span>{S_FORM_TOKEN}</td>
+				<td valign="middle" nowrap="nowrap"><span class="genmed"><input type="hidden" name="driver_id" value="{driverrow_gfx.DRIVERID}" /><input class="button2" type="submit" name="del"  value="{L_DEL_DRIVER}" />{S_FORM_TOKEN}</span></td>
 			</tr>
 			</form>
 			<!-- END driverrow_gfx -->
@@ -265,10 +265,8 @@
 		<form method="POST" enctype="multipart/form-data">
 			<input class="button1" type="submit" name="adddriver" value="{L_ADD_DRIVER}" />
 			<input type="hidden" name="driver_id" value="" />
-		{S_FORM_TOKEN}
 		</form>
 	</p>
-
 	</fieldset>
 <!-- ENDIF -->
 
@@ -317,7 +315,6 @@
 			{S_FORM_TOKEN}
 	    </form>
 	</p>
-	{S_FORM_TOKEN}
 	</form>
 <!-- ENDIF -->
 
@@ -379,7 +376,6 @@
 	<p class="submit-buttons">
 		<form action="{U_ACTION}" method="POST" enctype="multipart/form-data">
 			<input class="button1" type="submit" name="addteam" value="{L_ADD_TEAM}" />
-			{S_FORM_TOKEN}
 		</form>
 	</p>
 <!-- ENDIF -->
@@ -419,8 +415,8 @@
 	<p class="submit-buttons">
 		<input class="button1" type="submit" name="add" value="{L_ADD}" />
 		<input type="hidden" name="team_id" value="{PREDEFINED_ID}" />
+		{S_FORM_TOKEN}
 	</p>
-	{S_FORM_TOKEN}
 	</form>
 <!-- ENDIF -->
 
@@ -483,7 +479,6 @@
 	<form action="{U_ACTION}" method="POST" enctype="multipart/form-data">
 		<p class="submit-buttons">
 			<input class="button1" type="submit" name="addrace" value="{L_ADD_RACE}" />
-			{S_FORM_TOKEN}
 		</p>
 	</form>
 <!-- ENDIF -->
@@ -539,8 +534,8 @@
 	<p class="submit-buttons">
 		<input class="button1" type="submit" name="add" value="{L_ADD}" />
 		<input type="hidden" name="race_id" value="{PREDEFINED_ID}" />
+		{S_FORM_TOKEN}
 	</p>
-	{S_FORM_TOKEN}
 	</form>
 <!-- ENDIF -->
 	
