@@ -37,7 +37,7 @@ if (empty($lang) || !is_array($lang))
 // BBCodes 
 // Note to translators: you can translate everything but what's between { and }
 
-// Formel 1 WebTipp START
+// Formel 1 WebTipp 
 $lang = array_merge($lang, array(
 	'formel_title'							=> 'Formel 1 WebTipp',
 	'formel_headerlink'						=> 'F1-WebTipp',

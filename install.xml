@@ -46,7 +46,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
     <mod-version>
       <major>0</major>
       <minor>1</minor>
-      <revision>25</revision>
+      <revision>26</revision>
     </mod-version>
     <installation>
       <level>easy</level>
@@ -178,13 +178,28 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		  <change>Wichtig für Updater: Ersetze alle Dateien (ausser den Bildern). Es wurden zusätzliche Sicherheitsfunktionen hinzugefügt.</change>
         </changelog>
       </entry>
+     <entry>
+        <date>2007-10-22T00:00:00+02:00</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>26</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>Added: user and admin logs.</change>
+		  <change>Important for Updaters: replace formel.php, includes/acp/acp_formel.php, language/en/mods/info_acp_formel.php</change>
+		</changelog>
+        <changelog lang="de">
+          <change>Hinzugefügt: Benutzer und Admin Logfunktion.</change>
+		  <change>Wichtig für Updater: Ersetze formel.php, includes/acp/acp_formel.php, language/en/mods/info_acp_formel.php</change>
+        </changelog>
+      </entry>
     </history>
     <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
   </header>
   <action-group>
     <copy>
       <file from="formel.php" to="ROOT/formel.php" />
-      <file from="install_f1webtipp.php" to="ROOT/install_f1webtipp.php" />
       <file from="adm/style/acp_formel.html" to="ROOT/adm/style/acp_formel.html" />
       <file from="includes/acp/info/acp_formel.php" to="ROOT/includes/acp/info/acp_formel.php" />
       <file from="includes/acp/acp_formel.php" to="ROOT/includes/acp/acp_formel.php" />

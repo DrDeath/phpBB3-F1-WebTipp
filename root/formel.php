@@ -108,7 +108,9 @@ switch ($mode)
 				trigger_error('FORM_INVALID');
 			}
 			
+			add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_DELETED', $race_id);			
 			formel_del_tip($user_id,$race_id);
+
 		}
 
 		// Add or edit a tip
@@ -125,6 +127,7 @@ switch ($mode)
 				$value = request_var('place' . ( $i + 1 ), 0);
 				if (checkarrayforvalue($value,$my_tipp_array)) 
 				{
+					add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_NOT_VALID', $race_id);
 					$tipp_msg = sprintf($user->lang['formel_doublicate_values'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 					trigger_error($tipp_msg);
 				}
@@ -144,6 +147,7 @@ switch ($mode)
 				);
 
 				$db->sql_query('INSERT INTO ' . FORMEL_TIPPS_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
+				add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_GIVEN', $race_id);
 			}
 			else 
 			{
@@ -156,6 +160,7 @@ switch ($mode)
 					WHERE tipp_user = $user_id
 						AND tipp_race = $race_id";
 				$db->sql_query($sql);
+				add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_EDITED', $race_id);
 			}
 			$tipp_msg = sprintf($user->lang['formel_accepted_tipp'], '<a href="'.append_sid("formel.$phpEx").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 			trigger_error( $tipp_msg);
@@ -994,7 +999,8 @@ switch ($mode)
 				SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
 				WHERE race_id = $race_id";
 			$db->sql_query($sql);
-
+			
+			add_log('mod', $user->data['user_id'], 'LOG_FORMEL_QUALI_DELETED', $race_id);
 			$tipp_msg = sprintf($user->lang['formel_results_deleted'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 			trigger_error($tipp_msg);
 		}
@@ -1035,6 +1041,7 @@ switch ($mode)
 			$db->sql_query($sql);
 
 			// Pull out a success message
+			add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_DELETED', $race_id);
 			$tipp_msg = sprintf($user->lang['formel_results_deleted'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 			trigger_error($tipp_msg);
 		}
@@ -1062,6 +1069,7 @@ switch ($mode)
 					$value = request_var('place' . ( $i + 1 ), 0);
 					if (checkarrayforvalue($value,$quali_array)) 
 					{
+						add_log('user', $user->data['user_id'], 'LOG_FORMEL_QUALI_NOT_VALID', $race_id);
 						$quali_msg = sprintf($user->lang['formel_results_double'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 						trigger_error($quali_msg);
 					}
@@ -1077,6 +1085,7 @@ switch ($mode)
 					WHERE race_id = $race_id";
 				$db->sql_query($sql);
 
+				add_log('user', $user->data['user_id'], 'LOG_FORMEL_QUALI_ADDED', $race_id);
 				$quali_msg = sprintf($user->lang['formel_results_accepted'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 				trigger_error($quali_msg);
 			}
@@ -1106,6 +1115,7 @@ switch ($mode)
 					$value = request_var('place' . ( $i + 1 ), 0);
 					if (checkarrayforvalue($value,$result_array)) 
 					{
+						add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_NOT_VALID', $race_id);
 						$result_msg = sprintf($user->lang['formel_results_double'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 						trigger_error($result_msg);
 					}
@@ -1213,6 +1223,7 @@ switch ($mode)
 				}
 				// END points calc
 
+				add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_ADDED', $race_id);
 				$result_msg = sprintf($user->lang['formel_results_accepted'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 				trigger_error($result_msg);
 			}

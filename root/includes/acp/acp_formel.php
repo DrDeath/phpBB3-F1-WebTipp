@@ -134,6 +134,7 @@ class acp_formel
 				
 				if( isset($_POST['submit']) )
 				{
+					add_log('admin', 'LOG_FORMEL_SETTINGS');
 					$error = $user->lang[$lang . '_UPDATED'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
@@ -425,6 +426,7 @@ class acp_formel
 							'driver_team'	=> $driverteam
 						);
 						$db->sql_query('INSERT INTO ' . FORMEL_DRIVERS_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
+						add_log('admin', 'LOG_FORMEL_DRIVER_ADDED');
 					}
 					else 
 					{
@@ -451,6 +453,7 @@ class acp_formel
 								WHERE driver_id = $driver_id";
 							$db->sql_query($sql);
 						}
+						add_log('admin', 'LOG_FORMEL_DRIVER_EDITED', $driver_id);
 					}
 					$error = $user->lang[$lang . '_DRIVER_UPDATED'];
 					trigger_error($error . adm_back_link($this->u_action));
@@ -469,6 +472,7 @@ class acp_formel
 							WHERE driver_id = $driver_id";
 					$db->sql_query($sql);
 
+					add_log('admin', 'LOG_FORMEL_DRIVER_DELETED', $driver_id);
 					$error = $user->lang[$lang . '_DRIVER_DELETED'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
@@ -675,6 +679,7 @@ class acp_formel
 							'team_car'		=> $teamcar
 						);
 						$db->sql_query('INSERT INTO ' . FORMEL_TEAMS_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
+						add_log('admin', 'LOG_FORMEL_TEAM_ADDED');
 					}
 					else 
 					{
@@ -702,6 +707,7 @@ class acp_formel
 								WHERE team_id = $team_id";
 							$db->sql_query($sql);
 						}
+						add_log('admin', 'LOG_FORMEL_TEAM_EDITED', $team_id);
 					}
 					$error = $user->lang[$lang . '_TEAM_UPDATED'];
 					trigger_error($error . adm_back_link($this->u_action));
@@ -720,6 +726,7 @@ class acp_formel
 							WHERE team_id = $team_id";
 					$db->sql_query($sql);
 
+					add_log('admin', 'LOG_FORMEL_TEAM_DELETED', $team_id);
 					$error = $user->lang[$lang . '_TEAM_DELETED'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
@@ -907,6 +914,7 @@ class acp_formel
 							'race_debut'	=> $racedebut
 						);
 						$db->sql_query('INSERT INTO ' . FORMEL_RACES_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
+						add_log('admin', 'LOG_FORMEL_RACE_ADDED');
 					}
 					else 
 					{
@@ -943,7 +951,9 @@ class acp_formel
 								WHERE race_id = $race_id";
 							$db->sql_query($sql);
 						}
+						add_log('admin', 'LOG_FORMEL_RACE_EDITED', $race_id);
 					}
+					
 					$error = $user->lang[$lang . '_RACE_UPDATED'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
@@ -961,6 +971,7 @@ class acp_formel
 							WHERE race_id = $race_id";
 					$db->sql_query($sql);
 
+					add_log('admin', 'LOG_FORMEL_RACE_DELETED', $race_id);
 					$error = $user->lang[$lang . '_RACE_DELETED'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
