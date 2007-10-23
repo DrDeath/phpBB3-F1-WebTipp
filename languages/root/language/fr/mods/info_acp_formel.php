@@ -6,6 +6,7 @@
 * @package language
 * @version $Id: info_acp_formel.php 1 2007-07-30 13:25:14Z stoffel04 $
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @ French translation from fafa@ufolep62tt.net
 *
 */
 
@@ -39,31 +40,31 @@ if (empty($lang) || !is_array($lang))
 
 // Formel 1 Modul
 $lang = array_merge($lang, array(
-	'ACP_FORMEL_MANAGEMENT'		=> 'Formel 1 WebTip',
-	'ACP_FORMEL_SETTINGS'		=> 'Formel 1 Configurations',
-	'ACP_FORMEL_DRIVERS'		=> 'Formel 1 Pilotes',	
-	'ACP_FORMEL_TEAMS'			=> 'Formel 1 Ecuries',
-	'ACP_FORMEL_RACES'			=> 'Formel 1 Courses',
-	'LOG_FORMEL_TIP_GIVEN'			=> 'Formula 1 webtip for race %s added.',
-	'LOG_FORMEL_TIP_EDITED'			=> 'Formula 1 webtip for race %s edited.',
-	'LOG_FORMEL_TIP_NOT_VALID'		=> 'Formula 1 webtip for race %s not valid. Tip rejected.',
-	'LOG_FORMEL_TIP_DELETED'		=> 'Formula 1 webtip for race %s deleted.',
-	'LOG_FORMEL_QUALI_DELETED'		=> 'Formula 1 qualifying result for race id %s deleted.',
-	'LOG_FORMEL_QUALI_ADDED'		=> 'Formula 1 qualifying result for race id %s added.',
-	'LOG_FORMEL_QUALI_NOT_VALID'	=> 'Formula 1 qualifying result for race id %s not valid. Entry rejected.',
-	'LOG_FORMEL_RESULT_DELETED'		=> 'Formula 1 race result for race id %s deleted.',
-	'LOG_FORMEL_RESULT_ADDED'		=> 'Formula 1 race result for race id %s added.',
-	'LOG_FORMEL_RESULT_NOT_VALID'	=> 'Formula 1 race result for race id %s not valid. Entry rejected.',
-	'LOG_FORMEL_SETTINGS'			=> 'Formula 1 settings updated.',
-	'LOG_FORMEL_RACE_ADDED'			=> 'Formula 1 race added.',
-	'LOG_FORMEL_RACE_EDITED'		=> 'Formula 1 race ID %s edited.',
-	'LOG_FORMEL_RACE_DELETED'		=> 'Formula 1 race ID %s deleted',
-	'LOG_FORMEL_TEAM_ADDED'			=> 'Formula 1 team added.',
-	'LOG_FORMEL_TEAM_EDITED'		=> 'Formula 1 team ID %s edited.',
-	'LOG_FORMEL_TEAM_DELETED'		=> 'Formula 1 team ID %s deleted.',
-	'LOG_FORMEL_DRIVER_ADDED'		=> 'Formula 1 driver added.',
-	'LOG_FORMEL_DRIVER_EDITED'		=> 'Formula 1 driver ID %s edited.',
-	'LOG_FORMEL_DRIVER_DELETED'		=> 'Formula 1 driver ID %s deleted.',
+	'ACP_FORMEL_MANAGEMENT'			=> 'Formel 1 WebTip',
+	'ACP_FORMEL_SETTINGS'			=> 'Formel 1 Configurations',
+	'ACP_FORMEL_DRIVERS'			=> 'Formel 1 Pilotes',	
+	'ACP_FORMEL_TEAMS'				=> 'Formel 1 Ecuries',
+	'ACP_FORMEL_RACES'				=> 'Formel 1 Courses',
+	'LOG_FORMEL_TIP_GIVEN'			=> 'Les pronos de la course %s ajoutés.',
+	'LOG_FORMEL_TIP_EDITED'			=> 'Les pronos de la course %s édités.',
+	'LOG_FORMEL_TIP_NOT_VALID'		=> 'Les pronos de la course %s non valides. Pronos rejetés.',
+	'LOG_FORMEL_TIP_DELETED'		=> 'Les pronos de la course %s effacés.',
+	'LOG_FORMEL_QUALI_DELETED'		=> 'ID des qualifications de la course %s effacé.',
+	'LOG_FORMEL_QUALI_ADDED'		=> 'ID des qualifications de la course %s ajouté.',
+	'LOG_FORMEL_QUALI_NOT_VALID'	=> 'ID des qualifications de la course %s n\'est pas valide. Entrée rejetée.',
+	'LOG_FORMEL_RESULT_DELETED'		=> 'ID des résultats de la course %s effacé.',
+	'LOG_FORMEL_RESULT_ADDED'		=> 'ID des résultats de la course %s ajouté.',
+	'LOG_FORMEL_RESULT_NOT_VALID'	=> 'ID des résultats de la course %s n\'est pas valide. Entrée rejetée.',
+	'LOG_FORMEL_SETTINGS'			=> 'Configuration mis à jour.',
+	'LOG_FORMEL_RACE_ADDED'			=> 'Course ajouté.',
+	'LOG_FORMEL_RACE_EDITED'		=> 'ID de course %s édité.',
+	'LOG_FORMEL_RACE_DELETED'		=> 'ID de course %s effacé',
+	'LOG_FORMEL_TEAM_ADDED'			=> 'Ecurie ajouté.',
+	'LOG_FORMEL_TEAM_EDITED'		=> 'ID de l\'écurie %s édité.',
+	'LOG_FORMEL_TEAM_DELETED'		=> 'ID de l\'écurie %s effacé.',
+	'LOG_FORMEL_DRIVER_ADDED'		=> 'Pilote ajouté.',
+	'LOG_FORMEL_DRIVER_EDITED'		=> 'ID du pilote %s édité.',
+	'LOG_FORMEL_DRIVER_DELETED'		=> 'ID du pilote %s effacé.',
 ));
 
 ?>
