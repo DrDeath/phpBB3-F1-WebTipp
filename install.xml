@@ -229,7 +229,7 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
     <open src="memberlist.php">
       <edit>
         <find><![CDATA[$user->setup(array('memberlist', 'groups'));]]></find>
-        <action type="replace-with"><![CDATA[$user->setup(array('memberlist', 'groups', 'mods/formel'));]]></action>
+        <action type="after-add"><![CDATA[$user->add_lang('mods/formel');]]></action>
       </edit>
       <edit>
         <find><![CDATA[	// Now generate page title]]></find>

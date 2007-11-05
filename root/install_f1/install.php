@@ -125,52 +125,39 @@ if ($submit == 'continue')
 	//Delete old permission set if exists from prior f1webtipp mod installations
 	$sql = 'DELETE FROM '.$table_prefix."acl_options WHERE auth_option = 'a_formel_teams'";
 	$result = $db->sql_query($sql);
-	$db->sql_freeresult($result);
 
 	$sql = 'DELETE FROM '.$table_prefix."acl_options WHERE auth_option = 'a_formel_drivers'";
 	$result = $db->sql_query($sql);
-	$db->sql_freeresult($result);
 
 	$sql = 'DELETE FROM '.$table_prefix."acl_options WHERE auth_option = 'a_formel_settings'";
 	$result = $db->sql_query($sql);
-	$db->sql_freeresult($result);
 
 	$sql = 'DELETE FROM '.$table_prefix."acl_options WHERE auth_option = 'a_formel_races'";
 	$result = $db->sql_query($sql);
-	$db->sql_freeresult($result);
 	
-	//Destroy the old permission chache
-	$cache->purge();
-
 	// Drop the formel_config table if existing
 	$sql = 'DROP TABLE IF EXISTS '.$table_prefix.'formel_config';
 	$result = $db->sql_query($sql);
-	$db->sql_freeresult($result);
 
 	// Drop the formel_drivers table if existing
 	$sql = 'DROP TABLE IF EXISTS '.$table_prefix.'formel_drivers';
 	$result = $db->sql_query($sql);
-	$db->sql_freeresult($result);
 	
 	// Drop the formel_teams table if existing
 	$sql = 'DROP TABLE IF EXISTS '.$table_prefix.'formel_teams';
 	$result = $db->sql_query($sql);
-	$db->sql_freeresult($result);
 
 	// Drop the formel_races table if existing
 	$sql = 'DROP TABLE IF EXISTS '.$table_prefix.'formel_races';
 	$result = $db->sql_query($sql);
-	$db->sql_freeresult($result);
 	
 	// Drop the formel_wm table if existing
 	$sql = 'DROP TABLE IF EXISTS '.$table_prefix.'formel_wm';
 	$result = $db->sql_query($sql);
-	$db->sql_freeresult($result);
 	
 	// Drop the formel_tipps table if existing
 	$sql = 'DROP TABLE IF EXISTS '.$table_prefix.'formel_tipps';
 	$result = $db->sql_query($sql);
-	$db->sql_freeresult($result);
 	
 	
 	// locate the schema files
@@ -195,7 +182,6 @@ if ($submit == 'continue')
 		if (!$db->sql_query($sql))
 		{
 			$error = $db->sql_error();
-			$this->p_master->db_error($error['message'], $sql, __LINE__, __FILE__);
 		}
 	}
 	unset($sql_query);
@@ -232,7 +218,6 @@ if ($submit == 'continue')
 		if (!$db->sql_query($sql))
 		{
 			$error = $db->sql_error();
-			$this->p_master->db_error($error['message'], $sql, __LINE__, __FILE__);
 		}
 	}
 	unset($sql_query);

@@ -29,9 +29,12 @@ if (!defined('IN_PHPBB'))
 function checkarrayforvalue($wert,$array)
 {
 	$ret=false;
-	if ($wert <> 0) {
-		for ($i=0;$i < count($array);$i++){
-			if ($wert==$array[$i]){
+	if ($wert <> 0) 
+	{
+		for ($i=0;$i < count($array);$i++)
+		{
+			if ($wert==$array[$i])
+			{
 				$ret=true;
 			}
 		}
@@ -50,9 +53,9 @@ function formel_del_tip($user_id,$race_id)
 	global $db, $user, $phpEx;
 
 	$sql = 'DELETE 
-		FROM ' . FORMEL_TIPPS_TABLE . " 
-		WHERE tipp_user = '$user_id' 
-			AND tipp_race = '$race_id'";
+		FROM ' . FORMEL_TIPPS_TABLE . ' 
+		WHERE tipp_user = ' . $user_id . ' 
+			AND tipp_race = ' . $race_id;
 	$db->sql_query($sql);
 
 	$tipp_msg = sprintf($user->lang['formel_tipp_deleted'], '<a href="'.append_sid("formel.$phpEx").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
@@ -207,18 +210,18 @@ function get_formel_auth()
 	$sql = 'SELECT g.group_id 
 		FROM ' . GROUPS_TABLE . ' g, ' . USER_GROUP_TABLE . ' ug
 		WHERE g.group_id = ug.group_id
-			AND ug.user_id = ' . $db->sql_escape($user->data['user_id']) . '
-			AND ug.user_pending <> ' . TRUE . '
-			AND g.group_id = ' . $db->sql_escape($access_group);
+			AND ug.user_id = ' . $user->data['user_id'] . '
+			AND ug.user_pending <> ' . true . '
+			AND g.group_id = ' . $access_group;
 	$result = $db->sql_query($sql);
 
 	$check_formel_auth = $db->sql_affectedrows($result);
 	$db->sql_freeresult($result);
 	if ( $check_formel_auth <> 0 )
 	{
-		return TRUE;
+		return true;
 	}
-	return FALSE;
+	return false;
 }
 
 /**
@@ -235,7 +238,7 @@ function get_formel_userdata($user_id)
 
 	$sql = 'SELECT user_id, username, user_colour, user_avatar, user_avatar_type, user_avatar_width, user_avatar_height
 		FROM ' . USERS_TABLE . '
-		WHERE user_id = ' . $db->sql_escape($user_id) . ' 
+		WHERE user_id = ' . $user_id . ' 
 			AND user_id <> ' . ANONYMOUS;
 	$result = $db->sql_query($sql);
 
