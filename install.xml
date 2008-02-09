@@ -191,7 +191,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		</changelog>
         <changelog lang="de">
           <change>Hinzugefügt: Benutzer und Admin Logfunktion.</change>
-		  <change>Wichtig für Updater: Ersetze formel.php, includes/acp/acp_formel.php, language/en/mods/info_acp_formel.php</change>
+		  <change>Wichtig für Updater: Ersetze formel.php, includes/acp/acp_formel.php, language/de/mods/info_acp_formel.php</change>
         </changelog>
       </entry>
     </history>

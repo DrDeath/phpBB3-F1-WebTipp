@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.0.xsd">
+  <header>
+    <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+    <title lang="en-gb">Formula 1 WebTip Update to Saison 2008</title>
+	<title lang="de">Formel 1 WebTipp Update auf Saison 2008</title>
+    <description lang="en-gb"><![CDATA[With this mod you can update your Formula 1 tipp game to the saison 2008.
+The updater will first truncate all Formular 1 Webtipp Race, Teams and Driver Tables.
+After that it will fill in the actual Race, Teams and Driver data.]]>
+</description>
+<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel auf die Saison 2008.
+Der Updater wird zuerst alle Renn- , Team- und Fahrer Tabellen leeren und anschliessend die Renn- , Team- und Fahrer Tabellen mit den aktiuellen Saison Daten füllen..]]>
+</description>
+    <author-group>
+      <author>
+        <realname>Stefan Temath</realname>
+        <email>dr.death@lpi-clan.de</email>
+        <username>Dr.Death</username>
+        <homepage>http://www.lpi-clan.de</homepage>
+        <contributions />
+      </author>
+    </author-group>
+    <mod-version>
+      <major>0</major>
+      <minor>1</minor>
+      <revision>26</revision>
+    </mod-version>
+    <installation>
+      <level>easy</level>
+      <time>120</time>
+      <target-version>
+        <target-primary>3.0.0</target-primary>
+        <target-major allow="exact">3</target-major>
+        <target-minor allow="exact">0</target-minor>
+      </target-version>
+    </installation>
+    <history>
+     <entry>
+        <date>2008-02-10T00:00:00+02:00</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>26</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>First public Updater</change>
+		</changelog>
+        <changelog lang="de">
+          <change>Erste öffentliche Updater Version</change>
+		</changelog>
+      </entry>
+    </history>
+    <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
+  </header>
+  <action-group>
+    <copy>
+      <file from="update_f1/update_2008.php" to="ROOT/update_f1/update_2008.php" />
+      <file from="update_f1/schemas/_schema_data.sql" to="ROOT/update_f1/schemas/_schema_data.sql" />
+    </copy>
+	<diy-instructions lang="en-gb"><![CDATA[After installing this MOD, you have to point your web browser to the update_f1/update_2008.php file
+like:  http://your-domian.tld/path-to-your-forum/update_f1/update_2008.php
+
+Now you have updated your Formel 1 WebTipp to the saison 2008 !
+
+
+Don't forgett to delete the folder "update_f1" from your webspace.
+
+And now: Have fun!]]></diy-instructions>
+	<diy-instructions lang="de"><![CDATA[Nach der Installation des MODs musst Du noch die Updatedatei update_f1/update_2008.php mit Deinem Browser aufrufen.
+Beispiel: http://deine-domaene.tld/pfad-zum-forum/update_f1/update_2008.php
+
+Geschafft! Euer Formel 1 Webtipp ist nun mit den Renndaten der Saison 2008 versorgt!
+
+Vergesst nicht nach erfolgreicher Aktualisierung den Ordner "update_f1" von Eurem Webspace zu löschen.
+
+
+Und nun: Viel Spass !
+]]></diy-instructions>
+  </action-group>
+</mod>
