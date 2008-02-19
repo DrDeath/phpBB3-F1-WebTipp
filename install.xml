@@ -46,7 +46,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
     <mod-version>
       <major>0</major>
       <minor>1</minor>
-      <revision>26</revision>
+      <revision>27</revision>
     </mod-version>
     <installation>
       <level>easy</level>
@@ -192,6 +192,22 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
         <changelog lang="de">
           <change>Hinzugefügt: Benutzer und Admin Logfunktion.</change>
 		  <change>Wichtig für Updater: Ersetze formel.php, includes/acp/acp_formel.php, language/de/mods/info_acp_formel.php</change>
+        </changelog>
+      </entry>
+     <entry>
+        <date>2008-02-19T00:00:00+02:00</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>27</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>Fix: Show avatar on user statistic.</change>
+		  <change>Important for Updaters: replace formel.php</change>
+		</changelog>
+        <changelog lang="de">
+          <change>Fix: Zeige Avatar auf Spieler Statistik.</change>
+		  <change>Wichtig für Updater: Ersetze formel.php</change>
         </changelog>
       </entry>
     </history>

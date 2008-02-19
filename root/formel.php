@@ -1713,7 +1713,7 @@ switch ($mode)
 						switch ($tipp_user_row['user_avatar_type'])
 						{
 							case AVATAR_UPLOAD:
-								$tipp_user_avatar = $phpbb_root_path . "download.$phpEx?avatar=";
+								$tipp_user_avatar = $phpbb_root_path . "download/file.$phpEx?avatar=";
 							break;
 
 							case AVATAR_GALLERY:
