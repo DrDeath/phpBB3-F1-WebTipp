@@ -119,7 +119,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_TEAM_IMG_WIDTH'				=> 'Teamlogo Breite',
 	'ACP_F1_SETTINGS_TEAM_IMG_WIDTH_EXPLAIN'		=> 'Hier kannst Du die <strong>Breite in Px</strong> angeben,<br />in der das Teamlogo dargestellt werden soll',
 	'ACP_F1_SETTINGS_SEASON_RESET'					=> 'Saison zurücksetzen',
-	'ACP_F1_SETTINGS_SEASON_RESET_EXPLAIN'			=> '<strong>Achtung:</strong> Wenn Du auf den Button klickst, wird die Saison unwiderruflich zurückgesetzt!<br /><br />Nach dem Reset müssen noch die Renntermine der neuen Saison angepasst werden. Der <a href="http://www.uptempo.de.vu">Support</a> dieses Mods bietet hierfür SQL-Updates an.',	
+	'ACP_F1_SETTINGS_SEASON_RESET_EXPLAIN'			=> '<strong>Achtung:</strong> Wenn Du auf den Button klickst, wird die Saison unwiderruflich zurückgesetzt!<br /><br />Nach dem Reset müssen noch die Renntermine der neuen Saison angepasst werden. Der <a href="http://www.lpi-clan.de">Support</a> dieses Mods bietet hierfür SQL-Updates an.',	
 	'ACP_F1_SETTINGS_SEASON_RESETTED'				=> 'Saison zurückgesetzt. Renntermine aktualisieren!',
 	
 	'ACP_F1_DRIVERS'								=> 'Formel 1 Fahrer',
