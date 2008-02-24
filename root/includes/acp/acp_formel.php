@@ -74,32 +74,43 @@ class acp_formel
 
 				$this->page_title = $lang;
 
+				$reset_all = (isset($_POST['reset_all'])) ? true : false;
+				
 				// Reset all config data
-				if ( isset($_POST['reset_all']) )
+				if ($reset_all)
 				{
-					// Is it salty ?
-					if (!check_form_key('acp_formel'))
+					// Have we confirmed with yes ?
+					if (confirm_box(true))
 					{
-						trigger_error('FORM_INVALID');
+						$sql = 'TRUNCATE TABLE ' . FORMEL_TIPPS_TABLE;
+						$result = $db->sql_query($sql);
+
+						$sql = 'TRUNCATE TABLE ' . FORMEL_WM_TABLE;
+						$result = $db->sql_query($sql);
+
+						$sql_ary = array(
+							'race_result'		=> 0,
+							'race_quali'		=> 0,
+						);
+
+						$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
+							SET ' . $db->sql_build_array('UPDATE', $sql_ary) ;
+						$db->sql_query($sql);
+						
+						$error = $user->lang[$lang . '_SEASON_RESETTED'];
+						trigger_error($error . adm_back_link($this->u_action));
 					}
-
-					$sql = 'TRUNCATE TABLE ' . FORMEL_TIPPS_TABLE;
-					$result = $db->sql_query($sql);
-
-					$sql = 'TRUNCATE TABLE ' . FORMEL_WM_TABLE;
-					$result = $db->sql_query($sql);
-
-					$sql_ary = array(
-						'race_result'		=> 0,
-						'race_quali'		=> 0,
-					);
-
-					$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
-						SET ' . $db->sql_build_array('UPDATE', $sql_ary) ;
-					$db->sql_query($sql);
-					
-					$error = $user->lang[$lang . '_SEASON_RESETTED'];
-					trigger_error($error . adm_back_link($this->u_action));
+					// Create a confirmbox with yes and no.
+					else
+					{
+						$s_hidden_fields = build_hidden_fields(array(
+							'reset_all'		=> true,
+							)
+						);
+						
+						// display mode
+						confirm_box(false, $user->lang[$lang . '_SEASON_RESET_EXPLAIN'], $s_hidden_fields);
+					}
 				}
 
 				// Get all config data
