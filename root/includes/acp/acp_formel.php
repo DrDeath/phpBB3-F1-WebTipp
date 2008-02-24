@@ -408,12 +408,14 @@ class acp_formel
 			case 'drivers':
 				$lang = 'ACP_F1_DRIVERS';
 				$this->page_title = $lang;
-
+				
+				$reset_all = (isset($_POST['reset_all'])) ? true : false;
+				
 				// Check buttons
-				$button_adddriver	= request_var('adddriver'		,	''	);
-				$button_add			= request_var('add'				,	''	);
-				$button_del			= request_var('del'				,	''	);
-				$button_edit		= request_var('edit'			,	''	);
+				$button_adddriver 	= (isset($_POST['adddriver'])) 	? true : false;
+				$button_add 		= (isset($_POST['add'])) 		? true : false;
+				$button_del 		= (isset($_POST['del'])) 		? true : false;
+				$button_edit 		= (isset($_POST['edit'])) 		? true : false;
 
 				// Check data
 				$driverimg			= request_var('driverimg'		,	''	);
@@ -664,16 +666,16 @@ class acp_formel
 				$this->page_title = $lang;
 
 				// Check buttons & data
+				$button_addteam 	= (isset($_POST['addteam'])) 	? true : false;
+				$button_add 		= (isset($_POST['add'])) 		? true : false;
+				$button_del 		= (isset($_POST['del'])) 		? true : false;
+				$button_edit 		= (isset($_POST['edit'])) 		? true : false;				
+
 				$teamimg 			= request_var('teamimg'		,	''	,	true	);
 				$teamcar 			= request_var('teamcar'		,	''	,	true	);
 				$teamname 			= request_var('teamname'	,	''	,	true	);
 				$team_id 			= request_var('team_id'		,	0	);
-
-				$button_addteam 	= request_var('addteam'		,	''	);
-				$button_add 		= request_var('add'			,	''	);
-				$button_del 		= request_var('del'			,	''	);
-				$button_edit 		= request_var('edit'		,	''	);
-
+				
 				// Init some vars
 				$formel_config = get_formel_config();
 
@@ -877,6 +879,11 @@ class acp_formel
 				$this->page_title = $lang;
 
 				// Check buttons & data
+				$button_addrace = (isset($_POST['addrace'])) 	? true : false;
+				$button_add 	= (isset($_POST['add'])) 		? true : false;
+				$button_del 	= (isset($_POST['del'])) 		? true : false;
+				$button_edit 	= (isset($_POST['edit'])) 		? true : false;
+				
 				$b_day 			= request_var('c_day'			,	$user->format_date(time(),"d")	);
 				$b_month 		= request_var('c_month'			,	$user->format_date(time(),"n")	);
 				$b_year 		= request_var('c_year'			,	$user->format_date(time(),"Y")	);
@@ -892,11 +899,6 @@ class acp_formel
 				$racedebut 		= request_var('racedebut'		,	0	,	true	);
 
 				$race_id 		= request_var('race_id'			,	0	);
-
-				$button_add 	= request_var('add'				,	''	);
-				$button_addrace = request_var('addrace'			,	''	);
-				$button_del 	= request_var('del'				,	''	);
-				$button_edit 	= request_var('edit'			,	''	);
 
 				// Get all config data
 				$formel_config = get_formel_config();
