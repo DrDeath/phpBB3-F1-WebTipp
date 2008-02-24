@@ -97,6 +97,7 @@ class acp_formel
 							SET ' . $db->sql_build_array('UPDATE', $sql_ary) ;
 						$db->sql_query($sql);
 						
+						add_log('admin', 'LOG_FORMEL_SAISON_RESET');
 						$error = $user->lang[$lang . '_SEASON_RESETTED'];
 						trigger_error($error . adm_back_link($this->u_action));
 					}

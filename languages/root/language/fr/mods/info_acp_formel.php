@@ -57,6 +57,7 @@ $lang = array_merge($lang, array(
 	'LOG_FORMEL_RESULT_DELETED'		=> 'ID des résultats de la course %s effacé.',
 	'LOG_FORMEL_RESULT_ADDED'		=> 'ID des résultats de la course %s ajouté.',
 	'LOG_FORMEL_RESULT_NOT_VALID'	=> 'ID des résultats de la course %s n\'est pas valide. Entrée rejetée.',
+	'LOG_FORMEL_SAISON_RESET'		=> 'F1 WebTipp saison réduit',
 	'LOG_FORMEL_SETTINGS'			=> 'Configuration mis à jour.',
 	'LOG_FORMEL_RACE_ADDED'			=> 'Course ajouté.',
 	'LOG_FORMEL_RACE_EDITED'		=> 'ID de course %s édité.',

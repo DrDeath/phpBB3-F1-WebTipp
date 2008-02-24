@@ -56,6 +56,7 @@ $lang = array_merge($lang, array(
 	'LOG_FORMEL_RESULT_DELETED'		=> 'Formula 1 race result for race id %s deleted.',
 	'LOG_FORMEL_RESULT_ADDED'		=> 'Formula 1 race result for race id %s added.',
 	'LOG_FORMEL_RESULT_NOT_VALID'	=> 'Formula 1 race result for race id %s not valid. Entry rejected.',
+	'LOG_FORMEL_SAISON_RESET'		=> 'Formula 1 saison reseted.',
 	'LOG_FORMEL_SETTINGS'			=> 'Formula 1 settings updated.',
 	'LOG_FORMEL_RACE_ADDED'			=> 'Formula 1 race added.',
 	'LOG_FORMEL_RACE_EDITED'		=> 'Formula 1 race ID %s edited.',

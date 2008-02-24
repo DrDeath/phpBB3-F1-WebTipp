@@ -56,6 +56,7 @@ $lang = array_merge($lang, array(
 	'LOG_FORMEL_RESULT_DELETED'		=> 'F1 WebTipp Rennergebnis für Renn-ID %s gelöscht',
 	'LOG_FORMEL_RESULT_ADDED'		=> 'F1 WebTipp Rennergebnis für Renn-ID %s eingetragen',
 	'LOG_FORMEL_RESULT_NOT_VALID'	=> 'F1 WebTipp Rennergebnis für Renn-ID %s ungültig. Eintragung wurde abgewiesen',
+	'LOG_FORMEL_SAISON_RESET'		=> 'F1 WebTipp Saison zurückgesetzt.',
 	'LOG_FORMEL_SETTINGS'			=> 'F1 WebTipp Einstellungen aktualisiert',
 	'LOG_FORMEL_RACE_ADDED'			=> 'F1 WebTipp Rennen hinzugefügt',
 	'LOG_FORMEL_RACE_EDITED'		=> 'F1 WebTipp Renn-ID %s bearbeitet',

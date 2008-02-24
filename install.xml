@@ -203,11 +203,15 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
         </rev-version>
         <changelog lang="en-gb">
           <change>Fix: Show avatar on user statistic.</change>
-		  <change>Important for Updaters: replace formel.php</change>
+		  <change>Added: Confirm box for saison reset in acp.</change>
+		  <change>Added: log for saison reset.</change>
+		  <change>Important for Updaters: replace formel.php, includes/acp/acp_formel.php, language/en/mods/info_acp_formel.php</change>
 		</changelog>
         <changelog lang="de">
           <change>Fix: Zeige Avatar auf Spieler Statistik.</change>
-		  <change>Wichtig für Updater: Ersetze formel.php</change>
+		  <change>Hinzugefügt: Bestätigungsabfrage für "Saison zurücksetzen" im ACP.</change>
+		  <change>Hinzugefügt: Log für "Saison zurücksetzen".</change>
+		  <change>Wichtig für Updater: Ersetze formel.php, includes/acp/acp_formel.php, language/de/mods/info_acp_formel.php</change>
         </changelog>
       </entry>
     </history>
