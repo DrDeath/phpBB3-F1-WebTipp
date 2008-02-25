@@ -75,19 +75,20 @@ switch ($mode)
 		$template_html = 'formel_body.html';
 
 		// Check buttons & data
+		$next 			= (isset($_POST['next'])) 			? true : false;
+		$prev 			= (isset($_POST['prev'])) 			? true : false;
+		$place_my_tipp 	= (isset($_POST['place_my_tipp'])) 	? true : false;
+		$edit_my_tipp 	= (isset($_POST['edit_my_tipp'])) 	? true : false;
+		$del_tipp 		= (isset($_POST['del_tipp'])) 		? true : false;	
+		
 		$race_offset 	= request_var('race_offset'		,	0	);
 		$race_id 		= request_var('race_id'			,	0	);
-		$next 			= request_var('next'			,	''	);
-		$prev 			= request_var('prev'			,	''	);
-		$place_my_tipp 	= request_var('place_my_tipp'	,	''	);
-		$edit_my_tipp 	= request_var('edit_my_tipp'	,	''	);
-		$del_tipp 		= request_var('del_tipp'		,	''	);
 		$user_id 		= $user->data['user_id'];
 		$my_tipp_array 	= array();
 		$my_tipp 		= '';
 		$tipp_time 		= request_var('tipp_time'		,	0	);
 		$tipp_time 		= intval($tipp_time);
-
+				
 		//Define some vars
 		$driver_team_name = $driverteamname = $gfxdrivercar = $gfxdrivercombo = $single_fastest	= $single_tired	= '';
 
@@ -968,16 +969,21 @@ switch ($mode)
 		}
 		
 		// Check buttons & data
+
+		$addresult 		= (isset($_POST['addresult'])) 		? true : false;
+		$addeditresult 	= (isset($_POST['addeditresult'])) 	? true : false;	
+		$editresult 	= (isset($_POST['editresult'])) 	? true : false;
+
+		$addquali 		= (isset($_POST['addquali'])) 		? true : false;
+		$editquali	 	= (isset($_POST['editquali'])) 		? true : false;	
+		$quali 			= (isset($_POST['quali'])) 			? true : false;
+		
+		$reset 			= (isset($_POST['reset'])) 			? true : false;
+		$resetquali 	= (isset($_POST['resetquali'])) 	? true : false;	
+		$resetresult 	= (isset($_POST['resetresult'])) 	? true : false;
+		
 		$results		= request_var('result'			,	''	);
-		$addresult		= request_var('addresult'		,	''	);
-		$addeditresult	= request_var('addeditresult'	,	''	);
-		$editresult		= request_var('editresult'		,	''	);
-		$addquali		= request_var('addquali'		,	''	);
-		$editquali		= request_var('editquali'		,	''	);
-		$quali			= request_var('quali'			,	''	);
-		$reset			= request_var('reset'			,	''	);
-		$resetquali		= request_var('resetquali'		,	''	);
-		$resetresult	= request_var('resetresult'		,	''	);
+
 		$race_id		= request_var('race_id'			,	0	);
 
 		// Init some vars
@@ -1568,8 +1574,8 @@ switch ($mode)
 		));	
 		
 		// Check buttons & data
-		$show_drivers 	= request_var('show_drivers'	,	''	);
-		$show_teams 	= request_var('show_teams'		,	''	);
+		$show_drivers 	= (isset($_POST['show_drivers'])) 	? true : false;
+		$show_teams 	= (isset($_POST['show_teams'])) 	? true : false;
 		
 		// Show teams toplist
 		if ($show_teams) 
