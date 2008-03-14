@@ -143,7 +143,7 @@ $lang = array_merge($lang, array(
 
 	'ACP_F1_TEAMS'									=> 'Formel 1 Teams',
 	'ACP_F1_TEAMS_EXPLAIN'							=> 'Hier kannst Du neue Formel 1 Teams erstellen oder vorhandene bearbeiten',
-	'ACP_F1_TEAMS_ADD_TEAM'							=> 'Neues team',
+	'ACP_F1_TEAMS_ADD_TEAM'							=> 'Neues Team',
 	'ACP_F1_TEAMS_ADDTEAM_TITLE'					=> 'Formel 1 Team eintragen',
 	'ACP_F1_TEAMS_ADDTEAM_TITLE_EXPLAIN'			=> 'Hier kannst Du ein neues Formel 1 Team erstellen',
 	'ACP_F1_TEAMS_ADDTEAM_TEAMNAME'					=> 'Teamname',

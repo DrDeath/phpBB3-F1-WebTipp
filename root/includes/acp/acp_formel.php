@@ -288,90 +288,6 @@ class acp_formel
 					'S_SHOW_COUNTDOWN_YES'				=> $show_countdown_yes,
 					'S_SHOW_COUNTDOWN_NO'				=> $show_countdown_no,
 
-					'L_TITLE'							=> $user->lang[$lang],
-					'L_EXPLAIN'							=> $user->lang[$lang . '_EXPLAIN'],
-					'L_CONFIG'							=> $user->lang[$lang . '_CONFIG'],
-					'L_MODERATOR'						=> $user->lang[$lang . '_MODERATOR'],
-					'L_MODERATOR_EXPLAIN'				=> $user->lang[$lang . '_MODERATOR_EXPLAIN'],
-					'L_ACCESS_GROUP'					=> $user->lang[$lang . '_ACCESS_GROUP'],
-					'L_ACCESS_GROUP_EXPLAIN'			=> $user->lang[$lang . '_ACCESS_GROUP_EXPLAIN'],
-					'L_OFFSET'							=> $user->lang[$lang . '_OFFSET'],
-					'L_OFFSET_EXPLAIN'					=> $user->lang[$lang . '_OFFSET_EXPLAIN'],
-					'L_RACEOFFSET'						=> $user->lang[$lang . '_RACEOFFSET'],
-					'L_RACEOFFSET_EXPLAIN'				=> $user->lang[$lang . '_RACEOFFSET_EXPLAIN'],
-					'L_FORUM'							=> $user->lang[$lang . '_FORUM'],
-					'L_FORUM_EXPLAIN'					=> $user->lang[$lang . '_FORUM_EXPLAIN'],
-					'L_SHOW_PROFILE'					=> $user->lang[$lang . '_SHOW_PROFILE'],
-					'L_SHOW_PROFILE_EXPLAIN'			=> $user->lang[$lang . '_SHOW_PROFILE_EXPLAIN'],
-					'L_SHOW_COUNTDOWN'					=> $user->lang[$lang . '_SHOW_COUNTDOWN'],
-					'L_SHOW_COUNTDOWN_EXPLAIN'			=> $user->lang[$lang . '_SHOW_COUNTDOWN_EXPLAIN'],	
-
-					'L_POINTS'							=> $user->lang[$lang . '_POINTS'],
-					'L_POINTS_MENTIONED'				=> $user->lang[$lang . '_POINTS_MENTIONED'],
-					'L_POINTS_MENTIONED_EXPLAIN'		=> $user->lang[$lang . '_POINTS_MENTIONED_EXPLAIN'],
-					'L_POINTS_PLACED'					=> $user->lang[$lang . '_POINTS_PLACED'],
-					'L_POINTS_PLACED_EXPLAIN'			=> $user->lang[$lang . '_POINTS_PLACED_EXPLAIN'],
-					'L_POINTS_FASTEST'					=> $user->lang[$lang . '_POINTS_FASTEST'],
-					'L_POINTS_FASTEST_EXPLAIN'			=> $user->lang[$lang . '_POINTS_FASTEST_EXPLAIN'],
-					'L_POINTS_TIRED'					=> $user->lang[$lang . '_POINTS_TIRED'],
-					'L_POINTS_TIRED_EXPLAIN'			=> $user->lang[$lang . '_POINTS_TIRED_EXPLAIN'],
-
-					'L_PICS'							=> $user->lang[$lang . '_PICS'],
-					'L_SHOW_AVATAR'						=> $user->lang[$lang . '_SHOW_AVATAR'],
-					'L_SHOW_AVATAR_EXPLAIN'				=> $user->lang[$lang . '_SHOW_AVATAR_EXPLAIN'],
-					'L_SHOW_HEADBANNER'					=> $user->lang[$lang . '_SHOW_HEADBANNER'],
-					'L_SHOW_HEADBANNER_EXPLAIN'			=> $user->lang[$lang . '_SHOW_HEADBANNER_EXPLAIN'],
-					'L_HEADBANNER_IMG_HEIGHT'			=> $user->lang[$lang . '_HEADBANNER_IMG_HEIGHT'],
-					'L_HEADBANNER_IMG_HEIGHT_EXPLAIN'	=> $user->lang[$lang . '_HEADBANNER_IMG_HEIGHT_EXPLAIN'],
-					'L_HEADBANNER_IMG_WIDTH'			=> $user->lang[$lang . '_HEADBANNER_IMG_WIDTH'],
-					'L_HEADBANNER_IMG_WIDTH_EXPLAIN'	=> $user->lang[$lang . '_HEADBANNER_IMG_WIDTH_EXPLAIN'],
-					'L_HEADBANNER1_IMG'					=> $user->lang[$lang . '_HEADBANNER1_IMG'],
-					'L_HEADBANNER1_IMG_EXPLAIN'			=> $user->lang[$lang . '_HEADBANNER1_IMG_EXPLAIN'],
-					'L_HEADBANNER1_URL'					=> $user->lang[$lang . '_HEADBANNER1_URL'],
-					'L_HEADBANNER1_URL_EXPLAIN'			=> $user->lang[$lang . '_HEADBANNER1_URL_EXPLAIN'],
-					'L_HEADBANNER2_IMG'					=> $user->lang[$lang . '_HEADBANNER2_IMG'],
-					'L_HEADBANNER2_IMG_EXPLAIN'			=> $user->lang[$lang . '_HEADBANNER2_IMG_EXPLAIN'],
-					'L_HEADBANNER2_URL'					=> $user->lang[$lang . '_HEADBANNER2_URL'],
-					'L_HEADBANNER2_URL_EXPLAIN'			=> $user->lang[$lang . '_HEADBANNER2_URL_EXPLAIN'],
-					'L_HEADBANNER3_IMG'					=> $user->lang[$lang . '_HEADBANNER3_IMG'],
-					'L_HEADBANNER3_IMG_EXPLAIN'			=> $user->lang[$lang . '_HEADBANNER3_IMG_EXPLAIN'],
-					'L_HEADBANNER3_URL'					=> $user->lang[$lang . '_HEADBANNER3_URL'],
-					'L_HEADBANNER3_URL_EXPLAIN'			=> $user->lang[$lang . '_HEADBANNER3_URL_EXPLAIN'],
-
-					'L_SHOW_GFXR'						=> $user->lang[$lang . '_SHOW_GFXR'],
-					'L_SHOW_GFXR_EXPLAIN'				=> $user->lang[$lang . '_SHOW_GFXR_EXPLAIN'],
-					'L_NO_RACE_IMG'						=> $user->lang[$lang . '_NO_RACE_IMG'],
-					'L_NO_RACE_IMG_EXPLAIN'				=> $user->lang[$lang . '_NO_RACE_IMG_EXPLAIN'],
-					'L_RACE_IMG_HEIGHT'					=> $user->lang[$lang . '_RACE_IMG_HEIGHT'],
-					'L_RACE_IMG_HEIGHT_EXPLAIN'			=> $user->lang[$lang . '_RACE_IMG_HEIGHT_EXPLAIN'],
-					'L_RACE_IMG_WIDTH'					=> $user->lang[$lang . '_RACE_IMG_WIDTH'],
-					'L_RACE_IMG_WIDTH_EXPLAIN'			=> $user->lang[$lang . '_RACE_IMG_WIDTH_EXPLAIN'],
-
-					'L_SHOW_GFX'						=> $user->lang[$lang . '_SHOW_GFX'],
-					'L_SHOW_GFX_EXPLAIN'				=> $user->lang[$lang . '_SHOW_GFX_EXPLAIN'],
-					'L_NO_CAR_IMG'						=> $user->lang[$lang . '_NO_CAR_IMG'],
-					'L_NO_CAR_IMG_EXPLAIN'				=> $user->lang[$lang . '_NO_CAR_IMG_EXPLAIN'],
-					'L_CAR_IMG_HEIGHT'					=> $user->lang[$lang . '_CAR_IMG_HEIGHT'],
-					'L_CAR_IMG_HEIGHT_EXPLAIN'			=> $user->lang[$lang . '_CAR_IMG_HEIGHT_EXPLAIN'],
-					'L_CAR_IMG_WIDTH'					=> $user->lang[$lang . '_CAR_IMG_WIDTH'],
-					'L_CAR_IMG_WIDTH_EXPLAIN'			=> $user->lang[$lang . '_CAR_IMG_WIDTH_EXPLAIN'],
-					'L_NO_DRIVER_IMG'					=> $user->lang[$lang . '_NO_DRIVER_IMG'],
-					'L_NO_DRIVER_IMG_EXPLAIN'			=> $user->lang[$lang . '_NO_DRIVER_IMG_EXPLAIN'],
-					'L_DRIVER_IMG_HEIGHT'				=> $user->lang[$lang . '_DRIVER_IMG_HEIGHT'],
-					'L_DRIVER_IMG_HEIGHT_EXPLAIN'		=> $user->lang[$lang . '_DRIVER_IMG_HEIGHT_EXPLAIN'],
-					'L_DRIVER_IMG_WIDTH'				=> $user->lang[$lang . '_DRIVER_IMG_WIDTH'],
-					'L_DRIVER_IMG_WIDTH_EXPLAIN'		=> $user->lang[$lang . '_DRIVER_IMG_WIDTH_EXPLAIN'],
-					'L_NO_TEAM_IMG'						=> $user->lang[$lang . '_NO_TEAM_IMG'],
-					'L_NO_TEAM_IMG_EXPLAIN'				=> $user->lang[$lang . '_NO_TEAM_IMG_EXPLAIN'],
-					'L_TEAM_IMG_HEIGHT'					=> $user->lang[$lang . '_TEAM_IMG_HEIGHT'],
-					'L_TEAM_IMG_HEIGHT_EXPLAIN'			=> $user->lang[$lang . '_TEAM_IMG_HEIGHT_EXPLAIN'],
-					'L_TEAM_IMG_WIDTH'					=> $user->lang[$lang . '_TEAM_IMG_WIDTH'],
-					'L_TEAM_IMG_WIDTH_EXPLAIN'			=> $user->lang[$lang . '_TEAM_IMG_WIDTH_EXPLAIN'],
-					'L_FORMEL_SAISON_RESET'				=> $user->lang[$lang . '_SEASON_RESET'],
-					'L_FORMEL_SAISON_RESET'				=> $user->lang[$lang . '_SEASON_RESET'],
-					'L_FORMEL_RESET'					=> $user->lang[$lang . '_SEASON_RESET_EXPLAIN'],
-					'L_RESET_OK'						=> $user->lang[$lang . '_SEASON_RESET'],
-
 					'ACP_F1_SETTING_OFFSET'					=> $formel_config['deadline_offset'],
 					'ACP_F1_SETTING_RACEOFFSET'				=> $formel_config['event_change'],
 					'ACP_F1_SETTING_FORUM'					=> $formel_config['forum_id'],
@@ -559,19 +475,15 @@ class acp_formel
 					}
 
 					$template->assign_vars(array(
-						'U_ACTION'			=> $this->u_action,
-						'S_ADDDRIVERS'		=> true,
-						'L_ADD'				=> $user->lang[$lang . '_ADD'],
-						'FORMEL_IMG'		=> $phpbb_root_path.'images/formel/formel_drivers.jpg',
-						'PREDEFINED_NAME'	=> $drivername,
-						'PREDEFINED_IMG'	=> $driverimg,
-						'DRIVER_ID'			=> $driver_id,
-						'L_EXPLAIN'			=> $title_exp,
-						'L_TITLE'			=> $title,
-						'L_DRIVERNAME'		=> $user->lang[$lang . '_DRIVERNAME'],
-						'L_DRIVERIMG'		=> $user->lang[$lang . '_DRIVERIMAGE'],
-						'L_DRIVERTEAM'		=> $user->lang[$lang . '_DRIVERTEAM'],
-						'L_DRIVERS'			=> $user->lang[$lang])
+						'U_ACTION'					=> $this->u_action,
+						'S_ADDDRIVERS'				=> true,
+						'FORMEL_IMG'				=> $phpbb_root_path.'images/formel/formel_drivers.jpg',
+						'PREDEFINED_NAME'			=> $drivername,
+						'PREDEFINED_IMG'			=> $driverimg,
+						'DRIVER_ID'					=> $driver_id,
+						'L_ACP_F1_DRIVERS_EXPLAIN'	=> $title_exp,
+						'L_ACP_F1_DRIVERS'			=> $title,
+						)
 					);
 				}
 				else 
@@ -617,7 +529,8 @@ class acp_formel
 								'DRIVERID'		=> $row['driver_id'],
 								'DRIVERIMG'		=> $driverimg,
 								'DRIVERTEAM'	=> (isset($teams[$row['driver_team']])) ? $teams[$row['driver_team']] : '',
-								'DRIVERPOINTS'	=> $points)
+								'DRIVERPOINTS'	=> $points,
+								)
 							);
 						}
 						else 
@@ -627,7 +540,8 @@ class acp_formel
 								'DRIVERID'		=> $row['driver_id'],
 								'DRIVERIMG'		=> $driverimg,
 								'DRIVERTEAM'	=> (isset($teams[$row['driver_team']])) ? $teams[$row['driver_team']] : '',
-								'DRIVERPOINTS'	=> $points)
+								'DRIVERPOINTS'	=> $points,
+								)
 							);
 						}
 					}
@@ -644,18 +558,10 @@ class acp_formel
 					$template->assign_vars(array(
 						'U_ACTION'			=> $this->u_action,
 						'S_DRIVERS'			=> true,
-						'L_TITLE'			=> $user->lang[$lang],
-						'L_EXPLAIN'			=> $user->lang[$lang . '_EXPLAIN'],
-						'L_ADD_DRIVER'		=> $user->lang[$lang . '_ADD_DRIVER'],
 						'FORMEL_IMG'		=> $phpbb_root_path.'images/formel/formel_drivers.jpg',
-						'L_DRIVERNAME'		=> $user->lang[$lang . '_DRIVERNAME'],
-						'L_DRIVERTEAM'		=> $user->lang[$lang . '_DRIVERTEAM'],
-						'L_DRIVERPOINTS'	=> $user->lang[$lang . '_DRIVERPOINTS'],
 						'COLSPAN'			=> $colspan,
-						'L_EDIT_DRIVER'		=> $user->lang[$lang . '_EDIT_DRIVER'],
-						'L_DEL_DRIVER'		=> $user->lang[$lang . '_DELETE_DRIVER'],
 						'DRIVER_ID'			=> $driver_id,
-						'L_DRIVERS'			=> $user->lang[$lang])
+						)
 					);
 				}
 			break;
@@ -786,19 +692,15 @@ class acp_formel
 					}
 
 					$template->assign_vars(array(
-						'S_ADDTEAM'			=> true,
-						'L_ADD'				=> $user->lang[$lang . '_ADD'],
-						'FORMEL_IMG'		=> $phpbb_root_path.'images/formel/formel_teams.jpg',
-						'PREDEFINED_NAME'	=> $teamname,
-						'PREDEFINED_IMG'	=> $teamimg,
-						'PREDEFINED_CAR'	=> $teamcar,
-						'PREDEFINED_ID'		=> $team_id,
-						'L_EXPLAIN'			=> $title_exp,
-						'L_TITLE'			=> $title,
-						'L_TEAMNAME'		=> $user->lang[$lang . '_ADDTEAM_TEAMNAME'],
-						'L_TEAMIMG'			=> $user->lang[$lang . '_ADDTEAM_TEAMIMAGE'],
-						'L_TEAMCAR'			=> $user->lang[$lang . '_ADDTEAM_TEAMCAR'],
-						'L_TEAMS' 			=> $user->lang[$lang])
+						'S_ADDTEAM'					=> true,
+						'FORMEL_IMG'				=> $phpbb_root_path.'images/formel/formel_teams.jpg',
+						'PREDEFINED_NAME'			=> $teamname,
+						'PREDEFINED_IMG'			=> $teamimg,
+						'PREDEFINED_CAR'			=> $teamcar,
+						'PREDEFINED_ID'				=> $team_id,
+						'L_ACP_F1_TEAMS_EXPLAIN'	=> $title_exp,
+						'L_ACP_F1_TEAMS'			=> $title,
+						)
 					);
 				}
 				else 
@@ -859,16 +761,9 @@ class acp_formel
 					$template->assign_vars(array(
 						'U_ACTION'		=> $this->u_action,
 						'S_TEAMS'		=> true,
-						'L_TITLE'		=> $user->lang[$lang],
-						'L_EXPLAIN'		=> $user->lang[$lang . '_EXPLAIN'],
-						'L_ADD_TEAM'	=> $user->lang[$lang . '_ADD_TEAM'],
-						'L_TEAM'		=> $user->lang[$lang . '_DRIVERTEAM'],
-						'L_POINTS'		=> $user->lang[$lang . '_DRIVERPOINTS'],
 						'FORMEL_IMG'	=> $phpbb_root_path.'images/formel/formel_teams.jpg',
-						'L_EDIT_TEAM'	=> $user->lang[$lang . '_EDIT_TEAM'],
-						'L_DEL_TEAM'	=> $user->lang[$lang . '_DELETE_TEAM'],
 						'COLSPAN'		=> $colspan,
-						'L_TEAMS'		=> $user->lang[$lang])
+						)
 					);
 				}
 			break;
@@ -1088,7 +983,6 @@ class acp_formel
 					$template->assign_vars(array(
 						'S_ADD_RACES'			=> true,
 						'U_ACTION'				=> $this->u_action,
-						'L_ADD' 				=> $user->lang[$lang . '_ADD'],
 						'FORMEL_IMG' 			=> $phpbb_root_path.'images/formel/formel_races.jpg',
 						'PREDEFINED_NAME' 		=> $racename,
 						'PREDEFINED_IMG' 		=> $raceimg,
@@ -1097,17 +991,10 @@ class acp_formel
 						'PREDEFINED_DISTANCE' 	=> $racedistance,
 						'PREDEFINED_DEBUT' 		=> $racedebut,
 						'PREDEFINED_ID' 		=> $race_id,
-						'L_EXPLAIN' 			=> $title_exp,
-						'L_TITLE' 				=> $title,
+						'L_ACP_F1_RACES_EXPLAIN'=> $title_exp,
+						'L_ACP_F1_RACES' 		=> $title,
 						'RACETIME_COMBOS' 		=> $racetime_combos,
-						'L_RACENAME' 			=> $user->lang[$lang . '_RACENAME'],
-						'L_RACEIMG' 			=> $user->lang[$lang . '_RACEIMAGE'],
-						'L_RACELENGTH' 			=> $user->lang[$lang . '_RACELENGTH'],
-						'L_RACELAPS' 			=> $user->lang[$lang . '_RACELAPS'],
-						'L_RACEDISTANCE' 		=> $user->lang[$lang . '_RACEDISTANCE'],
-						'L_RACEDEBUT' 			=> $user->lang[$lang . '_RACEDEBUT'],
-						'L_RACETIME' 			=> $user->lang[$lang . '_RACETIME'],
-						'L_RACES' 				=> $user->lang[$lang])
+						)
 					);
 				}
 				else 
@@ -1157,17 +1044,9 @@ class acp_formel
 					$template->assign_vars(array(
 						'S_RACES'		=> true,
 						'U_ACTION'		=> $this->u_action,
-						'L_TITLE' 		=> $user->lang[$lang],
-						'L_EXPLAIN' 	=> $user->lang[$lang . '_EXPLAIN'],
-						'L_ADD_RACE'	=> $user->lang[$lang . '_ADD_RACE'],
-						'L_RACE' 		=> $user->lang[$lang . '_RACENAME'],
-						'L_RACETIME' 	=> $user->lang[$lang . '_RACETIME'],
-						'L_RACEDEAD' 	=> $user->lang[$lang . '_RACEDEAD'],
 						'COLSPAN' 		=> $colspan,
 						'FORMEL_IMG' 	=> $phpbb_root_path.'images/formel/formel_races.jpg',
-						'L_EDIT_RACE' 	=> $user->lang[$lang . '_EDIT_RACE'],
-						'L_DEL_RACE' 	=> $user->lang[$lang . '_DELETE_RACE'],
-						'L_RACES' 		=> $user->lang[$lang])
+						)
 					);
 				}
 			break;
