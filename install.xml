@@ -195,7 +195,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
         </changelog>
       </entry>
      <entry>
-        <date>2008-03-14T00:00:00+02:00</date>
+        <date>2008-03-18T00:00:00+02:00</date>
         <rev-version>
           <major>0</major>
           <minor>1</minor>
@@ -203,17 +203,19 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
         </rev-version>
         <changelog lang="en-gb">
           <change>Fix: Show avatar on user statistic.</change>
+		  <change>Fix: HTML error in fomel_body.html fixed. Thanks for the fix to: -=[LCW]=-ExXtReMe</change>
 		  <change>Added: Confirm box for saison reset in acp.</change>
 		  <change>Added: log-action for saison reset.</change>
 		  <change>Changed: language vars in acp.</change>
-		  <change>Important for Updaters: replace formel.php, includes/acp/acp_formel.php, adm/style/acp_formel.html, language/en/mods/info_acp_formel.php</change>
+		  <change>Important for Updaters: replace formel.php, includes/acp/acp_formel.php, adm/style/acp_formel.html, styles/prosilver/template/formel_body.html, styles/subsilver/template/formel_body.html, language/en/mods/info_acp_formel.php</change>
 		</changelog>
         <changelog lang="de">
           <change>Fix: Zeige Avatar auf Spieler Statistik.</change>
+		  <change>Fix: HTML Fehler in der fomel_body.html behoben. Danke für den Fix an: -=[LCW]=-ExXtReMe</change>
 		  <change>Hinzugefügt: Bestätigungsabfrage für "Saison zurücksetzen" im ACP.</change>
 		  <change>Hinzugefügt: Log-Aktion für "Saison zurücksetzen".</change>
 		  <change>Änderung: Sprachvariabeln im ACP.</change>
-		  <change>Wichtig für Updater: Ersetze formel.php, includes/acp/acp_formel.php, adm/style/acp_formel.html, language/de/mods/info_acp_formel.php</change>
+		  <change>Wichtig für Updater: Ersetze formel.php, includes/acp/acp_formel.php, adm/style/acp_formel.html, styles/prosilver/template/formel_body.html, styles/subsilver/template/formel_body.html, language/de/mods/info_acp_formel.php</change>
         </changelog>
       </entry>
     </history>
