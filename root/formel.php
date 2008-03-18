@@ -1574,8 +1574,8 @@ switch ($mode)
 		));	
 		
 		// Check buttons & data
-		$show_drivers 	= (isset($_POST['show_drivers'])) 	? true : false;
-		$show_teams 	= (isset($_POST['show_teams'])) 	? true : false;
+		$show_drivers 	= request_var('show_drivers'	,	'');
+		$show_teams 	= request_var('show_teams'		,	'');
 		
 		// Show teams toplist
 		if ($show_teams) 
