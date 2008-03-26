@@ -1,13 +1,11 @@
 <?php
 /** 
 *
-* @package phpbb3f1webtipp
-* $LastChangedDate$
-* $LastChangedBy$
-* $Id$
-* $Revision$
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-* language/de/mods/formel.php - [Language Deutsch]
+* \language\de\mods\formel.php - [Language - Formel 1 WebTipp][German]
+*
+* @package language
+* @version $Id$
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
 *
 */
 
@@ -41,42 +39,41 @@ if (empty($lang) || !is_array($lang))
 
 // Formel 1 WebTipp 
 $lang = array_merge($lang, array(
-	'formel_title'							=> 'Formel 1 WebTipp',
-	'formel_headerlink'						=> 'F1-WebTipp',
-	'formel_current_race'					=> 'Aktuelles Rennen',
-	'formel_current_quali'					=> 'Qualifikation',
-	'formel_current_result'					=> 'Ergebnis',
-	'formel_no_quali'						=> 'Keine Qualifikation verfügbar',
-	'formel_no_result'						=> 'Kein Ergebnis verfügbar',
-	'formel_racename'						=> 'Rennstrecke',
-	'formel_racelength'						=> 'Streckenlänge',
-	'formel_racedistance'					=> 'Renndistanz',
-	'formel_racelaps'						=> 'Anzahl Runden',
-	'formel_racedebut'						=> 'Streckendebüt',
-	'formel_racetime'						=> 'Rennstart',
-	'formel_racedead'						=> 'Deadline',
-	'formel_next_race'						=> 'Nächstes',
-	'formel_prev_race'						=> 'Vorheriges',
-	'formel_place'							=> 'Platz',
-	'formel_edit'							=> 'Bearbeiten',
-	'formel_rules'							=> 'Spielregeln',
-	'formel_forum'							=> 'Diskussionsforum',
-	'formel_statistics'						=> 'Statistik',
-	'formel_call_mod'						=> 'Moderator benachrichtigen',
-	'formel_pole'							=> 'Poleposition',
-	'formel_race_winner'					=> 'Sieger',
-	'formel_delete'							=> 'Löschen',
-	'formel_pace'							=> 'Schnellste Runde',
-	'formel_tired'							=> 'Anzahl Ausfälle',
-	'formel_tipp_not_found'					=> 'Es wurde kein Tipp gefunden',
-	'formel_your_tipp'						=> 'Dein Tipp',
+	'FORMEL_TITLE'							=> 'Formel 1 WebTipp',
+	'FORMEL_CURRENT_RACE'					=> 'Aktuelles Rennen',
+	'FORMEL_CURRENT_QUALI'					=> 'Qualifikation',
+	'FORMEL_CURRENT_RESULT'					=> 'Ergebnis',
+	'FORMEL_NO_QUALI'						=> 'Keine Qualifikation verfügbar',
+	'FORMEL_NO_RESULTS'						=> 'Kein Ergebnis verfügbar',
+	'FORMEL_RACENAME'						=> 'Rennstrecke',
+	'FORMEL_RACELENGTH'						=> 'Streckenlänge',
+	'FORMEL_RACEDISTANCE'					=> 'Renndistanz',
+	'FORMEL_RACELAPS'						=> 'Anzahl Runden',
+	'FORMEL_RACEDEBUT'						=> 'Streckendebüt',
+	'FORMEL_RACETIME'						=> 'Rennstart',
+	'FORMEL_RACEDEAD'						=> 'Deadline',
+	'FORMEL_NEXT_RACE'						=> 'Nächstes',
+	'FORMEL_PREV_RACE'						=> 'Vorheriges',
+	'FORMEL_PLACE'							=> 'Platz',
+	'FORMEL_EDIT'							=> 'Bearbeiten',
+	'FORMEL_RULES'							=> 'Spielregeln',
+	'FORMEL_FORUM'							=> 'Diskussionsforum',
+	'FORMEL_STATISTICS'						=> 'Statistik',
+	'FORMEL_CALL_MOD'						=> 'Moderator benachrichtigen',
+	'FORMEL_POLE'							=> 'Poleposition',
+	'FORMEL_RACE_WINNER'					=> 'Sieger',
+	'FORMEL_DELETE'							=> 'Löschen',
+	'FORMEL_PACE'							=> 'Schnellste Runde',
+	'FORMEL_TIRED'							=> 'Anzahl Ausfälle',
+	'FORMEL_NO_TIPP'						=> 'Es wurde kein Tipp gefunden',
+	'FORMEL_YOUR_TIPP'						=> 'Dein Tipp',
 	'formel_your_points'					=> 'Deine Punkte',
 	'formel_game_over'						=> 'Die Frist ist abgelaufen. Du kannst für dieses Rennen keinen Tipp mehr abgeben.',
 	'formel_add_tipp'						=> 'Tipp abgeben',
 	'formel_del_tipp'						=> 'Tipp löschen',
 	'formel_edit_tipp'						=> 'Tipp bearbeiten',
 	'formel_tipp_deleted'					=> 'Der Tipp wurde erfolgreich gelöscht<br /><br />Klicke %shier%s, um zum WebTipp zurückzukehren<br /><br />Klicke %shier%s, um zum Forum zurückzukehren',
-	'formel_doublicate_values'				=> 'Der Tipp wurde nicht angenommen: Ein Fahrer wurde doppelt platziert<br /><br />Klicke %shier%s, um zu dem Formel 1 Tipp zurückzukehren<br /><br />Klicke %shier%s, um zum Forum zurückzukehren',
+	'formel_doublicate_values'				=> '<span style="color:red; font-weight:bold; font-size: 1.5em">Der Tipp wurde nicht angenommen: Ein Fahrer wurde doppelt platziert</span><br /><br />Klicke %shier%s, um zu dem Formel 1 Tipp zurückzukehren<br /><br />Klicke %shier%s, um zum Forum zurückzukehren',
 	'formel_accepted_tipp'					=> 'Der Tipp wurde erfolgreich eingetragen<br /><br />Klicke %shier%s, um für weitere Rennen zu tippen<br /><br />Klicke %shier%s, um zum Forum zurückzukehren',
 	'formel_results_title'					=> 'WebTipp Moderation',
 	'formel_results_title_exp'				=> 'Hier kannst Du die Ergebnisse für die einzelnen Rennen eintragen oder bearbeiten',

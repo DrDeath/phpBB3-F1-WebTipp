@@ -56,7 +56,7 @@ if ( $formel_group_id <> 0 && !get_formel_auth() && $is_admin <> 1 && $user->dat
 // Creating breadcrumps
 $template->assign_block_vars('navlinks', array( 
 	'U_VIEW_FORUM'		=> append_sid("./formel.$phpEx"),
-	'FORUM_NAME' 		=> $user->lang['formel_title'],
+	'FORUM_NAME' 		=> $user->lang['FORMEL_TITLE'],
 ));
 
 // Salting the form...yumyum ...
@@ -71,7 +71,7 @@ switch ($mode)
 	case 'standard':
 
 		// Set template vars
-		$page_title = $user->lang['formel_title'];
+		$page_title = $user->lang['FORMEL_TITLE'];
 		$template_html = 'formel_body.html';
 
 		// Check buttons & data
@@ -454,7 +454,7 @@ switch ($mode)
 					for ($i = 0; $i < count($tipp_array) - 2; $i++) 
 					{
 						$results		= explode(",",$races[$chosen_race]['race_result']);
-						$position		= ($i == 0) ? $user->lang['formel_race_winner'] : $i+1 . '. ' . $user->lang['formel_place'];
+						$position		= ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
 						$box_name		= 'place' . ($i+1);
 						$single_points	= '';
 
@@ -591,8 +591,6 @@ switch ($mode)
 					if ( $formel_config['show_gfx'] == 1 )
 					{
 						$template->assign_block_vars('extended_users_tipp_gfx', array(
-							'L_PACE'			=> $user->lang['formel_pace'],
-							'L_TIRED'			=> $user->lang['formel_tired'],
 							'TIREDCOMBO'		=> $tiredcombo,
 							'DRIVERCOMBO'		=> $drivercombo,
 							'GFXDRIVERCOMBO'	=> $gfxdrivercombo,
@@ -603,8 +601,6 @@ switch ($mode)
 					else
 					{
 						$template->assign_block_vars('extended_users_tipp', array(
-							'L_PACE'			=> $user->lang['formel_pace'],
-							'L_TIRED'			=> $user->lang['formel_tired'],
 							'TIREDCOMBO'		=> $tiredcombo,
 							'DRIVERCOMBO'		=> $drivercombo,
 							'GFXDRIVERCOMBO'	=> $gfxdrivercombo,
@@ -622,7 +618,7 @@ switch ($mode)
 						//Actual Race is not over
 						for ($i = 0; $i < 8; $i++) 
 						{
-							$position = ($i == 0) ? $user->lang['formel_race_winner'] : $i+1 . '. ' . $user->lang['formel_place'];
+							$position = ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
 							$box_name = 'place' . ($i+1);
 
 							$drivercombo = '<select name="' . $box_name . '" size="1">';
@@ -659,8 +655,6 @@ switch ($mode)
 						$tiredcombo .= '</select>';
 
 						$template->assign_block_vars('extended_add_tipp', array(
-							'L_PACE'		=> $user->lang['formel_pace'],
-							'L_TIRED'		=> $user->lang['formel_tired'],
 							'TIREDCOMBO'	=> $tiredcombo,
 							'DRIVERCOMBO'	=> $drivercombo)
 						);
@@ -677,7 +671,7 @@ switch ($mode)
 					for ($j = 0; $j < count($quali); $j++) 
 					{
 						$current_driver_id = $quali[$j];
-						$position = ($j == 0) ? $user->lang['formel_pole'].': ' : $j+1 . '. ' . $user->lang['formel_place'] . ': ';
+						$position = ($j == 0) ? $user->lang['FORMEL_POLE'].': ' : $j+1 . '. ' . $user->lang['FORMEL_PLACE'] . ': ';
 						if ( $formel_config['show_gfx'] == 1 )
 						{
 							$template->assign_block_vars('qualirow_gfx', array(
@@ -701,7 +695,7 @@ switch ($mode)
 				{
 					// If no quali was found
 					$template->assign_block_vars('no_quali', array(
-						'NO_QUALI' 	=> $user->lang['formel_no_quali'])
+						)
 					);
 				}
 
@@ -715,7 +709,7 @@ switch ($mode)
 					for ($j = 0; $j < count($results)-2; $j++) 
 					{
 						$current_driver_id = $results[$j];
-						$position = ($j == 0) ? $user->lang['formel_race_winner'].': ' : $j+1 . '. ' . $user->lang['formel_place'] . ': ';
+						$position = ($j == 0) ? $user->lang['FORMEL_RACE_WINNER'].': ' : $j+1 . '. ' . $user->lang['FORMEL_PLACE'] . ': ';
 						if ( $formel_config['show_gfx'] == 1 )
 						{
 							$template->assign_block_vars('resultsrow_gfx', array(
@@ -738,8 +732,6 @@ switch ($mode)
 					if ( $formel_config['show_gfx'] == 1 )
 					{
 						$template->assign_block_vars('extended_results_gfx', array(
-							'L_PACE'			=> $user->lang['formel_pace'],
-							'L_TIRED'			=> $user->lang['formel_tired'],
 							'L_YOUR_POINTS'		=> $user->lang['formel_your_points'],
 							'PACE'				=> (isset($drivers[$results[8]]['driver_name'])) ? $drivers[$results[8]]['driver_name'] : '',
 							'TIRED'				=> (isset($results[9])) ? $results[9] : '',
@@ -749,8 +741,6 @@ switch ($mode)
 					else
 					{
 						$template->assign_block_vars('extended_results', array(
-							'L_PACE'			=> $user->lang['formel_pace'],
-							'L_TIRED'			=> $user->lang['formel_tired'],
 							'L_YOUR_POINTS'		=> $user->lang['formel_your_points'],
 							'PACE'				=> (isset($drivers[$results[8]]['driver_name'])) ? $drivers[$results[8]]['driver_name'] : '',
 							'TIRED'				=> (isset($results[9])) ? $results[9] : '',
@@ -762,7 +752,7 @@ switch ($mode)
 				{
 					// If no result was found
 					$template->assign_block_vars('no_results', array(
-						'NO_RESULTS'	=> $user->lang['formel_no_result'])
+						)
 					);
 				}
 
@@ -790,13 +780,13 @@ switch ($mode)
 		if ( $formel_forum_id ) 
 		{
 			$formel_forum_url	= append_sid("viewforum.$phpEx?f=$formel_forum_id");
-			$formel_forum_name	= $user->lang['formel_forum'];
+			$formel_forum_name	= $user->lang['FORMEL_FORUM'];
 			$discuss_button		= '<input class="button1" type="button" onClick="window.location.href=\'' . $formel_forum_url . '\'" value="' . $formel_forum_name . '">&nbsp;&nbsp;';
 		}
 
 		// Moderator switch and options
 		$u_call_mod = append_sid("ucp.$phpEx?i=pm&amp;mode=compose&amp;u=$formel_mod_id");
-		$l_call_mod = $user->lang['formel_call_mod'];
+		$l_call_mod = $user->lang['FORMEL_CALL_MOD'];
 		
 		// Some debug code to test the $auth
 		//echo "<pre>";print_r($auth);echo "</pre>";die();
@@ -829,18 +819,6 @@ switch ($mode)
 			'HEADER_WIDTH'			=> $formel_config['head_width'],
 			'RACE_ID'				=> (isset($races[$chosen_race]['race_id'])) ? $races[$chosen_race]['race_id'] : 1,
 			'RACE_TIME'				=> (isset($races[$chosen_race]['race_time'])) ? $races[$chosen_race]['race_time'] : 1,
-			'L_CURRENT_RACE'		=> $user->lang['formel_current_race'],
-			'L_NEXT_RACE'			=> $user->lang['formel_next_race'],
-			'L_PREV_RACE'			=> $user->lang['formel_prev_race'],
-			'L_YOUR_TIPP'			=> $user->lang['formel_your_tipp'],
-			'L_CURRENT_QUALI'		=> $user->lang['formel_current_quali'],
-			'L_CURRENT_RESULT'		=> $user->lang['formel_current_result'],
-			'L_RACENAME'			=> $user->lang['formel_racename'],
-			'L_RACEDEBUT'			=> $user->lang['formel_racedebut'],
-			'L_RACELENGTH'			=> $user->lang['formel_racelength'],
-			'L_RACELAPS'			=> $user->lang['formel_racelaps'],
-			'L_RACEDISTANCE'		=> $user->lang['formel_racedistance'],
-			'L_RACETIME'			=> $user->lang['formel_racetime'],
 			'L_TOP_NAME'			=> $user->lang['formel_top_name'],
 			'L_TIPPS_MADE'			=> $user->lang['formel_tipps_made'],
 			'L_TOP_DRIVER'			=> $user->lang['formel_top_driver'],
@@ -850,14 +828,10 @@ switch ($mode)
 			'U_TOP_MORE_DRIVERS'	=> append_sid("formel.$phpEx?mode=stats&amp;show_drivers=1"),
 			'U_TOP_MORE_TEAMS'		=> append_sid("formel.$phpEx?mode=stats&amp;show_teams=1"),
 			'L_TOP_POINTS'			=> $user->lang['formel_top_points'],
-			'L_RACEDEAD'			=> $user->lang['formel_racedead'],
-			'L_FORMEL_TITLE'		=> $user->lang['formel_title'],
 			'U_FORMEL_RULES'		=> append_sid("formel.$phpEx?mode=rules"),
 			'U_FORMEL_FORUM'		=> $discuss_button,
 			'U_FORMEL_STATISTICS'	=> append_sid("formel.$phpEx?mode=stats"),
 			'U_FORMEL_CALL_MOD'		=> $u_call_mod,
-			'L_FORMEL_RULES'		=> $user->lang['formel_rules'],
-			'L_FORMEL_STATISTICS'	=> $user->lang['formel_statistics'],
 			'L_COUNTDOWN'			=> $user->lang['formel_countdown_deadline'],
 			'L_DEADLINE_REACHED'	=> $user->lang['formel_deadline_reached'],
 			'COUNTDOWN'				=> (isset($countdown)) ? $countdown : '',
@@ -869,7 +843,7 @@ switch ($mode)
 	case 'results':
 
 		// Set template vars
-		$page_title = $user->lang['formel_title'];
+		$page_title = $user->lang['FORMEL_TITLE'];
 		$template_html = 'formel_body.html';
 
 		$template->assign_block_vars('navlinks', array( 
@@ -885,8 +859,8 @@ switch ($mode)
 		}
 		
 		// Init some language vars
-		$l_edit 	= $user->lang['formel_edit'];
-		$l_del 		= $user->lang['formel_delete'];
+		$l_edit 	= $user->lang['FORMEL_EDIT'];
+		$l_del 		= $user->lang['FORMEL_DELETE'];
 		$l_add 		= $user->lang['formel_results_add'];	
 		
 		// Fetch all races
@@ -906,9 +880,6 @@ switch ($mode)
 			if ( $formel_config['show_gfxr'] == 1 )
 			{
 				$template->assign_block_vars('racerow_gfxr', array(
-					'L_RACE'			=> $user->lang['formel_racename'],
-					'L_TIME'			=> $user->lang['formel_racetime'],
-					'L_DEAD'			=> $user->lang['formel_racedead'],
 					'RACEIMG'			=> $race_img,
 					'QUALI_BUTTONS'		=> $quali_buttons,
 					'RESULT_BUTTONS'	=> $result_buttons,
@@ -921,9 +892,6 @@ switch ($mode)
 			else 
 			{
 				$template->assign_block_vars('racerow', array(
-					'L_RACE'			=> $user->lang['formel_racename'],
-					'L_TIME'			=> $user->lang['formel_racetime'],
-					'L_DEAD'			=> $user->lang['formel_racedead'],
 					'QUALI_BUTTONS'		=> $quali_buttons,
 					'RESULT_BUTTONS'	=> $result_buttons,
 					'RACEID'			=> $race_id,
@@ -940,12 +908,8 @@ switch ($mode)
 			'S_FORM_ACTION'					=> append_sid("./formel.$phpEx?mode=addresults"),
 			'U_FORMEL'						=> append_sid("./formel.$phpEx"),
 			'U_FORMEL_RESULTS'				=> append_sid("./formel.$phpEx?mode=results"),
-			'L_FORMEL_RACE'					=> $user->lang['formel_racename'],
-			'L_FORMEL_QUALI'				=> $user->lang['formel_current_quali'],
-			'L_FORMEL_RESULT'				=> $user->lang['formel_current_result'],
 			'L_RESULTS_ADD'					=> $user->lang['formel_results_add'],
 			'L_FORMEL_RESULTS_TITLE'		=> $user->lang['formel_results_title'],
-			'L_FORMEL_TITLE'				=> $user->lang['formel_title'],
 			'L_FORMEL_RESULTS_TITLE_EXP'	=> $user->lang['formel_results_title_exp']
 		));
 	break;
@@ -953,7 +917,7 @@ switch ($mode)
 	case 'addresults':
 
 		// Set template vars
-		$page_title = $user->lang['formel_title'];
+		$page_title = $user->lang['FORMEL_TITLE'];
 		$template_html = 'formel_body.html';
 
 		$template->assign_block_vars('navlinks', array( 
@@ -1272,7 +1236,7 @@ switch ($mode)
 			//We have 11 Teams with 2 cars each --> 22 drivers
 			for ($i = 0; $i < 22; $i++) 
 			{
-				$position = ($i == 0) ? $user->lang['formel_pole'] : $i+1 . '. ' . $user->lang['formel_place'];
+				$position = ($i == 0) ? $user->lang['FORMEL_POLE'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
 				$box_name = 'place' . ($i+1);
 				$drivercombo = '<select name="' . $box_name . '" size="1">';
 				for ($k = 0; $k < count($drivers); $k++) 
@@ -1334,7 +1298,7 @@ switch ($mode)
 			$drivers[0]['driver_name'] = $user->lang['formel_define'];
 			for ($i = 0; $i < 8; $i++) 
 			{
-				$position = ($i == 0) ? $user->lang['formel_race_winner'] : $i+1 . '. ' . $user->lang['formel_place'];
+				$position = ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
 				$box_name = 'place' . ($i+1);
 				$drivercombo = '<select name="' . $box_name . '" size="1">';
 				for ($k = 0; $k < count($drivers); $k++) 
@@ -1391,9 +1355,7 @@ switch ($mode)
 			$combo_tired .= '</select>';
 			$modus = ( $editresult ) ? 'addeditresult' : 'addresult';
 			$template->assign_block_vars('result', array(
-				'L_FASTEST' 	=> $user->lang['formel_pace'],
 				'PACECOMBO' 	=> $drivercombo_pace,
-				'L_TIRED' 		=> $user->lang['formel_tired'],
 				'MODE' 			=> $modus,
 				'TIREDCOMBO' 	=> $combo_tired,
 				'L_TITLE' 		=> $user->lang['formel_results_resulttitle'],
@@ -1406,10 +1368,8 @@ switch ($mode)
 			'S_FORM_ACTION' 				=> append_sid("./formel.$phpEx?mode=addresults"),
 			'U_FORMEL' 						=> append_sid("./formel.$phpEx"),
 			'U_FORMEL_RESULTS' 				=> append_sid("./formel.$phpEx?mode=results"),
-			'L_FORMEL_RESULT' 				=> $user->lang['formel_current_result'],
 			'RACE_ID' 						=> $race_id,
 			'L_FORMEL_RESULTS_TITLE' 		=> $user->lang['formel_results_title'],
-			'L_FORMEL_TITLE' 				=> $user->lang['formel_title'],
 			'L_FORMEL_RESULTS_TITLE_EXP' 	=> $user->lang['formel_results_title_exp'])
 		);
 
@@ -1418,7 +1378,7 @@ switch ($mode)
 	case 'usertipp':
 
 		// Set template vars
-		$page_title = $user->lang['formel_title'];
+		$page_title = $user->lang['FORMEL_TITLE'];
 		$template_html = 'formel_body.html';
 		
 		// Check buttons & data
@@ -1479,7 +1439,7 @@ switch ($mode)
 
 			for ($i = 0; $i < count($tipp_array) - 2; $i++)
 			{
-				$position 		= ($i == 0) ? $user->lang['formel_race_winner'] : $i+1 . '. ' . $user->lang['formel_place'];
+				$position 		= ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
 				$driver_placed 	= (isset($driver_name[$tipp_array[$i]])) ? $driver_name[$tipp_array[$i]] : '';
 				$driverid 		= (isset($tipp_array[$i])) ? $tipp_array[$i] : '';
 
@@ -1535,8 +1495,6 @@ switch ($mode)
 			$template->assign_block_vars('user_tipp', array(
 				'L_POINTS' 			=> $user->lang['formel_points_won'],
 				'L_ALL_POINTS' 		=> $user->lang['formel_all_points'],
-				'L_FASTEST' 		=> $user->lang['formel_pace'],
-				'L_TIRED' 			=> $user->lang['formel_tired'],
 				'L_TIPPER' 			=> $user->lang['formel_watching_tipp'],
 				'TIPPER' 			=> $tipper_link,
 				'POINTS' 			=> $tipper_points,
@@ -1550,14 +1508,13 @@ switch ($mode)
 		else
 		{
 			$template->assign_block_vars('no_tipp', array(
-				'NO_TIPP' => $user->lang['formel_tipp_not_found'])
+				)
 			);
 		}
 
 		// Output global values
 		$template->assign_vars(array(
 			'S_USERTIPP'		=> true,
-			'L_FORMEL_TITLE' => $user->lang['formel_title'],
 			'L_CLOSE_WINDOW' => $user->lang['formel_close_window'])
 		);
 	break;
@@ -1565,7 +1522,7 @@ switch ($mode)
 	case 'stats':
 
 		// Set template vars
-		$page_title = $user->lang['formel_title'];
+		$page_title = $user->lang['FORMEL_TITLE'];
 		$template_html = 'formel_body.html';
 
 		$template->assign_block_vars('navlinks', array( 
@@ -1764,7 +1721,6 @@ switch ($mode)
 			'L_BUTTON_USERS' 		=> $user->lang['formel_user_stats'],
 			'L_BUTTON_DRIVERS' 		=> $user->lang['formel_driver_stats'],
 			'L_BUTTON_TEAMS' 		=> $user->lang['formel_team_stats'],
-			'L_FORMEL_TITLE' 		=> $user->lang['formel_title'],
 			'L_FORMEL_TOP_POINTS'	=> $user->lang['formel_top_points'],
 			'HEADER_IMG' 			=> $formel_config['headbanner3_img'],
 			'HEADER_URL' 			=> $formel_config['headbanner3_url'],
@@ -1781,7 +1737,7 @@ switch ($mode)
 	case 'rules':
 
 		// Set template vars
-		$page_title = $user->lang['formel_title'];
+		$page_title = $user->lang['FORMEL_TITLE'];
 		$template_html = 'formel_body.html';
 
 		$template->assign_block_vars('navlinks', array( 
@@ -1871,7 +1827,6 @@ switch ($mode)
 			'FORMEL_RULES_FASTEST' 		=> $rules_fastest,
 			'FORMEL_RULES_TIRED' 		=> $rules_tired,
 			'FORMEL_RULES_TOTAL' 		=> $rules_total,
-			'L_FORMEL_TITLE' 			=> $user->lang['formel_title'],
 			'U_FORMEL' 					=> append_sid("./formel.$phpEx"),
 			'U_FORMEL_RULES' 			=> append_sid("./formel.$phpEx?mode=rules"),
 			'L_BACK_TO_TIPP' 			=> $user->lang['formel_back_to_tipp'],
