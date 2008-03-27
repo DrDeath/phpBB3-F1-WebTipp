@@ -58,7 +58,7 @@ function formel_del_tip($user_id,$race_id)
 			AND tipp_race = ' . $race_id;
 	$db->sql_query($sql);
 
-	$tipp_msg = sprintf($user->lang['formel_tipp_deleted'], '<a href="'.append_sid("formel.$phpEx").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+	$tipp_msg = sprintf($user->lang['FORMEL_TIPP_DELETED'], '<a href="'.append_sid("formel.$phpEx").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 	trigger_error( $tipp_msg);
 }
 

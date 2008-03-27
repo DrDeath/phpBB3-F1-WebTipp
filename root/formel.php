@@ -131,7 +131,7 @@ switch ($mode)
 				if (checkarrayforvalue($value,$my_tipp_array)) 
 				{
 					add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_NOT_VALID', $race_id);
-					$tipp_msg = sprintf($user->lang['formel_doublicate_values'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+					$tipp_msg = sprintf($user->lang['FORMEL_DUBLICATE_VALUES'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 					trigger_error($tipp_msg);
 				}
 				$my_tipp_array[$i] = $value;
@@ -165,7 +165,7 @@ switch ($mode)
 				$db->sql_query($sql);
 				add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_EDITED', $race_id);
 			}
-			$tipp_msg = sprintf($user->lang['formel_accepted_tipp'], '<a href="'.append_sid("formel.$phpEx").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+			$tipp_msg = sprintf($user->lang['FORMEL_ACCEPTED_TIPP'], '<a href="'.append_sid("formel.$phpEx").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 			trigger_error( $tipp_msg);
 		}
 
@@ -437,7 +437,7 @@ switch ($mode)
 
 				$tipp_active = $db->sql_affectedrows($result);
 				$delete_button = '';
-				$tipp_button = $user->lang['formel_add_tipp'];
+				$tipp_button = $user->lang['FORMEL_ADD_TIPP'];
 				$tipp_button_name = 'place_my_tipp';
 				$tipp_data = $db->sql_fetchrowset($result);
 				$db->sql_freeresult($result);
@@ -445,9 +445,9 @@ switch ($mode)
 				// Check if a tip has been made before
 				if ($tipp_active > 0) 
 				{
-					$tipp_button		= $user->lang['formel_edit_tipp'];
+					$tipp_button		= $user->lang['FORMEL_EDIT_TIPP'];
 					$tipp_button_name	= 'edit_my_tipp';
-					$delete_button		= '&nbsp;<input class="button1" type="submit" name="del_tipp" value="' . $user->lang['formel_del_tipp'] . '">';
+					$delete_button		= '&nbsp;<input class="button1" type="submit" name="del_tipp" value="' . $user->lang['FORMEL_DEL_TIPP'] . '">';
 					$tipp_array			= explode(",",$tipp_data[0]['tipp_result']);
 					$user_tipp_points	= $tipp_data[0]['tipp_points'];
 
@@ -732,7 +732,6 @@ switch ($mode)
 					if ( $formel_config['show_gfx'] == 1 )
 					{
 						$template->assign_block_vars('extended_results_gfx', array(
-							'L_YOUR_POINTS'		=> $user->lang['formel_your_points'],
 							'PACE'				=> (isset($drivers[$results[8]]['driver_name'])) ? $drivers[$results[8]]['driver_name'] : '',
 							'TIRED'				=> (isset($results[9])) ? $results[9] : '',
 							'YOUR_POINTS'		=> $user_tipp_points)	
@@ -741,7 +740,6 @@ switch ($mode)
 					else
 					{
 						$template->assign_block_vars('extended_results', array(
-							'L_YOUR_POINTS'		=> $user->lang['formel_your_points'],
 							'PACE'				=> (isset($drivers[$results[8]]['driver_name'])) ? $drivers[$results[8]]['driver_name'] : '',
 							'TIRED'				=> (isset($results[9])) ? $results[9] : '',
 							'YOUR_POINTS'		=> $user_tipp_points)
@@ -760,7 +758,7 @@ switch ($mode)
 				if ($races[$chosen_race]['race_time'] - $formel_config['deadline_offset'] < $current_time) 
 				{
 					$template->assign_block_vars('game_over', array(
-						'GAME_OVER'		=> $user->lang['formel_game_over'])
+						)
 					);
 				}
 				else 
@@ -795,7 +793,7 @@ switch ($mode)
 		if ($user_id == $formel_config['mod_id'] || ($is_admin == 1) ) 
 		{
 			$u_call_mod = append_sid("./formel.$phpEx?mode=results");
-			$l_call_mod = $user->lang['formel_mod_button_text'];
+			$l_call_mod = $user->lang['FORMEL_MOD_BUTTON_TEXT'];
 			$template->assign_block_vars('tipp_moderator', array());
 		}
 
@@ -848,7 +846,7 @@ switch ($mode)
 
 		$template->assign_block_vars('navlinks', array( 
 			'U_VIEW_FORUM'	=> append_sid("./formel.$phpEx?mode=results"),
-			'FORUM_NAME'	=> $user->lang['formel_results_title'],
+			'FORUM_NAME'	=> $user->lang['FORMEL_RESULTS_TITLE'],
 		));
 		
 		// Check URL hijacker . Access only for formel moderators or admins
@@ -861,7 +859,7 @@ switch ($mode)
 		// Init some language vars
 		$l_edit 	= $user->lang['FORMEL_EDIT'];
 		$l_del 		= $user->lang['FORMEL_DELETE'];
-		$l_add 		= $user->lang['formel_results_add'];	
+		$l_add 		= $user->lang['FORMEL_RESULTS_ADD'];	
 		
 		// Fetch all races
 		$sql = 'SELECT * 
@@ -908,10 +906,8 @@ switch ($mode)
 			'S_FORM_ACTION'					=> append_sid("./formel.$phpEx?mode=addresults"),
 			'U_FORMEL'						=> append_sid("./formel.$phpEx"),
 			'U_FORMEL_RESULTS'				=> append_sid("./formel.$phpEx?mode=results"),
-			'L_RESULTS_ADD'					=> $user->lang['formel_results_add'],
-			'L_FORMEL_RESULTS_TITLE'		=> $user->lang['formel_results_title'],
-			'L_FORMEL_RESULTS_TITLE_EXP'	=> $user->lang['formel_results_title_exp']
-		));
+			)
+		);
 	break;
 		
 	case 'addresults':
@@ -922,7 +918,7 @@ switch ($mode)
 
 		$template->assign_block_vars('navlinks', array( 
 			'U_VIEW_FORUM'	=> append_sid("./formel.$phpEx?mode=results"),
-			'FORUM_NAME'	=> $user->lang['formel_results_title'],
+			'FORUM_NAME'	=> $user->lang['FORMEL_RESULTS_TITLE'],
 		));
 		
 		// Check URL hijacker . Access only for formel moderators or admins
@@ -973,7 +969,7 @@ switch ($mode)
 			$db->sql_query($sql);
 			
 			add_log('mod', $user->data['user_id'], 'LOG_FORMEL_QUALI_DELETED', $race_id);
-			$tipp_msg = sprintf($user->lang['formel_results_deleted'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 			trigger_error($tipp_msg);
 		}
 		
@@ -1014,13 +1010,13 @@ switch ($mode)
 
 			// Pull out a success message
 			add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_DELETED', $race_id);
-			$tipp_msg = sprintf($user->lang['formel_results_deleted'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 			trigger_error($tipp_msg);
 		}
 
 		if ( ( $reset || $resetresult || $resetquali ) && $race_id == 0 ) 
 		{
-			$reset_msg = sprintf($user->lang['formel_results_error'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+			$reset_msg = sprintf($user->lang['FORMEL_RESULTS_ERROR'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 			trigger_error($reset_msg);
 		}
 		
@@ -1042,7 +1038,7 @@ switch ($mode)
 					if (checkarrayforvalue($value,$quali_array)) 
 					{
 						add_log('user', $user->data['user_id'], 'LOG_FORMEL_QUALI_NOT_VALID', $race_id);
-						$quali_msg = sprintf($user->lang['formel_results_double'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+						$quali_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 						trigger_error($quali_msg);
 					}
 					$quali_array[$i] = $value;
@@ -1058,7 +1054,7 @@ switch ($mode)
 				$db->sql_query($sql);
 
 				add_log('user', $user->data['user_id'], 'LOG_FORMEL_QUALI_ADDED', $race_id);
-				$quali_msg = sprintf($user->lang['formel_results_accepted'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+				$quali_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 				trigger_error($quali_msg);
 			}
 		}
@@ -1088,7 +1084,7 @@ switch ($mode)
 					if (checkarrayforvalue($value,$result_array)) 
 					{
 						add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_NOT_VALID', $race_id);
-						$result_msg = sprintf($user->lang['formel_results_double'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+						$result_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 						trigger_error($result_msg);
 					}
 					$result_array[$i] = $value;
@@ -1196,7 +1192,7 @@ switch ($mode)
 				// END points calc
 
 				add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_ADDED', $race_id);
-				$result_msg = sprintf($user->lang['formel_results_accepted'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+				$result_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 				trigger_error($result_msg);
 			}
 		}
@@ -1261,7 +1257,7 @@ switch ($mode)
 			}
 			$template->assign_block_vars('quali', array(
 				'L_TITLE'	=> $user->lang['formel_results_qualititle'],
-				'L_ADD'		=> $user->lang['formel_results_add'])
+				)
 			);
 		}	
 
@@ -1359,7 +1355,7 @@ switch ($mode)
 				'MODE' 			=> $modus,
 				'TIREDCOMBO' 	=> $combo_tired,
 				'L_TITLE' 		=> $user->lang['formel_results_resulttitle'],
-				'L_ADD' 		=> $user->lang['formel_results_add'])
+				)
 			);
 		}
 
@@ -1369,8 +1365,7 @@ switch ($mode)
 			'U_FORMEL' 						=> append_sid("./formel.$phpEx"),
 			'U_FORMEL_RESULTS' 				=> append_sid("./formel.$phpEx?mode=results"),
 			'RACE_ID' 						=> $race_id,
-			'L_FORMEL_RESULTS_TITLE' 		=> $user->lang['formel_results_title'],
-			'L_FORMEL_RESULTS_TITLE_EXP' 	=> $user->lang['formel_results_title_exp'])
+			)
 		);
 
 	break;
