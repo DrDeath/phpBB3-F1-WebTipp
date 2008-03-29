@@ -423,7 +423,7 @@ switch ($mode)
 				if ( $tippers_active == 0 ) 
 				{
 					$template->assign_block_vars('no_tipps_made', array(
-						'NOTIPPS'	=> $user->lang['formel_no_players'])
+						)
 					);
 				}
 				$db->sql_freeresult($result);
@@ -817,15 +817,10 @@ switch ($mode)
 			'HEADER_WIDTH'			=> $formel_config['head_width'],
 			'RACE_ID'				=> (isset($races[$chosen_race]['race_id'])) ? $races[$chosen_race]['race_id'] : 1,
 			'RACE_TIME'				=> (isset($races[$chosen_race]['race_time'])) ? $races[$chosen_race]['race_time'] : 1,
-			'L_TOP_NAME'			=> $user->lang['formel_top_name'],
-			'L_TIPPS_MADE'			=> $user->lang['formel_tipps_made'],
-			'L_TOP_DRIVER'			=> $user->lang['formel_top_driver'],
-			'L_TOP_TEAMS'			=> $user->lang['formel_top_teams'],
 			'L_TOP_MORE'			=> $user->lang['formel_top_more'],
 			'U_TOP_MORE_USERS'		=> append_sid("formel.$phpEx?mode=stats&amp;show_users=1"),
 			'U_TOP_MORE_DRIVERS'	=> append_sid("formel.$phpEx?mode=stats&amp;show_drivers=1"),
 			'U_TOP_MORE_TEAMS'		=> append_sid("formel.$phpEx?mode=stats&amp;show_teams=1"),
-			'L_TOP_POINTS'			=> $user->lang['formel_top_points'],
 			'U_FORMEL_RULES'		=> append_sid("formel.$phpEx?mode=rules"),
 			'U_FORMEL_FORUM'		=> $discuss_button,
 			'U_FORMEL_STATISTICS'	=> append_sid("formel.$phpEx?mode=stats"),
@@ -1256,7 +1251,6 @@ switch ($mode)
 				);
 			}
 			$template->assign_block_vars('quali', array(
-				'L_TITLE'	=> $user->lang['formel_results_qualititle'],
 				)
 			);
 		}	
@@ -1354,7 +1348,6 @@ switch ($mode)
 				'PACECOMBO' 	=> $drivercombo_pace,
 				'MODE' 			=> $modus,
 				'TIREDCOMBO' 	=> $combo_tired,
-				'L_TITLE' 		=> $user->lang['formel_results_resulttitle'],
 				)
 			);
 		}
@@ -1639,7 +1632,7 @@ switch ($mode)
 		// Show users toplist
 		else 
 		{
-			$stat_table_title = $user->lang['formel_user_stats'];
+			$stat_table_title = $user->lang['FORMEL_USER_STATS'];
 
 			// Get all tips and fill top10
 			$sql = 'SELECT sum(tipp_points) AS total_points, tipp_user 
@@ -1713,10 +1706,8 @@ switch ($mode)
 			'S_STATS'				=> true,
 			'S_FORM_ACTION' 		=> append_sid("./formel.$phpEx?mode=stats"),
 			'U_FORMEL_STATS' 		=> append_sid("./formel.$phpEx?mode=stats"),
-			'L_BUTTON_USERS' 		=> $user->lang['formel_user_stats'],
 			'L_BUTTON_DRIVERS' 		=> $user->lang['formel_driver_stats'],
 			'L_BUTTON_TEAMS' 		=> $user->lang['formel_team_stats'],
-			'L_FORMEL_TOP_POINTS'	=> $user->lang['formel_top_points'],
 			'HEADER_IMG' 			=> $formel_config['headbanner3_img'],
 			'HEADER_URL' 			=> $formel_config['headbanner3_url'],
 			'HEADER_HEIGHT' 		=> $formel_config['head_height'],
@@ -1724,7 +1715,6 @@ switch ($mode)
 			'L_STAT_TABLE_TITLE' 	=> $stat_table_title,
 			'U_FORMEL' 				=> append_sid("./formel.$phpEx"),
 			'U_BACK_TO_TIPP' 		=> append_sid("./formel.$phpEx"),
-			'L_BACK_TO_TIPP' 		=> $user->lang['formel_back_to_tipp'],
 			'L_FORMEL_STATS_TITLE' 	=> $user->lang['formel_stats_title'])
 		);
 	break;
@@ -1824,7 +1814,6 @@ switch ($mode)
 			'FORMEL_RULES_TOTAL' 		=> $rules_total,
 			'U_FORMEL' 					=> append_sid("./formel.$phpEx"),
 			'U_FORMEL_RULES' 			=> append_sid("./formel.$phpEx?mode=rules"),
-			'L_BACK_TO_TIPP' 			=> $user->lang['formel_back_to_tipp'],
 			'L_FORMEL_STATS_TITLE' 		=> $user->lang['formel_stats_title'])
 		);
 	break;

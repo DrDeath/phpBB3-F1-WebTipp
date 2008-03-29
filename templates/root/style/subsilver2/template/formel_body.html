@@ -43,8 +43,8 @@ function showtipps(showtipps)
 						<td width="33%" align="center" valign="top">
 							<table cellpadding="2" cellspacing="1" width="95%" align="center">
 								<tr>
-									<th nowrap="nowrap" colspan="2" align="center">&nbsp;{L_TOP_NAME}&nbsp;</th>
-									<th nowrap="nowrap" align="center">&nbsp;{L_TOP_POINTS}&nbsp;</th>
+									<th nowrap="nowrap" colspan="2" align="center">&nbsp;{L_FORMEL_TOP_NAME}&nbsp;</th>
+									<th nowrap="nowrap" align="center">&nbsp;{L_FORMEL_TOP_POINTS}&nbsp;</th>
 								</tr>
 								<!-- BEGIN top_tippers -->
 								<!-- IF top_tippers.S_ROW_COUNT is even -->
@@ -65,8 +65,8 @@ function showtipps(showtipps)
 						<td width="33%" align="center" valign="top">
 							<table cellpadding="2" cellspacing="1" width="95%" align="center">
 								<tr>
-									<th nowrap="nowrap" colspan="2" align="center">&nbsp;{L_TOP_DRIVER}&nbsp;</th>
-									<th nowrap="nowrap" align="center">&nbsp;{L_TOP_POINTS}&nbsp;</th>
+									<th nowrap="nowrap" colspan="2" align="center">&nbsp;{L_FORMEL_TOP_DRIVER}&nbsp;</th>
+									<th nowrap="nowrap" align="center">&nbsp;{L_FORMEL_TOP_POINTS}&nbsp;</th>
 								</tr>
 								<!-- BEGIN top_drivers -->
 								<!-- IF top_drivers.S_ROW_COUNT is even -->
@@ -87,8 +87,8 @@ function showtipps(showtipps)
 						<td width="33%" align="center" valign="top">
 							<table cellpadding="2" cellspacing="1" width="95%" align="center">
 								<tr>
-									<th nowrap="nowrap" colspan="2" align="center">&nbsp;{L_TOP_TEAMS}&nbsp;</th>
-									<th nowrap="nowrap" align="center">&nbsp;{L_TOP_POINTS}&nbsp;</th>
+									<th nowrap="nowrap" colspan="2" align="center">&nbsp;{L_FORMEL_TOP_TEAMS}&nbsp;</th>
+									<th nowrap="nowrap" align="center">&nbsp;{L_FORMEL_TOP_POINTS}&nbsp;</th>
 								</tr>
 								<!-- BEGIN top_teams -->
 								<!-- IF top_teams.S_ROW_COUNT is even -->
@@ -169,12 +169,12 @@ function showtipps(showtipps)
 		</tr>
 		<!-- END racerow -->
 		<tr>
-			<td class="row1" colspan="4" valign="middle" align="left"><span class="genmed"><strong>{L_TIPPS_MADE}</strong>
+			<td class="row1" colspan="4" valign="middle" align="left"><span class="genmed"><strong>{L_FORMEL_TIPPS_MADE}</strong>
 			<!-- BEGIN tipps_made -->
 			<a href="javascript:void(0)" onClick="javascript:showtipps('{tipps_made.USERTIPP}')" {tipps_made.STYLE}>{tipps_made.USERNAME}</a>{tipps_made.SEPARATOR}
 			<!-- END tipps_made -->
 			<!-- BEGIN no_tipps_made -->
-			{no_tipps_made.NOTIPPS}
+			{L_FORMEL_NO_TIPPS}
 			<!-- END no_tipps_made -->
 			</span></td>
 		</tr>
@@ -475,7 +475,7 @@ function showtipps(showtipps)
 		</tr>
 		<!-- BEGIN quali -->
 		<tr>
-			<td class="cat" align="center" height="28" colspan="2" valign="middle" nowrap="nowrap"><span class="cattitle">&nbsp;<strong>{quali.L_TITLE}</strong>&nbsp;</span></td>
+			<td class="cat" align="center" height="28" colspan="2" valign="middle" nowrap="nowrap"><span class="cattitle">&nbsp;<strong>{L_FORMEL_RESULTS_QUALI_TITLE}</strong>&nbsp;</span></td>
 		</tr>
 		<!-- END quali -->
 		<!-- BEGIN qualirow -->
@@ -497,7 +497,7 @@ function showtipps(showtipps)
 		<!-- END quali -->
 		<!-- BEGIN result -->
 		<tr>
-			<td class="cat" align="center" height="28" colspan="2" valign="middle" nowrap="nowrap"><span class="cattitle">&nbsp;<strong>{result.L_TITLE}</strong>&nbsp;</span></td>
+			<td class="cat" align="center" height="28" colspan="2" valign="middle" nowrap="nowrap"><span class="cattitle">&nbsp;<strong>{L_FORMEL_RESULTS_RESULT_TITLE}</strong>&nbsp;</span></td>
 		</tr>
 		<!-- END result -->
 		<!-- BEGIN resultrow -->
@@ -549,8 +549,8 @@ function showtipps(showtipps)
 						<td align="center">
 							<form action="{S_FORM_ACTION}" method="POST" enctype="multipart/form-data">
 								<br/>
-								<input type="button" onClick="window.location.href='{U_BACK_TO_TIPP}'" value="{L_BACK_TO_TIPP}" />&nbsp;&nbsp;
-								<input type="submit" name="show_users" value="{L_BUTTON_USERS}" />&nbsp;&nbsp;
+								<input type="button" onClick="window.location.href='{U_BACK_TO_TIPP}'" value="{L_FORMEL_BACK_TO_TIPP}" />&nbsp;&nbsp;
+								<input type="submit" name="show_users" value="{L_FORMEL_USER_STATS}" />&nbsp;&nbsp;
 								<input type="submit" name="show_drivers" value="{L_BUTTON_DRIVERS}" />&nbsp;&nbsp;
 								<input type="submit" name="show_teams" value="{L_BUTTON_TEAMS}" />
 								<br/>&nbsp;
@@ -708,7 +708,7 @@ function showtipps(showtipps)
 					</tr>
 					<!-- END head_on -->
 					<tr>
-						<td align="center"><br/><input type="button" onClick="window.location.href='{U_FORMEL}'" value="{L_BACK_TO_TIPP}" /><br/>&nbsp;</td>
+						<td align="center"><br/><input type="button" onClick="window.location.href='{U_FORMEL}'" value="{L_FORMEL_BACK_TO_TIPP}" /><br/>&nbsp;</td>
 					</tr>
 				</table>
 			</td>
