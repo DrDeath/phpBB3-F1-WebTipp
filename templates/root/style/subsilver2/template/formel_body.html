@@ -58,7 +58,7 @@ function showtipps(showtipps)
 								</tr>
 								<!-- END top_tippers -->
 								<tr>
-									<td valign="middle" class="cat" nowrap="nowrap" colspan="3" align="center"><span class="gensmall">[<a href="{U_TOP_MORE_USERS}">{L_TOP_MORE}</a>]</span></td>
+									<td valign="middle" class="cat" nowrap="nowrap" colspan="3" align="center"><span class="gensmall">[<a href="{U_TOP_MORE_USERS}">{L_FORMEL_TOP_MORE}</a>]</span></td>
 								</tr>
 							</table>
 						</td>
@@ -80,7 +80,7 @@ function showtipps(showtipps)
 								</tr>
 								<!-- END top_drivers -->
 								<tr>
-									<td valign="middle" class="cat" nowrap="nowrap" colspan="3" align="center"><span class="gensmall">[<a href="{U_TOP_MORE_DRIVERS}">{L_TOP_MORE}</a>]</span></td>
+									<td valign="middle" class="cat" nowrap="nowrap" colspan="3" align="center"><span class="gensmall">[<a href="{U_TOP_MORE_DRIVERS}">{L_FORMEL_TOP_MORE}</a>]</span></td>
 								</tr>
 							</table>
 						</td>
@@ -102,7 +102,7 @@ function showtipps(showtipps)
 								</tr>
 								<!-- END top_teams -->
 								<tr>
-									<td valign="middle" class="cat" nowrap="nowrap" colspan="3" align="center"><span class="gensmall">[<a href="{U_TOP_MORE_TEAMS}">{L_TOP_MORE}</a>]</span></td>
+									<td valign="middle" class="cat" nowrap="nowrap" colspan="3" align="center"><span class="gensmall">[<a href="{U_TOP_MORE_TEAMS}">{L_FORMEL_TOP_MORE}</a>]</span></td>
 								</tr>
 							</table>
 						</td>
@@ -551,8 +551,8 @@ function showtipps(showtipps)
 								<br/>
 								<input type="button" onClick="window.location.href='{U_BACK_TO_TIPP}'" value="{L_FORMEL_BACK_TO_TIPP}" />&nbsp;&nbsp;
 								<input type="submit" name="show_users" value="{L_FORMEL_USER_STATS}" />&nbsp;&nbsp;
-								<input type="submit" name="show_drivers" value="{L_BUTTON_DRIVERS}" />&nbsp;&nbsp;
-								<input type="submit" name="show_teams" value="{L_BUTTON_TEAMS}" />
+								<input type="submit" name="show_drivers" value="{L_FORMEL_DRIVER_STATS}" />&nbsp;&nbsp;
+								<input type="submit" name="show_teams" value="{L_FORMEL_TEAM_STATS}" />
 								<br/>&nbsp;
 							</form>
 						</td>
@@ -717,13 +717,14 @@ function showtipps(showtipps)
 			<th align="center" colspan="2"><span class="cattitle"><strong>{L_FORMEL_RULES_TITLE}</strong></span></th>
 		</tr>
 		<tr>
-			<td class="row2" valign="top" align="right"><span class="cattitle">&nbsp;<strong>{L_FORMEL_RULES_GEN}</strong>&nbsp;</span></td>
-			<td class="row1" valign="top" align="left"><span class="gen">{FORMEL_RULES_GEN}<br /><br /></span></td>
+			<td class="row2" valign="top" align="right"><span class="cattitle">&nbsp;<strong>{L_FORMEL_RULES_GENERAL}</strong>&nbsp;</span></td>
+			<td class="row1" valign="top" align="left"><span class="gen">{L_FORMEL_RULES_GENERAL_EXP}<br /><br /></span></td>
 		</tr>
 		<tr>
-			<td class="row2" valign="top" align="right"><span class="cattitle">&nbsp;<strong>{L_FORMEL_RULES_POINTS}</strong>&nbsp;</span></td>
+			<td class="row2" valign="top" align="right"><span class="cattitle">&nbsp;<strong>{L_FORMEL_RULES_SCORE}</strong>&nbsp;</span></td>
 			<td class="row1" valign="top" align="left">
 				<span class="gen">
+					{L_FORMEL_RULES_SCORE_EXP}<br/><br/>
 					- {FORMEL_RULES_MENTIONED}<br/>
 					- {FORMEL_RULES_PLACED}<br/>
 					- {FORMEL_RULES_FASTEST}<br/>
@@ -792,11 +793,11 @@ Please leave the copyright information at the bottom of your page for our mod.
 			<td colspan="3" class="row2">&nbsp;</td>
 		</tr>
 		<tr>
-			<td width="50%" class="row3" align="right"><strong><span class="gen">&nbsp;{user_tipp.L_POINTS}:&nbsp;</span></strong></td>
+			<td width="50%" class="row3" align="right"><strong><span class="gen">&nbsp;{L_FORMEL_POINTS_WON}:&nbsp;</span></strong></td>
 			<td width="50%" class="row1" align="right" colspan="2"><strong><span class="gen">&nbsp;{user_tipp.POINTS}&nbsp;</span></strong></td>
 		</tr>
 		<tr>
-			<td width="50%" class="row3" align="right"><strong><span class="gen">&nbsp;{user_tipp.L_ALL_POINTS}:&nbsp;</span></strong></td>
+			<td width="50%" class="row3" align="right"><strong><span class="gen">&nbsp;{L_FORMEL_ALL_POINTS}:&nbsp;</span></strong></td>
 			<td width="50%" class="row2" align="left" colspan="2"><span class="gen">&nbsp;{user_tipp.ALL_POINTS}&nbsp;</span></td>
 		</tr>
 		<!-- END user_tipp -->
