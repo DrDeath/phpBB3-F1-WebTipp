@@ -195,7 +195,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
         </changelog>
       </entry>
      <entry>
-        <date>2008-03-18T00:00:00+02:00</date>
+        <date>2008-03-30T00:00:00+02:00</date>
         <rev-version>
           <major>0</major>
           <minor>1</minor>
@@ -206,16 +206,16 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		  <change>Fix: HTML error in fomel_body.html fixed. Thanks for the fix to: -=[LCW]=-ExXtReMe</change>
 		  <change>Added: Confirm box for saison reset in acp.</change>
 		  <change>Added: log-action for saison reset.</change>
-		  <change>Changed: language vars in acp.</change>
-		  <change>Important for Updaters: replace formel.php, includes/acp/acp_formel.php, adm/style/acp_formel.html, styles/prosilver/template/formel_body.html, styles/subsilver/template/formel_body.html, language/en/mods/info_acp_formel.php</change>
+		  <change>Changed: language vars in all files to meet the coding guidelines.</change>
+		  <change>Important for all Updaters: replace ALL files ( images are not in need to change ) ! Re-do the changes in the memberlist.php and memberlist_view.html !</change>
 		</changelog>
         <changelog lang="de">
           <change>Fix: Zeige Avatar auf Spieler Statistik.</change>
 		  <change>Fix: HTML Fehler in der fomel_body.html behoben. Danke für den Fix an: -=[LCW]=-ExXtReMe</change>
 		  <change>Hinzugefügt: Bestätigungsabfrage für "Saison zurücksetzen" im ACP.</change>
 		  <change>Hinzugefügt: Log-Aktion für "Saison zurücksetzen".</change>
-		  <change>Änderung: Sprachvariabeln im ACP.</change>
-		  <change>Wichtig für Updater: Ersetze formel.php, includes/acp/acp_formel.php, adm/style/acp_formel.html, styles/prosilver/template/formel_body.html, styles/subsilver/template/formel_body.html, language/de/mods/info_acp_formel.php</change>
+		  <change>Änderung: Es wurden alle Sprachvariablen den Coding Guidelines angepasst.</change>
+		  <change>Wichtig für alle Updater: Ersetze ALLE Dateien außer den mitgelieferten Bildern! Führe die Änderungen an der memberlist.php und memberlist_view.html erneut durch.</change>
         </changelog>
       </entry>
     </history>
@@ -271,7 +271,7 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
 			
 			if ( $formel_config['restrict_to'] == 0 || get_formel_auth() || $is_admin == 1 || $user->data['user_id'] == $formel_config['mod_id'] ) 
 			{
-				$tippers_rank   = $user->lang['formel_profile_norank'];
+				$tippers_rank   = $user->lang['FORMEL_PROFILE_NORANK'];
 				$tippers_points = 0;
 				$race_done      = 0;
 				
@@ -297,7 +297,7 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
 					{
 						$tippers_points = $row['total_points'];
 						$race_done      = $row['tipps_made'];
-						$tippers_rank   = sprintf($user->lang['formel_profile_rank'], $rank_count);
+						$tippers_rank   = sprintf($user->lang['FORMEL_PROFILE_RANK'], $rank_count);
 						break;
 					}
 					$real_rank++; 
@@ -314,10 +314,9 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
 				$db->sql_freeresult($result);
 
 				$template->assign_block_vars('formel_webtipp', array(
-					'L_PROFILE_WEBTIPP' => $user->lang['formel_profile_title'],
 					'TIPPER_POINTS'     => $tippers_points,
 					'TIPPER_RANK'       => $tippers_rank,
-					'RACE_DONE'         => sprintf($user->lang['formel_profile_tipps'], $race_done, $race_total),
+					'RACE_DONE'         => sprintf($user->lang['FORMEL_PROFILE_TIPSS'], $race_done, $race_total),
 					'U_FORMEL_STATS'    => append_sid("formel.$phpEx?mode=stats"))
 				);
 			}

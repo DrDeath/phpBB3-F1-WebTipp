@@ -22,13 +22,13 @@
     <mod-version>
       <major>0</major>
       <minor>1</minor>
-      <revision>22</revision>
+      <revision>27</revision>
     </mod-version>
     <installation>
       <level>easy</level>
       <time>120</time>
       <target-version>
-        <target-primary>3.0.RC4</target-primary>
+        <target-primary>3.0.0</target-primary>
         <target-major allow="exact">3</target-major>
         <target-minor allow="exact">0</target-minor>
       </target-version>
@@ -48,6 +48,20 @@
           <change> Erste öffentliche Version für phpbb3 Olympus RC4 oder höher</change>
         </changelog>
       </entry>
+      <entry>
+        <date>2008-03-30</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>27</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>Changed language vars to meet the coding guidelines</change>
+        </changelog>
+        <changelog lang="de">
+          <change>Änderung: Es wurden die Sprachvariablen verändert um den Coding Guidelines zu entsprechen.</change>
+        </changelog>
+      </entry>
     </history>
     <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
   </header>
@@ -65,9 +79,9 @@
 	</div>]]></find>
         <action type="after-add"><![CDATA[	<!-- BEGIN formel_webtipp -->
 	<div class="column2">
-		<h3>{formel_webtipp.L_FORMEL_TITLE}</h3>
+		<h3>{L_FORMEL_TITLE}</h3>
 		<dl class="details">
-			<dt>{formel_webtipp.L_PROFILE_WEBTIPP}:</dt> <dd><strong>{formel_webtipp.TIPPER_POINTS}<br /><a href="{formel_webtipp.U_FORMEL_STATS}" class="genmed">{formel_webtipp.TIPPER_RANK}</a></strong><br />({formel_webtipp.RACE_DONE})</dd>
+			<dt>{L_FORMEL_PROFILE_WEBTIPP}:</dt> <dd><strong>{formel_webtipp.TIPPER_POINTS}<br /><a href="{formel_webtipp.U_FORMEL_STATS}" class="genmed">{formel_webtipp.TIPPER_RANK}</a></strong><br />({formel_webtipp.RACE_DONE})</dd>
 		</dl>
 	</div>
 	<!-- END formel_webtipp -->]]></action>
