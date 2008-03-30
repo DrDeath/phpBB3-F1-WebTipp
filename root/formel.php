@@ -49,7 +49,7 @@ $is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_t
 // Check for : restricted group access - admin access - formular 1 moderator access
 if ( $formel_group_id <> 0 && !get_formel_auth() && $is_admin <> 1 && $user->data['user_id'] <> $formel_mod_id )
 {
-	$auth_msg = sprintf($user->lang['formel_access_denied'], '<a href="' . append_sid("ucp.$phpEx?i=groups") . '" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+	$auth_msg = sprintf($user->lang['FORMEL_ACCESS_DENIED'], '<a href="' . append_sid("ucp.$phpEx?i=groups") . '" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 	trigger_error($auth_msg);
 }
 
@@ -824,8 +824,6 @@ switch ($mode)
 			'U_FORMEL_FORUM'		=> $discuss_button,
 			'U_FORMEL_STATISTICS'	=> append_sid("formel.$phpEx?mode=stats"),
 			'U_FORMEL_CALL_MOD'		=> $u_call_mod,
-			'L_COUNTDOWN'			=> $user->lang['formel_countdown_deadline'],
-			'L_DEADLINE_REACHED'	=> $user->lang['formel_deadline_reached'],
 			'COUNTDOWN'				=> (isset($countdown)) ? $countdown : '',
 			'COUNTDOWN_ON'			=> (isset($countdown)) ? 'onLoad="javascript:countdown();"' : '',
 			'L_FORMEL_CALL_MOD'		=> $l_call_mod)
@@ -846,7 +844,7 @@ switch ($mode)
 		// Check URL hijacker . Access only for formel moderators or admins
 		if ( $user->data['user_id'] <> $formel_mod_id && $is_admin <> 1)
 		{
-			$auth_msg = sprintf($user->lang['formel_mod_access_denied'], '<a href="' . append_sid("formel.$phpEx") . '" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+			$auth_msg = sprintf($user->lang['FORMEL_MOD_ACCESS_DENIED'], '<a href="' . append_sid("formel.$phpEx") . '" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 			trigger_error($auth_msg);
 		}
 		
@@ -918,7 +916,7 @@ switch ($mode)
 		// Check URL hijacker . Access only for formel moderators or admins
 		if ( $user->data['user_id'] <> $formel_mod_id && $is_admin <> 1)
 		{
-			$auth_msg = sprintf($user->lang['formel_mod_access_denied'], '<a href="' . append_sid("formel.$phpEx") . '" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+			$auth_msg = sprintf($user->lang['FORMEL_MOD_ACCESS_DENIED'], '<a href="' . append_sid("formel.$phpEx") . '" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 			trigger_error($auth_msg);
 		}
 		
@@ -1221,7 +1219,7 @@ switch ($mode)
 			}
 			$db->sql_freeresult($result);
 			$drivers[0]['driver_id'] = '0';
-			$drivers[0]['driver_name'] = $user->lang['formel_define'];
+			$drivers[0]['driver_name'] = $user->lang['FORMEL_DEFINE'];
 			
 			//We have 11 Teams with 2 cars each --> 22 drivers
 			for ($i = 0; $i < 22; $i++) 
@@ -1284,7 +1282,7 @@ switch ($mode)
 			}
 			$db->sql_freeresult($result);
 			$drivers[0]['driver_id'] = '0';
-			$drivers[0]['driver_name'] = $user->lang['formel_define'];
+			$drivers[0]['driver_name'] = $user->lang['FORMEL_DEFINE'];
 			for ($i = 0; $i < 8; $i++) 
 			{
 				$position = ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
@@ -1452,7 +1450,7 @@ switch ($mode)
 				if ($single_points == 0) $single_points='';
 
 				$template->assign_block_vars('user_drivers', array(
-					'DRIVER_PLACED' 	=> ($is_hidden == true) ? $user->lang['formel_hidden'] : $driver_placed,
+					'DRIVER_PLACED' 	=> ($is_hidden == true) ? $user->lang['FORMEL_HIDDEN'] : $driver_placed,
 					'POSITION' 			=> $position,
 					'SINGLE_POINTS' 	=> $single_points)
 				);
@@ -1483,8 +1481,8 @@ switch ($mode)
 				'TIPPER' 			=> $tipper_link,
 				'POINTS' 			=> $tipper_points,
 				'ALL_POINTS' 		=> $tipper_all_points,
-				'FASTEST_DRIVER' 	=> (isset($fastest_driver_name)) ? ($is_hidden == true) ? $user->lang['formel_hidden'] : $fastest_driver_name : '',
-				'TIRED' 			=> (isset($tired)) ? ($is_hidden == true) ? $user->lang['formel_hidden'] : $tired : '',
+				'FASTEST_DRIVER' 	=> (isset($fastest_driver_name)) ? ($is_hidden == true) ? $user->lang['FORMEL_HIDDEN'] : $fastest_driver_name : '',
+				'TIRED' 			=> (isset($tired)) ? ($is_hidden == true) ? $user->lang['FORMEL_HIDDEN'] : $tired : '',
 				'SINGLE_FASTEST' 	=> (isset($single_fastest)) ? $single_fastest : '',
 				'SINGLE_TIRED' 		=> (isset($single_tired)) ? $single_tired : '')
 			);
@@ -1499,7 +1497,7 @@ switch ($mode)
 		// Output global values
 		$template->assign_vars(array(
 			'S_USERTIPP'		=> true,
-			'L_CLOSE_WINDOW' => $user->lang['formel_close_window'])
+			)
 		);
 	break;
 		
@@ -1730,8 +1728,8 @@ switch ($mode)
 		$points_fastest 	= $formel_config['points_fastest'];
 		$points_tired 		= $formel_config['points_tired'];
 
-		$point 				= $user->lang['formel_rules_point'];
-		$points 			= $user->lang['formel_rules_points'];
+		$point 				= $user->lang['FORMEL_RULES_POINT'];
+		$points 			= $user->lang['FORMEL_RULES_POINTS'];
 
 		if ( $points_mentioned == '1' ) 
 		{
@@ -1779,11 +1777,11 @@ switch ($mode)
 			$points_total .= ' ' . $points;
 		}
 
-		$rules_mentioned 	= sprintf($user->lang['formel_rules_mentioned'] 	, $points_mentioned);
-		$rules_placed 		= sprintf($user->lang['formel_rules_placed']		, $points_placed);
-		$rules_fastest 		= sprintf($user->lang['formel_rules_fastest'] 		, $points_fastest);
-		$rules_tired 		= sprintf($user->lang['formel_rules_tired'] 		, $points_tired);
-		$rules_total 		= sprintf($user->lang['formel_rules_total'] 		, $points_total);
+		$rules_mentioned 	= sprintf($user->lang['FORMEL_RULES_MENTIONED'] 	, $points_mentioned);
+		$rules_placed 		= sprintf($user->lang['FORMEL_RULES_PLACED']		, $points_placed);
+		$rules_fastest 		= sprintf($user->lang['FORMEL_RULES_FASTEST'] 		, $points_fastest);
+		$rules_tired 		= sprintf($user->lang['FORMEL_RULES_TIRED'] 		, $points_tired);
+		$rules_total 		= sprintf($user->lang['FORMEL_RULES_TOTAL'] 		, $points_total);
 
 		// Show headerbanner ?
 		if ( $formel_config['show_headbanner'] )
@@ -1809,7 +1807,7 @@ switch ($mode)
 	break;
 		
 	default:
-		$auth_msg = sprintf($user->lang['formel_error_mode'], '<a href="' . append_sid("formel.$phpEx") . '" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+		$auth_msg = sprintf($user->lang['FORMEL_ERROR_MODE'], '<a href="' . append_sid("formel.$phpEx") . '" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 		trigger_error($auth_msg);
 	break;
 }

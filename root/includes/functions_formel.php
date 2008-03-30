@@ -191,7 +191,7 @@ function get_formel_drivers_data()
 		$counter++;
 	}
 	$drivers[0]['driver_id']   = '0';
-	$drivers[0]['driver_name'] = $user->lang['formel_define'];
+	$drivers[0]['driver_name'] = $user->lang['FORMEL_DEFINE'];
 	$db->sql_freeresult($result);
 	return $drivers;
 }
