@@ -12,7 +12,7 @@ Current season standings ( users / drivers / teams ) are listed on a statistics 
 </description>
 <description lang="de"><![CDATA[Mit diesem MOD fügst Du ein Formel 1 WebTipp Spiel Deinem Forum hinzu.
 Deine Benutzer können auf die Rennergebnisse tippen und erhalten dadurch Punkte.
-Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den eingebauten Statistseiten und im Benutzerprofil begutachten.]]>
+Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den eingebauten Statistikseiten und im Benutzerprofil begutachten.]]>
 </description>
     <author-notes lang="en-gb"><![CDATA[- Dr.Death ported and enhanced the origin phpBB2 MOD to phpBB3 Olympus
 - AceVentura is the origin Author of the Formula 1 WebTip MOD for phpBB2.
@@ -203,7 +203,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
         </rev-version>
         <changelog lang="en-gb">
           <change>Fix: Show avatar on user statistic.</change>
-		  <change>Fix: HTML error in fomel_body.html fixed. Thanks for the fix to: -=[LCW]=-ExXtReMe</change>
+		  <change>Fix: HTML error in formel_body.html fixed. Thanks for the fix to: -=[LCW]=-ExXtReMe</change>
 		  <change>Added: Confirm box for saison reset in acp.</change>
 		  <change>Added: log-action for saison reset.</change>
 		  <change>Changed: language vars in all files to meet the coding guidelines.</change>
