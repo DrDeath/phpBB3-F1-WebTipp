@@ -192,7 +192,7 @@ switch ($mode)
 		while ($row = $db->sql_fetchrow($result)) 
 		{ 
 			$real_rank++; 
-			if($row['total_points'] <> $previous_points) 
+			if ($row['total_points'] <> $previous_points) 
 			{ 
 				$rank = $real_rank; 
 				$previous_points = $row['total_points']; 
@@ -219,7 +219,7 @@ switch ($mode)
 		while ($row = $db->sql_fetchrow($result)) 
 		{ 
 			$real_rank++; 
-			if($row['total_points'] <> $previous_points) 
+			if ($row['total_points'] <> $previous_points) 
 			{ 
 				$rank = $real_rank; 
 				$previous_points = $row['total_points']; 
@@ -245,7 +245,7 @@ switch ($mode)
 		while ($row = $db->sql_fetchrow($result)) 
 		{ 
 			$real_rank++; 
-			if($row['total_points'] <> $previous_points) 
+			if ($row['total_points'] <> $previous_points) 
 			{ 
 				$rank = $real_rank; 
 				$previous_points = $row['total_points']; 
@@ -1536,7 +1536,7 @@ switch ($mode)
 			while ($row = $db->sql_fetchrow($result)) 
 			{ 
 				$real_rank++; 
-				if($row['total_points'] <> $previous_points) 
+				if ($row['total_points'] <> $previous_points) 
 				{ 
 					$rank = $real_rank; 
 					$previous_points = $row['total_points']; 
@@ -1589,7 +1589,7 @@ switch ($mode)
 			while ($row = $db->sql_fetchrow($result)) 
 			{ 
 				$real_rank++; 
-				if($row['total_points'] <> $previous_points) 
+				if ($row['total_points'] <> $previous_points) 
 				{ 
 					$rank = $real_rank; 
 					$previous_points = $row['total_points']; 
@@ -1641,7 +1641,7 @@ switch ($mode)
 			while ($row = $db->sql_fetchrow($result)) 
 			{ 
 				$real_rank++; 
-				if($row['total_points'] <> $previous_points) 
+				if ($row['total_points'] <> $previous_points) 
 				{ 
 					$rank = $real_rank; 
 					$previous_points = $row['total_points']; 

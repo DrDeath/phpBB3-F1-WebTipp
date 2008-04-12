@@ -128,7 +128,7 @@ class acp_formel
 					$default_config[$config_name] = isset($_POST['submit']) ? str_replace("'", "\'", $config_value) : $config_value;
 					$new[$config_name] = request_var( $config_name , $default_config[$config_name]);
 
-					if( isset($_POST['submit']) )
+					if ( isset($_POST['submit']) )
 					{
 						// Is it salty ?
 						if (!check_form_key('acp_formel'))
@@ -147,7 +147,7 @@ class acp_formel
 				}
 				$db->sql_freeresult($result);
 				
-				if( isset($_POST['submit']) )
+				if ( isset($_POST['submit']) )
 				{
 					add_log('admin', 'LOG_FORMEL_SETTINGS');
 					$error = $user->lang[$lang . '_UPDATED'];
@@ -343,7 +343,7 @@ class acp_formel
 				$formel_config = get_formel_config();
 
 				// Add a new entry
-				if( $button_add && $drivername <> '')
+				if ( $button_add && $drivername <> '' )
 				{
 					// Is it salty ?
 					if (!check_form_key('acp_formel'))
@@ -393,7 +393,7 @@ class acp_formel
 				}
 
 				// Delete an entry
-				if( $button_del && $driver_id <> 0 )
+				if ( $button_del && $driver_id <> 0 )
 				{
 					// Is it salty ?
 					if (!check_form_key('acp_formel'))
@@ -411,7 +411,7 @@ class acp_formel
 				}
 
 				// Load add- oder editpage
-				if( $button_adddriver || ( $button_edit && $driver_id <> 0 ) || ( $button_add && $drivername == '' ))
+				if ( $button_adddriver || ( $button_edit && $driver_id <> 0 ) || ( $button_add && $drivername == '' ) )
 				{
 					$preselected_id = '';
 
@@ -586,7 +586,7 @@ class acp_formel
 				$formel_config = get_formel_config();
 
 				// Add a new team
-				if( $button_add && $teamname <> '' )
+				if ( $button_add && $teamname <> '' )
 				{
 					// Is it salty ?
 					if (!check_form_key('acp_formel'))
@@ -637,7 +637,7 @@ class acp_formel
 				}
 
 				// Delete an entry
-				if( $button_del && $team_id <> 0 )
+				if ( $button_del && $team_id <> 0 )
 				{
 					// Is it salty ?
 					if (!check_form_key('acp_formel'))
@@ -655,7 +655,7 @@ class acp_formel
 				}
 
 				// Load add oder edit team
-				if( $button_addteam || ( $button_edit && $team_id <> 0 ) || ( $button_add && $teamname == '' ))
+				if ( $button_addteam || ( $button_edit && $team_id <> 0 ) || ( $button_add && $teamname == '' ) )
 				{
 					if ( $button_add && $teamname == '')
 					{
@@ -799,13 +799,13 @@ class acp_formel
 				$formel_config = get_formel_config();
 
 				// Add a new race
-				if( $button_add && $racename == '')
+				if ( $button_add && $racename == '' )
 				{
 					$error  = $user->lang[$lang . '_ERROR_RACENAME'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
 				
-				if( $button_add && $racename <> '' )
+				if ( $button_add && $racename <> '' )
 				{
 					// Is it salty ?
 					if (!check_form_key('acp_formel'))
@@ -871,7 +871,7 @@ class acp_formel
 				}
 
 				// Delete a race
-				if( $button_del && $race_id <> 0 )
+				if ( $button_del && $race_id <> 0 )
 				{
 					// Is it salty ?
 					if (!check_form_key('acp_formel'))
@@ -889,7 +889,7 @@ class acp_formel
 				}
 
 				// Load add oder edit race
-				if( $button_addrace || ( $button_edit && $race_id <> 0 ) || ( $button_add && $racename == '' ))
+				if ( $button_addrace || ( $button_edit && $race_id <> 0 ) || ( $button_add && $racename == '' ) )
 				{
 					$title_exp 	= $user->lang[$lang . '_TITEL_ADD_RACE_EXPLAIN'];
 					$title 		= $user->lang[$lang . '_TITEL_ADD_RACE'];
