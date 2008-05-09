@@ -28,14 +28,14 @@ if (!defined('IN_PHPBB'))
 */
 function checkarrayforvalue($wert,$array)
 {
-	$ret=false;
+	$ret = false;
 	if ($wert <> 0) 
 	{
-		for ($i=0;$i < count($array);$i++)
+		for ($i = 0; $i < count($array); $i++)
 		{
-			if ($wert==$array[$i])
+			if ($wert == $array[$i])
 			{
-				$ret=true;
+				$ret = true;
 			}
 		}
 	}
@@ -54,11 +54,11 @@ function formel_del_tip($user_id,$race_id)
 
 	$sql = 'DELETE 
 		FROM ' . FORMEL_TIPPS_TABLE . ' 
-		WHERE tipp_user = ' . $user_id . ' 
-			AND tipp_race = ' . $race_id;
+		WHERE tipp_user = ' . (int) $user_id . ' 
+			AND tipp_race = ' . (int) $race_id;
 	$db->sql_query($sql);
 
-	$tipp_msg = sprintf($user->lang['FORMEL_TIPP_DELETED'], '<a href="'.append_sid("formel.$phpEx").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+	$tipp_msg = sprintf($user->lang['FORMEL_TIPP_DELETED'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
 	trigger_error( $tipp_msg);
 }
 
@@ -159,6 +159,7 @@ function get_formel_drivers()
 		{
 			$drivercar = '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="">';
 		}
+		
 		$row['driver_img'] 			= ( $row['driver_img'] == '' ) ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="">' : '<img src="' . $phpbb_root_path . 'images/formel/' . $row['driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="">';
 		$row['driver_car'] 			= $drivercar;
 		$row['driver_team_name'] 	= $teams[$row['driver_team']]['team_name'];
@@ -210,9 +211,9 @@ function get_formel_auth()
 	$sql = 'SELECT g.group_id 
 		FROM ' . GROUPS_TABLE . ' g, ' . USER_GROUP_TABLE . ' ug
 		WHERE g.group_id = ug.group_id
-			AND ug.user_id = ' . $user->data['user_id'] . '
+			AND ug.user_id = ' . (int) $user->data['user_id'] . '
 			AND ug.user_pending <> ' . true . '
-			AND g.group_id = ' . $access_group;
+			AND g.group_id = ' . (int) $access_group;
 	$result = $db->sql_query($sql);
 
 	$check_formel_auth = $db->sql_affectedrows($result);
@@ -234,11 +235,9 @@ function get_formel_userdata($user_id)
 {
 	global $db;
 
-	$user_id = intval($user_id);
-
 	$sql = 'SELECT user_id, username, user_colour, user_avatar, user_avatar_type, user_avatar_width, user_avatar_height
 		FROM ' . USERS_TABLE . '
-		WHERE user_id = ' . $user_id . ' 
+		WHERE user_id = ' . (int) $user_id . ' 
 			AND user_id <> ' . ANONYMOUS;
 	$result = $db->sql_query($sql);
 

@@ -17,8 +17,8 @@ define('IN_PHPBB', true);
 $phpbb_root_path = './';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
 include($phpbb_root_path . 'common.' . $phpEx);
-include($phpbb_root_path . 'includes/functions_display.'.$phpEx);
-include($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
+include($phpbb_root_path . 'includes/functions_display.' . $phpEx);
+include($phpbb_root_path . 'includes/functions_formel.' . $phpEx);
 
 
 // Start session management
@@ -37,10 +37,10 @@ if (!$user->data['is_registered'])
 }
 
 // Get formel config
-$formel_config = get_formel_config();
-$formel_forum_id = $formel_config['forum_id'];
-$formel_group_id = $formel_config['restrict_to'];
-$formel_mod_id = $formel_config['mod_id'];
+$formel_config 		= get_formel_config();
+$formel_forum_id 	= $formel_config['forum_id'];
+$formel_group_id 	= $formel_config['restrict_to'];
+$formel_mod_id 		= $formel_config['mod_id'];
 
 // Check if user has one of the formular 1 admin permission. 
 // If user has one or more of these permissions, he gets also formular 1 moderator permissions.
@@ -55,7 +55,7 @@ if ( $formel_group_id <> 0 && !get_formel_auth() && $is_admin <> 1 && $user->dat
 
 // Creating breadcrumps
 $template->assign_block_vars('navlinks', array( 
-	'U_VIEW_FORUM'		=> append_sid("./formel.$phpEx"),
+	'U_VIEW_FORUM'		=> append_sid("{$phpbb_root_path}formel.$phpEx"),
 	'FORUM_NAME' 		=> $user->lang['FORMEL_TITLE'],
 ));
 
@@ -131,7 +131,7 @@ switch ($mode)
 				if (checkarrayforvalue($value,$my_tipp_array)) 
 				{
 					add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_NOT_VALID', $race_id);
-					$tipp_msg = sprintf($user->lang['FORMEL_DUBLICATE_VALUES'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+					$tipp_msg = sprintf($user->lang['FORMEL_DUBLICATE_VALUES'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
 					trigger_error($tipp_msg);
 				}
 				$my_tipp_array[$i] = $value;
@@ -159,13 +159,13 @@ switch ($mode)
 				);
 
 				$sql = 'UPDATE ' . FORMEL_TIPPS_TABLE . ' 
-					SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
-					WHERE tipp_user = $user_id
-						AND tipp_race = $race_id";
+					SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
+					WHERE tipp_user = ' . (int) $user_id . '
+						AND tipp_race = ' . (int) $race_id;
 				$db->sql_query($sql);
 				add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_EDITED', $race_id);
 			}
-			$tipp_msg = sprintf($user->lang['FORMEL_ACCEPTED_TIPP'], '<a href="'.append_sid("formel.$phpEx").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+			$tipp_msg = sprintf($user->lang['FORMEL_ACCEPTED_TIPP'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
 			trigger_error( $tipp_msg);
 		}
 
@@ -254,7 +254,7 @@ switch ($mode)
 			$template->assign_block_vars('top_teams', array(
 				'RANK'			=> $rank,
 				'WM_TEAMNAME'	=> $wm_teamname,
-				'WM_POINTS'	=> $row['total_points'])
+				'WM_POINTS'		=> $row['total_points'])
 			);
 		}
 		$db->sql_freeresult($result);
@@ -397,9 +397,9 @@ switch ($mode)
 				// Find current tippers and their points
 				// Get tip data
 				$sql = 'SELECT * 
-					FROM ' . FORMEL_TIPPS_TABLE . " 
-					WHERE tipp_race = '" . $db->sql_escape($race_id) . "'
-						ORDER BY tipp_points DESC";
+					FROM ' . FORMEL_TIPPS_TABLE . ' 
+					WHERE tipp_race = ' . (int) $race_id . '
+						ORDER BY tipp_points DESC';
 				$result = $db->sql_query($sql);
 
 				$tippers_active = $db->sql_affectedrows($result);
@@ -412,7 +412,7 @@ switch ($mode)
 					$current_tippers_colour		= get_username_string('colour'  , $row['tipp_user'], $current_tippers_userdata['username'], $current_tippers_userdata['user_colour'] );
 					$separator 					= ( $cur_counter == $tippers_active ) ? '': ', ';
 					$template->assign_block_vars('tipps_made', array(
-						'USERTIPP' 		=> append_sid("./formel.$phpEx?mode=usertipp&amp;tipp=$current_tipp_id&amp;race=$chosen_race"),
+						'USERTIPP' 		=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=usertipp&amp;tipp=$current_tipp_id&amp;race=$chosen_race"),
 						'SEPARATOR' 	=> $separator,
 						'USERNAME' 		=> $current_tippers_username . ' (' . $row['tipp_points'] . ')',
 						'STYLE'			=> ($current_tippers_colour) ? ' style="color: ' . $current_tippers_colour . '; font-weight: bold;"' : '',
@@ -430,9 +430,9 @@ switch ($mode)
 
 				// Get tip data
 				$sql = 'SELECT * 
-					FROM ' . FORMEL_TIPPS_TABLE . " 
-					WHERE tipp_race = '" . $db->sql_escape($race_id) . "' 
-						AND tipp_user = '" . $db->sql_escape($user_id) . "'";
+					FROM ' . FORMEL_TIPPS_TABLE . ' 
+					WHERE tipp_race = ' . (int) $race_id . ' 
+						AND tipp_user = ' . (int) $user_id;
 				$result = $db->sql_query($sql);
 
 				$tipp_active = $db->sql_affectedrows($result);
@@ -808,8 +808,8 @@ switch ($mode)
 		$template->assign_vars(array(
 			'S_STANDARD'			=> true,
 			'S_COUNTDOWN'			=> ($formel_config['show_countdown'] == 1) ? true : false,
-			'S_FORM_ACTION'			=> append_sid("./formel.$phpEx"),
-			'U_FORMEL'				=> append_sid("./formel.$phpEx"),
+			'S_FORM_ACTION'			=> append_sid("{$phpbb_root_path}formel.$phpEx"),
+			'U_FORMEL'				=> append_sid("{$phpbb_root_path}formel.$phpEx"),
 			'RACE_OFFSET'			=> $race_offset,
 			'HEADER_IMG'			=> $formel_config['headbanner1_img'],
 			'HEADER_URL'			=> $formel_config['headbanner1_url'],
@@ -817,12 +817,12 @@ switch ($mode)
 			'HEADER_WIDTH'			=> $formel_config['head_width'],
 			'RACE_ID'				=> (isset($races[$chosen_race]['race_id'])) ? $races[$chosen_race]['race_id'] : 1,
 			'RACE_TIME'				=> (isset($races[$chosen_race]['race_time'])) ? $races[$chosen_race]['race_time'] : 1,
-			'U_TOP_MORE_USERS'		=> append_sid("formel.$phpEx?mode=stats&amp;show_users=1"),
-			'U_TOP_MORE_DRIVERS'	=> append_sid("formel.$phpEx?mode=stats&amp;show_drivers=1"),
-			'U_TOP_MORE_TEAMS'		=> append_sid("formel.$phpEx?mode=stats&amp;show_teams=1"),
-			'U_FORMEL_RULES'		=> append_sid("formel.$phpEx?mode=rules"),
+			'U_TOP_MORE_USERS'		=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=stats&amp;show_users=1"),
+			'U_TOP_MORE_DRIVERS'	=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=stats&amp;show_drivers=1"),
+			'U_TOP_MORE_TEAMS'		=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=stats&amp;show_teams=1"),
+			'U_FORMEL_RULES'		=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=rules"),
 			'U_FORMEL_FORUM'		=> $discuss_button,
-			'U_FORMEL_STATISTICS'	=> append_sid("formel.$phpEx?mode=stats"),
+			'U_FORMEL_STATISTICS'	=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=stats"),
 			'U_FORMEL_CALL_MOD'		=> $u_call_mod,
 			'COUNTDOWN'				=> (isset($countdown)) ? $countdown : '',
 			'COUNTDOWN_ON'			=> (isset($countdown)) ? 'onLoad="javascript:countdown();"' : '',
@@ -837,7 +837,7 @@ switch ($mode)
 		$template_html = 'formel_body.html';
 
 		$template->assign_block_vars('navlinks', array( 
-			'U_VIEW_FORUM'	=> append_sid("./formel.$phpEx?mode=results"),
+			'U_VIEW_FORUM'	=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=results"),
 			'FORUM_NAME'	=> $user->lang['FORMEL_RESULTS_TITLE'],
 		));
 		
@@ -895,9 +895,9 @@ switch ($mode)
 		
 		$template->assign_vars(array(
 			'S_RESULTS'						=> true,
-			'S_FORM_ACTION'					=> append_sid("./formel.$phpEx?mode=addresults"),
-			'U_FORMEL'						=> append_sid("./formel.$phpEx"),
-			'U_FORMEL_RESULTS'				=> append_sid("./formel.$phpEx?mode=results"),
+			'S_FORM_ACTION'					=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=addresults"),
+			'U_FORMEL'						=> append_sid("{$phpbb_root_path}formel.$phpEx"),
+			'U_FORMEL_RESULTS'				=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=results"),
 			)
 		);
 	break;
@@ -909,14 +909,14 @@ switch ($mode)
 		$template_html = 'formel_body.html';
 
 		$template->assign_block_vars('navlinks', array( 
-			'U_VIEW_FORUM'	=> append_sid("./formel.$phpEx?mode=results"),
+			'U_VIEW_FORUM'	=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=results"),
 			'FORUM_NAME'	=> $user->lang['FORMEL_RESULTS_TITLE'],
 		));
 		
 		// Check URL hijacker . Access only for formel moderators or admins
 		if ( $user->data['user_id'] <> $formel_mod_id && $is_admin <> 1)
 		{
-			$auth_msg = sprintf($user->lang['FORMEL_MOD_ACCESS_DENIED'], '<a href="' . append_sid("formel.$phpEx") . '" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+			$auth_msg = sprintf($user->lang['FORMEL_MOD_ACCESS_DENIED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
 			trigger_error($auth_msg);
 		}
 		
@@ -961,7 +961,7 @@ switch ($mode)
 			$db->sql_query($sql);
 			
 			add_log('mod', $user->data['user_id'], 'LOG_FORMEL_QUALI_DELETED', $race_id);
-			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
 			trigger_error($tipp_msg);
 		}
 		
@@ -976,8 +976,8 @@ switch ($mode)
 			
 			// Delete all WM points for this race
 			$sql = 'DELETE 
-				FROM ' . FORMEL_WM_TABLE . " 
-				WHERE wm_race = $race_id";
+				FROM ' . FORMEL_WM_TABLE . ' 
+				WHERE wm_race = ' . (int) $race_id;
 			$db->sql_query($sql);
 
 			// Delete the race result for this race
@@ -986,8 +986,8 @@ switch ($mode)
 			);
 
 			$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
-				SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
-				WHERE race_id = $race_id";
+				SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
+				WHERE race_id = ' . (int) $race_id;
 			$db->sql_query($sql);
 			
 			// Delete all gathered tip points for this race
@@ -996,19 +996,19 @@ switch ($mode)
 			);
 
 			$sql = 'UPDATE ' . FORMEL_TIPPS_TABLE . ' 
-				SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
-				WHERE tipp_race = $race_id";
+				SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
+				WHERE tipp_race = ' . (int) $race_id;
 			$db->sql_query($sql);
 
 			// Pull out a success message
 			add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_DELETED', $race_id);
-			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
 			trigger_error($tipp_msg);
 		}
 
 		if ( ( $reset || $resetresult || $resetquali ) && $race_id == 0 ) 
 		{
-			$reset_msg = sprintf($user->lang['FORMEL_RESULTS_ERROR'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+			$reset_msg = sprintf($user->lang['FORMEL_RESULTS_ERROR'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
 			trigger_error($reset_msg);
 		}
 		
@@ -1030,7 +1030,7 @@ switch ($mode)
 					if (checkarrayforvalue($value,$quali_array)) 
 					{
 						add_log('user', $user->data['user_id'], 'LOG_FORMEL_QUALI_NOT_VALID', $race_id);
-						$quali_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+						$quali_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
 						trigger_error($quali_msg);
 					}
 					$quali_array[$i] = $value;
@@ -1041,12 +1041,12 @@ switch ($mode)
 				);
 
 				$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
-					SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
-					WHERE race_id = $race_id";
+					SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
+					WHERE race_id = ' . (int) $race_id;
 				$db->sql_query($sql);
 
 				add_log('user', $user->data['user_id'], 'LOG_FORMEL_QUALI_ADDED', $race_id);
-				$quali_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+				$quali_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
 				trigger_error($quali_msg);
 			}
 		}
@@ -1065,8 +1065,8 @@ switch ($mode)
 				if ( $addeditresult ) 
 				{
 					$sql = 'DELETE 
-						FROM ' . FORMEL_WM_TABLE . " 
-						WHERE wm_race = $race_id";
+						FROM ' . FORMEL_WM_TABLE . ' 
+						WHERE wm_race = ' . (int) $race_id;
 					$db->sql_query($sql);
 				}
 				
@@ -1076,7 +1076,7 @@ switch ($mode)
 					if (checkarrayforvalue($value,$result_array)) 
 					{
 						add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_NOT_VALID', $race_id);
-						$result_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+						$result_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
 						trigger_error($result_msg);
 					}
 					$result_array[$i] = $value;
@@ -1090,15 +1090,15 @@ switch ($mode)
 				);
 
 				$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
-					SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
-					WHERE race_id = $race_id";
+					SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
+					WHERE race_id = ' . (int) $race_id;
 				$db->sql_query($sql);				
 				
 				// START points calc
 				// Get tipp data and calc user points
 				$sql = 'SELECT * 
-					FROM ' . FORMEL_TIPPS_TABLE . " 
-					WHERE tipp_race = '" . $db->sql_escape($race_id) . "'";
+					FROM ' . FORMEL_TIPPS_TABLE . ' 
+					WHERE tipp_race = ' . (int) $race_id;
 				$result = $db->sql_query($sql);
 
 				while ($row = $db->sql_fetchrow($result)) 
@@ -1139,9 +1139,9 @@ switch ($mode)
 					);
 
 					$sql = 'UPDATE ' . FORMEL_TIPPS_TABLE . ' 
-						SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
-						WHERE tipp_race = $race_id 
-						AND tipp_user = $current_user";
+						SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
+						WHERE tipp_race = ' . (int) $race_id . '
+						AND tipp_user = ' . (int) $current_user;
 					$update = $db->sql_query($sql);
 				}
 				$db->sql_freeresult($result);
@@ -1184,7 +1184,7 @@ switch ($mode)
 				// END points calc
 
 				add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_ADDED', $race_id);
-				$result_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="'.append_sid("formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+				$result_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
 				trigger_error($result_msg);
 			}
 		}
@@ -1196,8 +1196,8 @@ switch ($mode)
 			{
 				// Get the race
 				$sql = 'SELECT * 
-					FROM ' . FORMEL_RACES_TABLE . " 
-						WHERE race_id = '" . $db->sql_escape($race_id) . "'";
+					FROM ' . FORMEL_RACES_TABLE . ' 
+						WHERE race_id = ' . (int) $race_id;
 				$result = $db->sql_query($sql);
 
 				$row = $db->sql_fetchrow($result);
@@ -1259,8 +1259,8 @@ switch ($mode)
 			{
 				// Get the race
 				$sql = 'SELECT * 
-					FROM ' . FORMEL_RACES_TABLE . " 
-					WHERE race_id = '" . $db->sql_escape($race_id) . "'";
+					FROM ' . FORMEL_RACES_TABLE . ' 
+					WHERE race_id = ' . (int) $race_id;
 				$result = $db->sql_query($sql);
 
 				$row = $db->sql_fetchrow($result);
@@ -1351,9 +1351,9 @@ switch ($mode)
 
 		$template->assign_vars(array(
 			'S_ADDRESULTS'					=> true,
-			'S_FORM_ACTION' 				=> append_sid("./formel.$phpEx?mode=addresults"),
-			'U_FORMEL' 						=> append_sid("./formel.$phpEx"),
-			'U_FORMEL_RESULTS' 				=> append_sid("./formel.$phpEx?mode=results"),
+			'S_FORM_ACTION' 				=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=addresults"),
+			'U_FORMEL' 						=> append_sid("{$phpbb_root_path}formel.$phpEx"),
+			'U_FORMEL_RESULTS' 				=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=results"),
 			'RACE_ID' 						=> $race_id,
 			)
 		);
@@ -1377,8 +1377,8 @@ switch ($mode)
 
 		// Get current tip
 		$sql = 'SELECT * 
-			FROM ' . FORMEL_TIPPS_TABLE . " 
-			WHERE tipp_id = '" . $db->sql_escape($tipp_id) . "'";
+			FROM ' . FORMEL_TIPPS_TABLE . ' 
+			WHERE tipp_id = ' . (int) $tipp_id;
 		$result = $db->sql_query($sql);
 
 		$tipp_active = $db->sql_affectedrows($result);
@@ -1400,8 +1400,8 @@ switch ($mode)
 
 		// Get all tip points
 		$sql = 'SELECT sum(tipp_points) AS total_points 
-			FROM ' . FORMEL_TIPPS_TABLE . " 
-			WHERE tipp_user = '" . $db->sql_escape($tipp_userdata['user_id']) . "'";
+			FROM ' . FORMEL_TIPPS_TABLE . ' 
+			WHERE tipp_user = ' . (int) $tipp_userdata['user_id'];
 		$result = $db->sql_query($sql);
 
 		while ($row = $db->sql_fetchrow($result))
@@ -1508,7 +1508,7 @@ switch ($mode)
 		$template_html = 'formel_body.html';
 
 		$template->assign_block_vars('navlinks', array( 
-			'U_VIEW_FORUM'		=> append_sid("./formel.$phpEx?mode=stats"),
+			'U_VIEW_FORUM'		=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=stats"),
 			'FORUM_NAME' 		=> $user->lang['FORMEL_STATS_TITLE'],
 		));	
 		
@@ -1544,8 +1544,8 @@ switch ($mode)
 				$wm_teamname 	= $teams[$row['wm_team']]['team_name'];
 				$wm_teamimg 	= $teams[$row['wm_team']]['team_img'];
 				$wm_teamcar 	= $teams[$row['wm_team']]['team_car'];
-				$wm_teamimg 	= ( $wm_teamimg == '' ) ? '<img src="images/formel/' . $formel_config['no_team_img'] . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />' : '<img src="images/formel/' . $wm_teamimg . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />';
-				$wm_teamcar 	= ( $wm_teamcar == '' ) ? '<img src="images/formel/' . $formel_config['no_car_img']  . '" alt="" width="' . $formel_config['car_img_width']  . '" height="' . $formel_config['car_img_height']  . '" />' : '<img src="images/formel/' . $wm_teamcar . '" alt="" width="' . $formel_config['car_img_width']  . '" height="' . $formel_config['car_img_height']  . '" />';
+				$wm_teamimg 	= ( $wm_teamimg == '' ) ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_team_img'] . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $wm_teamimg . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />';
+				$wm_teamcar 	= ( $wm_teamcar == '' ) ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img']  . '" alt="" width="' . $formel_config['car_img_width']  . '" height="' . $formel_config['car_img_height']  . '" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $wm_teamcar . '" alt="" width="' . $formel_config['car_img_width']  . '" height="' . $formel_config['car_img_height']  . '" />';
 				if ( $formel_config['show_gfx'] == 1 )
 				{
 					$template->assign_block_vars('top_teams_gfx', array(
@@ -1598,7 +1598,7 @@ switch ($mode)
 				$wm_driverimg 	= $drivers[$row['wm_driver']]['driver_img'];
 				$wm_drivercar 	= $drivers[$row['wm_driver']]['driver_car'];
 				$wm_driverteam 	= $teams[$row['wm_team']]['team_img'];
-				$wm_driverteam 	= ( $wm_driverteam == '' ) ? '<img src="images/formel/' . $formel_config['no_team_img'] . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />' : '<img src="images/formel/' . $wm_driverteam . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />';
+				$wm_driverteam 	= ( $wm_driverteam == '' ) ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_team_img'] . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $wm_driverteam . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />';
 
 				if ( $formel_config['show_gfx'] == 1 )
 				{
@@ -1698,15 +1698,15 @@ switch ($mode)
 
 		$template->assign_vars(array(
 			'S_STATS'				=> true,
-			'S_FORM_ACTION' 		=> append_sid("./formel.$phpEx?mode=stats"),
-			'U_FORMEL_STATS' 		=> append_sid("./formel.$phpEx?mode=stats"),
+			'S_FORM_ACTION' 		=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=stats"),
+			'U_FORMEL_STATS' 		=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=stats"),
 			'HEADER_IMG' 			=> $formel_config['headbanner3_img'],
 			'HEADER_URL' 			=> $formel_config['headbanner3_url'],
 			'HEADER_HEIGHT' 		=> $formel_config['head_height'],
 			'HEADER_WIDTH' 			=> $formel_config['head_width'],
 			'L_STAT_TABLE_TITLE' 	=> $stat_table_title,
-			'U_FORMEL' 				=> append_sid("./formel.$phpEx"),
-			'U_BACK_TO_TIPP' 		=> append_sid("./formel.$phpEx"),
+			'U_FORMEL' 				=> append_sid("{$phpbb_root_path}formel.$phpEx"),
+			'U_BACK_TO_TIPP' 		=> append_sid("{$phpbb_root_path}formel.$phpEx"),
 			)
 		);
 	break;
@@ -1718,7 +1718,7 @@ switch ($mode)
 		$template_html = 'formel_body.html';
 
 		$template->assign_block_vars('navlinks', array( 
-			'U_VIEW_FORUM'		=> append_sid("./formel.$phpEx?mode=rules"),
+			'U_VIEW_FORUM'		=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=rules"),
 			'FORUM_NAME' 		=> $user->lang['FORMEL_RULES_TITLE'],
 		));	
 		
@@ -1800,14 +1800,14 @@ switch ($mode)
 			'FORMEL_RULES_FASTEST' 		=> $rules_fastest,
 			'FORMEL_RULES_TIRED' 		=> $rules_tired,
 			'FORMEL_RULES_TOTAL' 		=> $rules_total,
-			'U_FORMEL' 					=> append_sid("./formel.$phpEx"),
-			'U_FORMEL_RULES' 			=> append_sid("./formel.$phpEx?mode=rules"),
+			'U_FORMEL' 					=> append_sid("{$phpbb_root_path}formel.$phpEx"),
+			'U_FORMEL_RULES' 			=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=rules"),
 			)
 		);
 	break;
 		
 	default:
-		$auth_msg = sprintf($user->lang['FORMEL_ERROR_MODE'], '<a href="' . append_sid("formel.$phpEx") . '" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+		$auth_msg = sprintf($user->lang['FORMEL_ERROR_MODE'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
 		trigger_error($auth_msg);
 	break;
 }

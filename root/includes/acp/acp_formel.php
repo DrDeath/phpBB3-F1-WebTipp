@@ -155,10 +155,10 @@ class acp_formel
 				}
 
 				// Init some vars
-				$combo_mod_entries = '';
+				$combo_mod_entries 		= '';
 
-				$show_avatar_yes 	= ( $new['show_avatar']) ? "checked=\"checked\"" : "";
-				$show_avatar_no 	= ( !$new['show_avatar']) ? "checked=\"checked\"" : "";
+				$show_avatar_yes 		= ( $new['show_avatar']) ? "checked=\"checked\"" : "";
+				$show_avatar_no 		= ( !$new['show_avatar']) ? "checked=\"checked\"" : "";
 				
 				$show_in_profile_yes 	= ( $new['show_in_profile']) ? "checked=\"checked\"" : "";
 				$show_in_profile_no 	= ( !$new['show_in_profile']) ? "checked=\"checked\"" : "";
@@ -436,9 +436,9 @@ class acp_formel
 
 						// Get drivers data
 						$sql = 'SELECT * 
-							FROM ' . FORMEL_DRIVERS_TABLE . " 
-							WHERE driver_id = $driver_id  
-							ORDER BY driver_name";
+							FROM ' . FORMEL_DRIVERS_TABLE . ' 
+							WHERE driver_id = ' . (int) $driver_id . '
+								ORDER BY driver_name';
 						$result = $db->sql_query($sql);
 						$row = $db->sql_fetchrow($result);
 						if ( $button_edit ) 
@@ -515,8 +515,8 @@ class acp_formel
 						$driverimg			= ( $driverimg == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="">' : '<img src="' . $phpbb_root_path . 'images/formel/' . $driverimg . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="">';
 
 						$pointssql = 'SELECT SUM(wm_points) AS total_points 
-							FROM ' . FORMEL_WM_TABLE . " 
-							WHERE wm_driver = '" . $db->sql_escape($current_user_id) . "'";
+							FROM ' . FORMEL_WM_TABLE . ' 
+							WHERE wm_driver = ' . (int) $current_user_id;
 						$user_points = $db->sql_query($pointssql);
 
 						$driver_points = $db->sql_fetchrow($user_points);
@@ -615,8 +615,8 @@ class acp_formel
 							);
 
 							$sql = 'UPDATE ' . FORMEL_TEAMS_TABLE . ' 
-								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
-								WHERE team_id = $team_id";
+								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
+								WHERE team_id = ' . (int) $team_id;
 							$db->sql_query($sql);
 						}
 						else 
@@ -626,8 +626,8 @@ class acp_formel
 							);
 
 							$sql = 'UPDATE ' . FORMEL_TEAMS_TABLE . ' 
-								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
-								WHERE team_id = $team_id";
+								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
+								WHERE team_id = ' . (int) $team_id;
 							$db->sql_query($sql);
 						}
 						add_log('admin', 'LOG_FORMEL_TEAM_EDITED', $team_id);
@@ -645,8 +645,8 @@ class acp_formel
 						trigger_error('FORM_INVALID');
 					}
 					
-					$sql = 'DELETE FROM ' . FORMEL_TEAMS_TABLE . " 
-							WHERE team_id = $team_id";
+					$sql = 'DELETE FROM ' . FORMEL_TEAMS_TABLE . ' 
+							WHERE team_id = ' . (int) $team_id;
 					$db->sql_query($sql);
 
 					add_log('admin', 'LOG_FORMEL_TEAM_DELETED', $team_id);
@@ -673,9 +673,9 @@ class acp_formel
 						$title_exp = $user->lang[$lang . '_EDITTEAM_TITLE_EXPLAIN'];
 						$title = $user->lang[$lang . '_EDITTEAM_TITLE'];
 						$sql = 'SELECT * 
-							FROM ' . FORMEL_TEAMS_TABLE . " 
-							WHERE team_id = $team_id  
-							ORDER BY team_name";
+							FROM ' . FORMEL_TEAMS_TABLE . ' 
+							WHERE team_id = ' . (int) $team_id . ' 
+							ORDER BY team_name';
 						$result = $db->sql_query($sql);
 
 						$row = $db->sql_fetchrow($result);
@@ -720,8 +720,8 @@ class acp_formel
 						$team_img		= ($team_img == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_team_img'] . '" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" alt="">' : '<img src="' . $phpbb_root_path . 'images/formel/' . $team_img . '" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" alt="">';
 						$team_car		= ($team_car == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="">' : '<img src="' . $phpbb_root_path . 'images/formel/' . $team_car . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="">';
 						$pointssql		= '	SELECT SUM(wm_points) AS total_points 
-							FROM ' . FORMEL_WM_TABLE . " 
-							WHERE wm_team = $current_team";
+											FROM ' . FORMEL_WM_TABLE . ' 
+											WHERE wm_team = ' . (int) $current_team;
 						$team_points = $db->sql_query($pointssql);
 
 						$current_points = $db->sql_fetchrow($team_points);
@@ -735,16 +735,19 @@ class acp_formel
 								'TEAMID'	=> $row['team_id'],
 								'POINTS'	=> $points,
 								'TEAMIMG'	=> $team_img,
-								'TEAMCAR'	=> $team_car)
+								'TEAMCAR'	=> $team_car,
+								)
 							);
 						}
-						else {
+						else 
+						{
 							$template->assign_block_vars('teamrow', array(
 								'TEAMNAME'	=> $row['team_name'],
 								'TEAMID'	=> $row['team_id'],
 								'POINTS'	=> $points,
 								'TEAMIMG'	=> $team_img,
-								'TEAMCAR'	=> $team_car)
+								'TEAMCAR'	=> $team_car,
+								)
 							);
 						}
 					}
@@ -843,8 +846,8 @@ class acp_formel
 							);
 							
 							$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
-								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
-								WHERE race_id = $race_id";
+								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
+								WHERE race_id = ' . (int) $race_id;
 							$db->sql_query($sql);
 						}
 						else 
@@ -859,8 +862,8 @@ class acp_formel
 							);
 							
 							$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
-								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
-								WHERE race_id = $race_id";
+								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
+								WHERE race_id = ' . (int) $race_id;
 							$db->sql_query($sql);
 						}
 						add_log('admin', 'LOG_FORMEL_RACE_EDITED', $race_id);
@@ -879,8 +882,8 @@ class acp_formel
 						trigger_error('FORM_INVALID');
 					}				
 
-					$sql = 'DELETE FROM ' . FORMEL_RACES_TABLE . " 
-							WHERE race_id = $race_id";
+					$sql = 'DELETE FROM ' . FORMEL_RACES_TABLE . ' 
+							WHERE race_id = ' . (int) $race_id;
 					$db->sql_query($sql);
 
 					add_log('admin', 'LOG_FORMEL_RACE_DELETED', $race_id);
@@ -900,8 +903,8 @@ class acp_formel
 						$title_exp 		= $user->lang[$lang . '_TITEL_EDIT_RACE_EXPLAIN'];
 						$title 			= $user->lang[$lang . '_TITEL_EDIT_RACE'];
 						$sql 			= '	SELECT * 
-							FROM ' . FORMEL_RACES_TABLE . " 
-							WHERE race_id = '" . $db->sql_escape($race_id) . "'";
+											FROM ' . FORMEL_RACES_TABLE . ' 
+											WHERE race_id = ' . (int) $race_id;
 						$result = $db->sql_query($sql);
 
 						$row 			= $db->sql_fetchrow($result);
@@ -928,28 +931,28 @@ class acp_formel
 					$c_day = '<select name="c_day" size="1" class="gensmall">';
 					for ( $i = 1; $i < 32; $i++ )
 					{
-						$c_day .= '<option value="'.$i.'">&nbsp;'.$i.'&nbsp;</option>';
+						$c_day .= '<option value="' . $i . '">&nbsp;' . $i . '&nbsp;</option>';
 					}
 					$c_day .= '</select>';
 					$c_month = '<select name="c_month" size="1" class="gensmall">
-								<option value="1">&nbsp;'. $user->lang['datetime']['January'].'&nbsp;</option>
-								<option value="2">&nbsp;'. $user->lang['datetime']['February'].'&nbsp;</option>
-								<option value="3">&nbsp;'. $user->lang['datetime']['March'].'&nbsp;</option>
-								<option value="4">&nbsp;'. $user->lang['datetime']['April'].'&nbsp;</option>
-								<option value="5">&nbsp;'. $user->lang['datetime']['May'].'&nbsp;</option>
-								<option value="6">&nbsp;'. $user->lang['datetime']['June'].'&nbsp;</option>
-								<option value="7">&nbsp;'. $user->lang['datetime']['July'].'&nbsp;</option>
-								<option value="8">&nbsp;'. $user->lang['datetime']['August'].'&nbsp;</option>
-								<option value="9">&nbsp;'. $user->lang['datetime']['September'].'&nbsp;</option>
-								<option value="10">&nbsp;'.$user->lang['datetime']['October'].'&nbsp;</option>
-								<option value="11">&nbsp;'.$user->lang['datetime']['November'].'&nbsp;</option>
-								<option value="12">&nbsp;'.$user->lang['datetime']['December'].'&nbsp;</option>
+								<option value="1">&nbsp;' . $user->lang['datetime']['January'] . '&nbsp;</option>
+								<option value="2">&nbsp;' . $user->lang['datetime']['February'] . '&nbsp;</option>
+								<option value="3">&nbsp;' . $user->lang['datetime']['March'] . '&nbsp;</option>
+								<option value="4">&nbsp;' . $user->lang['datetime']['April'] . '&nbsp;</option>
+								<option value="5">&nbsp;' . $user->lang['datetime']['May'] . '&nbsp;</option>
+								<option value="6">&nbsp;' . $user->lang['datetime']['June'] . '&nbsp;</option>
+								<option value="7">&nbsp;' . $user->lang['datetime']['July'] . '&nbsp;</option>
+								<option value="8">&nbsp;' . $user->lang['datetime']['August'] . '&nbsp;</option>
+								<option value="9">&nbsp;' . $user->lang['datetime']['September'] . '&nbsp;</option>
+								<option value="10">&nbsp;' . $user->lang['datetime']['October'] . '&nbsp;</option>
+								<option value="11">&nbsp;' . $user->lang['datetime']['November'] . '&nbsp;</option>
+								<option value="12">&nbsp;' . $user->lang['datetime']['December'] . '&nbsp;</option>
 								</select>';
 					$c_hour = '<select name="c_hour" size="1" class="gensmall">';
 
 					for ( $i = 0; $i < 24; $i++ )
 					{
-						$c_hour .= '<option value="'.$i.'">&nbsp;'.$i.'&nbsp;</option>';
+						$c_hour .= '<option value="' . $i . '">&nbsp;' . $i . '&nbsp;</option>';
 					}
 					$c_hour .= '</select>';
 
@@ -959,20 +962,20 @@ class acp_formel
 					for ( $i = 0; $i < 60; $i++ )
 					{
 						$j = ($i < 10) ? '0' : '';
-						$c_minute .= '<option value="'.$i.'">&nbsp;'.$j.$i.'&nbsp;</option>';
-						$c_second .= '<option value="'.$i.'">&nbsp;'.$j.$i.'&nbsp;</option>';
+						$c_minute .= '<option value="' . $i . '">&nbsp;' . $j . $i . '&nbsp;</option>';
+						$c_second .= '<option value="' . $i . '">&nbsp;' . $j . $i .'&nbsp;</option>';
 					}
 					$c_minute .= '</select>';
 					$c_second .= '</select>';
 
-					$c_day 		= str_replace("value=\"".$b_day."\">", "value=\"".$b_day."\" SELECTED>" ,$c_day);
-					$c_month 	= str_replace("value=\"".$b_month."\">", "value=\"".$b_month."\" SELECTED>" ,$c_month);
+					$c_day 		= str_replace("value=\"" . $b_day . "\">", "value=\"" . $b_day . "\" SELECTED>" ,$c_day);
+					$c_month 	= str_replace("value=\"" . $b_month . "\">", "value=\"" . $b_month . "\" SELECTED>" ,$c_month);
 					$c_year 	= '<input type="text" class="post" name="c_year" size="4" maxlength="4" value="' . $b_year . '" />';
-					$c_hour 	= str_replace("value=\"".$b_hour."\">", "value=\"".$b_hour."\" SELECTED>" ,$c_hour);
-					$c_minute 	= str_replace("value=\"".$b_minute."\">", "value=\"".$b_minute."\" SELECTED>" ,$c_minute);
-					$c_second 	= str_replace("value=\"".$b_second."\">", "value=\"".$b_second."\" SELECTED>" ,$c_second);
+					$c_hour 	= str_replace("value=\"" . $b_hour . "\">", "value=\"" . $b_hour . "\" SELECTED>" ,$c_hour);
+					$c_minute 	= str_replace("value=\"" . $b_minute . "\">", "value=\"" . $b_minute . "\" SELECTED>" ,$c_minute);
+					$c_second 	= str_replace("value=\"" . $b_second . "\">", "value=\"" . $b_second . "\" SELECTED>" ,$c_second);
 
-					$racetime_combos = $c_day.'&nbsp;.&nbsp;'.$c_month.'&nbsp;.&nbsp;'.$c_year.'&nbsp;&nbsp;&nbsp;'.$c_hour.'&nbsp;:&nbsp;'.$c_minute.'&nbsp;:&nbsp;'.$c_second;
+					$racetime_combos = $c_day . '&nbsp;.&nbsp;' . $c_month . '&nbsp;.&nbsp;' . $c_year . '&nbsp;&nbsp;&nbsp;' . $c_hour . '&nbsp;:&nbsp;' . $c_minute . '&nbsp;:&nbsp;' . $c_second;
 
 					// Generate page
 					if ( $formel_config['show_gfxr'] == 1 )
@@ -983,7 +986,7 @@ class acp_formel
 					$template->assign_vars(array(
 						'S_ADD_RACES'			=> true,
 						'U_ACTION'				=> $this->u_action,
-						'FORMEL_IMG' 			=> $phpbb_root_path.'images/formel/formel_races.jpg',
+						'FORMEL_IMG' 			=> $phpbb_root_path . 'images/formel/formel_races.jpg',
 						'PREDEFINED_NAME' 		=> $racename,
 						'PREDEFINED_IMG' 		=> $raceimg,
 						'PREDEFINED_LENGTH' 	=> $racelength,
@@ -1002,8 +1005,8 @@ class acp_formel
 					// Load the race page
 					// Get all race data
 					$sql = 'SELECT * 
-						FROM ' . FORMEL_RACES_TABLE . ' 
-						ORDER BY race_time ASC';
+							FROM ' . FORMEL_RACES_TABLE . ' 
+								ORDER BY race_time ASC';
 					$result = $db->sql_query($sql);
 
 					while ($row = $db->sql_fetchrow($result))
@@ -1045,7 +1048,7 @@ class acp_formel
 						'S_RACES'		=> true,
 						'U_ACTION'		=> $this->u_action,
 						'COLSPAN' 		=> $colspan,
-						'FORMEL_IMG' 	=> $phpbb_root_path.'images/formel/formel_races.jpg',
+						'FORMEL_IMG' 	=> $phpbb_root_path . 'images/formel/formel_races.jpg',
 						)
 					);
 				}

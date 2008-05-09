@@ -46,7 +46,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
     <mod-version>
       <major>0</major>
       <minor>1</minor>
-      <revision>27</revision>
+      <revision>28</revision>
     </mod-version>
     <installation>
       <level>easy</level>
@@ -216,6 +216,22 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		  <change>Hinzugefügt: Log-Aktion für "Saison zurücksetzen".</change>
 		  <change>Änderung: Es wurden alle Sprachvariablen den Coding Guidelines angepasst.</change>
 		  <change>Wichtig für alle Updater: Ersetze ALLE Dateien außer den mitgelieferten Bildern! Führe die Änderungen an der memberlist.php und memberlist_view.html erneut durch.</change>
+        </changelog>
+      </entry>
+     <entry>
+        <date>2008-05-09T00:00:00+02:00</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>28</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>Cleaned up some code. Added $phpbb_root_path to most of URLs</change>
+		  <change>Important for all Updaters: replace root/formel.php , root/includes/functions_formel.php and root/includes/acp/acp_formel.php</change>
+		</changelog>
+        <changelog lang="de">
+          <change>Codebereinigung. Die Variable $phpbb_root_path den meisten URLs angefügt.</change>
+		  <change>Wichtig für alle Updater: Ersetze die Dateien root/formel.php , root/includes/functions_formel.php und root/includes/acp/acp_formel.php</change>
         </changelog>
       </entry>
     </history>
