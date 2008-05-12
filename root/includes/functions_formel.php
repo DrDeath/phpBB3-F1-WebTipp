@@ -198,34 +198,6 @@ function get_formel_drivers_data()
 }
 
 /**
-* get_formel_auth
-*
-* Get formel auth status
-* Returns TRUE if user_id is in $access_group
-*/
-function get_formel_auth()
-{
-	global $db, $formel_config, $user;
-
-	$access_group = $formel_config['restrict_to'];
-	$sql = 'SELECT g.group_id 
-		FROM ' . GROUPS_TABLE . ' g, ' . USER_GROUP_TABLE . ' ug
-		WHERE g.group_id = ug.group_id
-			AND ug.user_id = ' . (int) $user->data['user_id'] . '
-			AND ug.user_pending <> ' . true . '
-			AND g.group_id = ' . (int) $access_group;
-	$result = $db->sql_query($sql);
-
-	$check_formel_auth = $db->sql_affectedrows($result);
-	$db->sql_freeresult($result);
-	if ( $check_formel_auth <> 0 )
-	{
-		return true;
-	}
-	return false;
-}
-
-/**
 * get_formel_userdata
 *
 * Get username, user_colour from a user_id

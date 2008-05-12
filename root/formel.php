@@ -18,8 +18,8 @@ $phpbb_root_path = './';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
 include($phpbb_root_path . 'common.' . $phpEx);
 include($phpbb_root_path . 'includes/functions_display.' . $phpEx);
+include($phpbb_root_path . 'includes/functions_user.' . $phpEx);
 include($phpbb_root_path . 'includes/functions_formel.' . $phpEx);
-
 
 // Start session management
 $user->session_begin();
@@ -46,8 +46,11 @@ $formel_mod_id 		= $formel_config['mod_id'];
 // If user has one or more of these permissions, he gets also formular 1 moderator permissions.
 $is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_teams', 'a_formel_races');
 
+//Is the user member of the restricted group?
+$is_in_group = group_memberships($formel_group_id, $user->data['user_id'], true);
+
 // Check for : restricted group access - admin access - formular 1 moderator access
-if ( $formel_group_id <> 0 && !get_formel_auth() && $is_admin <> 1 && $user->data['user_id'] <> $formel_mod_id )
+if ( $formel_group_id <> 0 && !$is_in_group && $is_admin <> 1 && $user->data['user_id'] <> $formel_mod_id )
 {
 	$auth_msg = sprintf($user->lang['FORMEL_ACCESS_DENIED'], '<a href="' . append_sid("ucp.$phpEx?i=groups") . '" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
 	trigger_error($auth_msg);
