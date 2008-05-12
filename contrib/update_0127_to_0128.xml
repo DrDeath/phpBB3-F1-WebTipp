@@ -42,11 +42,11 @@
           <revision>28</revision>
         </rev-version>
         <changelog lang="en-gb">
-          <change>Second public Updater</change>
+          <change>Cleaned up some code. Added $phpbb_root_path to most of URLs</change>
 		</changelog>
         <changelog lang="de">
-          <change>Zweite öffentliche Updater Version</change>
-		</changelog>
+          <change>Codebereinigung. Die Variable $phpbb_root_path den meisten URLs angefügt.</change>
+        </changelog>
       </entry>
     </history>
     <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
