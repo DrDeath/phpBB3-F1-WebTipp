@@ -46,7 +46,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
     <mod-version>
       <major>0</major>
       <minor>1</minor>
-      <revision>28</revision>
+      <revision>29</revision>
     </mod-version>
     <installation>
       <level>easy</level>
@@ -232,6 +232,20 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
         <changelog lang="de">
           <change>Codebereinigung. Die Variable $phpbb_root_path den meisten URLs angefügt.</change>
 		  <change>Wichtig für alle Updater: Ersetze die Dateien root/formel.php , root/includes/functions_formel.php und root/includes/acp/acp_formel.php</change>
+        </changelog>
+      </entry>
+     <entry>
+        <date>2008-05-12T00:00:00+02:00</date>
+        <rev-version>
+          <major>0</major>
+          <minor>1</minor>
+          <revision>29</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>Nothing yet</change>
+		</changelog>
+        <changelog lang="de">
+          <change>Bis jetzt: Nichts</change>
         </changelog>
       </entry>
     </history>
