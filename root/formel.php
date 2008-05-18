@@ -340,8 +340,8 @@ switch ($mode)
 					}
 
 					$stop = $b_month.' '.$b_day.', '.$b_year.' '.$b_hour.':'.$b_minute.':'.$b_second;
-					$countdown = "<script language='JavaScript' type='text/javascript'>
-								<!--
+					$countdown = "<script type=\"text/javascript\">
+								// <![CDATA[
 								var eventdate = new Date('".$stop."');
 								function toSt(n)
 								{
@@ -368,19 +368,19 @@ switch ($mode)
 									hours_count = toSt(count%24);
 									count=Math.floor(count/24);
 									days_count = count;
-									document.countdown.days.value = days_count;
-									document.countdown.hours.value = hours_count;
-									document.countdown.mins.value = mins_count;
-									document.countdown.secs.value = secs_count;
+									document.getElementById('countdown').days.value = days_count;
+									document.getElementById('countdown').hours.value = hours_count;
+									document.getElementById('countdown').mins.value = mins_count;
+									document.getElementById('countdown').secs.value = secs_count;
 									window.setTimeout('countdown()',500);
 								}
-								//-->
+								// ]]>
 								</script>";
 				}
 				
 				// Get race image and data
 				$race_img = $races[$chosen_race]['race_img'];
-				$race_img = ($race_img == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_race_img'] . '" width="' . $formel_config['race_img_width'] . '" height="' . $formel_config['race_img_height'] . '" alt="">' : '<img src="' . $phpbb_root_path . 'images/formel/' . $race_img . '" width="' . $formel_config['race_img_width'] . '" height="' . $formel_config['race_img_height'] . '" alt="">';
+				$race_img = ($race_img == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_race_img'] . '" width="' . $formel_config['race_img_width'] . '" height="' . $formel_config['race_img_height'] . '" alt="" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $race_img . '" width="' . $formel_config['race_img_width'] . '" height="' . $formel_config['race_img_height'] . '" alt="" />';
 				$template->assign_block_vars('racerow', array(
 					'RACEIMG' 		=> $race_img,
 					'RACENAME' 		=> $races[$chosen_race]['race_name'],
@@ -450,7 +450,7 @@ switch ($mode)
 				{
 					$tipp_button		= $user->lang['FORMEL_EDIT_TIPP'];
 					$tipp_button_name	= 'edit_my_tipp';
-					$delete_button		= '&nbsp;<input class="button1" type="submit" name="del_tipp" value="' . $user->lang['FORMEL_DEL_TIPP'] . '">';
+					$delete_button		= '&nbsp;<input class="button1" type="submit" name="del_tipp" value="' . $user->lang['FORMEL_DEL_TIPP'] . '" />';
 					$tipp_array			= explode(",",$tipp_data[0]['tipp_result']);
 					$user_tipp_points	= $tipp_data[0]['tipp_points'];
 
@@ -782,7 +782,7 @@ switch ($mode)
 		{
 			$formel_forum_url	= append_sid("viewforum.$phpEx?f=$formel_forum_id");
 			$formel_forum_name	= $user->lang['FORMEL_FORUM'];
-			$discuss_button		= '<input class="button1" type="button" onClick="window.location.href=\'' . $formel_forum_url . '\'" value="' . $formel_forum_name . '">&nbsp;&nbsp;';
+			$discuss_button		= '<input class="button1" type="button" onclick="window.location.href=\'' . $formel_forum_url . '\'" value="' . $formel_forum_name . '" />&nbsp;&nbsp;';
 		}
 
 		// Moderator switch and options
@@ -828,7 +828,7 @@ switch ($mode)
 			'U_FORMEL_STATISTICS'	=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=stats"),
 			'U_FORMEL_CALL_MOD'		=> $u_call_mod,
 			'COUNTDOWN'				=> (isset($countdown)) ? $countdown : '',
-			'COUNTDOWN_ON'			=> (isset($countdown)) ? 'onLoad="javascript:countdown();"' : '',
+			'COUNTDOWN_ON'			=> (isset($countdown)) ? 'onload="javascript:countdown();"' : '',
 			'L_FORMEL_CALL_MOD'		=> $l_call_mod)
 		);
 	break;
@@ -866,9 +866,9 @@ switch ($mode)
 		{
 			$race_img 			= $row['race_img'];
 			$race_id 			= $row['race_id'];
-			$race_img 			= ($race_img == '') 				? '' : '<img src="' . $phpbb_root_path . 'images/formel/' . $race_img . '" width="94" height="54" alt="">';
-			$quali_buttons 		= ( $row['race_quali'] == '0' ) 	? '<input class="button1" type="submit" name="quali"  value="' . $l_add . '">' : '<input class="button1" type="submit" name="editquali"  value="' . $l_edit . '">&nbsp;&nbsp;<input class="button1" type="submit" name="resetquali"  value="' . $l_del . '">';
-			$result_buttons 	= ( $row['race_result'] == '0' ) 	? '<input class="button1" type="submit" name="result" value="' . $l_add . '">' : '<input class="button1" type="submit" name="editresult" value="' . $l_edit . '">&nbsp;&nbsp;<input class="button1" type="submit" name="resetresult" value="' . $l_del . '">';
+			$race_img 			= ($race_img == '') 				? '' : '<img src="' . $phpbb_root_path . 'images/formel/' . $race_img . '" width="94" height="54" alt="" />';
+			$quali_buttons 		= ( $row['race_quali'] == '0' ) 	? '<input class="button1" type="submit" name="quali"  value="' . $l_add . '" />' : '<input class="button1" type="submit" name="editquali"  value="' . $l_edit . '" />&nbsp;&nbsp;<input class="button1" type="submit" name="resetquali"  value="' . $l_del . '" />';
+			$result_buttons 	= ( $row['race_result'] == '0' ) 	? '<input class="button1" type="submit" name="result" value="' . $l_add . '" />' : '<input class="button1" type="submit" name="editresult" value="' . $l_edit . '" />&nbsp;&nbsp;<input class="button1" type="submit" name="resetresult" value="' . $l_del . '" />';
 
 			if ( $formel_config['show_gfxr'] == 1 )
 			{
@@ -1236,7 +1236,7 @@ switch ($mode)
 					$this_driver_name = $drivers[$k]['driver_name'];
 					if (isset($quali_array[$i]))
 					{
-						$selected = ( $this_driver_id == $quali_array[$i]) ? 'selected' : '';
+						$selected = ( $this_driver_id == $quali_array[$i]) ? 'selected="selected"' : '';
 					}
 					else
 					{
@@ -1297,7 +1297,7 @@ switch ($mode)
 					$this_driver_name = $drivers[$k]['driver_name'];
 					if (isset($result_array[$i]))
 					{
-						$selected = ( $this_driver_id == $result_array[$i]) ? 'selected' : '';
+						$selected = ( $this_driver_id == $result_array[$i]) ? 'selected="selected"' : '';
 					}
 					else
 					{
@@ -1318,7 +1318,7 @@ switch ($mode)
 				$this_driver_name = $drivers[$k]['driver_name'];
 				if (isset($result_array[8]))
 				{
-					$selected = ( $this_driver_id == $result_array[8]) ? 'selected' : '';
+					$selected = ( $this_driver_id == $result_array[8]) ? 'selected="selected"' : '';
 				}
 				else
 				{
@@ -1334,7 +1334,7 @@ switch ($mode)
 			{
 				if (isset($result_array[9]))
 				{
-					$selected = ( $k == $result_array[9]) ? 'selected' : '';
+					$selected = ( $k == $result_array[9]) ? 'selected="selected"' : '';
 				}
 				else
 				{
@@ -1420,7 +1420,7 @@ switch ($mode)
 			$tipper_name 		= get_username_string('username', $tipp_userdata['user_id'], $tipp_userdata['username'], $tipp_userdata['user_colour']);
 			$tipp_user_colour	= get_username_string('colour', $tipp_userdata['user_id'], $tipp_userdata['username'], $tipp_userdata['user_colour']);	
 			$tipper_style		= ($tipp_user_colour) ? ' style="color: ' . $tipp_user_colour . '; font-weight: bold;"' : '' ;
-			$tipper_link 		= ($tipper_name <> $user->lang['GUEST']) ? '<a href="' . append_sid("{$phpbb_root_path}memberlist.$phpEx", 'mode=viewprofile&amp;u=' . (int) $tipp_userdata['user_id']) . '"' . $tipper_style . ' target="_blank">' . $tipper_name . '</a>' : $tipper_name;
+			$tipper_link 		= ($tipper_name <> $user->lang['GUEST']) ? '<a href="' . append_sid("{$phpbb_root_path}memberlist.$phpEx", 'mode=viewprofile&amp;u=' . (int) $tipp_userdata['user_id']) . '"' . $tipper_style . ' onclick="popup(this.ref, 760, 570, \'_source\'); return false;">' . $tipper_name . '</a>' : $tipper_name;
 			$tipper_points 		= $tippdata[0]['tipp_points'];
 			$tipp_array 		= explode(',', $tippdata[0]['tipp_result']);
 			$is_hidden			= ($race[$race_id]['race_time'] - $formel_config['deadline_offset']  <= $current_time ) ? false : true ;		

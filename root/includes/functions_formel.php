@@ -153,14 +153,14 @@ function get_formel_drivers()
 	{
 		if ($row['driver_team'] <> 0) 
 		{
-			$drivercar = ($teams[$row['driver_team']]['team_car'] <> '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $teams[$row['driver_team']]['team_car'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="">' : '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="">';
+			$drivercar = ($teams[$row['driver_team']]['team_car'] <> '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $teams[$row['driver_team']]['team_car'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="" />';
 		}
 		else 
 		{
-			$drivercar = '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="">';
+			$drivercar = '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="" />';
 		}
 		
-		$row['driver_img'] 			= ( $row['driver_img'] == '' ) ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="">' : '<img src="' . $phpbb_root_path . 'images/formel/' . $row['driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="">';
+		$row['driver_img'] 			= ( $row['driver_img'] == '' ) ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $row['driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="" />';
 		$row['driver_car'] 			= $drivercar;
 		$row['driver_team_name'] 	= $teams[$row['driver_team']]['team_name'];
 		$drivers[$row['driver_id']]	= $row;

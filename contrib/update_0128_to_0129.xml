@@ -42,16 +42,21 @@
           <revision>29</revision>
         </rev-version>
         <changelog lang="en-gb">
-          <change>Nothing yet</change>
+          <change>Style prosilver goes xhtml ( expect WebTipp moderation )</change>
 		</changelog>
         <changelog lang="de">
-          <change>Bis jetzt: Nichts</change>
+          <change>Style prosilver xhtml valide ( Ausnahme WebTipp Moderation )</change>
         </changelog>
       </entry>
     </history>
     <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
   </header>
   <action-group>
+    <copy>
+      <file from="root/formel.php" to="formel.php" />
+	  <file from="root/includes/functions_formel.php" to="includes/functions_formel.php" />
+      <file from="templates/root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
+    </copy>
   </action-group>
 </mod>
 
