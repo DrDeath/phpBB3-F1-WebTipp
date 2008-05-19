@@ -3,17 +3,17 @@
 <!-- INCLUDE overall_header.html -->
 
 <!-- IF S_STANDARD -->
-<script language="JavaScript" type="text/javascript">
-<!--
+<script type="text/javascript">
+// <![CDATA[
 function showtipps(showtipps) 
 { 
 	window.open(showtipps, "_showtipps", "width=400,height=600,scrollbars,resizable=yes");
 } 
-//-->
+// ]]>
 </script>
 
 <br />
-<form name="countdown" action="{U_FORM_ACTION}" method="POST" enctype="multipart/form-data">
+<form id="countdown" action="{U_FORM_ACTION}" method="post" enctype="multipart/form-data">
 	<table width="100%" align="center"  cellpadding="2" cellspacing="1">
 		<tr>
 			<th colspan="4">{L_FORMEL_TITLE}</th>
@@ -31,10 +31,10 @@ function showtipps(showtipps)
 					</tr>
 					<tr>
 						<td align="center" colspan="3">
-							<input type="button" onClick="window.location.href='{U_FORMEL_RULES}'"      value="{L_FORMEL_RULES}" />&nbsp;&nbsp;
+							<input type="button" onclick="window.location.href='{U_FORMEL_RULES}'"      value="{L_FORMEL_RULES}" />&nbsp;&nbsp;
 							{U_FORMEL_FORUM}
-							<input type="button" onClick="window.location.href='{U_FORMEL_STATISTICS}'" value="{L_FORMEL_STATISTICS}" />&nbsp;&nbsp;
-							<input type="button" onClick="window.location.href='{U_FORMEL_CALL_MOD}'"   value="{L_FORMEL_CALL_MOD}" /></td>
+							<input type="button" onclick="window.location.href='{U_FORMEL_STATISTICS}'" value="{L_FORMEL_STATISTICS}" />&nbsp;&nbsp;
+							<input type="button" onclick="window.location.href='{U_FORMEL_CALL_MOD}'"   value="{L_FORMEL_CALL_MOD}" /></td>
 					</tr>
 					<tr>
 						   <td align="center" colspan="3">&nbsp;</td>
@@ -126,43 +126,60 @@ function showtipps(showtipps)
 						<td align="right" class="row1">&nbsp;{racerow.RACEIMG}&nbsp;</td>
 						<!-- END racegfx -->
 						<td align="center" class="row1" nowrap="nowrap">
-						&nbsp;<span class="gen"><strong>{racerow.RACENAME}</strong>&nbsp;</span><br />
-						<span class="gen">&nbsp;<strong>{L_FORMEL_RACETIME}:</strong> {racerow.RACETIME}</span><br />
-						<span class="gen">&nbsp;<strong>{L_FORMEL_RACEDEAD}:</span> <span class="gen" style="color:#ff0000">{racerow.RACEDEAD}</span></strong><br /><br />
-						<!-- IF S_COUNTDOWN == true -->
-						<fieldset class="row2">
-							<div><span class="gen"><strong>{L_FORMEL_COUNTDOWN_DEADLINE}</strong></span></div>
-							<div id="time_event" class="row2" style="display:"><span class="gen"><strong>{L_DAYS}&nbsp;<input name="days" class="row2" size=2 style="border: 0px; padding: 1px; color:#ff0000; font-weight: bold;" /></span>
-							<span style="display:" class="gen" name="time_string">{L_HOURS}
-							<input name="hours" class="row2" size=1 style="border: 0px; padding: 1px; color:#ff0000; font-weight: bold;" />:
-							<input name="mins" class="row2" size=1 style="border: 0px; padding: 1px; color:#ff0000; font-weight: bold;" />:
-							<input name="secs" class="row2" size=1 style="border: 0px; padding: 1px; color:#ff0000; font-weight: bold;" />
-							</strong></span></div>
-							<div id="event_time" class="gen" style="display:none">{L_FORMEL_DEADLINE_REACHED}</div>
-						</fieldset>
-						<br />
-						<script language="JavaScript" type="text/javascript">countdown();</script>
-						<!-- ENDIF -->						
-						<table cellpadding="2" cellspacing="0" align="center" width="100%">
-							<tr>
-								<td width="50%" align="right"><span class="gen"><strong>{L_FORMEL_RACELENGTH}:</strong></span></td>
-								<td width="50%" align="left" ><span class="gen">{racerow.RACELENGTH}</span></td>
-							</tr>
-							<tr>
-								<td width="50%" align="right"><span class="gen"><strong>{L_FORMEL_RACELAPS}:</strong></span></td>
-								<td width="50%" align="left" ><span class="gen">{racerow.RACELAPS}</span></td>
-							</tr>
-							<tr>
-								<td width="50%" align="right"><span class="gen"><strong>{L_FORMEL_RACEDISTANCE}:</strong></span></td>
-								<td width="50%" align="left" ><span class="gen">{racerow.RACEDISTANCE}</span></td>
-							</tr>
-							<tr>
-								<td width="50%" align="right"><span class="gen"><strong>{L_FORMEL_RACEDEBUT}:</strong></span></td>
-								<td width="50%" align="left" ><span class="gen">{racerow.RACEDEBUT}</span></td>
-							</tr>
-						</table>
-						<img src="images/spacer.gif" alt="" width="264" height="1"/></span></td>
-						<td valign="middle" width="50%" align="center"><input type="submit" name="next" value="{L_FORMEL_NEXT_RACE}" /></td>
+							&nbsp;<span class="gen"><strong>{racerow.RACENAME}</strong>&nbsp;</span><br />
+							<span class="gen">&nbsp;<strong>{L_FORMEL_RACETIME}:</strong> {racerow.RACETIME}</span><br />
+							<span class="gen">&nbsp;<strong>{L_FORMEL_RACEDEAD}:</strong></span> <span class="gen" style="color:#ff0000"><strong>{racerow.RACEDEAD}</strong></span><br /><br />
+							<!-- IF S_COUNTDOWN == true -->
+							<fieldset class="row2">
+								<div>
+									<span class="gen">
+										<strong>{L_FORMEL_COUNTDOWN_DEADLINE}</strong>
+									</span>
+								</div>
+								<div id="time_event" class="row2" style="display:">
+									<span class="gen">
+										<strong>{L_DAYS}&nbsp;
+											<input name="days" class="row2" size="2" style="border: 0px; padding: 1px; color:#ff0000; font-weight: bold;" />
+										</strong>
+									</span>
+									<span style="display:" class="gen" id="time_string">
+										<strong>{L_HOURS}
+											<input name="hours" class="row2" size="1" style="border: 0px; padding: 1px; color:#ff0000; font-weight: bold;" />:
+											<input name="mins" class="row2" size="1" style="border: 0px; padding: 1px; color:#ff0000; font-weight: bold;" />:
+											<input name="secs" class="row2" size="1" style="border: 0px; padding: 1px; color:#ff0000; font-weight: bold;" />
+										</strong>
+									</span>
+								</div>
+								<div id="event_time" class="gen" style="display:none">
+									{L_FORMEL_DEADLINE_REACHED}
+								</div>
+							</fieldset>
+							<br />
+							<script type="text/javascript">countdown();</script>
+							<!-- ENDIF -->						
+							<table cellpadding="2" cellspacing="0" align="center" width="100%">
+								<tr>
+									<td width="50%" align="right"><span class="gen"><strong>{L_FORMEL_RACELENGTH}:</strong></span></td>
+									<td width="50%" align="left" ><span class="gen">{racerow.RACELENGTH}</span></td>
+								</tr>
+								<tr>
+									<td width="50%" align="right"><span class="gen"><strong>{L_FORMEL_RACELAPS}:</strong></span></td>
+									<td width="50%" align="left" ><span class="gen">{racerow.RACELAPS}</span></td>
+								</tr>
+								<tr>
+									<td width="50%" align="right"><span class="gen"><strong>{L_FORMEL_RACEDISTANCE}:</strong></span></td>
+									<td width="50%" align="left" ><span class="gen">{racerow.RACEDISTANCE}</span></td>
+								</tr>
+								<tr>
+									<td width="50%" align="right"><span class="gen"><strong>{L_FORMEL_RACEDEBUT}:</strong></span></td>
+									<td width="50%" align="left" ><span class="gen">{racerow.RACEDEBUT}</span></td>
+								</tr>
+							</table>
+							<img src="images/spacer.gif" alt="" width="264" height="1"/>
+						</td>
+						<td valign="middle" width="50%" align="center">
+							<input type="submit" name="next" value="{L_FORMEL_NEXT_RACE}" />
+						</td>
 					</tr>
 				</table>
 			</td>
@@ -171,7 +188,7 @@ function showtipps(showtipps)
 		<tr>
 			<td class="row1" colspan="4" valign="middle" align="left"><span class="genmed"><strong>{L_FORMEL_TIPPS_MADE}</strong>
 			<!-- BEGIN tipps_made -->
-			<a href="javascript:void(0)" onClick="javascript:showtipps('{tipps_made.USERTIPP}')" {tipps_made.STYLE}>{tipps_made.USERNAME}</a>{tipps_made.SEPARATOR}
+			<a href="javascript:void(0)" onclick="javascript:showtipps('{tipps_made.USERTIPP}')" {tipps_made.STYLE}>{tipps_made.USERNAME}</a>{tipps_made.SEPARATOR}
 			<!-- END tipps_made -->
 			<!-- BEGIN no_tipps_made -->
 			{L_FORMEL_NO_TIPPS}
@@ -183,7 +200,7 @@ function showtipps(showtipps)
 				<table width="100%" cellpadding="0" cellspacing="1">
 					<tr>
 						<td valign="top" width="30%">
-							<table width="100%" align="top">
+							<table width="100%">
 								<tr>
 									 <th colspan="2" align="center">{L_FORMEL_CURRENT_QUALI}</th>
 								</tr>
@@ -223,7 +240,7 @@ function showtipps(showtipps)
 							</table>
 						</td>
 						<td valign="top" width="30%">
-							<table width="100%" align="top">
+							<table width="100%">
 								<tr>
 									<th colspan="2" align="center" >{L_FORMEL_CURRENT_RESULT}</th>
 								</tr>
@@ -291,7 +308,7 @@ function showtipps(showtipps)
 							</table>
 						</td>
 						<td valign="top" width="40%">
-							<table width="100%" align="top">
+							<table width="100%">
 								<tr>
 									<th colspan="3" align="center">{L_FORMEL_YOUR_TIPP}</th>
 								</tr>
@@ -303,7 +320,7 @@ function showtipps(showtipps)
 								<!-- ENDIF -->
 									<td width="40%" align="right"><span class="gen"><strong>&nbsp;{users_tipp.L_PLACE}:</strong></span></td>
 									<td width="50%" align="left"><span class="gen">&nbsp;{users_tipp.DRIVERCOMBO}&nbsp;</span></td>
-									<td width="10%" align="middle"><span class="gen">&nbsp;{users_tipp.SINGLE_POINTS}&nbsp;</span></td>
+									<td width="10%" align="center"><span class="gen">&nbsp;{users_tipp.SINGLE_POINTS}&nbsp;</span></td>
 								</tr>
 								<!-- END users_tipp -->
 								<!-- BEGIN gfx_users_tipp -->
@@ -318,31 +335,31 @@ function showtipps(showtipps)
 										<span class="gen">&nbsp;{gfx_users_tipp.DRIVERCOMBO}</span>
 										<span class="gen">{gfx_users_tipp.DRIVERTEAMNAME}</span>
 									</td>
-									<td width="10%" align="middle"><span class="gen">&nbsp;{gfx_users_tipp.SINGLE_POINTS}&nbsp;</span></td>
+									<td width="10%" align="center"><span class="gen">&nbsp;{gfx_users_tipp.SINGLE_POINTS}&nbsp;</span></td>
 								</tr>
 								<!-- END gfx_users_tipp -->
 								<!-- BEGIN extended_users_tipp -->
 								<tr class="row1">
 									<td width="40%" align="right"><span class="gen"><strong>&nbsp;{L_FORMEL_PACE}:</strong></span></td>
 									<td width="50%" align="left"><span class="gen">&nbsp;{extended_users_tipp.DRIVERCOMBO}&nbsp;</span></td>
-									<td width="10%" align="middle"><span class="gen">&nbsp;{extended_users_tipp.SINGLE_FASTEST}&nbsp;</span></td>
+									<td width="10%" align="center"><span class="gen">&nbsp;{extended_users_tipp.SINGLE_FASTEST}&nbsp;</span></td>
 								</tr>
 								<tr class="row1">
 									<td width="50%" align="right"><span class="gen"><strong>&nbsp;{L_FORMEL_TIRED}:</strong></span></td>
 									<td width="50%" align="left"><span class="gen">&nbsp;{extended_users_tipp.TIREDCOMBO}&nbsp;</span></td>
-									<td width="50%" align="middle"><span class="gen">&nbsp;{extended_users_tipp.SINGLE_TIRED}&nbsp;</span></td>
+									<td width="50%" align="center"><span class="gen">&nbsp;{extended_users_tipp.SINGLE_TIRED}&nbsp;</span></td>
 								</tr>
 								<!-- END extended_users_tipp -->
 								<!-- BEGIN extended_users_tipp_gfx -->
 								<tr class="row1">
 									<td width="30%" align="right" nowrap="nowrap"><span class="gen"><strong>&nbsp;{L_FORMEL_PACE}:</strong></span></td>
 									<td width="60%" align="left"><span class="gen">&nbsp;{extended_users_tipp_gfx.DRIVERCOMBO}&nbsp;</span></td>
-									<td width="10%" align="middle"><span class="gen">&nbsp;{extended_users_tipp_gfx.SINGLE_FASTEST}&nbsp;</span></td>
+									<td width="10%" align="center"><span class="gen">&nbsp;{extended_users_tipp_gfx.SINGLE_FASTEST}&nbsp;</span></td>
 								</tr>
 								<tr class="row1">
 									<td width="30%" align="right" nowrap="nowrap"><span class="gen"><strong>&nbsp;{L_FORMEL_TIRED}:</strong></span></td>
 									<td width="60%" align="left"><span class="gen">&nbsp;{extended_users_tipp_gfx.TIREDCOMBO}&nbsp;</span></td>
-									<td width="10%" align="middle"><span class="gen">&nbsp;{extended_users_tipp_gfx.SINGLE_TIRED}&nbsp;</span></td>
+									<td width="10%" align="center"><span class="gen">&nbsp;{extended_users_tipp_gfx.SINGLE_TIRED}&nbsp;</span></td>
 								</tr>
 								<!-- END extended_users_tipp_gfx -->
 								<!-- BEGIN add_tipp -->
@@ -372,14 +389,14 @@ function showtipps(showtipps)
 								<tr class="row1">
 									<td width="40%" align="right"><span class="gen" style="color:#009900"><strong>&nbsp;{L_FORMEL_YOUR_POINTS}:</strong></span></td>
 									<td width="50%" align="left">&nbsp;</td>
-									<td width="10%" align="middle"><span class="gen" style="color:#009900"><strong>&nbsp;{extended_results.YOUR_POINTS}</strong></span></td>
+									<td width="10%" align="center"><span class="gen" style="color:#009900"><strong>&nbsp;{extended_results.YOUR_POINTS}</strong></span></td>
 								</tr>
 								<!-- END extended_results -->
 								<!-- BEGIN extended_results_gfx -->
 								<tr class="row1">
 									<td width="30%" align="right" nowrap="nowrap"><span class="gen" style="color:#009900"><strong>&nbsp;{L_FORMEL_YOUR_POINTS}:</strong></span></td>
 									<td width="60%" align="left">&nbsp;</td>
-									<td width="10%" align="middle"><span class="gen" style="color:#009900"><strong>&nbsp;{extended_results_gfx.YOUR_POINTS}</strong></span></td>
+									<td width="10%" align="center"><span class="gen" style="color:#009900"><strong>&nbsp;{extended_results_gfx.YOUR_POINTS}</strong></span></td>
 								</tr>
 								<!-- END extended_results_gfx -->
 							</table>
@@ -420,44 +437,58 @@ function showtipps(showtipps)
 		<td class="cat" align="center" height="28" valign="middle" nowrap="nowrap"><span class="cattitle">&nbsp;<strong>{L_FORMEL_CURRENT_QUALI}</strong>&nbsp;</span></td>
 		<td class="cat" align="center" height="28" valign="middle" nowrap="nowrap"><span class="cattitle">&nbsp;<strong>{L_FORMEL_CURRENT_RESULT}</strong>&nbsp;</span></td>
 	</tr>
-	<!-- BEGIN racerow_gfxr -->
-		<form action="{S_FORM_ACTION}" method="POST" enctype="multipart/form-data">
-			<!-- IF racerow_gfxr.S_ROW_COUNT is even -->
-			<tr class="row1">
-			<!-- ELSE -->
-			<tr class="row2">
-			<!-- ENDIF -->
-				<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow_gfxr.RACEIMG}&nbsp;</td>
-				<td nowrap="nowrap" align="left" width="100%" valign="middle"><span class="gen"><strong>{L_FORMEL_RACENAME}:</strong> {racerow_gfxr.RACENAME}<br />
-					<strong>{L_TIME}:</strong> {racerow_gfxr.RACETIME}<br />
-					<strong>{L_FORMEL_RACEDEAD}:</strong> {racerow_gfxr.RACEDEAD}</span>
-				</td>
-				<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow_gfxr.QUALI_BUTTONS}&nbsp;</td>
-				<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow_gfxr.RESULT_BUTTONS}&nbsp;
+	<!-- BEGIN racerow_gfxr -->	
+		<!-- IF racerow_gfxr.S_ROW_COUNT is even -->
+		<tr class="row1">
+		<!-- ELSE -->
+		<tr class="row2">
+		<!-- ENDIF -->
+			<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow_gfxr.RACEIMG}&nbsp;</td>
+			<td nowrap="nowrap" align="left" width="100%" valign="middle"><span class="gen"><strong>{L_FORMEL_RACENAME}:</strong> {racerow_gfxr.RACENAME}<br />
+				<strong>{L_TIME}:</strong> {racerow_gfxr.RACETIME}<br />
+				<strong>{L_FORMEL_RACEDEAD}:</strong> {racerow_gfxr.RACEDEAD}</span>
+			</td>
+			<td nowrap="nowrap" align="center" valign="middle">
+				<form action="{S_FORM_ACTION}" method="post" enctype="multipart/form-data">
+					&nbsp;{racerow_gfxr.QUALI_BUTTONS}&nbsp;
 					<input type="hidden" name="race_id" value="{racerow_gfxr.RACEID}" />
 					{S_FORM_TOKEN}
-				</td>
-			</tr>
-		</form>
+				</form>
+			</td>
+			<td nowrap="nowrap" align="center" valign="middle">
+				<form action="{S_FORM_ACTION}" method="post" enctype="multipart/form-data">
+					&nbsp;{racerow_gfxr.RESULT_BUTTONS}&nbsp;
+					<input type="hidden" name="race_id" value="{racerow_gfxr.RACEID}" />
+					{S_FORM_TOKEN}
+				</form>
+			</td>
+		</tr>
 	<!-- END racerow_gfxr -->
 	<!-- BEGIN racerow -->
-		<form action="{S_FORM_ACTION}" method="POST" enctype="multipart/form-data">
-			<!-- IF racerow.S_ROW_COUNT is even -->
-			<tr class="row1">
-			<!-- ELSE -->
-			<tr class="row2">
-			<!-- ENDIF -->
-				<td colspan="2" nowrap="nowrap" align="left" width="100%" valign="middle"><span class="gen"><strong>{L_FORMEL_RACENAME}:</strong> {racerow.RACENAME}<br />
-					<strong>{L_TIME}:</strong> {racerow.RACETIME}<br />
-					<strong>{L_FORMEL_RACEDEAD}:</strong> {racerow.RACEDEAD}</span>
-				</td>
-				<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow.QUALI_BUTTONS}&nbsp;</td>
-				<td nowrap="nowrap" align="center" valign="middle">&nbsp;{racerow.RESULT_BUTTONS}&nbsp;
+		<!-- IF racerow.S_ROW_COUNT is even -->
+		<tr class="row1">
+		<!-- ELSE -->
+		<tr class="row2">
+		<!-- ENDIF -->
+			<td colspan="2" nowrap="nowrap" align="left" width="100%" valign="middle"><span class="gen"><strong>{L_FORMEL_RACENAME}:</strong> {racerow.RACENAME}<br />
+				<strong>{L_TIME}:</strong> {racerow.RACETIME}<br />
+				<strong>{L_FORMEL_RACEDEAD}:</strong> {racerow.RACEDEAD}</span>
+			</td>
+			<td nowrap="nowrap" align="center" valign="middle">
+				<form action="{S_FORM_ACTION}" method="post" enctype="multipart/form-data">
+					&nbsp;{racerow.QUALI_BUTTONS}&nbsp;
+					<input type="hidden" name="race_id" value="{racerow.RACEID}" />
+					{S_FORM_TOKEN}							
+				</form>
+			</td>
+			<td nowrap="nowrap" align="center" valign="middle">
+				<form action="{S_FORM_ACTION}" method="post" enctype="multipart/form-data">
+					&nbsp;{racerow.RESULT_BUTTONS}&nbsp;
 					<input type="hidden" name="race_id" value="{racerow.RACEID}" />
 					{S_FORM_TOKEN}
-				</td>
-			</tr>
-		</form>
+				</form>
+			</td>
+		</tr>
 	<!-- END racerow -->
 </table>
 <!-- ENDIF -->
@@ -465,7 +496,7 @@ function showtipps(showtipps)
 
 <!-- IF S_ADDRESULTS -->
 <br />
-<form action="{S_FORM_ACTION}" method="POST" enctype="multipart/form-data">
+<form action="{S_FORM_ACTION}" method="post" enctype="multipart/form-data">
 	<table width="100%" align="center" cellpadding="2" cellspacing="1" border="0">
 		<tr>
 			<th colspan="5">{L_FORMEL_RESULTS_TITLE}</th>
@@ -486,7 +517,7 @@ function showtipps(showtipps)
 		<!-- ELSE -->
 		<tr class="row3">
 		<!-- ENDIF -->
-			<td width="50%" nowrap="nowrap" align="right" valign="middle"><span class="gen">&nbsp;{qualirow.L_PLACE}&nbsp;</td>
+			<td width="50%" nowrap="nowrap" align="right" valign="middle"><span class="gen">&nbsp;{qualirow.L_PLACE}&nbsp;</span></td>
 			<td width="50%" nowrap="nowrap" align="left"  valign="middle">&nbsp;{qualirow.DRIVERCOMBO}&nbsp;</td>
 		</tr>
 		<!-- END qualirow -->
@@ -547,9 +578,9 @@ function showtipps(showtipps)
 					<!-- END head_on -->
 					<tr>
 						<td align="center">
-							<form action="{S_FORM_ACTION}" method="POST" enctype="multipart/form-data">
+							<form action="{S_FORM_ACTION}" method="post" enctype="multipart/form-data">
 								<br/>
-								<input type="button" onClick="window.location.href='{U_BACK_TO_TIPP}'" value="{L_FORMEL_BACK_TO_TIPP}" />&nbsp;&nbsp;
+								<input type="button" onclick="window.location.href='{U_BACK_TO_TIPP}'" value="{L_FORMEL_BACK_TO_TIPP}" />&nbsp;&nbsp;
 								<input type="submit" name="show_users" value="{L_FORMEL_USER_STATS}" />&nbsp;&nbsp;
 								<input type="submit" name="show_drivers" value="{L_FORMEL_DRIVER_STATS}" />&nbsp;&nbsp;
 								<input type="submit" name="show_teams" value="{L_FORMEL_TEAM_STATS}" />
@@ -564,7 +595,7 @@ function showtipps(showtipps)
 			<th valign="middle" align="center"><span class="cattitle"><strong>{L_STAT_TABLE_TITLE}</strong></span></th>
 		</tr>
 	</tbody>
-<table>
+</table>
 
 <table cellspacing="1" width="100%">
 	<!-- BEGIN top_tippers -->
@@ -687,7 +718,7 @@ function showtipps(showtipps)
 	</tbody>
 </table>
 
-<div class="cat" width="100%"></div>
+<div class="cat" style="width: 100%;"></div>
 <!-- ENDIF -->
 
 
@@ -708,7 +739,7 @@ function showtipps(showtipps)
 					</tr>
 					<!-- END head_on -->
 					<tr>
-						<td align="center"><br/><input type="button" onClick="window.location.href='{U_FORMEL}'" value="{L_FORMEL_BACK_TO_TIPP}" /><br/>&nbsp;</td>
+						<td align="center"><br/><input type="button" onclick="window.location.href='{U_FORMEL}'" value="{L_FORMEL_BACK_TO_TIPP}" /><br/>&nbsp;</td>
 					</tr>
 				</table>
 			</td>
@@ -747,7 +778,11 @@ Please leave the copyright information at the bottom of your page for our mod.
 	<span class="genmed">&copy;<a href="http://www.lpi-clan.de">LPI-Clan</a> ( Dr.Death )</span>
 </small>
 <br />
-<center /><a href="http://sourceforge.net/project/project_donations.php?group_id=176449"><img src="http://images.sourceforge.net/images/project-support.jpg" width="88" height="32" border="0" alt="Support This Project" /> </a></center>
+<center>
+	<a href="http://sourceforge.net/project/project_donations.php?group_id=176449">
+		<img src="http://images.sourceforge.net/images/project-support.jpg" width="88" height="32" border="0" alt="Support This Project" />
+	</a>
+</center>
 <br />
 <!-- INCLUDE overall_footer.html -->
 <!-- ENDIF -->
@@ -813,7 +848,7 @@ Please leave the copyright information at the bottom of your page for our mod.
 
 <center>
 	<p class="submit-buttons">
-		<input class="button1" id="submit" type="submit" onClick="javascript:window.close()" value="{L_FORMEL_CLOSE_WINDOW}" />
+		<input class="button1" id="submit" type="submit" onclick="javascript:window.close()" value="{L_FORMEL_CLOSE_WINDOW}" />
 	</p>
 </center>
 

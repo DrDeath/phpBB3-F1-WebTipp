@@ -35,17 +35,19 @@
     </installation>
     <history>
      <entry>
-        <date>2008-05-12T00:00:00+02:00</date>
+        <date>2008-05-19T00:00:00+02:00</date>
         <rev-version>
           <major>0</major>
           <minor>1</minor>
           <revision>29</revision>
         </rev-version>
         <changelog lang="en-gb">
-          <change>Style prosilver goes xhtml ( expect WebTipp moderation )</change>
+          <change>Style prosilver goes xhtml strict</change>
+		  <change>Style subsilver2 goes xhtml transitional</change>
 		</changelog>
         <changelog lang="de">
-          <change>Style prosilver xhtml valide ( Ausnahme WebTipp Moderation )</change>
+          <change>Style prosilver xhtml strict valide</change>
+		  <change>Style subsilver2 xhtml transitional valide</change>
         </changelog>
       </entry>
     </history>
@@ -56,6 +58,7 @@
       <file from="root/formel.php" to="formel.php" />
 	  <file from="root/includes/functions_formel.php" to="includes/functions_formel.php" />
       <file from="templates/root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
+	  <file from="templates/root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
     </copy>
   </action-group>
 </mod>
