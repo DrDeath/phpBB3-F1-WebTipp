@@ -537,43 +537,69 @@ function showtipps(showtipps)
 			</thead>
 			<tbody>
 			<!-- BEGIN racerow_gfxr -->
-				<form action="{S_FORM_ACTION}" method="post" enctype="multipart/form-data">
-					<!-- IF racerow_gfxr.S_ROW_COUNT is even -->
-					<tr class="bg1">
-					<!-- ELSE -->
-					<tr class="bg2">
-					<!-- ENDIF -->
-						<td style="white-space:nowrap;" align="center" valign="middle">&nbsp;{racerow_gfxr.RACEIMG}&nbsp;</td>
-						<td style="width: 100%; white-space:nowrap;" align="left" valign="middle"><strong>{L_FORMEL_RACENAME}:</strong> {racerow_gfxr.RACENAME}<br />
-							<strong>{L_TIME}:</strong> {racerow_gfxr.RACETIME}<br />
-							<strong>{L_FORMEL_RACEDEAD}:</strong> {racerow_gfxr.RACEDEAD}
-						</td>
-						<td style="white-space:nowrap;" align="center" valign="middle">&nbsp;{racerow_gfxr.QUALI_BUTTONS}&nbsp;</td>
-						<td style="white-space:nowrap;" align="center" valign="middle">&nbsp;{racerow_gfxr.RESULT_BUTTONS}&nbsp;
-							<input type="hidden" name="race_id" value="{racerow_gfxr.RACEID}" />
-							{S_FORM_TOKEN}
-						</td>
-					</tr>
-				</form>
+				<!-- IF racerow_gfxr.S_ROW_COUNT is even -->
+				<tr class="bg1">
+				<!-- ELSE -->
+				<tr class="bg2">
+				<!-- ENDIF -->
+					<td style="white-space:nowrap;" align="center" valign="middle">
+						&nbsp;{racerow_gfxr.RACEIMG}&nbsp;
+					</td>
+					<td style="width: 100%; white-space:nowrap;" align="left" valign="middle">
+						<strong>{L_FORMEL_RACENAME}:</strong> {racerow_gfxr.RACENAME}<br />
+						<strong>{L_TIME}:</strong> {racerow_gfxr.RACETIME}<br />
+						<strong>{L_FORMEL_RACEDEAD}:</strong> {racerow_gfxr.RACEDEAD}
+					</td>
+					<td style="white-space:nowrap;" align="center" valign="middle">
+						<form action="{S_FORM_ACTION}" method="post" enctype="multipart/form-data">
+							<div>
+								&nbsp;{racerow_gfxr.QUALI_BUTTONS}&nbsp;
+								<input type="hidden" name="race_id" value="{racerow_gfxr.RACEID}" />
+								{S_FORM_TOKEN}
+							</div>
+						</form>
+					</td>
+					<td style="white-space:nowrap;" align="center" valign="middle">
+						<form action="{S_FORM_ACTION}" method="post" enctype="multipart/form-data">
+							<div>
+								&nbsp;{racerow_gfxr.RESULT_BUTTONS}&nbsp;
+								<input type="hidden" name="race_id" value="{racerow_gfxr.RACEID}" />
+								{S_FORM_TOKEN}
+							</div>
+						</form>
+					</td>
+				</tr>
 			<!-- END racerow_gfxr -->
 			<!-- BEGIN racerow -->
-				<form action="{S_FORM_ACTION}" method="post" enctype="multipart/form-data">
-					<!-- IF racerow.S_ROW_COUNT is even -->
-					<tr class="bg1">
-					<!-- ELSE -->
-					<tr class="bg2">
-					<!-- ENDIF -->
-						<td colspan="2" style="width: 100%; white-space:nowrap;" align="left" valign="middle"><strong>{L_FORMEL_RACENAME}:</strong> {racerow.RACENAME}<br />
-							<strong>{L_TIME}:</strong> {racerow.RACETIME}<br />
-							<strong>{L_FORMEL_RACEDEAD}:</strong> {racerow.RACEDEAD}
-						</td>
-						<td style="white-space:nowrap;" align="center" valign="middle">&nbsp;{racerow.QUALI_BUTTONS}&nbsp;</td>
-						<td style="white-space:nowrap;" align="center" valign="middle">&nbsp;{racerow.RESULT_BUTTONS}&nbsp;
-							<input type="hidden" name="race_id" value="{racerow.RACEID}" />
-							{S_FORM_TOKEN}
-						</td>
-					</tr>
-				</form>
+				<!-- IF racerow.S_ROW_COUNT is even -->
+				<tr class="bg1">
+				<!-- ELSE -->
+				<tr class="bg2">
+				<!-- ENDIF -->
+					<td colspan="2" style="width: 100%; white-space:nowrap;" align="left" valign="middle">
+						<strong>{L_FORMEL_RACENAME}:</strong> {racerow.RACENAME}<br />
+						<strong>{L_TIME}:</strong> {racerow.RACETIME}<br />
+						<strong>{L_FORMEL_RACEDEAD}:</strong> {racerow.RACEDEAD}
+					</td>
+					<td style="white-space:nowrap;" align="center" valign="middle">
+						<form action="{S_FORM_ACTION}" method="post" enctype="multipart/form-data">
+							<div>
+								&nbsp;{racerow.QUALI_BUTTONS}&nbsp;
+								<input type="hidden" name="race_id" value="{racerow.RACEID}" />
+								{S_FORM_TOKEN}
+							</div>
+						</form>
+					</td>
+					<td style="white-space:nowrap;" align="center" valign="middle">
+						<form action="{S_FORM_ACTION}" method="post" enctype="multipart/form-data">
+							<div>
+								&nbsp;{racerow.RESULT_BUTTONS}&nbsp;
+								<input type="hidden" name="race_id" value="{racerow.RACEID}" />
+								{S_FORM_TOKEN}
+							</div>
+						</form>
+					</td>
+				</tr>
 			<!-- END racerow -->
 			</tbody>
 		</table>
