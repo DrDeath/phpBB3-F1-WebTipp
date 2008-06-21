@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
 <!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
-<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.0.1.xsd">
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.0.xsd">
   <header>
     <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
     <title lang="en-gb">Formula 1 WebTip</title>
@@ -26,244 +26,54 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
         <email>dr.death@lpi-clan.de</email>
         <username>Dr.Death</username>
         <homepage>http://www.lpi-clan.de</homepage>
-        <contributions />
       </author>
       <author>
         <realname>Christian Neumann</realname>
         <email>2714323@web.de</email>
         <username>AceVentura</username>
         <homepage>http://www.uptempo.de.vu</homepage>
-        <contributions />
       </author>
       <author>
         <realname>Karsten Ude</realname>
         <email>webmaster@oxpus.de</email>
         <username>OXPUS</username>
         <homepage>http://www.oxpus.de</homepage>
-        <contributions />
       </author>
     </author-group>
-    <mod-version>
-      <major>0</major>
-      <minor>1</minor>
-      <revision>29</revision>
-    </mod-version>
+    <mod-version>0.1.29</mod-version>
     <installation>
       <level>easy</level>
       <time>692</time>
-      <target-version>
-        <target-primary>3.0.0 </target-primary>
-        <target-major allow="exact">3</target-major>
-        <target-minor allow="exact">0</target-minor>
-      </target-version>
+      <target-version>3.0.1</target-version>
     </installation>
-    <history>
-      <entry>
-        <date>2007-05-28T00:00:00+02:00</date>
-        <rev-version>
-          <major>0</major>
-          <minor>1</minor>
-          <revision>20</revision>
-        </rev-version>
-        <changelog lang="en-gb">
-          <change> first public version for phpbb3 Olympus RC1</change>
-        </changelog>
-        <changelog lang="de">
-          <change> Erste öffentliche Version für phpbb3 Olympus RC1</change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2007-06-06T00:00:00+02:00</date>
-        <rev-version>
-          <major>0</major>
-          <minor>1</minor>
-          <revision>21</revision>
-        </rev-version>
-        <changelog lang="en-gb">
-          <change> Installerfile updatet. Fix for mysql smaller than 4.1.3</change>
-		  <change> Added german language to this installer modx </change>
-		  <change> Changed the rank counting on user, driver, team stats and profile page</change>
-		  <change> Update Info: If you update vom prior version 0.1.20: Have a look to the changes in memberlist.php !
-		  Copy formel.php to ROOT/formel.php</change>
-        </changelog>
-        <changelog lang="de">
-          <change> Installationsdatei aktualisiert. Fix für MySQl kleiner als 4.1.3</change>
-          <change> Deutsche Sprache diesem Installationsanleitung hinzugefügt.</change>
-		  <change> Änderung der Rangberechnung auf Spieler, Fahrer, Team Statistik und Profil Seite</change>
-		  <change> Achtung: Wenn Ihr von Version 0.1.20 updatet: Änderung an der memberlist.php beachten! 
-		  Kopiere formel.php nach ROOT/formel.php</change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2007-06-06T00:00:00+02:00</date>
-        <rev-version>
-          <major>0</major>
-          <minor>1</minor>
-          <revision>22</revision>
-        </rev-version>
-        <changelog lang="en-gb">
-          <change>Changes for meeting the new coding guidelines: != bad.</change>
-		  <change>Added french language files. Thank to the translator fafa</change>
-		  <change>Changed package to the MODX Guideline http://www.phpbb.com/mods/documentation/modx/packaging/index.php</change>
-		  <change>Style changes are now located in the subfolder templates</change>
-		  <change>Additonal languages german and french are now located in the subfolder language</change>
-		</changelog>
-        <changelog lang="de">
-          <change>Änderung Aufgrund neuer Coding Guidelines: != schlecht.</change>
-		  <change>Französische Sprachdateien hinzugefügt. Danke an den Übersetzer fafa.</change>
-		  <change>MOD Paket angepasst auf die MODX Richtlinien. Siehe auch  http://www.phpbb.com/mods/documentation/modx/packaging/index.php</change>
-		  <change>Anleitung für Änderungen an den Styles findet Ihr im Ordner templates</change>
-		  <change>Die Anleitung für deutsche und französische Sprachdateien findet Ihr im Ordner language</change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2007-08-04T00:00:00+02:00</date>
-        <rev-version>
-          <major>0</major>
-          <minor>1</minor>
-          <revision>23</revision>
-        </rev-version>
-        <changelog lang="en-gb">
-          <change>Change: unsecure $_POST replaced with request_var() in formel.php</change>
-          <change>Change: Installfile install_f1webtipp.php meets now the Coding Guidelines</change>
-		  <change>fix: template input fields used not XHTML self closing tags</change>
-		  <change>fix: Typo in this installer</change>
-		  <change>fix: removed some empty INSERT statements for strikt mysql databases</change>
-		  <change>Changed files: formel.php and includes/acp/acp_formel.php</change>
-		</changelog>
-        <changelog lang="de">
-          <change>Aktualisiert: Unsichere $_POST ersetzt durch request_var() in der formel.php</change>
-          <change>Aktualisiert: Installationsdatei install_f1webtipp.php den Coding Guidelines angepasst</change>
-		  <change>Fix: Template INPUT Felder benutzen bisher keine XHTML selbst schliessende TAGS</change>
-		  <change>Fix: Tippfehler in dieser Anleitung korrigiert</change>
-		  <change>Fix: Es wurden einige leere INSERT Befehle für strikt eingestellte MySQL Datenbanken entfernt</change>
-		  <change>Aktualisierte Dateien: formel.php und includes/acp/acp_formel.php</change>
-        </changelog>
-      </entry>
-     <entry>
-        <date>2007-09-15T00:00:00+02:00</date>
-        <rev-version>
-          <major>0</major>
-          <minor>1</minor>
-          <revision>24</revision>
-        </rev-version>
-        <changelog lang="en-gb">
-          <change>Change: unsecure $_POST replaced with request_var() in includes/acp/acp_formel.php</change>
-          <change>Fix: Path corrected for installerfile templates prosilver and subsilver2</change>
-		  <change>Changed files: includes/acp/acp_formel.php</change>
-		</changelog>
-        <changelog lang="de">
-          <change>Aktualisiert: Unsichere $_POST ersetzt durch request_var() in der includes/acp/acp_formel.php</change>
-          <change>Fix: Pfadangabe in Installationsdatei für die Templates prosilver und subsilver2 angepasst</change>
-		  <change>Aktualisierte Dateien: includes/acp/acp_formel.php</change>
-        </changelog>
-      </entry>
-     <entry>
-        <date>2007-10-06T00:00:00+02:00</date>
-        <rev-version>
-          <major>0</major>
-          <minor>1</minor>
-          <revision>25</revision>
-        </rev-version>
-        <changelog lang="en-gb">
-          <change>Added: New installer. Now (hopefully) support for all databases.</change>
-		  <change>Added: add_form_key() and check_form_key() functions ( salt functions for submit security ).</change>
-          <change>Removed some xml files for modx install files.</change>
-		  <change>Important for Updaters: replace all files (except the images). Security functions are added.</change>
-		</changelog>
-        <changelog lang="de">
-          <change>Hinzugefügt: Neue Installationsroutine. Unterstützt nun (hoffentlich) alle Datenbanktypen.</change>
-		  <change>Hinzugefügt: add_form_key() und check_form_key() Funktionen ( Sicherheitsfunktionen für übermittelte Daten )</change>
-          <change>Entfernt: Überflüssige XML Dateien für das MODX Format dieser Installationsanleitung</change>
-		  <change>Wichtig für Updater: Ersetze alle Dateien (ausser den Bildern). Es wurden zusätzliche Sicherheitsfunktionen hinzugefügt.</change>
-        </changelog>
-      </entry>
-     <entry>
-        <date>2008-02-09T00:00:00+02:00</date>
-        <rev-version>
-          <major>0</major>
-          <minor>1</minor>
-          <revision>26</revision>
-        </rev-version>
-        <changelog lang="en-gb">
-          <change>Added: user and admin logs.</change>
-		  <change>Important for Updaters: replace formel.php, includes/acp/acp_formel.php, language/en/mods/info_acp_formel.php</change>
-		</changelog>
-        <changelog lang="de">
-          <change>Hinzugefügt: Benutzer und Admin Logfunktion.</change>
-		  <change>Wichtig für Updater: Ersetze formel.php, includes/acp/acp_formel.php, language/de/mods/info_acp_formel.php</change>
-        </changelog>
-      </entry>
-     <entry>
-        <date>2008-03-30T00:00:00+02:00</date>
-        <rev-version>
-          <major>0</major>
-          <minor>1</minor>
-          <revision>27</revision>
-        </rev-version>
-        <changelog lang="en-gb">
-          <change>Fix: Show avatar on user statistic.</change>
-		  <change>Fix: HTML error in formel_body.html fixed. Thanks for the fix to: -=[LCW]=-ExXtReMe</change>
-		  <change>Added: Confirm box for saison reset in acp.</change>
-		  <change>Added: log-action for saison reset.</change>
-		  <change>Changed: language vars in all files to meet the coding guidelines.</change>
-		  <change>Important for all Updaters: replace ALL files ( images are not in need to change ) ! Re-do the changes in the memberlist.php and memberlist_view.html !</change>
-		</changelog>
-        <changelog lang="de">
-          <change>Fix: Zeige Avatar auf Spieler Statistik.</change>
-		  <change>Fix: HTML Fehler in der fomel_body.html behoben. Danke für den Fix an: -=[LCW]=-ExXtReMe</change>
-		  <change>Hinzugefügt: Bestätigungsabfrage für "Saison zurücksetzen" im ACP.</change>
-		  <change>Hinzugefügt: Log-Aktion für "Saison zurücksetzen".</change>
-		  <change>Änderung: Es wurden alle Sprachvariablen den Coding Guidelines angepasst.</change>
-		  <change>Wichtig für alle Updater: Ersetze ALLE Dateien außer den mitgelieferten Bildern! Führe die Änderungen an der memberlist.php und memberlist_view.html erneut durch.</change>
-        </changelog>
-      </entry>
-     <entry>
-        <date>2008-05-09T00:00:00+02:00</date>
-        <rev-version>
-          <major>0</major>
-          <minor>1</minor>
-          <revision>28</revision>
-        </rev-version>
-        <changelog lang="en-gb">
-          <change>Cleaned up some code. Added $phpbb_root_path to most of URLs</change>
-		  <change>Important for all Updaters: replace root/formel.php , root/includes/functions_formel.php and root/includes/acp/acp_formel.php</change>
-		</changelog>
-        <changelog lang="de">
-          <change>Codebereinigung. Die Variable $phpbb_root_path den meisten URLs angefügt.</change>
-		  <change>Wichtig für alle Updater: Ersetze die Dateien root/formel.php , root/includes/functions_formel.php und root/includes/acp/acp_formel.php</change>
-        </changelog>
-      </entry>
-     <entry>
-        <date>2008-05-12T00:00:00+02:00</date>
-        <rev-version>
-          <major>0</major>
-          <minor>1</minor>
-          <revision>29</revision>
-        </rev-version>
-        <changelog lang="en-gb">
-          <change>Nothing yet</change>
-		</changelog>
-        <changelog lang="de">
-          <change>Bis jetzt: Nichts</change>
-        </changelog>
-      </entry>
-    </history>
+	<link-group>
+		<link type="parent" lang="en-gb" href="contrib/history.xml">History</link>
+		<link type="parent" lang="de" href="contrib/history.xml">Historie</link>
+		<link type="language" lang="en-gb" href="languages/de.xml">Manual for german language-set</link>
+		<link type="language" lang="de" href="languages/de.xml">Anleitung für das deutsche Sprachpaket</link>
+		<link type="language" lang="en-gb" href="languages/fr.xml">Manual for french language-set</link>
+		<link type="language" lang="de" href="languages/fr.xml">Anleitung für das französische Sprachpaket</link>
+		<link type="template" lang="en-gb" href="templates/subsilver2.xml">Manual for subsilver2 style</link>
+		<link type="template" lang="de" href="templates/subsilver2.xml">Anleitung für das Style subsilver2</link>
+	</link-group>
+
     <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
+	
   </header>
   <action-group>
     <copy>
-      <file from="formel.php" to="ROOT/formel.php" />
-      <file from="adm/style/acp_formel.html" to="ROOT/adm/style/acp_formel.html" />
-      <file from="includes/acp/info/acp_formel.php" to="ROOT/includes/acp/info/acp_formel.php" />
-      <file from="includes/acp/acp_formel.php" to="ROOT/includes/acp/acp_formel.php" />
-      <file from="includes/functions_formel.php" to="ROOT/includes/functions_formel.php" />
-      <file from="language/en/mods/acp_formel.php" to="ROOT/language/en/mods/acp_formel.php" />
-      <file from="language/en/mods/info_acp_formel.php" to="ROOT/language/en/mods/info_acp_formel.php" />
-      <file from="language/en/mods/formel.php" to="ROOT/language/en/mods/formel.php" />
-      <file from="language/en/mods/permissions_formel.php" to="ROOT/language/en/mods/permissions_formel.php" />
-      <file from="images/formel/*.*" to="ROOT/images/formel/*.*" />
-	  <file from="install_f1/*.*" to="ROOT/install_f1/*.*" />
+      <file from="root/formel.php" to="formel.php" />
+      <file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html" />
+      <file from="root/includes/acp/info/acp_formel.php" to="includes/acp/info/acp_formel.php" />
+      <file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php" />
+      <file from="root/includes/functions_formel.php" to="includes/functions_formel.php" />
+      <file from="root/language/en/mods/acp_formel.php" to="language/en/mods/acp_formel.php" />
+      <file from="root/language/en/mods/info_acp_formel.php" to="language/en/mods/info_acp_formel.php" />
+      <file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php" />
+      <file from="root/language/en/mods/permissions_formel.php" to="language/en/mods/permissions_formel.php" />
+      <file from="root/images/formel/*.*" to="images/formel/*.*" />
+	  <file from="root/install_f1/*.*" to="install_f1/*.*" />
+	  <file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
     </copy>
     <open src="includes/constants.php">
       <edit>
@@ -361,6 +171,35 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
 		]]></action>
       </edit>
     </open>
+    <open src="styles/prosilver/template/memberlist_view.html">
+      <edit>
+        <find><![CDATA[			<!-- IF S_SHOW_ACTIVITY and POSTS -->
+				<dt>{L_ACTIVE_IN_FORUM}:</dt> <dd><!-- IF ACTIVE_FORUM --><strong><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br />({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+				<dt>{L_ACTIVE_IN_TOPIC}:</dt> <dd><!-- IF ACTIVE_TOPIC --><strong><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br />({ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+			<!-- ENDIF -->
+		</dl>
+	</div>]]></find>
+        <action type="after-add"><![CDATA[	<!-- BEGIN formel_webtipp -->
+	<div class="column2">
+		<h3>{L_FORMEL_TITLE}</h3>
+		<dl class="details">
+			<dt>{L_FORMEL_PROFILE_WEBTIPP}:</dt> <dd><strong>{formel_webtipp.TIPPER_POINTS}<br /><a href="{formel_webtipp.U_FORMEL_STATS}" class="genmed">{formel_webtipp.TIPPER_RANK}</a></strong><br />({formel_webtipp.RACE_DONE})</dd>
+		</dl>
+	</div>
+	<!-- END formel_webtipp -->]]></action>
+      </edit>
+    </open>
+    <open src="styles/prosilver/template/overall_header.html">
+      <edit>
+        <find><![CDATA[</head>
+
+<body id="phpbb" class="section-{SCRIPT_NAME} {S_CONTENT_DIRECTION}">]]></find>
+        <action type="replace-with"><![CDATA[{COUNTDOWN}
+</head>
+
+<body id="phpbb" class="section-{SCRIPT_NAME} {S_CONTENT_DIRECTION}" {COUNTDOWN_ON}>]]></action>
+      </edit>
+    </open>
 	<diy-instructions lang="en-gb"><![CDATA[After installing this MOD, you have to point your web browser to the install_f1/install.php file
 like:  http://your-domian.tld/path-to-your-forum/install_f1/install.php
 
@@ -399,13 +238,6 @@ Select Forum-ype : "Link"
 Select a parent forum
 Insert a name for the link ( i.e ) : "Formula 1 WebTip"
 Insert in the field Forums-link : "formel.php"
-
-Don't forgett to edit your style templates. You'll find the instructions in the folder templates/
-Open the prosilver.xml or subsilver2.xml with your browser.
-
-Additional translations are located in the folder languages/
-Open de.xml for german or fr.xml with your browser to read the install instructions.
-
 
 And now: Have fun!]]></diy-instructions>
 	<diy-instructions lang="de"><![CDATA[Nach der Installation des MODs musst Du noch die Installationsdatei install_f1/install.php mit Deinem Browser aufrufen.
@@ -447,15 +279,6 @@ Wähle als Forum-Typ : "Link"
 Wähle ein Übergeordnetes Forum Deiner Wahl
 Vergebe einen Namen für den Link ( Beispiel ) : "Formel 1 WebTipp"
 Als Forums-Link : "formel.php"
-
-Vergesst nicht Eure Style Templates zu editieren. Anleitung dazu findet Ihr im Ordner templates/
-Öffnet die Datei prosilver.xml oder subsilver2.xml mit Eurem Browser.
-
-Die deutsche Übersetzung findet Ihr im Ordner languages/
-Öffnet die Datei de.xml mit Eurem Browser um die Installationsanleitung zu lesen.
-
-Zusätzlich findet Ihr dort auch die französische Übersetzung ( fr.xml ).
-
 
 Und nun: Viel Spass !
 ]]></diy-instructions>

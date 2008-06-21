@@ -1,61 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <?xml-stylesheet type="text/xsl" href="../modx.prosilver.en.xsl"?>
 <!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
-<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.0.1.xsd">
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.0.xsd">
   <header>
     <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
-    <title lang="en-gb">Formula 1 WebTip - french language</title>
-    <description lang="en-gb"><![CDATA[These are the instructions to install french language to this MOD.]]>
-</description>
-    <author-group>
+    
+	<title lang="en-gb">Formula 1 WebTip - french language</title>
+    
+	<description lang="en-gb"><![CDATA[These are the instructions to install french language to this MOD.]]></description>
+	
+	<author-group>
       <author>
         <realname>Stefan Temath</realname>
         <email>dr.death@lpi-clan.de</email>
         <username>Dr.Death</username>
         <homepage>http://www.lpi-clan.de</homepage>
-        <contributions />
       </author>
     </author-group>
-    <mod-version>
-      <major>0</major>
-      <minor>1</minor>
-      <revision>26</revision>
-    </mod-version>
+	
+    <mod-version>0.1.29</mod-version>
+	
     <installation>
       <level>easy</level>
       <time>60</time>
-      <target-version>
-        <target-primary>3.0.RC7</target-primary>
-        <target-major allow="exact">3</target-major>
-        <target-minor allow="exact">0</target-minor>
-      </target-version>
+      <target-version>3.0.1</target-version>
     </installation>
-    <history>
-      <entry>
-        <date>2007-07-29</date>
-        <rev-version>
-          <major>0</major>
-          <minor>1</minor>
-          <revision>23</revision>
-        </rev-version>
-        <changelog lang="en-gb">
-          <change> first public version for phpbb3 Olympus RC5. Thank to the translator fafa</change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2007-10-23</date>
-        <rev-version>
-          <major>0</major>
-          <minor>1</minor>
-          <revision>26</revision>
-        </rev-version>
-        <changelog lang="en-gb">
-          <change> [Sec] Secure codes added to language files.</change>
-		  <change> [Feature] Added log activities. Translated by fafa.</change>
-        </changelog>
-      </entry>
-    </history>
+	
     <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
+
+	<link-group>
+		<link type="parent" lang="en-gb" href="../install.xml">Main installation instruction</link>
+		<link type="parent" lang="de" href="../install.xml">Installations Anleitung</link>
+		<link type="parent" lang="en-gb" href="../contrib/history.xml">History</link>
+		<link type="parent" lang="de" href="../contrib/history.xml">Historie</link>
+		<link type="language" lang="en-gb" href="../languages/de.xml">Manual for german language-set</link>
+		<link type="language" lang="de" href="../languages/de.xml">Anleitung für das deutsche Sprachpaket</link>
+		<link type="template" lang="en-gb" href="../templates/subsilver2.xml">Manual for subsilver2 style</link>
+		<link type="template" lang="de" href="../templates/subsilver2.xml">Anleitung für das Style subsilver2</link>
+	</link-group>
   </header>
   <action-group>
     <copy>
