@@ -45,7 +45,7 @@
   </header>
   <action-group>
     <copy>
-      <file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
+      <file from="templates/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
     </copy>
     <open src="styles/subsilver2/template/memberlist_view.html">
       <edit>
