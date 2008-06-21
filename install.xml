@@ -49,12 +49,12 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 	<link-group>
 		<link type="parent" lang="en-gb" href="contrib/history.xml">History</link>
 		<link type="parent" lang="de" href="contrib/history.xml">Historie</link>
-		<link type="language" lang="en-gb" href="languages/de.xml">Manual for german language-set</link>
-		<link type="language" lang="de" href="languages/de.xml">Anleitung für das deutsche Sprachpaket</link>
-		<link type="language" lang="en-gb" href="languages/fr.xml">Manual for french language-set</link>
-		<link type="language" lang="de" href="languages/fr.xml">Anleitung für das französische Sprachpaket</link>
-		<link type="template" lang="en-gb" href="templates/subsilver2.xml">Manual for subsilver2 style</link>
-		<link type="template" lang="de" href="templates/subsilver2.xml">Anleitung für das Style subsilver2</link>
+		<link type="language" lang="en-gb" href="contrib/de.xml">Manual for german language-set</link>
+		<link type="language" lang="de" href="contrib/de.xml">Anleitung für das deutsche Sprachpaket</link>
+		<link type="language" lang="en-gb" href="contrib/fr.xml">Manual for french language-set</link>
+		<link type="language" lang="de" href="contrib/fr.xml">Anleitung für das französische Sprachpaket</link>
+		<link type="template" lang="en-gb" href="contrib/subsilver2.xml">Manual for subsilver2 style</link>
+		<link type="template" lang="de" href="contrib/subsilver2.xml">Anleitung für das Style subsilver2</link>
 	</link-group>
 
     <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />

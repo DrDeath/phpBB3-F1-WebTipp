@@ -34,10 +34,10 @@
 		<link type="parent" lang="de" href="../install.xml">Installations Anleitung</link>
 		<link type="parent" lang="en-gb" href="../contrib/history.xml">History</link>
 		<link type="parent" lang="de" href="../contrib/history.xml">Historie</link>
-		<link type="language" lang="en-gb" href="../languages/de.xml">Manual for german language-set</link>
-		<link type="language" lang="de" href="../languages/de.xml">Anleitung für das deutsche Sprachpaket</link>
-		<link type="language" lang="en-gb" href="../languages/fr.xml">Manual for french language-set</link>
-		<link type="language" lang="de" href="../languages/fr.xml">Anleitung für das französische Sprachpaket</link>
+		<link type="language" lang="en-gb" href="../contrib/de.xml">Manual for german language-set</link>
+		<link type="language" lang="de" href="../contrib/de.xml">Anleitung für das deutsche Sprachpaket</link>
+		<link type="language" lang="en-gb" href="../contrib/fr.xml">Manual for french language-set</link>
+		<link type="language" lang="de" href="../contrib/fr.xml">Anleitung für das französische Sprachpaket</link>
 	</link-group>
 
     <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
@@ -45,7 +45,7 @@
   </header>
   <action-group>
     <copy>
-      <file from="templates/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
+      <file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
     </copy>
     <open src="styles/subsilver2/template/memberlist_view.html">
       <edit>
