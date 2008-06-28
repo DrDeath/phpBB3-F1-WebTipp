@@ -203,9 +203,11 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
         <rev-version>0.1.29</rev-version>
         <changelog lang="en-gb">
           <change>Changed install instructions to MODX 1.2.0</change>
+		  <change>Fix: missing phpbb_root_path added in includes/functions_formel.php</change>
 		</changelog>
         <changelog lang="de">
           <change>Installationsanleitung auf MODX 1.2.0 aktualisiert</change>
+		  <change>Fix: fehlende phpbb_root_path Variable in includes/functions_formel.php hinzugefügt</change>
         </changelog>
       </entry>
     </history>
