@@ -50,7 +50,7 @@ function checkarrayforvalue($wert,$array)
 */
 function formel_del_tip($user_id,$race_id)
 {
-	global $db, $user, $phpEx;
+	global $db, $user, $phpEx, $phpbb_root_path;
 
 	$sql = 'DELETE 
 		FROM ' . FORMEL_TIPPS_TABLE . ' 
