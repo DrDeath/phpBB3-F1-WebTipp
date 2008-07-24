@@ -217,21 +217,31 @@ switch ($mode)
 			ORDER BY total_points DESC LIMIT 5';
 		$result = $db->sql_query($sql);
 
+		//Stop! we have to recalc the driver WM points... maybe we have some penalty !
+		$recalc_drivers = array();
+		while ($row = $db->sql_fetchrow($result))
+		{
+			$recalc_drivers[$row['wm_driver']]['total_points'] 	= $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'];
+			$recalc_drivers[$row['wm_driver']]['driver_name']	= $drivers[$row['wm_driver']]['driver_name'];
+		}
+		// re-sort the drivers. Big points first ;-)
+		arsort($recalc_drivers);
+		
 		$rank = $real_rank  = 0;
 		$previous_points = false;
-		while ($row = $db->sql_fetchrow($result)) 
+		foreach ($recalc_drivers as $driver_id => $driver) 
 		{ 
 			$real_rank++; 
-			if ($row['total_points'] <> $previous_points) 
+			if ($driver['total_points'] <> $previous_points) 
 			{ 
 				$rank = $real_rank; 
-				$previous_points = $row['total_points']; 
+				$previous_points = $driver['total_points']; 
 			}
-			$wm_drivername = $drivers[$row['wm_driver']]['driver_name'];
+			$wm_drivername = $driver['driver_name'];
 			$template->assign_block_vars('top_drivers', array(
 				'RANK'			=> $rank,
 				'WM_DRIVERNAME'	=> $wm_drivername,
-				'WM_POINTS'		=> $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'],
+				'WM_POINTS'		=> $driver['total_points'],
 				)
 			);
 		}
@@ -244,21 +254,33 @@ switch ($mode)
 			ORDER BY total_points DESC LIMIT 5';
 		$result = $db->sql_query($sql);
 
+		//Stop! we have to recalc the team WM points... maybe we have some penalty !
+		$recalc_teams = array();
+		while ($row = $db->sql_fetchrow($result))
+		{
+			$recalc_teams[$row['wm_team']]['total_points'] 	= $row['total_points'] - $teams[$row['wm_team']]['team_penalty'];
+			$recalc_teams[$row['wm_team']]['team_name']		= $teams[$row['wm_team']]['team_name'];
+			$recalc_teams[$row['wm_team']]['team_img']		= $teams[$row['wm_team']]['team_img'];
+			$recalc_teams[$row['wm_team']]['team_car']		= $teams[$row['wm_team']]['team_car'];
+		}
+		// re-sort the teams. Big points first ;-)
+		arsort($recalc_teams);
+		
 		$rank = $real_rank  = 0;
 		$previous_points = false;
-		while ($row = $db->sql_fetchrow($result)) 
+		foreach ($recalc_teams as $team_id => $team) 
 		{ 
 			$real_rank++; 
-			if ($row['total_points'] <> $previous_points) 
+			if ($team['total_points'] <> $previous_points) 
 			{ 
 				$rank = $real_rank; 
-				$previous_points = $row['total_points']; 
+				$previous_points = $team['total_points']; 
 			}
-			$wm_teamname = $teams[$row['wm_team']]['team_name'];
+			$wm_teamname = $team['team_name'];
 			$template->assign_block_vars('top_teams', array(
 				'RANK'			=> $rank,
 				'WM_TEAMNAME'	=> $wm_teamname,
-				'WM_POINTS'		=> $row['total_points'] - $teams[$row['wm_team']]['team_penalty'],
+				'WM_POINTS'		=> $team['total_points'],
 				)
 			);
 		}
@@ -1536,7 +1558,7 @@ switch ($mode)
 				ORDER BY total_points DESC';
 			$result = $db->sql_query($sql);
 			
-			//Stop! we have to recalc the WM points... maybe we have some penalty !
+			//Stop! we have to recalc the team WM points... maybe we have some penalty !
 			$recalc_teams = array();
 			while ($row = $db->sql_fetchrow($result))
 			{
@@ -1607,20 +1629,33 @@ switch ($mode)
 				ORDER BY total_points DESC';
 			$result = $db->sql_query($sql);
 
+			//Stop! we have to recalc the driver WM points... maybe we have some penalty !
+			$recalc_drivers = array();
+			while ($row = $db->sql_fetchrow($result))
+			{
+				$recalc_drivers[$row['wm_driver']]['total_points'] 	= $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'];
+				$recalc_drivers[$row['wm_driver']]['driver_name']	= $drivers[$row['wm_driver']]['driver_name'];
+				$recalc_drivers[$row['wm_driver']]['driver_img']	= $drivers[$row['wm_driver']]['driver_img'];
+				$recalc_drivers[$row['wm_driver']]['driver_car']	= $drivers[$row['wm_driver']]['driver_car'];
+				$recalc_drivers[$row['wm_driver']]['team_img']		= $teams[$row['wm_team']]['team_img'];
+			}
+			// re-sort the drivers. Big points first ;-)
+			arsort($recalc_drivers);			
+
 			$rank = $real_rank  = 0;
 			$previous_points = false;
-			while ($row = $db->sql_fetchrow($result)) 
+			foreach ($recalc_drivers as $driver_id => $driver)  
 			{ 
 				$real_rank++; 
-				if ($row['total_points'] <> $previous_points) 
+				if ($driver['total_points'] <> $previous_points) 
 				{ 
 					$rank = $real_rank; 
-					$previous_points = $row['total_points']; 
+					$previous_points = $driver['total_points']; 
 				}
-				$wm_drivername 	= $drivers[$row['wm_driver']]['driver_name'];
-				$wm_driverimg 	= $drivers[$row['wm_driver']]['driver_img'];
-				$wm_drivercar 	= $drivers[$row['wm_driver']]['driver_car'];
-				$wm_driverteam 	= $teams[$row['wm_team']]['team_img'];
+				$wm_drivername 	= $driver['driver_name'];
+				$wm_driverimg 	= $driver['driver_img'];
+				$wm_drivercar 	= $driver['driver_car'];
+				$wm_driverteam 	= $driver['team_img'];
 				$wm_driverteam 	= ( $wm_driverteam == '' ) ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_team_img'] . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $wm_driverteam . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />';
 
 				if ( $formel_config['show_gfx'] == 1 )
@@ -1631,7 +1666,7 @@ switch ($mode)
 						'WM_DRIVERIMG' 		=> $wm_driverimg,
 						'WM_DRIVERCAR' 		=> $wm_drivercar,
 						'WM_DRIVERTEAM' 	=> $wm_driverteam,
-						'WM_POINTS' 		=> $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'],
+						'WM_POINTS' 		=> $driver['total_points'],
 						)
 					);
 				}
@@ -1640,7 +1675,7 @@ switch ($mode)
 					$template->assign_block_vars('top_drivers', array(
 						'RANK' 				=> $rank,
 						'WM_DRIVERNAME' 	=> $wm_drivername,
-						'WM_POINTS' 		=> $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'],
+						'WM_POINTS' 		=> $driver['total_points'],
 						)
 					);
 				}
