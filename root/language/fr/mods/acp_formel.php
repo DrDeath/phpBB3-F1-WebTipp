@@ -160,6 +160,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_TEAMS_TEAM_UPDATED'                    => 'Ecurie enregistrée',
 	'ACP_F1_TEAMS_TEAM_DELETED'                    => 'Ecurie effacée',
 	'ACP_F1_TEAMS_ERROR_TEAMNAME'				   => 'Donnez un nom svp',
+	'ACP_F1_TEAMS_PENALTY'						   => 'Pénalité',
 
 	'ACP_F1_RACES'                                 => 'Formula 1 Courses',
 	'ACP_F1_RACES_EXPLAIN'                         => 'Ici vous pouvez ajouter ou éditer une course',

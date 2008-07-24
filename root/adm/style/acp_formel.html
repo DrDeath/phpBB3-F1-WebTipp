@@ -336,6 +336,7 @@
 				<!-- END gfx_on -->
 				<td class="row3" align="center" width="100%" valign="middle"  nowrap="nowrap"><span class="cattitle"><strong>{L_ACP_F1_TEAMS_DRIVERTEAM}</strong></span></td>
 				<td class="row3" align="center" valign="middle"  nowrap="nowrap"><span class="cattitle"><strong>{L_ACP_F1_TEAMS_DRIVERPOINTS}</strong></span></td>
+				<td class="row3" align="center" valign="middle"  nowrap="nowrap"><span class="cattitle"><strong>{L_ACP_F1_TEAMS_PENALTY}</strong></span></td>
 				<td class="row3" align="center" valign="middle" colspan="2">&nbsp;</td>
 			</tr>
 			<!-- BEGIN teamrow -->
@@ -347,6 +348,7 @@
 			<!-- ENDIF -->
 				<td align="center" width="100%" valign="middle"  nowrap="nowrap"><span class="genmed">{teamrow.TEAMNAME}<input type="hidden" name="team_id" value="{teamrow.TEAMID}" /></span></td>
 				<td align="center" valign="middle"  nowrap="nowrap">&nbsp;{teamrow.POINTS}&nbsp;</td>
+				<td align="center" valign="middle"  nowrap="nowrap">&nbsp;{teamrow.TEAM_PENALTY}&nbsp;</td>
 				<td align="center" valign="middle" nowrap="nowrap"><input class="button2" type="submit" name="edit" value="{L_EDIT_TEAM}" /></td>
 				<td align="center" valign="middle" nowrap="nowrap"><input class="button2" type="submit" name="del"  value="{L_DEL_TEAM}" />{S_FORM_TOKEN}</td>
 			</tr>
@@ -363,6 +365,7 @@
 				<td align="center" valign="middle"  nowrap="nowrap">&nbsp;{teamrow_gfx.TEAMIMG}&nbsp;</td>
 				<td align="center" width="100%" valign="middle" nowrap="nowrap"><span class="genmed">{teamrow_gfx.TEAMNAME}<input type="hidden" name="team_id" value="{teamrow_gfx.TEAMID}" /></span></td>
 				<td align="center" valign="middle"  nowrap="nowrap">&nbsp;{teamrow_gfx.POINTS}&nbsp;</td>
+				<td align="center" valign="middle"  nowrap="nowrap">&nbsp;{teamrow_gfx.TEAM_PENALTY}&nbsp;</td>
 				<td align="center" valign="middle" nowrap="nowrap"><input class="button2" type="submit" name="edit" value="{L_ACP_F1_TEAMS_EDIT_TEAM}" /></td>
 				<td align="center" valign="middle" nowrap="nowrap"><input class="button2" type="submit" name="del"  value="{L_ACP_F1_TEAMS_DELETE_TEAM}" />{S_FORM_TOKEN}</td>
 			</tr>
@@ -407,6 +410,10 @@
 				<td class="row1" align="left" width="50%" valign="middle"  nowrap="nowrap">&nbsp;<input type="text" class="post" maxsize="255" size="30" name="teamcar" value="{PREDEFINED_CAR}" /></td>
 			</tr>
 			<!-- END gfx_on -->
+			<tr>
+				<td class="row1" align="right" width="50%" valign="middle"  nowrap="nowrap"><span class="genmed"><strong>{L_ACP_F1_TEAMS_PENALTY}:</strong></span>&nbsp;</td>
+				<td class="row1" align="left" width="50%" valign="middle"  nowrap="nowrap">&nbsp;<input type="text" class="post" maxsize="64" size="30" name="team_penalty" value="{PREDEFINED_PENALTY}" /></td>
+			</tr>
 		</tbody>
 	</table>
 	

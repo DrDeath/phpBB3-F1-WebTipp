@@ -159,6 +159,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_TEAMS_TEAM_UPDATED'						=> 'Team data saved',
 	'ACP_F1_TEAMS_TEAM_DELETED'						=> 'Team deleted',
 	'ACP_F1_TEAMS_ERROR_TEAMNAME'					=> 'Please give a Teamname',
+	'ACP_F1_TEAMS_PENALTY'							=> 'Penalty',
 
 	'ACP_F1_RACES'									=> 'Formula 1 Races',
 	'ACP_F1_RACES_EXPLAIN'							=> 'Here you can add or edit Races',

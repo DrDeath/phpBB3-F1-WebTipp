@@ -257,7 +257,8 @@ switch ($mode)
 			$template->assign_block_vars('top_teams', array(
 				'RANK'			=> $rank,
 				'WM_TEAMNAME'	=> $wm_teamname,
-				'WM_POINTS'		=> $row['total_points'])
+				'WM_POINTS'		=> $row['total_points'] - $teams[$row['wm_team']]['team_penalty'],
+				)
 			);
 		}
 		$db->sql_freeresult($result);
@@ -1533,6 +1534,7 @@ switch ($mode)
 				GROUP BY wm_team
 				ORDER BY total_points DESC';
 			$result = $db->sql_query($sql);
+				
 
 			$rank = $real_rank  = 0;
 			$previous_points = false;
@@ -1556,7 +1558,8 @@ switch ($mode)
 						'WM_TEAMNAME' 	=> $wm_teamname,
 						'WM_TEAMIMG' 	=> $wm_teamimg,
 						'WM_TEAMCAR' 	=> $wm_teamcar,
-						'WM_POINTS' 	=> $row['total_points'])
+						'WM_POINTS' 	=> $row['total_points'] - $teams[$row['wm_team']]['team_penalty'],
+						)
 					);
 				}
 				else 
@@ -1564,7 +1567,8 @@ switch ($mode)
 					$template->assign_block_vars('top_teams', array(
 						'RANK' 			=> $rank,
 						'WM_TEAMNAME' 	=> $wm_teamname,
-						'WM_POINTS' 	=> $row['total_points'])
+						'WM_POINTS' 	=> $row['total_points'] - $teams[$row['wm_team']]['team_penalty'],
+						)
 					);
 				}
 			}

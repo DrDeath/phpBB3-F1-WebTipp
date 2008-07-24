@@ -581,6 +581,7 @@ class acp_formel
 				$teamcar 			= request_var('teamcar'		,	''	,	true	);
 				$teamname 			= request_var('teamname'	,	''	,	true	);
 				$team_id 			= request_var('team_id'		,	0	);
+				$team_penalty		= request_var('team_penalty',	0	);
 				
 				// Init some vars
 				$formel_config = get_formel_config();
@@ -599,7 +600,8 @@ class acp_formel
 						$sql_ary = array(
 							'team_name'		=> $teamname,
 							'team_img'		=> $teamimg,
-							'team_car'		=> $teamcar
+							'team_car'		=> $teamcar,
+							'team_penalty'	=> $team_penalty,
 						);
 						$db->sql_query('INSERT INTO ' . FORMEL_TEAMS_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
 						add_log('admin', 'LOG_FORMEL_TEAM_ADDED');
@@ -611,7 +613,8 @@ class acp_formel
 							$sql_ary = array(
 								'team_name'		=> $teamname,
 								'team_img'		=> $teamimg,
-								'team_car'		=> $teamcar
+								'team_car'		=> $teamcar,
+								'team_penalty'	=> $team_penalty,
 							);
 
 							$sql = 'UPDATE ' . FORMEL_TEAMS_TABLE . ' 
@@ -623,6 +626,7 @@ class acp_formel
 						{
 							$sql_ary = array(
 								'team_name'		=> $teamname,
+								'team_penalty'	=> $team_penalty,
 							);
 
 							$sql = 'UPDATE ' . FORMEL_TEAMS_TABLE . ' 
@@ -679,9 +683,10 @@ class acp_formel
 						$result = $db->sql_query($sql);
 
 						$row = $db->sql_fetchrow($result);
-						$teamname	= $row['team_name'];
-						$teamimg	= $row['team_img'];
-						$teamcar	= $row['team_car'];
+						$teamname		= $row['team_name'];
+						$teamimg		= $row['team_img'];
+						$teamcar		= $row['team_car'];
+						$team_penalty 	= $row['team_penalty'];
 						$db->sql_freeresult($result);
 					}
 
@@ -698,6 +703,7 @@ class acp_formel
 						'PREDEFINED_IMG'			=> $teamimg,
 						'PREDEFINED_CAR'			=> $teamcar,
 						'PREDEFINED_ID'				=> $team_id,
+						'PREDEFINED_PENALTY'		=> $team_penalty,
 						'L_ACP_F1_TEAMS_EXPLAIN'	=> $title_exp,
 						'L_ACP_F1_TEAMS'			=> $title,
 						)
@@ -719,34 +725,37 @@ class acp_formel
 						$current_team	= $row['team_id'];
 						$team_img		= ($team_img == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_team_img'] . '" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" alt="">' : '<img src="' . $phpbb_root_path . 'images/formel/' . $team_img . '" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" alt="">';
 						$team_car		= ($team_car == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="">' : '<img src="' . $phpbb_root_path . 'images/formel/' . $team_car . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="">';
+						$team_penalty 	= $row['team_penalty'];
 						$pointssql		= '	SELECT SUM(wm_points) AS total_points 
 											FROM ' . FORMEL_WM_TABLE . ' 
 											WHERE wm_team = ' . (int) $current_team;
 						$team_points = $db->sql_query($pointssql);
 
 						$current_points = $db->sql_fetchrow($team_points);
-						$points = ( $current_points['total_points'] <> '' ) ? $current_points['total_points'] : 0;
+						$points = ( $current_points['total_points'] <> '' ) ? $current_points['total_points'] - $team_penalty: 0 - $team_penalty;
 						$db->sql_freeresult($team_points);
 
 						if ( $formel_config['show_gfx'] == 1 )
 						{
 							$template->assign_block_vars('teamrow_gfx', array(
-								'TEAMNAME'	=> $row['team_name'],
-								'TEAMID'	=> $row['team_id'],
-								'POINTS'	=> $points,
-								'TEAMIMG'	=> $team_img,
-								'TEAMCAR'	=> $team_car,
+								'TEAMNAME'		=> $row['team_name'],
+								'TEAMID'		=> $row['team_id'],
+								'POINTS'		=> $points,
+								'TEAMIMG'		=> $team_img,
+								'TEAMCAR'		=> $team_car,
+								'TEAM_PENALTY'	=> $team_penalty,
 								)
 							);
 						}
 						else 
 						{
 							$template->assign_block_vars('teamrow', array(
-								'TEAMNAME'	=> $row['team_name'],
-								'TEAMID'	=> $row['team_id'],
-								'POINTS'	=> $points,
-								'TEAMIMG'	=> $team_img,
-								'TEAMCAR'	=> $team_car,
+								'TEAMNAME'		=> $row['team_name'],
+								'TEAMID'		=> $row['team_id'],
+								'POINTS'		=> $points,
+								'TEAMIMG'		=> $team_img,
+								'TEAMCAR'		=> $team_car,
+								'TEAM_PENALTY'	=> $team_penalty,
 								)
 							);
 						}
@@ -754,10 +763,10 @@ class acp_formel
 					$db->sql_freeresult($result);
 
 					// Generate page
-					$colspan = 4;
+					$colspan = 5;
 					if ( $formel_config['show_gfx'] == 1 )
 					{
-						$colspan = 6;
+						$colspan = 7;
 						$template->assign_block_vars('gfx_on', array());
 					}
 

@@ -159,6 +159,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_TEAMS_TEAM_UPDATED'						=> 'Team Datenbank erfolgreich aktualisiert',
 	'ACP_F1_TEAMS_TEAM_DELETED'						=> 'Der Eintrag wurde erfolgreich gelöscht',
 	'ACP_F1_TEAMS_ERROR_TEAMNAME'					=> 'Bitte gib einen Teamnamen an',
+	'ACP_F1_TEAMS_PENALTY'							=> 'Strafpunkte',
 
 	'ACP_F1_RACES'									=> 'Formel 1 Rennen',
 	'ACP_F1_RACES_EXPLAIN'							=> 'Hier kannst Du neue Formel 1 Rennen erstellen oder vorhandene bearbeiten',
