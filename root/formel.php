@@ -1535,23 +1535,38 @@ switch ($mode)
 				GROUP BY wm_team
 				ORDER BY total_points DESC';
 			$result = $db->sql_query($sql);
-				
+			
+			//Stop! we have to recalc the WM points... maybe we have some penalty !
+			$recalc_teams = array();
+			while ($row = $db->sql_fetchrow($result))
+			{
+				$recalc_teams[$row['wm_team']]['total_points'] 	= $row['total_points'] - $teams[$row['wm_team']]['team_penalty'];
+				$recalc_teams[$row['wm_team']]['team_name']		= $teams[$row['wm_team']]['team_name'];
+				$recalc_teams[$row['wm_team']]['team_img']		= $teams[$row['wm_team']]['team_img'];
+				$recalc_teams[$row['wm_team']]['team_car']		= $teams[$row['wm_team']]['team_car'];
+			}
+			// re-sort the teams. Big points first ;-)
+			arsort($recalc_teams);
+
 
 			$rank = $real_rank  = 0;
 			$previous_points = false;
-			while ($row = $db->sql_fetchrow($result)) 
+			foreach ($recalc_teams as $team_id => $team) 
 			{ 
 				$real_rank++; 
-				if ($row['total_points'] <> $previous_points) 
+				if ($team['total_points'] <> $previous_points) 
 				{ 
 					$rank = $real_rank; 
-					$previous_points = $row['total_points']; 
+					$previous_points = $team['total_points']; 
 				}
-				$wm_teamname 	= $teams[$row['wm_team']]['team_name'];
-				$wm_teamimg 	= $teams[$row['wm_team']]['team_img'];
-				$wm_teamcar 	= $teams[$row['wm_team']]['team_car'];
+
+				$wm_teamname	= $team['team_name'];
+				$wm_teamimg 	= $team['team_img'];
+				$wm_teamcar 	= $team['team_car'];
+				$wm_points		= $team['total_points'];
 				$wm_teamimg 	= ( $wm_teamimg == '' ) ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_team_img'] . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $wm_teamimg . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />';
 				$wm_teamcar 	= ( $wm_teamcar == '' ) ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img']  . '" alt="" width="' . $formel_config['car_img_width']  . '" height="' . $formel_config['car_img_height']  . '" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $wm_teamcar . '" alt="" width="' . $formel_config['car_img_width']  . '" height="' . $formel_config['car_img_height']  . '" />';
+
 				if ( $formel_config['show_gfx'] == 1 )
 				{
 					$template->assign_block_vars('top_teams_gfx', array(
@@ -1559,7 +1574,7 @@ switch ($mode)
 						'WM_TEAMNAME' 	=> $wm_teamname,
 						'WM_TEAMIMG' 	=> $wm_teamimg,
 						'WM_TEAMCAR' 	=> $wm_teamcar,
-						'WM_POINTS' 	=> $row['total_points'] - $teams[$row['wm_team']]['team_penalty'],
+						'WM_POINTS' 	=> $wm_points,
 						)
 					);
 				}
@@ -1568,7 +1583,7 @@ switch ($mode)
 					$template->assign_block_vars('top_teams', array(
 						'RANK' 			=> $rank,
 						'WM_TEAMNAME' 	=> $wm_teamname,
-						'WM_POINTS' 	=> $row['total_points'] - $teams[$row['wm_team']]['team_penalty'],
+						'WM_POINTS' 	=> $wm_points,
 						)
 					);
 				}
