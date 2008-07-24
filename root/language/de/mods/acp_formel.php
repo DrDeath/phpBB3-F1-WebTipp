@@ -140,6 +140,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_DRIVERS_DRIVER_UPDATED'					=> 'Fahrer Datenbank erfolgreich aktualisiert',
 	'ACP_F1_DRIVERS_ERROR_IMAGE'					=> 'Bitte gib ein Fahrerbild an',
 	'ACP_F1_DRIVERS_ERROR_DRIVERNAME'				=> 'Bitte gib einen Fahrernamen an',
+	'ACP_F1_DRIVERS_PENALTY'						=> 'Strafpunkte',
 
 	'ACP_F1_TEAMS'									=> 'Formel 1 Teams',
 	'ACP_F1_TEAMS_EXPLAIN'							=> 'Hier kannst Du neue Formel 1 Teams erstellen oder vorhandene bearbeiten',

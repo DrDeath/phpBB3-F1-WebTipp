@@ -140,6 +140,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_DRIVERS_DRIVER_UPDATED'					=> 'Driver data updated',
 	'ACP_F1_DRIVERS_ERROR_IMAGE'					=> 'Please give a driver pic',
 	'ACP_F1_DRIVERS_ERROR_DRIVERNAME'				=> 'Please give a drivername',
+	'ACP_F1_DRIVERS_PENALTY'						=> 'Penalty',
 
 	'ACP_F1_TEAMS'									=> 'Formula 1 Teams',
 	'ACP_F1_TEAMS_EXPLAIN'							=> 'Here you can add or edit the teams',

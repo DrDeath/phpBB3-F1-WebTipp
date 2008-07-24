@@ -141,6 +141,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_DRIVERS_DRIVER_UPDATED'                => 'Mis à jour les données du pilote',
 	'ACP_F1_DRIVERS_ERROR_IMAGE'                   => 'Mettre la photo du pilote',
 	'ACP_F1_DRIVERS_ERROR_DRIVERNAME'              => 'Mettre le nom du pilote',
+	'ACP_F1_DRIVERS_PENALTY'					   => 'Pénalité',
 
 	'ACP_F1_TEAMS'                                 => 'Formula 1 Ecuries',
 	'ACP_F1_TEAMS_EXPLAIN'                         => 'Ici vous pouvez ajouter ou éditer une écurie',

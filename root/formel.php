@@ -231,7 +231,8 @@ switch ($mode)
 			$template->assign_block_vars('top_drivers', array(
 				'RANK'			=> $rank,
 				'WM_DRIVERNAME'	=> $wm_drivername,
-				'WM_POINTS'		=> $row['total_points'])
+				'WM_POINTS'		=> $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'],
+				)
 			);
 		}
 		$db->sql_freeresult($result);
@@ -1615,7 +1616,8 @@ switch ($mode)
 						'WM_DRIVERIMG' 		=> $wm_driverimg,
 						'WM_DRIVERCAR' 		=> $wm_drivercar,
 						'WM_DRIVERTEAM' 	=> $wm_driverteam,
-						'WM_POINTS' 		=> $row['total_points'])
+						'WM_POINTS' 		=> $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'],
+						)
 					);
 				}
 				else 
@@ -1623,7 +1625,8 @@ switch ($mode)
 					$template->assign_block_vars('top_drivers', array(
 						'RANK' 				=> $rank,
 						'WM_DRIVERNAME' 	=> $wm_drivername,
-						'WM_POINTS' 		=> $row['total_points'])
+						'WM_POINTS' 		=> $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'],
+						)
 					);
 				}
 			}

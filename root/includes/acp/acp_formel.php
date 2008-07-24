@@ -338,6 +338,7 @@ class acp_formel
 				$drivername			= request_var('drivername'		,	''	,	true	);
 				$driverteam			= request_var('driverteam'		,	0	);
 				$driver_id			= request_var('driver_id'		,	0	);
+				$driver_penalty		= request_var('driver_penalty'	,	0	);
 
 				// Init some vars
 				$formel_config = get_formel_config();
@@ -354,9 +355,10 @@ class acp_formel
 					if ( $driver_id == 0 )
 					{
 						$sql_ary = array(
-							'driver_name'	=> $drivername,
-							'driver_img'	=> $driverimg,
-							'driver_team'	=> $driverteam
+							'driver_name'		=> $drivername,
+							'driver_img'		=> $driverimg,
+							'driver_team'		=> $driverteam,
+							'driver_penalty'	=> $driver_penalty,
 						);
 						$db->sql_query('INSERT INTO ' . FORMEL_DRIVERS_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
 						add_log('admin', 'LOG_FORMEL_DRIVER_ADDED');
@@ -368,7 +370,8 @@ class acp_formel
 							$sql_ary = array(
 								'driver_name'		=> $drivername,
 								'driver_img'		=> $driverimg,
-								'driver_team'		=> $driverteam
+								'driver_team'		=> $driverteam,
+								'driver_penalty'	=> $driver_penalty,
 							);
 							$sql = 'UPDATE ' . FORMEL_DRIVERS_TABLE . ' 
 								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
@@ -379,7 +382,8 @@ class acp_formel
 						{
 							$sql_ary = array(
 								'driver_name'		=> $drivername,
-								'driver_team'		=> $driverteam
+								'driver_team'		=> $driverteam,
+								'driver_penalty'	=> $driver_penalty,
 							);
 							$sql = 'UPDATE ' . FORMEL_DRIVERS_TABLE . ' 
 								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
@@ -447,6 +451,7 @@ class acp_formel
 						}
 						$driverimg 			= $row['driver_img'];
 						$preselected_id 	= $row['driver_team'];
+						$driver_penalty 	= $row['driver_penalty'];
 						$db->sql_freeresult($result);
 					}
 
@@ -480,6 +485,7 @@ class acp_formel
 						'FORMEL_IMG'				=> $phpbb_root_path.'images/formel/formel_drivers.jpg',
 						'PREDEFINED_NAME'			=> $drivername,
 						'PREDEFINED_IMG'			=> $driverimg,
+						'PREDEFINED_PENALTY'		=> $driver_penalty,
 						'DRIVER_ID'					=> $driver_id,
 						'L_ACP_F1_DRIVERS_EXPLAIN'	=> $title_exp,
 						'L_ACP_F1_DRIVERS'			=> $title,
@@ -513,6 +519,7 @@ class acp_formel
 						$driverimg			= $row['driver_img'];
 						$current_user_id	= $row['driver_id'];
 						$driverimg			= ( $driverimg == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="">' : '<img src="' . $phpbb_root_path . 'images/formel/' . $driverimg . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="">';
+						$driver_penalty 	= $row['driver_penalty'];
 
 						$pointssql = 'SELECT SUM(wm_points) AS total_points 
 							FROM ' . FORMEL_WM_TABLE . ' 
@@ -520,37 +527,39 @@ class acp_formel
 						$user_points = $db->sql_query($pointssql);
 
 						$driver_points = $db->sql_fetchrow($user_points);
-						$points = ( $driver_points['total_points'] <> '' ) ? $driver_points['total_points'] : 0;
+						$points = ( $driver_points['total_points'] <> '' ) ? $driver_points['total_points'] - $driver_penalty : 0 - $driver_penalty;
 						$db->sql_freeresult($user_points);
 						if ( $formel_config['show_gfx'] == 1 )
 						{
 							$template->assign_block_vars('driverrow_gfx', array(
-								'DRIVERNAME'	=> $row['driver_name'],
-								'DRIVERID'		=> $row['driver_id'],
-								'DRIVERIMG'		=> $driverimg,
-								'DRIVERTEAM'	=> (isset($teams[$row['driver_team']])) ? $teams[$row['driver_team']] : '',
-								'DRIVERPOINTS'	=> $points,
+								'DRIVERNAME'		=> $row['driver_name'],
+								'DRIVERID'			=> $row['driver_id'],
+								'DRIVERIMG'			=> $driverimg,
+								'DRIVERTEAM'		=> (isset($teams[$row['driver_team']])) ? $teams[$row['driver_team']] : '',
+								'DRIVERPOINTS'		=> $points,
+								'DRIVER_PENALTY'	=> $driver_penalty,
 								)
 							);
 						}
 						else 
 						{
 							$template->assign_block_vars('driverrow', array(
-								'DRIVERNAME'	=> $row['driver_name'],
-								'DRIVERID'		=> $row['driver_id'],
-								'DRIVERIMG'		=> $driverimg,
-								'DRIVERTEAM'	=> (isset($teams[$row['driver_team']])) ? $teams[$row['driver_team']] : '',
-								'DRIVERPOINTS'	=> $points,
+								'DRIVERNAME'		=> $row['driver_name'],
+								'DRIVERID'			=> $row['driver_id'],
+								'DRIVERIMG'			=> $driverimg,
+								'DRIVERTEAM'		=> (isset($teams[$row['driver_team']])) ? $teams[$row['driver_team']] : '',
+								'DRIVERPOINTS'		=> $points,
+								'DRIVER_PENALTY'	=> $driver_penalty,
 								)
 							);
 						}
 					}
 					$db->sql_freeresult($result);
 
-					$colspan = 5;
+					$colspan = 6;
 					if ( $formel_config['show_gfx'] == 1 )
 					{
-						$colspan = 6;
+						$colspan = 7;
 						$template->assign_block_vars('gfx_on', array());
 					}
 
