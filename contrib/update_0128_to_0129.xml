@@ -25,22 +25,24 @@
 		
 		<installation>
 			<level>easy</level>
-			<time>120</time>
-			<target-version>3.0.1</target-version>
+			<time>360</time>
+			<target-version>3.0.2</target-version>
 		</installation>
 		
 		<history>
 			<entry>
-				<date>2008-05-19T00:00:00+02:00</date>
+				<date>2008-07-25T00:00:00+02:00</date>
 				<rev-version>0.1.29</rev-version>
 				<changelog lang="en-gb">
 					<change>Style prosilver goes xhtml strict</change>
 					<change>Style subsilver2 goes xhtml transitional</change>
+					<change>Feature added: Penalty system for teams and drivers in ACP</change>
 					<change>Fix: missing phpbb_root_path added in includes/functions_formel.php</change>
 				</changelog>
 				<changelog lang="de">
 					<change>Style prosilver xhtml strict valide</change>
 					<change>Style subsilver2 xhtml transitional valide</change>
+					<change>Funktion hinzugefügt: Strafpunkte System für Teams und Fahrer im Admin-Bereich</change>
 					<change>Fix: fehlende phpbb_root_path Variable in includes/functions_formel.php hinzugefügt</change>
 				</changelog>
 			</entry>
@@ -52,10 +54,19 @@
 	<action-group>
 	    <copy>
 			<file from="root/formel.php" to="formel.php" />
+			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html" />
 			<file from="root/includes/functions_formel.php" to="includes/functions_formel.php" />
+			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php" />
+			<file from="root/language/en/mods/acp_formel.php" to="language/en/mods/acp_formel.php" />
+			<file from="root/language/de/mods/acp_formel.php" to="language/de/mods/acp_formel.php" />
+			<file from="root/language/fr/mods/acp_formel.php" to="language/fr/mods/acp_formel.php" />
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
 			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
 	    </copy>
+		
+		<sql><![CDATA[
+ALTER TABLE `phpbb_formel_teams` ADD `team_penalty` SMALLINT UNSIGNED NOT NULL DEFAULT '0';
+ALTER TABLE `phpbb_formel_drivers` ADD `driver_penalty` SMALLINT UNSIGNED NOT NULL DEFAULT '0';]]></sql>
   </action-group>
 </mod>
 

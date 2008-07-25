@@ -60,6 +60,7 @@ CREATE TABLE phpbb_formel_drivers (
 	driver_name varchar2(765) DEFAULT '' ,
 	driver_img varchar2(255) DEFAULT '' ,
 	driver_team number(8) DEFAULT '0' NOT NULL,
+	driver_penalty number(8) DEFAULT '0' NOT NULL,
 	CONSTRAINT pk_phpbb_formel_drivers PRIMARY KEY (driver_id)
 )
 /
@@ -89,6 +90,7 @@ CREATE TABLE phpbb_formel_teams (
 	team_name varchar2(765) DEFAULT '' ,
 	team_img varchar2(255) DEFAULT '' ,
 	team_car varchar2(255) DEFAULT '' ,
+	team_penalty number(8) DEFAULT '0' NOT NULL,
 	CONSTRAINT pk_phpbb_formel_teams PRIMARY KEY (team_id)
 )
 /

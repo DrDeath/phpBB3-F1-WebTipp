@@ -16,6 +16,7 @@ CREATE TABLE phpbb_formel_drivers (
 	driver_name blob NOT NULL,
 	driver_img varbinary(255) DEFAULT '' NOT NULL,
 	driver_team mediumint(8) UNSIGNED DEFAULT '0' NOT NULL,
+	driver_penalty mediumint(8) UNSIGNED DEFAULT '0' NOT NULL,
 	PRIMARY KEY (driver_id)
 );
 
@@ -26,6 +27,7 @@ CREATE TABLE phpbb_formel_teams (
 	team_name blob NOT NULL,
 	team_img varbinary(255) DEFAULT '' NOT NULL,
 	team_car varbinary(255) DEFAULT '' NOT NULL,
+	team_penalty mediumint(8) UNSIGNED DEFAULT '0' NOT NULL,
 	PRIMARY KEY (team_id)
 );
 

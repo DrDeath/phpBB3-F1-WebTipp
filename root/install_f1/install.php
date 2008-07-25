@@ -226,17 +226,17 @@ if ($submit == 'continue')
 	$cache->purge();
 
 	$message = '<span style="color:green; font-weight: bold;font-size: 1.5em;">Formula 1 WebTip database successfully installed.</span><br />
-				To finish installing this mod, edit all files according to the install.xml, then open templates/prosilver.xml and follow those instructions.<br />
+				To finish installing this mod, edit all files according to the install.xml, then open contrib/subsilver2.xml and follow those instructions.<br />
 				When you are finished, go to the ACP and purge the cache.<br />
 				<br />
 				<span style="color:green; font-weight: bold;font-size: 1.5em;">Formel 1 WebTipp Datenbank erfolgreich installiert.</span><br />
-				Um die Installation abzuschliessen befolge alle Anweisungen in der Install.xml, danach die templates/prosilver.xml und language/de.xml .<br />
+				Um die Installation abzuschliessen befolge alle Anweisungen in der Install.xml, danach ggf. contrib/subsilver2.xml und contrib/de.xml .<br />
 				Wenn Du damit fertig bist, gehe in das ACP und leere den Cache.';
 	trigger_error($message);
 } 
 else 
 {
-	$message = '<span style="color:green; font-weight: bold;font-size: 1.5em;">Formel 1 WebTipp MOD v0.1.25 (beta)</span><br />
+	$message = '<span style="color:green; font-weight: bold;font-size: 1.5em;">Formel 1 WebTipp MOD v0.1.29 (beta)</span><br />
 				<br />
 				English:<br />
 				Script for automated Formula 1 WebTip table generation.<br />

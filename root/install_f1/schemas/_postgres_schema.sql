@@ -101,6 +101,7 @@ CREATE TABLE phpbb_formel_drivers (
 	driver_name varchar(255) DEFAULT '' NOT NULL,
 	driver_img varchar(255) DEFAULT '' NOT NULL,
 	driver_team INT4 DEFAULT '0' NOT NULL CHECK (driver_team >= 0),
+	driver_penalty INT4 DEFAULT '0' NOT NULL CHECK (driver_penalty >= 0),
 	PRIMARY KEY (driver_id)
 );
 
@@ -115,6 +116,7 @@ CREATE TABLE phpbb_formel_teams (
 	team_name varchar(255) DEFAULT '' NOT NULL,
 	team_img varchar(255) DEFAULT '' NOT NULL,
 	team_car varchar(255) DEFAULT '' NOT NULL,
+	team_penalty INT4 DEFAULT '0' NOT NULL CHECK (team_penalty >= 0),
 	PRIMARY KEY (team_id)
 );
 

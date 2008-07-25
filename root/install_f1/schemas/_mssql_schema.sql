@@ -31,7 +31,8 @@ CREATE TABLE [phpbb_formel_drivers] (
 	[driver_id] [int] IDENTITY (1, 1) NOT NULL ,
 	[driver_name] [varchar] (255) DEFAULT ('') NOT NULL ,
 	[driver_img] [varchar] (255) DEFAULT ('') NOT NULL ,
-	[driver_team] [int] DEFAULT (0) NOT NULL 
+	[driver_team] [int] DEFAULT (0) NOT NULL ,
+	[driver_penalty] [int] DEFAULT (0) NOT NULL 
 ) ON [PRIMARY]
 GO
 
@@ -50,7 +51,8 @@ CREATE TABLE [phpbb_formel_teams] (
 	[team_id] [int] IDENTITY (1, 1) NOT NULL ,
 	[team_name] [varchar] (255) DEFAULT ('') NOT NULL ,
 	[team_img] [varchar] (255) DEFAULT ('') NOT NULL ,
-	[team_car] [varchar] (255) DEFAULT ('') NOT NULL 
+	[team_car] [varchar] (255) DEFAULT ('') NOT NULL ,
+	[team_penalty] [int] DEFAULT (0) NOT NULL 
 ) ON [PRIMARY]
 GO
 

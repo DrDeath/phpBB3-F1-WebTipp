@@ -17,7 +17,8 @@ CREATE TABLE phpbb_formel_drivers (
 	driver_id INTEGER PRIMARY KEY NOT NULL ,
 	driver_name varchar(255) NOT NULL DEFAULT '',
 	driver_img varchar(255) NOT NULL DEFAULT '',
-	driver_team INTEGER UNSIGNED NOT NULL DEFAULT '0'
+	driver_team INTEGER UNSIGNED NOT NULL DEFAULT '0',
+	driver_penalty INTEGER UNSIGNED NOT NULL DEFAULT '0'
 );
 
 
@@ -26,7 +27,8 @@ CREATE TABLE phpbb_formel_teams (
 	team_id INTEGER PRIMARY KEY NOT NULL ,
 	team_name varchar(255) NOT NULL DEFAULT '',
 	team_img varchar(255) NOT NULL DEFAULT '',
-	team_car varchar(255) NOT NULL DEFAULT ''
+	team_car varchar(255) NOT NULL DEFAULT '',
+	team_penalty INTEGER UNSIGNED NOT NULL DEFAULT '0'
 );
 
 

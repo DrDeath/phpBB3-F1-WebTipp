@@ -820,6 +820,7 @@ function get_schema_struct()
 			'driver_name'		=> array('VCHAR_UNI', ''),
 			'driver_img'		=> array('VCHAR', ''),
 			'driver_team'		=> array('UINT', 0),
+			'driver_penalty'	=> array('UINT', 0),
 		),
 		'PRIMARY_KEY'	=> 'driver_id',
 	);
@@ -831,6 +832,7 @@ function get_schema_struct()
 			'team_name'			=> array('VCHAR_UNI', ''),
 			'team_img'			=> array('VCHAR', ''),
 			'team_car'			=> array('VCHAR', ''),
+			'team_penalty'		=> array('UINT', 0),
 		),
 		'PRIMARY_KEY'	=> 'team_id',
 	);
