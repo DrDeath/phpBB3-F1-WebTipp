@@ -65,8 +65,8 @@
 	    </copy>
 		
 		<sql><![CDATA[
-ALTER TABLE `phpbb_formel_teams` ADD `team_penalty` SMALLINT UNSIGNED NOT NULL DEFAULT '0';
-ALTER TABLE `phpbb_formel_drivers` ADD `driver_penalty` SMALLINT UNSIGNED NOT NULL DEFAULT '0';]]></sql>
+ALTER TABLE `phpbb_formel_teams` ADD `team_penalty` MEDIUMINT( 8 ) UNSIGNED NOT NULL DEFAULT '0';
+ALTER TABLE `phpbb_formel_drivers` ADD `driver_penalty` MEDIUMINT( 8 ) UNSIGNED NOT NULL DEFAULT '0';]]></sql>
   </action-group>
 </mod>
 
