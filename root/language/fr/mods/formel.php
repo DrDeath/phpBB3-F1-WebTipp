@@ -122,6 +122,9 @@ $lang = array_merge($lang, array(
 	'FORMEL_HIDDEN'							=> 'Caché pendant les pronos',
 	'FORMEL_COUNTDOWN_DEADLINE'				=> 'Compte à rebours des pronos',
 	'FORMEL_DEADLINE_REACHED'				=> 'Terminé',
+	'INSTALL_FORMEL_NO_FOUNDER'				=> 'You must be logged in as a founder to run this script.',
+	'INSTALL_FORMEL_OPTION_INSTALL'			=> '<span style="color:green; font-weight: bold;font-size: 1.5em;">Formel 1 WebTipp MOD v0.1.29 (beta)</span><br /><br />Script for automated Formula 1 WebTip permission, module, table  and initial data generation.<br /><br /><span style="color:red; font-weight: bold;">This procedure will erase all settings, drivers, teams, races and usertipps of any previous Formel 1 WebTipp installations!</span><br /><br />Are you sure you want to continue? If so, then click  %shere%s<br /><br />Click %shere%s to return to the index.',
+	'INSTALL_FORMEL_DONE'					=> '<span style="color:green; font-weight: bold;font-size: 1.5em;">Formel 1 WebTipp MOD v0.1.29 (beta)</span><br /><br />All new permissions, modules, tables and initial data installed successfully.',
 ));
 
 ?>

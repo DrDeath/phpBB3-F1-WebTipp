@@ -115,14 +115,6 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (38, 'Paffet, Gary', '', 11);
 
 
-
-# -- Permissions
-INSERT INTO phpbb_acl_options (auth_option, is_global, is_local, founder_only) VALUES ('a_formel_settings', 1, 0, 0);
-INSERT INTO phpbb_acl_options (auth_option, is_global, is_local, founder_only) VALUES ('a_formel_drivers', 1, 0, 0);
-INSERT INTO phpbb_acl_options (auth_option, is_global, is_local, founder_only) VALUES ('a_formel_teams', 1, 0, 0);
-INSERT INTO phpbb_acl_options (auth_option, is_global, is_local, founder_only) VALUES ('a_formel_races', 1, 0, 0);
-
-
 # POSTGRES COMMIT #
 
 
