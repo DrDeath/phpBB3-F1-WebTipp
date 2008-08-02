@@ -63,6 +63,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
   <action-group>
     <copy>
       <file from="root/formel.php" to="formel.php" />
+	  <file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
       <file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html" />
       <file from="root/includes/acp/info/acp_formel.php" to="includes/acp/info/acp_formel.php" />
       <file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php" />

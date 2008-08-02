@@ -215,13 +215,15 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2008-02-09T00:00:00+02:00</date>
+			<date>2008-08-02T00:00:00+02:00</date>
 			<rev-version>0.1.30</rev-version>
 			<changelog lang="en-gb">
 				<change>Changed: complete rewritten installer file.</change>
+				<change>Added: MOD Version check</change>
 			</changelog>
 			<changelog lang="de">
 				<change>Aktualisiert: Komplett neue Installationsroutine.</change>
+				<change>Hinzugefügt: MOD Versions Check</change>
 			</changelog>
 		</entry>
 	</history>

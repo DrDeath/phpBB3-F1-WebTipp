@@ -47,6 +47,7 @@
 
 	<action-group>
 	    <copy>
+			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
 			<file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php" />
 			<file from="root/language/de/mods/formel.php" to="language/de/mods/formel.php" />
 			<file from="root/language/fr/mods/formel.php" to="language/fr/mods/formel.php" />
