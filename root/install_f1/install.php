@@ -19,7 +19,6 @@ include($phpbb_root_path . 'common.'.$phpEx);
 include($phpbb_root_path . 'includes/functions_display.' . $phpEx);
 include($phpbb_root_path . 'includes/acp/auth.' . $phpEx);
 include($phpbb_root_path . 'includes/acp/acp_modules.' . $phpEx);
-include($phpbb_root_path . 'includes/message_parser.' . $phpEx);
 
 // Start session management
 $user->session_begin();
@@ -44,11 +43,6 @@ else if ($user->data['user_type'] != USER_FOUNDER)
 
 //define some functions
 
-/**
-*
-* Drop all formel
-*
-**/
 function drop_tables($table_name)
 {
 	global $db, $table_prefix;
@@ -74,8 +68,8 @@ function remove_acl_option($acl_option)
    
 	// get the acl_options_ids to remove them from the roles
 	$sql = 'SELECT auth_option_id
-		FROM ' . ACL_OPTIONS_TABLE . "
-		WHERE auth_option = '$acl_option'";
+			FROM ' . ACL_OPTIONS_TABLE . "
+			WHERE auth_option = '$acl_option'";
 	$result = $db->sql_query($sql);
 	$row = $db->sql_fetchrow($result);
 	$db->sql_freeresult($result);
@@ -84,16 +78,16 @@ function remove_acl_option($acl_option)
 	
 	if(!empty($option_id))
 	{
-		$sql = '	DELETE 
-					FROM ' . ACL_ROLES_DATA_TABLE . '
-					WHERE auth_option_id = ' . $option_id;
+		$sql = 'DELETE 
+				FROM ' . ACL_ROLES_DATA_TABLE . '
+				WHERE auth_option_id = ' . $option_id;
 		$result = $db->sql_query($sql);
 	}
 
 	// remove old acl_options
-	$sql = '	DELETE 
-				FROM ' . ACL_OPTIONS_TABLE . " 
-				WHERE 	auth_option = '$acl_option'";
+	$sql = 'DELETE 
+			FROM ' . ACL_OPTIONS_TABLE . " 
+			WHERE auth_option = '$acl_option'";
 	$db->sql_query($sql);
 }
 
@@ -101,9 +95,9 @@ function module_seek_and_destroy($module_basename)
 {
    global $db, $cache;
 	// remove the old modules
-	$sql = '	SELECT * 
+	$sql = 'SELECT * 
 			FROM ' . MODULES_TABLE . "
-			WHERE 	module_basename = '$module_basename'";
+			WHERE module_basename = '$module_basename'";
 	$result = $db->sql_query($sql);
 
 	while ($row = $db->sql_fetchrow($result))
@@ -114,41 +108,43 @@ function module_seek_and_destroy($module_basename)
 		$result_2 = $db->sql_query($sql);
 		$row = $db->sql_fetchrow($result_2);
 		
-		$sql = 'DELETE FROM ' . MODULES_TABLE . ' WHERE module_id = ' . $row['module_id'];
+		$sql = 'DELETE 
+				FROM ' . MODULES_TABLE . ' 
+				WHERE module_id = ' . $row['module_id'];
 		$db->sql_query($sql);
 		
 		//check to see if the module left any orphans (there's no reason why it should, the acp only lets categories have children)
 		if ($row['left_id'] + 1 != $row['right_id'])
 		{
 			//let the grandparent adopt the oprhans since we killed the parent (isn't that a nice image)
-			$sql = '	UPDATE ' . MODULES_TABLE . ' 
-						SET 	left_id = left_id -1, 
-								right_id = right_id - 1, 
-								parent_id = ' . $row['parent_id'] . ' 
-						WHERE 	module_class = "' . $row['module_class'] . '" 
-						AND 	left_id BETWEEN ' . $row['left_id'] . ' 
-						AND 	' . $row['right_id'];
+			$sql = 'UPDATE ' . MODULES_TABLE . ' 
+					SET 	left_id = left_id -1, 
+							right_id = right_id - 1, 
+							parent_id = ' . $row['parent_id'] . ' 
+					WHERE 	module_class = "' . $row['module_class'] . '" 
+					AND 	left_id BETWEEN ' . $row['left_id'] . ' 
+					AND 	' . $row['right_id'];
 			$db->sql_query($sql);
 		}
 
-		$sql = '	UPDATE ' . MODULES_TABLE . ' 
-					SET 	right_id = right_id - 2 
-					WHERE 	module_class = "' . $row['module_class'] . '"
-					AND 	right_id > ' . $row['right_id'];
+		$sql = 'UPDATE ' . MODULES_TABLE . ' 
+				SET 	right_id = right_id - 2 
+				WHERE 	module_class = "' . $row['module_class'] . '"
+				AND 	right_id > ' . $row['right_id'];
 		$db->sql_query($sql);
 		
-		$sql = '	UPDATE ' . MODULES_TABLE . ' 
-					SET 	left_id = left_id - 2 
-					WHERE 	module_class = "' . $row['module_class'] . '" 
-					AND 	left_id > ' . $row['right_id'];
+		$sql = 'UPDATE ' . MODULES_TABLE . ' 
+				SET 	left_id = left_id - 2 
+				WHERE 	module_class = "' . $row['module_class'] . '" 
+				AND 	left_id > ' . $row['right_id'];
 		$db->sql_query($sql);
 		
 		//if an empty parent class is left behind, get rid of it too
 		while ($parent_id = $row['parent_id'])
 		{
-			$sql = '	SELECT * 
-						FROM ' . MODULES_TABLE . '
-						WHERE 	module_id = ' . $parent_id;
+			$sql = 'SELECT * 
+					FROM ' . MODULES_TABLE . '
+					WHERE module_id = ' . $parent_id;
 			$result_2 = $db->sql_query($sql);
 			$row = $db->sql_fetchrow($result_2);
 			
@@ -157,21 +153,21 @@ function module_seek_and_destroy($module_basename)
 				break;
 			}
 			
-			$sql = '	DELETE 
-						FROM ' . MODULES_TABLE . ' 
-						WHERE 	module_id = ' . $row['module_id'];
+			$sql = 'DELETE 
+					FROM ' . MODULES_TABLE . ' 
+					WHERE module_id = ' . $row['module_id'];
 			$db->sql_query($sql);
 			
-			$sql = '	UPDATE ' . MODULES_TABLE . ' 
-						SET 	right_id = right_id - 2 
-						WHERE 	module_class = "' . $row['module_class'] . '" 
-						AND 	right_id > ' . $row['right_id'];
+			$sql = 'UPDATE ' . MODULES_TABLE . ' 
+					SET 	right_id = right_id - 2 
+					WHERE 	module_class = "' . $row['module_class'] . '" 
+					AND 	right_id > ' . $row['right_id'];
 			$db->sql_query($sql);
 			
-			$sql = '	UPDATE ' . MODULES_TABLE . '
-						SET 	left_id = left_id - 2 
-						WHERE 	module_class = "' . $row['module_class'] . '" 
-						AND 	left_id > ' . $row['right_id'];
+			$sql = 'UPDATE ' . MODULES_TABLE . '
+					SET 	left_id = left_id - 2 
+					WHERE 	module_class = "' . $row['module_class'] . '" 
+					AND 	left_id > ' . $row['right_id'];
 			$db->sql_query($sql);
 		}
 	}
