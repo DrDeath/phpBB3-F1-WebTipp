@@ -2,51 +2,52 @@
 <?xml-stylesheet type="text/xsl" href="../modx.prosilver.en.xsl"?>
 <!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.0.xsd">
-  <header>
-    <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
-	
-    <title lang="en-gb">Formula 1 WebTip - german language</title>
-	<title lang="de">Formel 1 WebTipp - Deutsche Sprachdateien</title>
-	
-    <description lang="en-gb"><![CDATA[These are the instructions to install german language to this MOD.]]></description>
-	<description lang="de"><![CDATA[Dies ist die Installationsanleitung um deutsche Sprache für dieses MOD zu installieren]]></description>
-    
-	<author-group>
-      <author>
-        <realname>Stefan Temath</realname>
-        <email>dr.death@lpi-clan.de</email>
-        <username>Dr.Death</username>
-        <homepage>http://www.lpi-clan.de</homepage>
-      </author>
-    </author-group>
-	
-    <mod-version>0.1.29</mod-version>
-	
-    <installation>
-      <level>easy</level>
-      <time>60</time>
-      <target-version>3.0.1</target-version>
-    </installation>
-	
-    <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
+	<header>
+	    <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+		
+	    <title lang="en-gb">Formula 1 WebTip - german language</title>
+		<title lang="de">Formel 1 WebTipp - Deutsche Sprachdateien</title>
+		
+	    <description lang="en-gb"><![CDATA[These are the instructions to install german language to this MOD.]]></description>
+		<description lang="de"><![CDATA[Dies ist die Installationsanleitung um deutsche Sprache für dieses MOD zu installieren]]></description>
+	    
+		<author-group>
+			<author>
+				<realname>Stefan Temath</realname>
+				<email>dr.death@lpi-clan.de</email>
+				<username>Dr.Death</username>
+				<homepage>http://www.lpi-clan.de</homepage>
+			</author>
+	    </author-group>
+		
+	    <mod-version>0.1.30</mod-version>
+		
+	    <installation>
+			<level>easy</level>
+			<time>60</time>
+			<target-version>3.0.2</target-version>
+	    </installation>
+		
+	    <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
 
-	<link-group>
-		<link type="parent" lang="en-gb" href="../install.xml">Main installation instruction</link>
-		<link type="parent" lang="de" href="../install.xml">Installations Anleitung</link>
-		<link type="parent" lang="en-gb" href="../contrib/history.xml">History</link>
-		<link type="parent" lang="de" href="../contrib/history.xml">Historie</link>
-		<link type="language" lang="en-gb" href="../contrib/fr.xml">Manual for french language-set</link>
-		<link type="language" lang="de" href="../contrib/fr.xml">Anleitung für das französische Sprachpaket</link>
-		<link type="template" lang="en-gb" href="../contrib/subsilver2.xml">Manual for subsilver2 style</link>
-		<link type="template" lang="de" href="../contrib/subsilver2.xml">Anleitung für das Style subsilver2</link>
-	</link-group>
-  </header>
-  <action-group>
-    <copy>
-      <file from="root/language/de/mods/acp_formel.php" to="language/de/mods/acp_formel.php" />
-      <file from="root/language/de/mods/info_acp_formel.php" to="language/de/mods/info_acp_formel.php" />
-      <file from="root/language/de/mods/formel.php" to="language/de/mods/formel.php" />
-      <file from="root/language/de/mods/permissions_formel.php" to="language/de/mods/permissions_formel.php" />
-    </copy>
-  </action-group>
+		<link-group>
+			<link type="parent" lang="en-gb" href="../install.xml">Main installation instruction</link>
+			<link type="parent" lang="de" href="../install.xml">Installations Anleitung</link>
+			<link type="parent" lang="en-gb" href="../contrib/history.xml">History</link>
+			<link type="parent" lang="de" href="../contrib/history.xml">Historie</link>
+			<link type="language" lang="en-gb" href="../contrib/fr.xml">Manual for french language-set</link>
+			<link type="language" lang="de" href="../contrib/fr.xml">Anleitung für das französische Sprachpaket</link>
+			<link type="template" lang="en-gb" href="../contrib/subsilver2.xml">Manual for subsilver2 style</link>
+			<link type="template" lang="de" href="../contrib/subsilver2.xml">Anleitung für das Style subsilver2</link>
+		</link-group>
+	</header>
+	
+	<action-group>
+		<copy>
+			<file from="root/language/de/mods/acp_formel.php" to="language/de/mods/acp_formel.php" />
+			<file from="root/language/de/mods/info_acp_formel.php" to="language/de/mods/info_acp_formel.php" />
+			<file from="root/language/de/mods/formel.php" to="language/de/mods/formel.php" />
+			<file from="root/language/de/mods/permissions_formel.php" to="language/de/mods/permissions_formel.php" />
+		</copy>
+	</action-group>
 </mod>

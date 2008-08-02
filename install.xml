@@ -40,11 +40,11 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
         <homepage>http://www.oxpus.de</homepage>
       </author>
     </author-group>
-    <mod-version>0.1.29</mod-version>
+    <mod-version>0.1.30</mod-version>
     <installation>
       <level>easy</level>
       <time>692</time>
-      <target-version>3.0.1</target-version>
+      <target-version>3.0.2</target-version>
     </installation>
 	<link-group>
 		<link type="parent" lang="en-gb" href="contrib/history.xml">History</link>
@@ -203,25 +203,7 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
 	<diy-instructions lang="en-gb"><![CDATA[After installing this MOD, you have to point your web browser to the install_f1/install.php file
 like:  http://your-domian.tld/path-to-your-forum/install_f1/install.php
 
-Now you are able to activate the new Formel 1 WebTipp modules:
-
-ACP - SYSTEM - Module Management - Administration Control Panel
-Create a new Modul Category.
-
-1. Hit the Button "Create new module"
-2. Enter in field "Module Language Name:" --> "ACP_FORMEL_MANAGEMENT"
-3. Module type: --> "Category"
-4. Parent: --> ".Mods"
-5. Module enabled: --> "Yes"
-
-After that you have to enable the new Formel 1 WebTipp Modules separately by doing the following steps:
-
-1. Go to ACP - SYSTEM - Module Management - Administration Control Panel - .Mods - Formula 1 WebTip
-2. Select in the dropdown list "Formular 1 Settings" and hit "Add module"
-3. After adding the module you have to click on the "Enable" link.
-4. Do the steps 1-3 also for the F1 WebTipp Modules: "Formular 1 Drivers" , "Formular 1 Teams" and "Formular 1 Races"
-5. If the tab ".mods" is not shown you have to clear the cache!
-6. Finaly delete the folder: install_f1/ from your webspace to prevent erasing tables from your database.
+Finaly delete the folder: install_f1/ from your webspace to prevent erasing tables from your database.
 
 
 After creating , adding and enabling the F1 WebTipp modules your are able to give ACP permissions to certain users/groups.
@@ -243,26 +225,7 @@ And now: Have fun!]]></diy-instructions>
 	<diy-instructions lang="de"><![CDATA[Nach der Installation des MODs musst Du noch die Installationsdatei install_f1/install.php mit Deinem Browser aufrufen.
 Beispiel: http://deine-domaene.tld/pfad-zum-forum/install_f1/install.php
 
-Aktiviere nun die F1 WebTipp Module:
-
-ACP - SYSTEM - Modul-Konfiguration - Administrations-Bereich
-Erstelle eine neue Modul Kategorie
-
-1. Klicke auf den Button "Neues Modul erstellen"
-2. Im Feld "Name des Moduls:" --> "ACP_FORMEL_MANAGEMENT" eintragen.
-3. Modul-Typ: --> "Kategorie" wählen.
-4. Übergeordnet: "Mods" wählen.
-5. Modul aktiviert: "ja" wählen.
-6. "Absenden" anklicken.
-
-Danach musst Du nun jedes Formel 1 WebTipp Modul einzelnd hinzufügen und aktivieren:
-
-1. Gehe ins ACP - SYSTEM - Modul-Konfiguration - Administrations-Bereich - Mods - Formel 1 WebTipp
-2. Wähle aus der Dropdown Liste "Formel 1 Einstellungen" und klicke auf "Modul hinzufügen".
-3. Nach dem Hinzufügen des Moduls klicke auf den "Aktivieren" Link.
-4. Wiederhole die Schritte 1-3 auch fuer die folgenden F1 WebTipp Module: "Formel 1 Rennen", "Formel 1 Teams" und "Formel 1 Fahrer".
-5. Sollte der extra Reiter "MODS" nicht im ACP sichtbar sein, leere den Cache!
-6. Zum Schluss solltest Du nicht vergessen den Ordner "install_f1/" von Deinem WebSpace zu löschen!
+Danach solltest Du nicht vergessen den Ordner "install_f1/" von Deinem WebSpace zu löschen!
 
 Nach dem Erstellen, Hinzufügen und Aktivieren der F1 WebTipp Module
 kannst Du nun ACP Berechtigunen fuer Deinen Gruppen/Benutzer vergeben.
