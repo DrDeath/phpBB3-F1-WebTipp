@@ -49,69 +49,33 @@ else if ($user->data['user_type'] != USER_FOUNDER)
 * Drop all formel
 *
 **/
-function drop_old_formel_tables()
+function drop_tables($table_name)
 {
 	global $db, $table_prefix;
 
 	if ($db->sql_layer != 'mssql')
 	{
-		$sql = 'DROP TABLE IF EXISTS ' . $table_prefix . 'formel_config';
-		$result = $db->sql_query($sql);
-		$db->sql_freeresult($result);
-		$sql = 'DROP TABLE IF EXISTS ' . $table_prefix . 'formel_drivers';
-		$result = $db->sql_query($sql);
-		$db->sql_freeresult($result);
-		$sql = 'DROP TABLE IF EXISTS ' . $table_prefix . 'formel_teams';
-		$result = $db->sql_query($sql);
-		$db->sql_freeresult($result);
-		$sql = 'DROP TABLE IF EXISTS ' . $table_prefix . 'formel_races';
-		$result = $db->sql_query($sql);
-		$db->sql_freeresult($result);
-		$sql = 'DROP TABLE IF EXISTS ' . $table_prefix . 'formel_tipps';
-		$result = $db->sql_query($sql);
-		$db->sql_freeresult($result);
-		$sql = 'DROP TABLE IF EXISTS ' . $table_prefix . 'formel_wm';
+		$sql = 'DROP TABLE IF EXISTS ' . $table_prefix . $table_name;
 		$result = $db->sql_query($sql);
 		$db->sql_freeresult($result);
 	}
 	else
 	{
-		$sql = 'if exists (select * from sysobjects where name = ' . $table_prefix . 'formel_config)
-		drop table ' . $table_prefix . 'formel_config';
-		$result = $db->sql_query($sql);
-		$db->sql_freeresult($result);
-		$sql = 'if exists (select * from sysobjects where name = ' . $table_prefix . 'formel_drivers)
-		drop table ' . $table_prefix . 'formel_drivers';
-		$result = $db->sql_query($sql);
-		$db->sql_freeresult($result);
-		$sql = 'if exists (select * from sysobjects where name = ' . $table_prefix . 'formel_teams)
-		drop table ' . $table_prefix . 'formel_teams';
-		$result = $db->sql_query($sql);
-		$db->sql_freeresult($result);
-		$sql = 'if exists (select * from sysobjects where name = ' . $table_prefix . 'formel_races)
-		drop table ' . $table_prefix . 'formel_races';
-		$result = $db->sql_query($sql);
-		$db->sql_freeresult($result);
-		$sql = 'if exists (select * from sysobjects where name = ' . $table_prefix . 'formel_tipps)
-		drop table ' . $table_prefix . 'formel_tipps';
-		$result = $db->sql_query($sql);
-		$db->sql_freeresult($result);
-		$sql = 'if exists (select * from sysobjects where name = ' . $table_prefix . 'formel_wm)
-		drop table ' . $table_prefix . 'formel_wm';
+		$sql = 'if exists (select * from sysobjects where name = ' . $table_prefix . $table_name . ')
+		drop table ' . $table_prefix . $table_name;
 		$result = $db->sql_query($sql);
 		$db->sql_freeresult($result);
 	}
 }
 
-
-function module_seek_and_destroy()
+function remove_acl_option($acl_option)
 {
    global $db, $cache;
    
 	// get the acl_options_ids to remove them from the roles
 	$sql = 'SELECT auth_option_id
 		FROM ' . ACL_OPTIONS_TABLE . "
-		WHERE auth_option = 'a_formel_races'";
+		WHERE auth_option = '$acl_option'";
 	$result = $db->sql_query($sql);
 	$row = $db->sql_fetchrow($result);
 	$db->sql_freeresult($result);
@@ -125,84 +89,21 @@ function module_seek_and_destroy()
 					WHERE auth_option_id = ' . $option_id;
 		$result = $db->sql_query($sql);
 	}
-	
-	
-	$sql = 'SELECT auth_option_id
-		FROM ' . ACL_OPTIONS_TABLE . "
-		WHERE auth_option = 'a_formel_teams'";
-	$result = $db->sql_query($sql);
-	$row = $db->sql_fetchrow($result);
-	$db->sql_freeresult($result);
-	
-	$option_id = $row['auth_option_id'];
 
-	if(!empty($option_id))
-	{	
-		$sql = '	DELETE 
-					FROM ' . ACL_ROLES_DATA_TABLE . '
-					WHERE auth_option_id = ' . $option_id;
-		$result = $db->sql_query($sql);
-	}
-	
-	$sql = 'SELECT auth_option_id
-		FROM ' . ACL_OPTIONS_TABLE . "
-		WHERE auth_option = 'a_formel_drivers'";
-	$result = $db->sql_query($sql);
-	$row = $db->sql_fetchrow($result);
-	$db->sql_freeresult($result);
-	
-	$option_id = $row['auth_option_id'];
-
-	if(!empty($option_id))
-	{	
-		$sql = '	DELETE 
-					FROM ' . ACL_ROLES_DATA_TABLE . '
-					WHERE auth_option_id = ' . $option_id;
-		$result = $db->sql_query($sql);
-	}
-	
-	$sql = 'SELECT auth_option_id
-		FROM ' . ACL_OPTIONS_TABLE . "
-		WHERE auth_option = 'a_formel_settings'";
-	$result = $db->sql_query($sql);
-	$row = $db->sql_fetchrow($result);
-	$db->sql_freeresult($result);
-	
-	$option_id = $row['auth_option_id'];
-
-	if(!empty($option_id))
-	{	
-		$sql = '	DELETE 
-					FROM ' . ACL_ROLES_DATA_TABLE . '
-					WHERE auth_option_id = ' . $option_id;
-		$result = $db->sql_query($sql);
-	}
-	
 	// remove old acl_options
 	$sql = '	DELETE 
-				FROM ' . ACL_OPTIONS_TABLE . ' 
-				WHERE 	auth_option = "a_formel_races"';
+				FROM ' . ACL_OPTIONS_TABLE . " 
+				WHERE 	auth_option = '$acl_option'";
 	$db->sql_query($sql);
-	
-	$sql = '	DELETE 
-				FROM ' . ACL_OPTIONS_TABLE . ' 
-				WHERE 	auth_option = "a_formel_teams"';
-	$db->sql_query($sql);
-	
-			$sql = '	DELETE 
-				FROM ' . ACL_OPTIONS_TABLE . ' 
-				WHERE 	auth_option = "a_formel_drivers"';
-	$db->sql_query($sql);
-	
-			$sql = '	DELETE 
-				FROM ' . ACL_OPTIONS_TABLE . ' 
-				WHERE 	auth_option = "a_formel_settings"';
-	$db->sql_query($sql);
-	
+}
+
+function module_seek_and_destroy($module_basename)
+{
+   global $db, $cache;
 	// remove the old modules
 	$sql = '	SELECT * 
-			FROM ' . MODULES_TABLE . '
-			WHERE 	module_basename = "formel"';
+			FROM ' . MODULES_TABLE . "
+			WHERE 	module_basename = '$module_basename'";
 	$result = $db->sql_query($sql);
 
 	while ($row = $db->sql_fetchrow($result))
@@ -364,11 +265,22 @@ switch ($mode)
 {
 	case 'install':
 	
-			// first: Drop all previous Formel1WebTip tables
-			drop_old_formel_tables();
+			// Drop all previous Formel1WebTip tables
+			drop_tables('formel_config');
+			drop_tables('formel_drivers');
+			drop_tables('formel_teams');
+			drop_tables('formel_races');
+			drop_tables('formel_tipps');
+			drop_tables('formel_wm');
 			
-			// second: drop all existing Formel1WebTip modules and permissions
-			module_seek_and_destroy();
+			// Remove old permissions from roles and acl_options table
+			remove_acl_option('a_formel_races');
+			remove_acl_option('a_formel_teams');
+			remove_acl_option('a_formel_drivers');
+			remove_acl_option('a_formel_settings');
+			
+			// Remove all existing Formel1WebTip modules
+			module_seek_and_destroy('formel');
 			
 			// Setup $auth_admin class so we can add tabulated survey permission options
 			$auth_admin = new auth_admin();
