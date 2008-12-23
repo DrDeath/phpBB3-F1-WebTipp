@@ -185,24 +185,24 @@ if ($submit == 'continue')
 } 
 else 
 {
-	$message = '<span style="color:green; font-weight: bold;font-size: 1.5em;">Update F1 WebTipp Saison 2008 </span><br />
+	$message = '<span style="color:green; font-weight: bold;font-size: 1.5em;">Update F1 WebTipp Saison 2009 </span><br />
 				<br />
 				English:<br />
-				Script for automated update of Formular 1 Webtip saison 2008.<br />
+				Script for automated update of Formular 1 Webtip saison 2009.<br />
 				<br />
 				<span style="color:red; font-weight: bold;">This procedure will update all races, drivers and teams of any previous Formel 1 WebTipp installations!<br />All previous assigned images will be lost!</span><br />
 				Are you sure you want to continue? If so, then click on "Continue / Weiter"<br />
 				<br />
 				<br />
 				German:<br />
-				Script für automatisches Update der Formel 1 Saison 2008 .<br />
+				Script für automatisches Update der Formel 1 Saison 2009 .<br />
 				<br />
 				<span style="color:red; font-weight: bold;">Diese Script wird alle F1 WebTipp Rennen, Fahrer und Teams von vorherigen Installationen aktualisieren!<br/>Alle vorher zugewiesenen Bilder gehen dabei verloren!</span><br />
 				Bist Du Dir absolut sicher ? Dann klicke auf "Continue / Weiter"<br />
 				<br />
 				';
 	$message .= '%sContinue / Weiter%s ----- %sCancel / Abbrechen%s';
-	$message  = sprintf($message, '<a href="'.append_sid("update_2008.$phpEx?update=continue").'" class="gen">', '</a>', '<a href="'.append_sid( $phpbb_root_path . "index.$phpEx").'" class="gen">', '</a>');
+	$message  = sprintf($message, '<a href="'.append_sid("update_2009.$phpEx?update=continue").'" class="gen">', '</a>', '<a href="'.append_sid( $phpbb_root_path . "index.$phpEx").'" class="gen">', '</a>');
 	
 	trigger_error( $message);
 }
