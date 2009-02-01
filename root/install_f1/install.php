@@ -208,7 +208,7 @@ switch ($db->sql_layer)
 	break;
 
 	case 'mysql4':
-		if (version_compare($db->mysql_version, '4.1.3', '>='))
+		if (version_compare($db->sql_server_info(true), '4.1.3', '>='))
 		{
 			$db_schema = 'mysql_41';
 		}

@@ -4,8 +4,8 @@
 
 # POSTGRES BEGIN #
 
-# -- Races -- tbd
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (1, 'Melbourne - Australien', '', '0', '0', 1238306400, '5,303', 58, '307,574', 1996);
+# -- Races -- done for 2009
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (1, 'Melbourne / Australien', '', '0', '0', 1238306400, '5,303', 58, '307,574', 1996);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (2, 'Malaysia / Kuala Lumpur', '', '0', '0', 1238922000, '5,543', 56, '310,408', 1999);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (3, 'China / Shanghai', '', '0', '0', 1240124400, '5,451', 56, '305,066', 2004);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (4, 'Bahrain / Manama', '', '0', '0', 1240747200, '5,412', 57, '308,238', 2004);
