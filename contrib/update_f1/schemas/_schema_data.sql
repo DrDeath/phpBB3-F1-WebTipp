@@ -23,7 +23,6 @@ INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_r
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (16, 'Brasilien / São Paulo', '', '0', '0', 1255881600, '4,309', 71, '305,909', 1973);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (17, 'Arabische Emirate / Abu Dhabi', '', '0', '0', 1257073200, '5,52', 56, '309,120', 2009);
 
-
 # -- Teams -- done for 2009
 INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car) VALUES (1, 'McLaren Mercedes', '', '');
 INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car) VALUES (2, 'Scuderia Ferrari', '', '');
@@ -60,7 +59,6 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (14, 'Piquet, Nelson Jr.', '', 4);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (15, 'Grosjean, Romain', '', 4);
 
-
 # -- Team 5 Toyota Racing
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (16, 'Trulli, Jarno', '', 5);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (17, 'Glock, Timo', '', 5);
@@ -95,9 +93,3 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 
 
 # POSTGRES COMMIT #
-
-
-
-
-
-
