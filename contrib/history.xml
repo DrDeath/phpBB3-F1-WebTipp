@@ -38,7 +38,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		</author>
 	</author-group>
 	
-	<mod-version>0.1.30</mod-version>
+	<mod-version>0.1.31</mod-version>
 	
     <installation>
 		<level>easy</level>
@@ -227,6 +227,16 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<changelog lang="de">
 				<change>Aktualisiert: Komplett neue Installationsroutine.</change>
 				<change>Hinzugefügt: MOD Versions Check</change>
+			</changelog>
+		</entry>
+		<entry>
+			<date>2009-03-08T00:00:00+02:00</date>
+			<rev-version>0.1.31</rev-version>
+			<changelog lang="en-gb">
+				<change>Changed: nothing yet.</change>
+			</changelog>
+			<changelog lang="de">
+				<change>Aktualisiert: bisher noch nichts.</change>
 			</changelog>
 		</entry>
 	</history>

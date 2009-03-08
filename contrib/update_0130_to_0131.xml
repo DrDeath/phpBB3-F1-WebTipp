@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../contrib/modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.2.xsd">
+	<header>
+	
+		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+		
+		<title lang="en-gb">Formula 1 WebTip update from 0.1.30 to 0.1.31</title>
+		<title lang="de">Formel 1 WebTipp Update von 0.1.30 auf 0.1.31</title>
+		
+		<description lang="en-gb"><![CDATA[With this mod you can update your Formula 1 tipp game from version 0.1.30 to 0.1.31.]]></description>
+		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel von Version 0.1.30 auf 0.1.31.]]></description>
+		
+		<author-group>
+			<author>
+				<realname>Stefan Temath</realname>
+				<email>dr.death@lpi-clan.de</email>
+				<username>Dr.Death</username>
+				<homepage>http://www.lpi-clan.de</homepage>
+				<contributions-group>
+					<contributions status="past" from="2006-01-01" position="Developer"/>
+				</contributions-group>
+			</author>
+		</author-group>
+		
+		<mod-version>0.1.31</mod-version>
+		
+		<installation>
+			<level>easy</level>
+			<time>360</time>
+			<target-version>3.0.4</target-version>
+		</installation>
+		
+		<history>
+			<entry>
+				<date>2009-03-08T00:00:00+02:00</date>
+				<rev-version>0.1.31</rev-version>
+				<changelog lang="en-gb">
+					<change>Changed: nothing yet.</change>
+				</changelog>
+				<changelog lang="de">
+					<change>Aktualisiert: bisher noch nichts.</change>
+				</changelog>
+			</entry>
+		</history>
+    
+		<meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
+	</header>
+
+	<action-group>
+	    <copy>
+			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
+		</copy>
+	</action-group>
+</mod>
+
+ 
