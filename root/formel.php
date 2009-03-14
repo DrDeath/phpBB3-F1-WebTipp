@@ -605,8 +605,8 @@ switch ($mode)
 
 						$tiredcombo = '<select name="place10" size="1">';
 						
-						//We have 11 Teams with 2 cars each --> 22 drivers
-						for ($k = 0; $k < 23; $k++) 
+						//We have 10 Teams with 2 cars each --> 20 drivers
+						for ($k = 0; $k < 21; $k++) 
 						{
 							$selected 			 = ( $k == $tipp_array[9]) ? 'selected' : '';
 							$tiredcombo 		.= '<option value="' . $k . '" ' . $selected . '>' . $k . '</option>';
@@ -674,8 +674,8 @@ switch ($mode)
 
 						$tiredcombo = '<select name="place10" size="1">';
 						
-						//We have 11 Teams with 2 cars each --> 22 drivers
-						for ($k = 0; $k < 23; $k++) 
+						//We have 10 Teams with 2 cars each --> 20 drivers
+						for ($k = 0; $k < 21; $k++) 
 						{
 							$tiredcombo .= '<option value="' . $k . '">' . $k . '</option>';
 						}
@@ -1050,8 +1050,8 @@ switch ($mode)
 			
 			if ( $race_id <> 0 ) 
 			{
-				//We have 11 Teams with 2 cars each --> 22 drivers
-				for ($i = 0; $i < 22; $i++) 
+				//We have 10 Teams with 2 cars each --> 20 drivers
+				for ($i = 0; $i < 20; $i++) 
 				{
 					$value = request_var('place' . ( $i + 1 ), 0);
 					if (checkarrayforvalue($value,$quali_array)) 
@@ -1184,10 +1184,12 @@ switch ($mode)
 					$teams[$row['driver_id']] = $row['driver_team'];
 				}
 				$db->sql_freeresult($result);
+				// wm points:  12-9-7-5-4-3-2-1
 				$wm = array();
-				$wm[0] = 10;	// 10 Point for first place
-				$wm[1] = 8;		// 8 Points for second place 
-				for ( $i=2; $i < 8; $i++ ) 
+				$wm[0] = 12;	// 12 Point for first place
+				$wm[1] = 9;		// 9 Points for second place 
+				$wm[2] = 7;		// 7 Points for third place 
+				for ( $i=3; $i < 8; $i++ )
 				{
 					$wm[$i] = ( 8 - $i );
 				}
@@ -1248,8 +1250,8 @@ switch ($mode)
 			$drivers[0]['driver_id'] = '0';
 			$drivers[0]['driver_name'] = $user->lang['FORMEL_DEFINE'];
 			
-			//We have 11 Teams with 2 cars each --> 22 drivers
-			for ($i = 0; $i < 22; $i++) 
+			//We have 10 Teams with 2 cars each --> 20 drivers
+			for ($i = 0; $i < 20; $i++) 
 			{
 				$position = ($i == 0) ? $user->lang['FORMEL_POLE'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
 				$box_name = 'place' . ($i+1);
@@ -1353,8 +1355,8 @@ switch ($mode)
 			$drivercombo_pace .= '</select>';
 			$combo_tired = '<select name="place10" size="1">';
 			
-			//We have 11 Teams with 2 cars each --> 22 drivers
-			for ($k = 0; $k < 23; $k++) 
+			//We have 10 Teams with 2 cars each --> 20 drivers
+			for ($k = 0; $k < 21; $k++) 
 			{
 				if (isset($result_array[9]))
 				{

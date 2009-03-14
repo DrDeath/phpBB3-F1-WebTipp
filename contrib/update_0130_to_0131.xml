@@ -28,7 +28,7 @@
 		
 		<installation>
 			<level>easy</level>
-			<time>360</time>
+			<time>300</time>
 			<target-version>3.0.4</target-version>
 		</installation>
 		
@@ -37,10 +37,12 @@
 				<date>2009-03-08T00:00:00+02:00</date>
 				<rev-version>0.1.31</rev-version>
 				<changelog lang="en-gb">
-					<change>Changed: nothing yet.</change>
+					<change>Changed: reduced the driver count in qualifying from 22 to 20.</change>
+					<change>Changed: New point rules implemented: 12-9-7-5-4-3-2-1.</change>
 				</changelog>
 				<changelog lang="de">
-					<change>Aktualisiert: bisher noch nichts.</change>
+					<change>Aktualisiert: Anzahl der Fahrer beim Qualifying von 22 auf 20 reduziert.</change>
+					<change>Aktualisiert: Neue Punkteberechung implementiert: 12-9-7-5-4-3-2-1.</change>
 				</changelog>
 			</entry>
 		</history>
@@ -51,6 +53,7 @@
 	<action-group>
 	    <copy>
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
+			<file from="root/formel.php" to="formel.php" />
 		</copy>
 	</action-group>
 </mod>
