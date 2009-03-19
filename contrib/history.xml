@@ -234,11 +234,9 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<rev-version>0.1.31</rev-version>
 			<changelog lang="en-gb">
 				<change>Changed: reduced the driver count in qualifying from 22 to 20.</change>
-				<change>Changed: New point rules implemented: 12-9-7-5-4-3-2-1.</change>
 			</changelog>
 			<changelog lang="de">
 				<change>Aktualisiert: Anzahl der Fahrer beim Qualifying von 22 auf 20 reduziert.</change>
-				<change>Aktualisiert: Neue Punkteberechung implementiert: 12-9-7-5-4-3-2-1.</change>
 			</changelog>
 		</entry>
 	</history>

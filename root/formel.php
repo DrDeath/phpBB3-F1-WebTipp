@@ -1184,12 +1184,11 @@ switch ($mode)
 					$teams[$row['driver_id']] = $row['driver_team'];
 				}
 				$db->sql_freeresult($result);
-				// wm points:  12-9-7-5-4-3-2-1
+				// wm points:  10-8-6-5-4-3-2-1
 				$wm = array();
-				$wm[0] = 12;	// 12 Point for first place
-				$wm[1] = 9;		// 9 Points for second place 
-				$wm[2] = 7;		// 7 Points for third place 
-				for ( $i=3; $i < 8; $i++ )
+                $wm[0] = 10;       // 10 Point for first place
+                $wm[1] = 8;        // 8 Points for second place 
+                for ( $i=2; $i < 8; $i++ )  
 				{
 					$wm[$i] = ( 8 - $i );
 				}
