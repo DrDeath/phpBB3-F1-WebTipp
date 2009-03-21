@@ -1649,7 +1649,7 @@ switch ($mode)
 			$recalc_drivers = array();
 			while ($row = $db->sql_fetchrow($result))
 			{
-				$recalc_drivers[$row['wm_driver']]['gold_medals']	= ($drivers[$row['wm_driver']]['gold_medals']) ? $drivers[$row['wm_driver']]['gold_medals'] : 0;
+				$recalc_drivers[$row['wm_driver']]['gold_medals']	= (isset($drivers[$row['wm_driver']]['gold_medals'])) ? $drivers[$row['wm_driver']]['gold_medals'] : 0;
 				$recalc_drivers[$row['wm_driver']]['total_points'] 	= $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'];
 				$recalc_drivers[$row['wm_driver']]['driver_name']	= $drivers[$row['wm_driver']]['driver_name'];
 				$recalc_drivers[$row['wm_driver']]['driver_img']	= $drivers[$row['wm_driver']]['driver_img'];
