@@ -34,13 +34,15 @@
 		
 		<history>
 			<entry>
-				<date>2009-03-08T00:00:00+02:00</date>
+				<date>2009-03-21T00:00:00+02:00</date>
 				<rev-version>0.1.31</rev-version>
 				<changelog lang="en-gb">
 					<change>Changed: reduced the driver count in qualifying from 22 to 20.</change>
+					<change>Layout: Corrected the rules page. There was a missing width value.</change>
 				</changelog>
 				<changelog lang="de">
 					<change>Aktualisiert: Anzahl der Fahrer beim Qualifying von 22 auf 20 reduziert.</change>
+					<change>Layout: Spielregel Seite korrigiert. Es fehlte eine Breiten-Angabe.</change>
 				</changelog>
 			</entry>
 		</history>
@@ -52,6 +54,7 @@
 	    <copy>
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
 			<file from="root/formel.php" to="formel.php" />
+			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
 		</copy>
 	</action-group>
 </mod>
