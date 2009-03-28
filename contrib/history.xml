@@ -238,6 +238,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<change>Changed: Show your "own" tip in usertipp popup even the deadline is not hit.</change>
 				<change>Layout prosilver: Corrected the rules page. There was a missing width value.</change>
 				<change>Layout prosilver: Changed alignment of top 5 users, drivers and teams.</change>
+				<change>Layout prosilver + subsilver2: Changed row colours in qualifying table.</change>
 			</changelog>
 			<changelog lang="de">
 				<change>BugFix: Usertipp Seite korrigiert. Der PopUp Link zum Benutzerprofil war nicht korrekt.</change>
@@ -245,6 +246,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<change>Aktualisiert: Der "eigene" Tipp wird nun im Usertipp PopUp angezeigt, auch wenn die Deadline noch nicht erreicht wurde.</change>
 				<change>Layout prosilver: Spielregel Seite korrigiert. Es fehlte eine Breiten-Angabe.</change>
 				<change>Layout prosilver: Anordnung der Top 5 Spieler, Fahrer, Teams angepasst.</change>
+				<change>Layout prosilver + subsilver2: Zeilenfarben in der Qualifying Tabelle angepasst.</change>
 			</changelog>
 		</entry>
 	</history>
