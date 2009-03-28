@@ -1410,37 +1410,40 @@ switch ($mode)
 		$result = $db->sql_query($sql);
 
 		$tipp_active = $db->sql_affectedrows($result);
-		$tippdata = $db->sql_fetchrowset($result);
-		$tipp_userdata = get_formel_userdata($tippdata[0]['tipp_user']);
-		$db->sql_freeresult($result);
-
-		// Get all drivers
-		$sql = 'SELECT * 
-			FROM ' . FORMEL_DRIVERS_TABLE . ' 
-			ORDER BY driver_id ASC';
-		$result = $db->sql_query($sql);
-
-		while ($row = $db->sql_fetchrow($result))
-		{
-			$driver_name[$row['driver_id']] = $row['driver_name'];
-		}
-		$db->sql_freeresult($result);
-
-		// Get all tip points
-		$sql = 'SELECT sum(tipp_points) AS total_points 
-			FROM ' . FORMEL_TIPPS_TABLE . ' 
-			WHERE tipp_user = ' . (int) $tipp_userdata['user_id'];
-		$result = $db->sql_query($sql);
-
-		while ($row = $db->sql_fetchrow($result))
-		{
-			$tipper_all_points = $row['total_points'];
-		}
-		$db->sql_freeresult($result);
-
-		// Build output
+		
+		// Do the work only if there is a tip
 		if ($tipp_active)
 		{
+			$tippdata = $db->sql_fetchrowset($result);
+			$tipp_userdata = get_formel_userdata($tippdata[0]['tipp_user']);
+			$db->sql_freeresult($result);
+
+			// Get all drivers
+			$sql = 'SELECT * 
+				FROM ' . FORMEL_DRIVERS_TABLE . ' 
+				ORDER BY driver_id ASC';
+			$result = $db->sql_query($sql);
+
+			while ($row = $db->sql_fetchrow($result))
+			{
+				$driver_name[$row['driver_id']] = $row['driver_name'];
+			}
+			$db->sql_freeresult($result);
+
+			// Get all tip points
+			$sql = 'SELECT sum(tipp_points) AS total_points 
+				FROM ' . FORMEL_TIPPS_TABLE . ' 
+				WHERE tipp_user = ' . (int) $tipp_userdata['user_id'];
+			$result = $db->sql_query($sql);
+
+			while ($row = $db->sql_fetchrow($result))
+			{
+				$tipper_all_points = $row['total_points'];
+			}
+			$db->sql_freeresult($result);
+
+			// Build output
+
 			$tipp_array 		= array();
 			$tipper_name 		= get_username_string('username', $tipp_userdata['user_id'], $tipp_userdata['username'], $tipp_userdata['user_colour']);
 			$tipp_user_colour	= get_username_string('colour', $tipp_userdata['user_id'], $tipp_userdata['username'], $tipp_userdata['user_colour']);	
@@ -1478,7 +1481,7 @@ switch ($mode)
 				if ($single_points == 0) $single_points='';
 
 				$template->assign_block_vars('user_drivers', array(
-					'DRIVER_PLACED' 	=> ($is_hidden == true) ? $user->lang['FORMEL_HIDDEN'] : $driver_placed,
+					'DRIVER_PLACED' 	=> ($is_hidden == true && $tipp_userdata['user_id'] <> $user->data['user_id']) ? $user->lang['FORMEL_HIDDEN'] : $driver_placed,
 					'POSITION' 			=> $position,
 					'SINGLE_POINTS' 	=> $single_points)
 				);
@@ -1509,8 +1512,8 @@ switch ($mode)
 				'TIPPER' 			=> $tipper_link,
 				'POINTS' 			=> $tipper_points,
 				'ALL_POINTS' 		=> $tipper_all_points,
-				'FASTEST_DRIVER' 	=> (isset($fastest_driver_name)) ? ($is_hidden == true) ? $user->lang['FORMEL_HIDDEN'] : $fastest_driver_name : '',
-				'TIRED' 			=> (isset($tired)) ? ($is_hidden == true) ? $user->lang['FORMEL_HIDDEN'] : $tired : '',
+				'FASTEST_DRIVER' 	=> (isset($fastest_driver_name)) ? ($is_hidden == true && $tipp_userdata['user_id'] <> $user->data['user_id']) ? $user->lang['FORMEL_HIDDEN'] : $fastest_driver_name : '',
+				'TIRED' 			=> (isset($tired)) ? ($is_hidden == true && $tipp_userdata['user_id'] <> $user->data['user_id']) ? $user->lang['FORMEL_HIDDEN'] : $tired : '',
 				'SINGLE_FASTEST' 	=> (isset($single_fastest)) ? $single_fastest : '',
 				'SINGLE_TIRED' 		=> (isset($single_tired)) ? $single_tired : '')
 			);

@@ -40,11 +40,13 @@
 					<change>Changed: reduced the driver count in qualifying from 22 to 20.</change>
 					<change>Layout: Corrected the rules page. There was a missing width value.</change>
 					<change>Layout: Corrected the popup link in usertipp window.</change>
+					<change>Changed: Show your "own" tip in usertipp popup even the deadline is not hit.</change>
 				</changelog>
 				<changelog lang="de">
 					<change>Aktualisiert: Anzahl der Fahrer beim Qualifying von 22 auf 20 reduziert.</change>
 					<change>Layout: Spielregel Seite korrigiert. Es fehlte eine Breiten-Angabe.</change>
 					<change>Layout: Usertipp Seite korrigiert. Der PopUp Link zum Benutzerprofil war nicht korrekt.</change>
+					<change>Aktualisiert: Der "eigene" Tipp wird nun im Usertipp PopUp angezeigt, auch wenn die Deadline noch nicht erreicht wurde.</change>
 				</changelog>
 			</entry>
 		</history>
