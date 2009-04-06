@@ -16,7 +16,7 @@ CREATE TABLE phpbb_formel_drivers (
 	driver_name varchar(255) DEFAULT '' NOT NULL,
 	driver_img varchar(255) DEFAULT '' NOT NULL,
 	driver_team mediumint(8) UNSIGNED DEFAULT '0' NOT NULL,
-	driver_penalty mediumint(8) UNSIGNED DEFAULT '0' NOT NULL,
+	driver_penalty decimal(5,2) DEFAULT '0' NOT NULL,
 	PRIMARY KEY (driver_id)
 ) CHARACTER SET `utf8` COLLATE `utf8_bin`;
 
@@ -27,7 +27,7 @@ CREATE TABLE phpbb_formel_teams (
 	team_name varchar(255) DEFAULT '' NOT NULL,
 	team_img varchar(255) DEFAULT '' NOT NULL,
 	team_car varchar(255) DEFAULT '' NOT NULL,
-	team_penalty mediumint(8) UNSIGNED DEFAULT '0' NOT NULL,
+	team_penalty decimal(5,2) DEFAULT '0' NOT NULL,
 	PRIMARY KEY (team_id)
 ) CHARACTER SET `utf8` COLLATE `utf8_bin`;
 

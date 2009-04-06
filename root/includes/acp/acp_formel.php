@@ -338,7 +338,7 @@ class acp_formel
 				$drivername			= request_var('drivername'		,	''	,	true	);
 				$driverteam			= request_var('driverteam'		,	0	);
 				$driver_id			= request_var('driver_id'		,	0	);
-				$driver_penalty		= request_var('driver_penalty'	,	0	);
+				$driver_penalty		= request_var('driver_penalty'	,	0.0	);
 
 				// Init some vars
 				$formel_config = get_formel_config();
@@ -590,7 +590,7 @@ class acp_formel
 				$teamcar 			= request_var('teamcar'		,	''	,	true	);
 				$teamname 			= request_var('teamname'	,	''	,	true	);
 				$team_id 			= request_var('team_id'		,	0	);
-				$team_penalty		= request_var('team_penalty',	0	);
+				$team_penalty		= request_var('team_penalty',	0.0	);
 				
 				// Init some vars
 				$formel_config = get_formel_config();

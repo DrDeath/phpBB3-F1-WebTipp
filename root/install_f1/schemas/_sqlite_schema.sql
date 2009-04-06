@@ -18,7 +18,7 @@ CREATE TABLE phpbb_formel_drivers (
 	driver_name varchar(255) NOT NULL DEFAULT '',
 	driver_img varchar(255) NOT NULL DEFAULT '',
 	driver_team INTEGER UNSIGNED NOT NULL DEFAULT '0',
-	driver_penalty INTEGER UNSIGNED NOT NULL DEFAULT '0'
+	driver_penalty decimal(5,2) NOT NULL DEFAULT '0'
 );
 
 
@@ -28,7 +28,7 @@ CREATE TABLE phpbb_formel_teams (
 	team_name varchar(255) NOT NULL DEFAULT '',
 	team_img varchar(255) NOT NULL DEFAULT '',
 	team_car varchar(255) NOT NULL DEFAULT '',
-	team_penalty INTEGER UNSIGNED NOT NULL DEFAULT '0'
+	team_penalty decimal(5,2) NOT NULL DEFAULT '0'
 );
 
 

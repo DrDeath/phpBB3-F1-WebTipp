@@ -34,23 +34,25 @@
 		
 		<history>
 			<entry>
-				<date>2009-03-29T00:00:00+02:00</date>
+				<date>2009-04-05T00:00:00+02:00</date>
 				<rev-version>0.1.31</rev-version>
 				<changelog lang="en-gb">
 					<change>Fixed: Corrected the popup link in usertipp window.</change>
 					<change>Changed: reduced the driver count in qualifying from 22 to 20.</change>
 					<change>Changed: Show your "own" tip in usertipp popup even the deadline is not hit.</change>
+					<change>Changed: You are now able to add half penalty points.</change>
 					<change>Layout prosilver: Corrected the rules page. There was a missing width value.</change>
 					<change>Layout prosilver: Changed alignment of top 5 users, drivers and teams.</change>
-					<change>Layout prosilver + subsilver2: Changed row colours in qualifying table. Corrected some tiny placeholders and nowraps</change>
+					<change>Layout prosilver and subsilver2: Changed row colours in qualifying table. Corrected some tiny placeholders and nowraps</change>
 				</changelog>
 				<changelog lang="de">
 					<change>BugFix: Usertipp Seite korrigiert. Der PopUp Link zum Benutzerprofil war nicht korrekt.</change>
 					<change>Aktualisiert: Anzahl der Fahrer beim Qualifying von 22 auf 20 reduziert.</change>
 					<change>Aktualisiert: Der "eigene" Tipp wird nun im Usertipp PopUp angezeigt, auch wenn die Deadline noch nicht erreicht wurde.</change>
+					<change>Aktualisiert: Man kann nun halbe Strafpunkte vergeben.</change>
 					<change>Layout prosilver: Spielregel Seite korrigiert. Es fehlte eine Breiten-Angabe.</change>
 					<change>Layout prosilver: Anordnung der Top 5 Spieler, Fahrer, Teams angepasst.</change>
-					<change>Layout prosilver + subsilver2: Zeilenfarben in der Qualifying Tabelle angepasst. Kleinere Abstandskorrekturen durchgeführt</change>
+					<change>Layout prosilver und subsilver2: Zeilenfarben in der Qualifying Tabelle angepasst. Kleinere Abstandskorrekturen durchgefÃ¼hrt</change>
 				</changelog>
 			</entry>
 		</history>
@@ -59,9 +61,12 @@
 	</header>
 
 	<action-group>
+		<sql><![CDATA[ALTER TABLE `phpbb_formel_teams` CHANGE `team_penalty` `team_penalty` DECIMAL( 5, 2 ) UNSIGNED NOT NULL DEFAULT '0' ;
+ALTER TABLE `phpbb_formel_drivers` CHANGE `driver_penalty` `driver_penalty` DECIMAL( 5, 2 ) UNSIGNED NOT NULL DEFAULT '0' ;]]></sql>
 	    <copy>
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
 			<file from="root/formel.php" to="formel.php" />
+			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php" />
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
 			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
 		</copy>
