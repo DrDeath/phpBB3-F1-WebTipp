@@ -38,7 +38,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		</author>
 	</author-group>
 	
-	<mod-version>0.1.31</mod-version>
+	<mod-version>0.3.0</mod-version>
 	
     <installation>
 		<level>easy</level>
@@ -230,9 +230,10 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2009-04-05T00:00:00+02:00</date>
-			<rev-version>0.1.31</rev-version>
+			<date>2009-04-16T00:00:00+02:00</date>
+			<rev-version>0.3.0</rev-version>
 			<changelog lang="en-gb">
+				<change>NEW: Using now the UMIL installer. Complete new written installer.</change>
 				<change>Fixed: Corrected the popup link in usertipp window.</change>
 				<change>Changed: reduced the driver count in qualifying from 22 to 20.</change>
 				<change>Changed: Show your "own" tip in usertipp popup even the deadline is not hit.</change>
@@ -242,6 +243,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<change>Layout prosilver and subsilver2: Changed row colours in qualifying table. Corrected some tiny placeholders and nowraps</change>
 			</changelog>
 			<changelog lang="de">
+				<change>NEU: Komplett neu geschriebene Installationsroutine. Es wird nun der UMIL Installer benutzt.</change>
 				<change>BugFix: Usertipp Seite korrigiert. Der PopUp Link zum Benutzerprofil war nicht korrekt.</change>
 				<change>Aktualisiert: Anzahl der Fahrer beim Qualifying von 22 auf 20 reduziert.</change>
 				<change>Aktualisiert: Der "eigene" Tipp wird nun im Usertipp PopUp angezeigt, auch wenn die Deadline noch nicht erreicht wurde.</change>
