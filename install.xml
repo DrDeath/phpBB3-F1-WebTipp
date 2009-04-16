@@ -43,7 +43,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
         <homepage>http://www.oxpus.de</homepage>
       </author>
     </author-group>
-    <mod-version>0.1.30</mod-version>
+    <mod-version>0.3.0</mod-version>
     <installation>
       <level>easy</level>
       <time>692</time>
@@ -76,7 +76,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
       <file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php" />
       <file from="root/language/en/mods/permissions_formel.php" to="language/en/mods/permissions_formel.php" />
       <file from="root/images/formel/*.*" to="images/formel/*.*" />
-	  <file from="root/install_f1/*.*" to="install_f1/*.*" />
+	  <file from="root/install_f1.php" to="install_f1.php" />
 	  <file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
     </copy>
     <open src="includes/constants.php">
@@ -204,13 +204,13 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
 <body id="phpbb" class="section-{SCRIPT_NAME} {S_CONTENT_DIRECTION}" {COUNTDOWN_ON}>]]></action>
       </edit>
     </open>
-	<diy-instructions lang="en-gb"><![CDATA[After installing this MOD, you have to point your web browser to the install_f1/install.php file
-like:  http://your-domian.tld/path-to-your-forum/install_f1/install.php
+	<diy-instructions lang="en-gb"><![CDATA[After installing this MOD, you have to point your web browser to the install_f1.php file
+like:  http://your-domian.tld/path-to-your-forum/install_f1.php
 
-Finaly delete the folder: install_f1/ from your webspace to prevent erasing tables from your database.
+After running the installer, delete the file install_f1.php from your webspace to prevent erasing tables from your database.
 
 
-After creating , adding and enabling the F1 WebTipp modules your are able to give ACP permissions to certain users/groups.
+Now your are able to give ACP permissions to certain users/groups.
 You'll find the new permission in:
 ACP - Permissions - Administrative Permissions  - F1:
 Can alter Formular 1 settings
@@ -226,13 +226,12 @@ Insert a name for the link ( i.e ) : "Formula 1 WebTip"
 Insert in the field Forums-link : "formel.php"
 
 And now: Have fun!]]></diy-instructions>
-	<diy-instructions lang="de"><![CDATA[Nach der Installation des MODs musst Du noch die Installationsdatei install_f1/install.php mit Deinem Browser aufrufen.
-Beispiel: http://deine-domaene.tld/pfad-zum-forum/install_f1/install.php
+	<diy-instructions lang="de"><![CDATA[Nach der Installation des MODs musst Du noch die Installationsdatei install_f1.php mit Deinem Browser aufrufen.
+Beispiel: http://deine-domaene.tld/pfad-zum-forum/install_f1.php
 
-Danach solltest Du nicht vergessen den Ordner "install_f1/" von Deinem WebSpace zu löschen!
+Danach solltest Du nicht vergessen die Datei "install_f1.php" von Deinem WebSpace zu löschen!
 
-Nach dem Erstellen, Hinzufügen und Aktivieren der F1 WebTipp Module
-kannst Du nun ACP Berechtigunen fuer Deinen Gruppen/Benutzer vergeben.
+Nun kannst Du im ACP Berechtigunen fuer Deinen Gruppen/Benutzer vergeben.
 Du findest die neuen Berechtigungen unter:
 ACP - Berechtigungen - Allgemeine Berechtigungen - Administratoren - F1
 Kann Formel 1 Fahrer verwalten

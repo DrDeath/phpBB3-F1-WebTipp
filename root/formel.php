@@ -1626,21 +1626,6 @@ switch ($mode)
 			$teams 		= get_formel_teams();
 			$drivers 	= get_formel_drivers();
 
-			//Get all first place winner, count all first places,  grep all gold medals...  Marker for first place: 10 WM Points
-			$sql = 'SELECT 	count(wm_driver) as gold_medals, 
-							wm_driver
-					FROM 	' . FORMEL_WM_TABLE . '
-					WHERE 	wm_points = 10
-					GROUP BY wm_driver
-					ORDER BY gold_medals DESC';
-			$result = $db->sql_query($sql);
-			
-			// Now put the gold medals into the $drivers array
-			while ($row = $db->sql_fetchrow($result))
-			{
-				$drivers[$row['wm_driver']]['gold_medals']	= $row['gold_medals'];
-			}
-
 			// Get all wm points and fill top10 drivers
 			$sql = 'SELECT sum(wm_points) AS total_points, wm_driver, wm_team 
 				FROM ' . FORMEL_WM_TABLE . '
@@ -1652,7 +1637,6 @@ switch ($mode)
 			$recalc_drivers = array();
 			while ($row = $db->sql_fetchrow($result))
 			{
-				$recalc_drivers[$row['wm_driver']]['gold_medals']	= (isset($drivers[$row['wm_driver']]['gold_medals'])) ? $drivers[$row['wm_driver']]['gold_medals'] : 0;
 				$recalc_drivers[$row['wm_driver']]['total_points'] 	= $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'];
 				$recalc_drivers[$row['wm_driver']]['driver_name']	= $drivers[$row['wm_driver']]['driver_name'];
 				$recalc_drivers[$row['wm_driver']]['driver_img']	= $drivers[$row['wm_driver']]['driver_img'];
@@ -1687,7 +1671,6 @@ switch ($mode)
 						'WM_DRIVERIMG' 		=> $wm_driverimg,
 						'WM_DRIVERCAR' 		=> $wm_drivercar,
 						'WM_DRIVERTEAM' 	=> $wm_driverteam,
-						'WM_GOLD_MEDALS'	=> ($driver['gold_medals'] <> 0) ? $driver['gold_medals'] : '&nbsp;',
 						'WM_POINTS' 		=> $driver['total_points'],
 						)
 					);
@@ -1697,7 +1680,6 @@ switch ($mode)
 					$template->assign_block_vars('top_drivers', array(
 						'RANK' 				=> $rank,
 						'WM_DRIVERNAME' 	=> $wm_drivername,
-						'WM_GOLD_MEDALS'	=> ($driver['gold_medals'] <> 0) ? $driver['gold_medals'] : '&nbsp;',
 						'WM_POINTS' 		=> $driver['total_points'],
 						)
 					);

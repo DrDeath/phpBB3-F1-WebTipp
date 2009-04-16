@@ -122,9 +122,8 @@ $lang = array_merge($lang, array(
 	'FORMEL_HIDDEN'							=> 'Caché pendant les pronos',
 	'FORMEL_COUNTDOWN_DEADLINE'				=> 'Compte à rebours des pronos',
 	'FORMEL_DEADLINE_REACHED'				=> 'Terminé',
-	'INSTALL_FORMEL_NO_FOUNDER'				=> 'Vous devez être connecté en fondateur pour lancer le script.',
-	'INSTALL_FORMEL_OPTION_INSTALL'			=> '<span style="color:green; font-weight: bold;font-size: 1.5em;">Formel 1 WebTipp MOD v0.1.30 (beta)</span><br /><br />Script pour les permissions automatisées de WebTip Formule 1, les modules, les tables et les générations initiales de données.<br /><br /><span style="color:red; font-weight: bold;">Cette procédure effacera toutes les configurations, pilotes, équipes, courses et écuries de toutes les installations précédentes de Formel 1 WebTipp </span><br /><br />Êtes-vous sûr de vouloir continuer ? Si oui, cliquez alors %sici%s<br /><br />Cliquez %sici%s pour retourner sur le forum',
-	'INSTALL_FORMEL_DONE'					=> '<span style="color:green; font-weight: bold;font-size: 1.5em;">Formel 1 WebTipp MOD v0.1.30 (beta)</span><br /><br />Tutes les nouvelles permissions, modules, tables and générations initiales ont été installés avec succès.',
+
+	'INSERT_F1_FIRST_FILL'					=> 'Insert rows into the tables formel_config, formel_drivers, formel_teams and formel_races.',
 ));
 
 ?>

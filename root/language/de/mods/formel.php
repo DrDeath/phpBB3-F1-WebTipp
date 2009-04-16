@@ -123,9 +123,8 @@ $lang = array_merge($lang, array(
 	'FORMEL_HIDDEN'							=> 'Verdeckt bis Deadline',
 	'FORMEL_COUNTDOWN_DEADLINE'				=> 'Countdown bis Deadline',
 	'FORMEL_DEADLINE_REACHED'				=> 'Countdown beendet',
-	'INSTALL_FORMEL_NO_FOUNDER'				=> 'Du musst als Gründer eingeloggt sein um dieses Script auszuführen.',
-	'INSTALL_FORMEL_OPTION_INSTALL'			=> '<span style="color:green; font-weight: bold;font-size: 1.5em;">Formel 1 WebTipp MOD v0.1.30 (beta)</span><br /><br />Script für automatische Formel 1 WebTipp Installation. <br />Es werden Berechtigungen, ACP Module, Datenbanktabellen und Standard Daten erzeugt.<br /><br /><span style="color:red; font-weight: bold;">Dieser Vorgang wird alle Einstellungen, Fahrer, Teams, Rennen und abgegebene Tipps von einer evtl. vorherigen Formel 1 WebTipp Installation löschen!</span><br /><br />Bist Du Dir sicher das du weiter machen möchtest? Wenn ja, dann klicke %shier%s<br /><br />Klick %shier%s um zum Index zurückzukehren.',
-	'INSTALL_FORMEL_DONE'					=> '<span style="color:green; font-weight: bold;font-size: 1.5em;">Formel 1 WebTipp MOD v0.1.30 (beta)</span><br /><br />Alle Berechtigungen, ACP Module, Datenbanktabellen und Standard Daten wurden erfolgreich installiert.',
+	
+	'INSERT_F1_FIRST_FILL'					=> 'Daten wurden in die Tabellen formel_config, formel_drivers, formel_teams und formel_races eingefügt.',	
 ));
 // Formel 1 WebTipp END
 ?>
