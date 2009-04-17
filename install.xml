@@ -76,6 +76,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
       <file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php" />
       <file from="root/language/en/mods/permissions_formel.php" to="language/en/mods/permissions_formel.php" />
       <file from="root/images/formel/*.*" to="images/formel/*.*" />
+	  <file from="root/umil/*.*" to="umil/*.*" />
 	  <file from="root/install_f1.php" to="install_f1.php" />
 	  <file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
     </copy>
@@ -207,7 +208,7 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
 	<diy-instructions lang="en-gb"><![CDATA[After installing this MOD, you have to point your web browser to the install_f1.php file
 like:  http://your-domian.tld/path-to-your-forum/install_f1.php
 
-After running the installer, delete the file install_f1.php from your webspace to prevent erasing tables from your database.
+After running the umil installer, delete the file install_f1.php from your webspace to prevent erasing tables from your database.
 
 
 Now your are able to give ACP permissions to certain users/groups.
@@ -226,7 +227,7 @@ Insert a name for the link ( i.e ) : "Formula 1 WebTip"
 Insert in the field Forums-link : "formel.php"
 
 And now: Have fun!]]></diy-instructions>
-	<diy-instructions lang="de"><![CDATA[Nach der Installation des MODs musst Du noch die Installationsdatei install_f1.php mit Deinem Browser aufrufen.
+	<diy-instructions lang="de"><![CDATA[Nach der Installation des MODs musst Du noch die UMIL Installationsdatei install_f1.php mit Deinem Browser aufrufen.
 Beispiel: http://deine-domaene.tld/pfad-zum-forum/install_f1.php
 
 Danach solltest Du nicht vergessen die Datei "install_f1.php" von Deinem WebSpace zu löschen!
