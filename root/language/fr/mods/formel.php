@@ -123,7 +123,7 @@ $lang = array_merge($lang, array(
 	'FORMEL_COUNTDOWN_DEADLINE'				=> 'Compte à rebours des pronos',
 	'FORMEL_DEADLINE_REACHED'				=> 'Terminé',
 
-	'INSERT_F1_FIRST_FILL'					=> 'Insert rows into the tables formel_config, formel_drivers, formel_teams and formel_races.',
+	'INSERT_F1_FIRST_FILL'					=> 'Insérer les données dans les tables config, pilotes, écuries et courses.',
 ));
 
 ?>

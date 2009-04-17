@@ -240,6 +240,9 @@ function first_fill_0_3_0($action, $version)
 
 			if ($umil->table_exists($table_prefix . 'formel_config'))
 			{
+				// before we fill anything in this table, we truncate it. Maybe someone missed an old installation.
+				$db->sql_query('TRUNCATE TABLE ' . $table_prefix . 'formel_config');
+				
 				$sql_ary = array();
 				
 				$sql_ary[] = array('config_name' => 'mod_id', 				'config_value' => '2',);
@@ -283,8 +286,11 @@ function first_fill_0_3_0($action, $version)
 			
 			if ($umil->table_exists($table_prefix . 'formel_drivers'))
 			{
+				// before we fill anything in this table, we truncate it. Maybe someone missed an old installation.
+				$db->sql_query('TRUNCATE TABLE ' . $table_prefix . 'formel_drivers');
+				
 				$sql_ary = array();
-				# -- Drivers -- done for 2009
+				
 				# -- Team 1 McLaren Mercedes
 				$sql_ary[] = array('driver_id' => 1,  'driver_name' => 'Hamilton, Lewis', 		'driver_img' => '', 'driver_team' => 1,);
 				$sql_ary[] = array('driver_id' => 2,  'driver_name' => 'Kovalainen, Heikki',	'driver_img' => '',	'driver_team' => 1,);
@@ -325,13 +331,15 @@ function first_fill_0_3_0($action, $version)
 				$sql_ary[] = array('driver_id' => 28, 'driver_name' => 'Sutil, Adrian',			'driver_img' => '',	'driver_team' => 10,);
 				$sql_ary[] = array('driver_id' => 29, 'driver_name' => 'Fisichella, Giancarlo',	'driver_img' => '',	'driver_team' => 10,);
 				$sql_ary[] = array('driver_id' => 30, 'driver_name' => 'Liuzzi, Vitantonio',	'driver_img' => '',	'driver_team' => 10,);
-
 				
 				$db->sql_multi_insert($table_prefix . 'formel_drivers ', $sql_ary);
 			}
 
 			if ($umil->table_exists($table_prefix . 'formel_teams'))
 			{
+				// before we fill anything in this table, we truncate it. Maybe someone missed an old installation.
+				$db->sql_query('TRUNCATE TABLE ' . $table_prefix . 'formel_teams');
+				
 				$sql_ary = array();
 
 				$sql_ary[] = array('team_id' => 1,  'team_name' => 'McLaren Mercedes', 		'team_img' => '', 'team_car' => '',);
@@ -350,6 +358,9 @@ function first_fill_0_3_0($action, $version)
 			
 			if ($umil->table_exists($table_prefix . 'formel_races'))
 			{
+				// before we fill anything in this table, we truncate it. Maybe someone missed an old installation.
+				$db->sql_query('TRUNCATE TABLE ' . $table_prefix . 'formel_races');
+				
 				$sql_ary = array();
 
 				$sql_ary[] = array('race_id' => 1,  'race_name' => 'Melbourne / Australien', 		'race_img' => '', 'race_quali' => '0', 'race_result' => '0', 'race_time' => 1238306400, 'race_length' => '5,303', 'race_laps' => 58, 'race_distance' => '307,574', 'race_debut' => 1996,);

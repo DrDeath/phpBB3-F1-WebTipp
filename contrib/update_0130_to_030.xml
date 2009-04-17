@@ -6,11 +6,11 @@
 	
 		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
 		
-		<title lang="en-gb">Formula 1 WebTip update from 0.1.30 to 0.1.31</title>
-		<title lang="de">Formel 1 WebTipp Update von 0.1.30 auf 0.1.31</title>
+		<title lang="en-gb">Formula 1 WebTip update from 0.1.30 to 0.3.0</title>
+		<title lang="de">Formel 1 WebTipp Update von 0.1.30 auf 0.3.0</title>
 		
-		<description lang="en-gb"><![CDATA[With this mod you can update your Formula 1 tipp game from version 0.1.30 to 0.1.31.]]></description>
-		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel von Version 0.1.30 auf 0.1.31.]]></description>
+		<description lang="en-gb"><![CDATA[With this mod you can update your Formula 1 tipp game from version 0.1.30 to 0.3.0.]]></description>
+		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel von Version 0.1.30 auf 0.3.0.]]></description>
 		
 		<author-group>
 			<author>
@@ -64,7 +64,8 @@
 
 	<action-group>
 		<sql><![CDATA[ALTER TABLE `phpbb_formel_teams` CHANGE `team_penalty` `team_penalty` DECIMAL( 5, 2 ) UNSIGNED NOT NULL DEFAULT '0' ;
-ALTER TABLE `phpbb_formel_drivers` CHANGE `driver_penalty` `driver_penalty` DECIMAL( 5, 2 ) UNSIGNED NOT NULL DEFAULT '0' ;]]></sql>
+ALTER TABLE `phpbb_formel_drivers` CHANGE `driver_penalty` `driver_penalty` DECIMAL( 5, 2 ) UNSIGNED NOT NULL DEFAULT '0' ;
+INSERT INTO phpbb_config (config_name, config_value, is_dynamic) VALUES ('f1webtipp_version', '0.3.0', '0');]]></sql>
 	    <copy>
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
 			<file from="root/formel.php" to="formel.php" />

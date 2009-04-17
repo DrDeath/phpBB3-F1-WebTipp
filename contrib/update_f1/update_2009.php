@@ -7,7 +7,7 @@
 * $Id$
 * $Revision$
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
-* contrib/update_f1/update_2008.php - [Updater for saison 2008]
+* contrib/update_f1/update_2009.php - [Updater for saison 2009]
 *
 */
 
@@ -207,5 +207,3 @@ else
 	trigger_error( $message);
 }
 ?>
-</body>
-</html>
