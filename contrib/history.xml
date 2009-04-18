@@ -38,7 +38,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		</author>
 	</author-group>
 	
-	<mod-version>0.3.0</mod-version>
+	<mod-version>0.3.1</mod-version>
 	
     <installation>
 		<level>easy</level>
@@ -251,6 +251,16 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<change>Layout prosilver: Spielregel Seite korrigiert. Es fehlte eine Breiten-Angabe.</change>
 				<change>Layout prosilver: Anordnung der Top 5 Spieler, Fahrer, Teams angepasst.</change>
 				<change>Layout prosilver und subsilver2: Zeilenfarben in der Qualifying Tabelle angepasst. Kleinere Abstandskorrekturen durchgeführt</change>
+			</changelog>
+		</entry>
+		<entry>
+			<date>2009-04-18T00:00:00+02:00</date>
+			<rev-version>0.3.1</rev-version>
+			<changelog lang="en-gb">
+				<change>Added: Option - WebTipp visible for guests</change>
+			</changelog>
+			<changelog lang="de">
+				<change>Hinzugefügt: Option - WebTipp sichtbar für Gäste</change>
 			</changelog>
 		</entry>
 	</history>

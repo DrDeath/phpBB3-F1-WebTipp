@@ -124,7 +124,10 @@ $lang = array_merge($lang, array(
 	'FORMEL_COUNTDOWN_DEADLINE'				=> 'Countdown bis Deadline',
 	'FORMEL_DEADLINE_REACHED'				=> 'Countdown beendet',
 	
-	'INSERT_F1_FIRST_FILL'					=> 'Daten wurden in die Tabellen formel_config, formel_drivers, formel_teams und formel_races eingefügt.',	
+	'INSERT_F1_FIRST_FILL'					=> 'Daten wurden in die Tabellen formel_config, formel_drivers, formel_teams und formel_races eingefügt.',
+	'INSERT_F1_CONFIG'						=> 'Daten wurden in Tabelle formel_config eingefügt.',
+	'FORMEL_GUESTS_PLACE_NO_TIP'			=> '<strong>Gäste können keinen Tipp abgeben.</strong><br /><br />Um Tipps abgeben zu können, musst du registriert und angemeldet sein.<br />',
+
 ));
 // Formel 1 WebTipp END
 ?>

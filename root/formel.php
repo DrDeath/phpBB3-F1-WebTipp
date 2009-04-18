@@ -26,21 +26,31 @@ $user->session_begin();
 $auth->acl($user->data);
 $user->setup('mods/formel');
 
-// Only registered users can go beyond this point
-if (!$user->data['is_registered'])
+// Get formel config
+$formel_config 			= get_formel_config();
+$formel_guests_allowed	= ($formel_config['guest_viewing'] == '1') ? true : false;
+$formel_forum_id 		= $formel_config['forum_id'];
+$formel_group_id 		= $formel_config['restrict_to'];
+$formel_mod_id 			= $formel_config['mod_id'];
+
+
+//If user is a bot.... redirect to the index.
+if ($user->data['is_bot'])
 {
-	if ($user->data['is_bot'])
-	{
-		redirect(append_sid("{$phpbb_root_path}index.$phpEx"));
-	}
-	login_box('', $user->lang['LOGIN_INFO']);
+	redirect(append_sid("{$phpbb_root_path}index.$phpEx"));
 }
 
-// Get formel config
-$formel_config 		= get_formel_config();
-$formel_forum_id 	= $formel_config['forum_id'];
-$formel_group_id 	= $formel_config['restrict_to'];
-$formel_mod_id 		= $formel_config['mod_id'];
+// If guest viewing is not allowed... 
+if (!$formel_guests_allowed)
+{
+	// Check if the user ist logged in. 
+	if (!$user->data['is_registered'])
+	{
+		// Not logged in ? Redirect to the loginbox.
+		login_box('', $user->lang['LOGIN_INFO']);
+	}
+}
+// At this point we have no bots, only registered user and if guest viewing is allowed we have also guests here.
 
 // Check if user has one of the formular 1 admin permission. 
 // If user has one or more of these permissions, he gets also formular 1 moderator permissions.
@@ -638,52 +648,62 @@ switch ($mode)
 				}
 
 				// What to do if the user has no tip so far
-				else 
+				else
 				{
-					if ($races[$chosen_race]['race_time'] - $formel_config['deadline_offset'] > $current_time) 
+					//Guests are not allowed to place a tip.
+					if ($user->data['is_registered'])
 					{
-						//Actual Race is not over
-						for ($i = 0; $i < 8; $i++) 
+						if ($races[$chosen_race]['race_time'] - $formel_config['deadline_offset'] > $current_time) 
 						{
-							$position = ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
-							$box_name = 'place' . ($i+1);
+							//Actual Race is not over
+							for ($i = 0; $i < 8; $i++) 
+							{
+								$position = ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
+								$box_name = 'place' . ($i+1);
 
-							$drivercombo = '<select name="' . $box_name . '" size="1">';
+								$drivercombo = '<select name="' . $box_name . '" size="1">';
+								for ($k = 0; $k < count($driver_combodata); $k++) 
+								{
+									$this_driver_id		 = $driver_combodata[$k]['driver_id'];
+									$this_driver_name	 = $driver_combodata[$k]['driver_name'];
+									$drivercombo		.= '<option value="' . $this_driver_id . '">' . $this_driver_name . '</option>';
+								}
+								$drivercombo .= '</select>';
+
+								$template->assign_block_vars('add_tipp', array(
+									'L_PLACE'		=> $position,
+									'DRIVERCOMBO'	=> $drivercombo)
+								);
+							}
+
+							$drivercombo = '<select name="place9" size="1">';
 							for ($k = 0; $k < count($driver_combodata); $k++) 
 							{
 								$this_driver_id		 = $driver_combodata[$k]['driver_id'];
 								$this_driver_name	 = $driver_combodata[$k]['driver_name'];
-								$drivercombo		.= '<option value="' . $this_driver_id . '">' . $this_driver_name . '</option>';
+								$drivercombo 		.= '<option value="' . $this_driver_id . '">' . $this_driver_name . '</option>';
 							}
 							$drivercombo .= '</select>';
 
-							$template->assign_block_vars('add_tipp', array(
-								'L_PLACE'		=> $position,
+							$tiredcombo = '<select name="place10" size="1">';
+							
+							//We have 10 Teams with 2 cars each --> 20 drivers
+							for ($k = 0; $k < 21; $k++) 
+							{
+								$tiredcombo .= '<option value="' . $k . '">' . $k . '</option>';
+							}
+							$tiredcombo .= '</select>';
+
+							$template->assign_block_vars('extended_add_tipp', array(
+								'TIREDCOMBO'	=> $tiredcombo,
 								'DRIVERCOMBO'	=> $drivercombo)
 							);
 						}
-
-						$drivercombo = '<select name="place9" size="1">';
-						for ($k = 0; $k < count($driver_combodata); $k++) 
-						{
-							$this_driver_id		 = $driver_combodata[$k]['driver_id'];
-							$this_driver_name	 = $driver_combodata[$k]['driver_name'];
-							$drivercombo 		.= '<option value="' . $this_driver_id . '">' . $this_driver_name . '</option>';
-						}
-						$drivercombo .= '</select>';
-
-						$tiredcombo = '<select name="place10" size="1">';
-						
-						//We have 10 Teams with 2 cars each --> 20 drivers
-						for ($k = 0; $k < 21; $k++) 
-						{
-							$tiredcombo .= '<option value="' . $k . '">' . $k . '</option>';
-						}
-						$tiredcombo .= '</select>';
-
-						$template->assign_block_vars('extended_add_tipp', array(
-							'TIREDCOMBO'	=> $tiredcombo,
-							'DRIVERCOMBO'	=> $drivercombo)
+					}
+					else
+					{
+						$template->assign_block_vars('add_tipp', array(
+							'DRIVERCOMBO'	=> '<br /> ' . $user->lang['FORMEL_GUESTS_PLACE_NO_TIP'])
 						);
 					}
 				}
@@ -790,11 +810,15 @@ switch ($mode)
 				}
 				else 
 				{
-					$template->assign_block_vars('place_tipp', array(
-						'DELETE_TIPP'	=> $delete_button,
-						'L_PLACE_TIPP'	=> $tipp_button,
-						'PLACE_TIPP'	=> $tipp_button_name)
-					);
+					//Check if it is a registered user. Guests are not allowed to place, edit or delete a tip.
+					if ($user->data['is_registered'])
+					{
+						$template->assign_block_vars('place_tipp', array(
+							'DELETE_TIPP'	=> $delete_button,
+							'L_PLACE_TIPP'	=> $tipp_button,
+							'PLACE_TIPP'	=> $tipp_button_name)
+						);
+					}
 				}
 				break;
 			}

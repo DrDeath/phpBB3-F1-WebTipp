@@ -175,6 +175,9 @@ class acp_formel
 				$show_countdown_yes 	= ( $new['show_countdown']) ? "checked=\"checked\"" : "";
 				$show_countdown_no 		= ( !$new['show_countdown']) ? "checked=\"checked\"" : "";
 
+				$guest_viewing_yes 		= ( $new['guest_viewing']) ? "checked=\"checked\"" : "";
+				$guest_viewing_no 		= ( !$new['guest_viewing']) ? "checked=\"checked\"" : "";
+
 				//Get all possible moderators
 				$sql = 'SELECT u.username, u.user_id
 					FROM	' . MODERATOR_CACHE_TABLE . ' mc, ' . USER_GROUP_TABLE . ' ug, 	' . USERS_TABLE. ' u 
@@ -214,7 +217,7 @@ class acp_formel
 
 				// Get all group data
 				// Don't select the default phpBB3 groups
-				// If choosen "deactivated" - all "registered user" have access. Guests and bots are not allowed !
+				// If choosen "deactivated" - all "registered user" have access.
 				$combo_groups_entries = '';
 				$sql = 'SELECT * 
 					FROM ' . GROUPS_TABLE . ' 
@@ -287,6 +290,8 @@ class acp_formel
 					'S_SHOW_GFX_YES'					=> $show_gfx_yes,
 					'S_SHOW_COUNTDOWN_YES'				=> $show_countdown_yes,
 					'S_SHOW_COUNTDOWN_NO'				=> $show_countdown_no,
+					'S_GUEST_VIEWING_YES'				=> $guest_viewing_yes,
+					'S_GUEST_VIEWING_NO'				=> $guest_viewing_no,
 
 					'ACP_F1_SETTING_OFFSET'					=> $formel_config['deadline_offset'],
 					'ACP_F1_SETTING_RACEOFFSET'				=> $formel_config['event_change'],
@@ -317,6 +322,7 @@ class acp_formel
 					'ACP_F1_SETTING_TEAM_IMG_HEIGHT'		=> $new['team_img_height'],
 					'ACP_F1_SETTING_TEAM_IMG_WIDTH'			=> $new['team_img_width'],
 					'ACP_F1_SETTING_SHOW_COUNTDOWN'			=> $new['show_countdown'],
+					'ACP_F1_SETTING_GUEST_VIEWING'			=> $new['guest_viewing'],
 					'ACP_F1_SETTING_SHOW_AVATAR'			=> $new['show_avatar'],
 				));
 			break;

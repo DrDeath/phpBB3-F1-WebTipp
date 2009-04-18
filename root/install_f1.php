@@ -200,13 +200,13 @@ $versions = array(
 		'custom'	=> 'first_fill_0_3_0',
 	),
 
-/*
+
 	// Version 0.3.1
 	'0.3.1' => array(
-		// Nothing changed in this version.
-		// only the version number.
+		// Version 0.3.1 - adding feature "Guests are allowed to view the f1webtipp". Default is false.
+		'custom'	=> 'fill_0_3_1',
 	),
-*/
+
 );
 
 // Include the UMIF Auto file and everything else will be handled automatically.
@@ -375,6 +375,39 @@ function first_fill_0_3_0($action, $version)
 			}
 			// Method 1 of displaying the command (and Success for the result)
 			return 'INSERT_F1_FIRST_FILL';
+		break;
+
+		case 'uninstall' :
+		break;
+	}
+}
+
+/*
+* Here is our custom function that will be called for version 0.3.1.
+*
+* @param string $action The action (install|update|uninstall) will be sent through this.
+* @param string $version The version this is being run for will be sent through this.
+*/
+function fill_0_3_1($action, $version)
+{
+	global $db, $table_prefix, $umil;
+
+	switch ($action)
+	{
+		case 'install' :
+		case 'update' :
+			// Run this when installing/updating
+			if ($umil->table_exists($table_prefix . 'formel_config'))
+			{
+				$sql_ary = array();
+				
+				$sql_ary[] = array('config_name' => 'guest_viewing', 'config_value' => '0',);
+				
+				$db->sql_multi_insert($table_prefix . 'formel_config ', $sql_ary);
+			}
+			
+			// Method 1 of displaying the command (and Success for the result)
+			return 'INSERT_F1_CONFIG';
 		break;
 
 		case 'uninstall' :

@@ -124,6 +124,9 @@ $lang = array_merge($lang, array(
 	'FORMEL_DEADLINE_REACHED'				=> 'Terminé',
 
 	'INSERT_F1_FIRST_FILL'					=> 'Insérer les données dans les tables config, pilotes, écuries et courses.',
+	'INSERT_F1_CONFIG'						=> 'Insérer les données dans les tables formel_config',
+	'FORMEL_GUESTS_PLACE_NO_TIP'			=> '<strong>Guests cannot place a tip.</strong><br /><br />In order to place a tip you have to be registered and logged in.<br />',
+	
 ));
 
 ?>

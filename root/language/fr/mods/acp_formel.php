@@ -122,7 +122,9 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_SEASON_RESET'				   => 'Reset de la saison',
 	'ACP_F1_SETTINGS_SEASON_RESET_EXPLAIN'		   => '<strong>Attention:</strong> Si vous cliquez sur ce bouton, toute la saison sera perdu!<br /><br />Après reset de la saison, vous pourrez remettre à jour toutes les courses.',	
 	'ACP_F1_SETTINGS_SEASON_RESETTED'			   => 'Annulation de la saison. Mise à jour des courses!',
-	
+	'ACP_F1_SETTING_GUEST_VIEWING'				   => 'WebTipp visible pour les invités',
+	'ACP_F1_SETTING_GUEST_VIEWING_EXPLAIN'		   => 'Seulement possible si la permission au <strong>groupe WebTip</strong> est <strong>désactivé</strong>.',
+
 	'ACP_F1_DRIVERS'                               => 'Formula 1 Pilotes',
 	'ACP_F1_DRIVERS_EXPLAIN'                       => 'Ici vous pouvez ajouter ou éditer des pilotes',
 	'ACP_F1_DRIVERS_ADD'                           => 'Envoyer',
