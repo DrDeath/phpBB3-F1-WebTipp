@@ -34,12 +34,14 @@
 		
 		<history>
 			<entry>
-				<date>2009-04-18T00:00:00+02:00</date>
+				<date>2009-04-19T00:00:00+02:00</date>
 				<rev-version>0.3.1</rev-version>
 				<changelog lang="en-gb">
+					<change>BugFix: Top 5 stats on formel index corrected ( Thx for z4reg )</change>
 					<change>Added: Option - WebTipp visible for guests</change>
 				</changelog>
 				<changelog lang="de">
+					<change>BugFix: Top 5 Statistik auf der Formel Index Seite korrigiert ( Danke an z4reg )</change>
 					<change>Hinzugefügt: Option - WebTipp sichtbar für Gäste</change>
 				</changelog>
 			</entry>

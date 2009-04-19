@@ -224,7 +224,7 @@ switch ($mode)
 		$sql = 'SELECT sum(wm_points) AS total_points, wm_driver 
 			FROM ' . FORMEL_WM_TABLE . '
 			GROUP BY wm_driver
-			ORDER BY total_points DESC LIMIT 5';
+			ORDER BY total_points DESC';
 		$result = $db->sql_query($sql);
 
 		//Stop! we have to recalc the driver WM points... maybe we have some penalty !
@@ -239,8 +239,10 @@ switch ($mode)
 		
 		$rank = $real_rank  = 0;
 		$previous_points = false;
+		$limit = 0;
 		foreach ($recalc_drivers as $driver_id => $driver) 
 		{ 
+			if ($limit == 5) break;
 			$real_rank++; 
 			if ($driver['total_points'] <> $previous_points) 
 			{ 
@@ -254,6 +256,7 @@ switch ($mode)
 				'WM_POINTS'		=> $driver['total_points'],
 				)
 			);
+			$limit++;
 		}
 		$db->sql_freeresult($result);
 
@@ -261,7 +264,7 @@ switch ($mode)
 		$sql = 'SELECT sum(wm_points) AS total_points, wm_team 
 			FROM ' . FORMEL_WM_TABLE . '
 			GROUP BY wm_team
-			ORDER BY total_points DESC LIMIT 5';
+			ORDER BY total_points DESC';
 		$result = $db->sql_query($sql);
 
 		//Stop! we have to recalc the team WM points... maybe we have some penalty !
@@ -278,8 +281,10 @@ switch ($mode)
 		
 		$rank = $real_rank  = 0;
 		$previous_points = false;
+		$limit = 0;
 		foreach ($recalc_teams as $team_id => $team) 
 		{ 
+			if ($limit == 5) break;
 			$real_rank++; 
 			if ($team['total_points'] <> $previous_points) 
 			{ 
@@ -293,6 +298,7 @@ switch ($mode)
 				'WM_POINTS'		=> $team['total_points'],
 				)
 			);
+			$limit++;
 		}
 		$db->sql_freeresult($result);
 
