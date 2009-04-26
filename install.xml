@@ -196,13 +196,9 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
     </open>
     <open src="styles/prosilver/template/overall_header.html">
       <edit>
-        <find><![CDATA[</head>
-
-<body id="phpbb" class="section-{SCRIPT_NAME} {S_CONTENT_DIRECTION}">]]></find>
+        <find><![CDATA[</head>]]></find>
         <action type="replace-with"><![CDATA[{COUNTDOWN}
-</head>
-
-<body id="phpbb" class="section-{SCRIPT_NAME} {S_CONTENT_DIRECTION}" {COUNTDOWN_ON}>]]></action>
+</head>]]></action>
       </edit>
     </open>
 	<diy-instructions lang="en-gb"><![CDATA[After installing this MOD, you have to point your web browser to the install_f1.php file

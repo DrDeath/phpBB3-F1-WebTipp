@@ -254,15 +254,17 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2009-04-19T00:00:00+02:00</date>
+			<date>2009-04-26T00:00:00+02:00</date>
 			<rev-version>0.3.1</rev-version>
 			<changelog lang="en-gb">
 				<change>BugFix: Top 5 stats on formel index corrected ( Thx for z4reg )</change>
 				<change>Added: Option - WebTipp visible for guests</change>
+				<change>Removed: Old javascript code removed from overall_header.html</change>
 			</changelog>
 			<changelog lang="de">
 				<change>BugFix: Top 5 Statistik auf der Formel Index Seite korrigiert ( Danke an z4reg )</change>
 				<change>Hinzugefügt: Option - WebTipp sichtbar für Gäste</change>
+				<change>Entfernt: Alten Javascript Code aus der overall_header.html entfernt</change>
 			</changelog>
 		</entry>
 	</history>

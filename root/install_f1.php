@@ -45,6 +45,13 @@ $version_config_name = 'f1webtipp_version';
 $language_file = 'mods/formel';
 
 /*
+* Optionally we may specify our own logo image to show in the upper corner instead of the default logo.
+* $phpbb_root_path will get prepended to the path specified
+* Image height should be 50px to prevent cut-off or stretching.
+*/
+// $logo_img = 'images/formel/formel_webtipp.jpg';
+
+/*
 * The array of versions and actions within each.
 * You do not need to order it a specific way (it will be sorted automatically), however, you must enter every version, even if no actions are done for it.
 *
@@ -411,6 +418,16 @@ function fill_0_3_1($action, $version)
 		break;
 
 		case 'uninstall' :
+			// Run this when uninstalling
+			if ($umil->table_exists($table_prefix . 'formel_config'))
+			{
+			$sql = 'DELETE FROM ' . $table_prefix . "formel_config
+				WHERE config_name = 'guest_viewing'";
+			$db->sql_query($sql);
+			}
+			
+			// Method 1 of displaying the command (and Success for the result)
+			return 'INSERT_F1_CONFIG';
 		break;
 	}
 }

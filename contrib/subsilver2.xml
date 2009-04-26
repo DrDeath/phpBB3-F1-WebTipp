@@ -62,11 +62,9 @@
 		</open>
 		<open src="styles/subsilver2/template/overall_header.html">
 			<edit>
-				<find><![CDATA[</head>
-<body class="{S_CONTENT_DIRECTION}">]]></find>
+				<find><![CDATA[</head>]]></find>
 				<action type="replace-with"><![CDATA[{COUNTDOWN}
-</head>
-<body class="{S_CONTENT_DIRECTION}" {COUNTDOWN_ON}>]]></action>
+</head>]]></action>
 			</edit>
 		</open>
 	</action-group>

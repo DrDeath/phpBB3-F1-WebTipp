@@ -34,15 +34,17 @@
 		
 		<history>
 			<entry>
-				<date>2009-04-19T00:00:00+02:00</date>
+				<date>2009-04-26T00:00:00+02:00</date>
 				<rev-version>0.3.1</rev-version>
 				<changelog lang="en-gb">
 					<change>BugFix: Top 5 stats on formel index corrected ( Thx for z4reg )</change>
 					<change>Added: Option - WebTipp visible for guests</change>
+					<change>Removed: Old javascript code removed from overall_header.html</change>
 				</changelog>
 				<changelog lang="de">
 					<change>BugFix: Top 5 Statistik auf der Formel Index Seite korrigiert ( Danke an z4reg )</change>
 					<change>Hinzugefügt: Option - WebTipp sichtbar für Gäste</change>
+					<change>Entfernt: Alten Javascript Code aus der overall_header.html entfernt</change>
 				</changelog>
 			</entry>
 		</history>
@@ -70,7 +72,29 @@
 			<file from="root/language/fr/mods/acp_formel.php" to="language/fr/mods/acp_formel.php" />
 			
 		</copy>
+		<open src="styles/prosilver/template/overall_header.html">
+		<edit>
+			<find><![CDATA[{COUNTDOWN}
+</head>
 
+<body id="phpbb" class="section-{SCRIPT_NAME} {S_CONTENT_DIRECTION}" {COUNTDOWN_ON}>]]></find>
+			<action type="replace-with"><![CDATA[{COUNTDOWN}
+</head>
+
+<body id="phpbb" class="section-{SCRIPT_NAME} {S_CONTENT_DIRECTION}">]]></action>
+		</edit>
+		</open>
+		<open src="styles/subsilver2/template/overall_header.html">
+			<edit>
+				<find><![CDATA[{COUNTDOWN}
+</head>
+<body class="{S_CONTENT_DIRECTION}" {COUNTDOWN_ON}>]]>
+				</find>
+				<action type="replace-with"><![CDATA[{COUNTDOWN}
+</head>
+<body class="{S_CONTENT_DIRECTION}">]]></action>
+			</edit>
+		</open>
 		<diy-instructions lang="en-gb"><![CDATA[After copying these files, you have to point your web browser to the UMIL install_f1.php file
 like:  http://your-domian.tld/path-to-your-forum/install_f1.php
 

@@ -882,7 +882,6 @@ switch ($mode)
 			'U_FORMEL_STATISTICS'	=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=stats"),
 			'U_FORMEL_CALL_MOD'		=> $u_call_mod,
 			'COUNTDOWN'				=> (isset($countdown)) ? $countdown : '',
-			'COUNTDOWN_ON'			=> (isset($countdown)) ? 'onload="javascript:countdown();"' : '',
 			'L_FORMEL_CALL_MOD'		=> $l_call_mod)
 		);
 	break;
