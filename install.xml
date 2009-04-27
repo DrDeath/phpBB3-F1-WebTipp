@@ -6,8 +6,8 @@
     <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
     <title lang="en-gb">Formula 1 WebTip</title>
 	<title lang="de">Formel 1 WebTipp</title>
-    <description lang="en-gb"><![CDATA[With this mod you can add a Formula 1 tipp game to your forum.
-Your user can tipp race results and collect points.
+    <description lang="en-gb"><![CDATA[With this mod you can add a Formula 1 webtip game to your forum.
+Your user can tip race results and collect points.
 Current season standings ( users / drivers / teams ) are listed on a statistics page and in the memberlist view profile.]]>
 </description>
 <description lang="de"><![CDATA[Mit diesem MOD fügst Du ein Formel 1 WebTipp Spiel Deinem Forum hinzu.
@@ -204,7 +204,7 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
 	<diy-instructions lang="en-gb"><![CDATA[After installing this MOD, you have to point your web browser to the install_f1.php file
 like:  http://your-domian.tld/path-to-your-forum/install_f1.php
 
-After running the umil installer, delete the file install_f1.php from your webspace to prevent erasing tables from your database.
+After running the UMIL installer, delete the file install_f1.php from your webspace to prevent erasing tables from your database.
 
 
 Now your are able to give ACP permissions to certain users/groups.
