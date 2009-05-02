@@ -98,6 +98,7 @@ $lang = array_merge($lang, array(
 	'TABLE_COLUMN_NOT_EXIST'		=> 'ERROR: Die Spalte %2$s existiert in der Tabelle %1$s nicht.',
 	'TABLE_COLUMN_REMOVE'			=> 'Entferne die Spalte mit dem Namen: %2$s aus der Tabelle: %1$s',
 	'TABLE_COLUMN_UPDATE'			=> 'Aktualisiere die Spalte mit dem Namen: %2$s aus der Tabelle: %1$s',
+	'TABLE_INSERT_DATA'				=> 'Füge Daten in die Tabelle %s ein.',
 	'TABLE_KEY_ADD'					=> 'Erstelle einen Schlüssel mit dem Namen: %2$s zur Tabelle: %1$s',
 	'TABLE_KEY_ALREADY_EXIST'		=> 'ERROR: Der Index: %2$s exisitert bereits in der Tabelle: %1$s.',
 	'TABLE_KEY_NOT_EXIST'			=> 'ERROR: Der Index: %2$s existiert nicht in der Tabelle: %1$s.',
@@ -113,7 +114,7 @@ $lang = array_merge($lang, array(
 	'UNKNOWN'						=> 'Unbekannt',
 	'UPDATE_MOD'					=> 'Aktualisiere %s',
 	'UPDATE_MOD_CONFIRM'			=> 'Bist Du bereit “%s” zu aktualisieren?',
-	'UPDATE_UMIL'					=> 'Bitte lade dir die aktuellste UMIL Version (Unified MOD Install Library) von: <a href="%1$s">%1$s</a> herunter',
+	'UPDATE_UMIL'					=> 'Diese Version von UMIL ist veraltet.<br /><br />Bitte lade dir die aktuellste UMIL Version (Unified MOD Install Library) von: <a href="%1$s">%1$s</a> herunter',
 
 	'VERSIONS'						=> 'Mod Version: <strong>%1$s</strong><br />Aktuell installiert: <strong>%2$s</strong>',
 	'VERSION_SELECT'				=> 'Versions-Auswahl',

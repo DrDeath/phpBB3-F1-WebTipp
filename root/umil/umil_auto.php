@@ -63,6 +63,12 @@ if (!isset($user->lang[$mod_name]))
 	$user->lang[$mod_name] = $mod_name;
 }
 
+// Use the Mod's logo if one was specified
+if (isset($logo_img))
+{
+	$template->assign_var('LOGO_IMG', $phpbb_root_path . $logo_img);
+}
+
 if (!$user->data['is_registered'])
 {
 	login_box();
@@ -199,7 +205,7 @@ function umil_install_update_uninstall_select($value, $key)
 		<input id="' . $key . '" class="radio" type="radio" name="' . $key . '" value="update" disabled="disabled" /> ' . $user->lang['UPDATE'] . '&nbsp;&nbsp;
 		<input id="' . $key . '" class="radio" type="radio" name="' . $key . '" value="uninstall" checked="checked" /> ' . $user->lang['UNINSTALL'];
 	}
-	else if ($current_version > $db_version)
+	else if (version_compare($current_version, $db_version, '>'))
 	{
 		return '<input id="' . $key . '" class="radio" type="radio" name="' . $key . '" value="install" disabled="disabled" /> ' . $user->lang['INSTALL'] . '&nbsp;&nbsp;
 		<input id="' . $key . '" class="radio" type="radio" name="' . $key . '" value="update" checked="checked" /> ' . $user->lang['UPDATE'] . '&nbsp;&nbsp;

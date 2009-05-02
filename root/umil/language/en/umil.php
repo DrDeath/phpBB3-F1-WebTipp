@@ -98,6 +98,7 @@ $lang = array_merge($lang, array(
 	'TABLE_COLUMN_NOT_EXIST'		=> 'ERROR: The column %2$s does not exist on table %1$s.',
 	'TABLE_COLUMN_REMOVE'			=> 'Removing the column named %2$s from table %1$s',
 	'TABLE_COLUMN_UPDATE'			=> 'Updating a column named %2$s from table %1$s',
+	'TABLE_INSERT_DATA'				=> 'Inserting rows to the %s database table.',
 	'TABLE_KEY_ADD'					=> 'Adding a key named %2$s to table %1$s',
 	'TABLE_KEY_ALREADY_EXIST'		=> 'ERROR: The index %2$s already exists on table %1$s.',
 	'TABLE_KEY_NOT_EXIST'			=> 'ERROR: The index %2$s does not exist on table %1$s.',
@@ -113,7 +114,7 @@ $lang = array_merge($lang, array(
 	'UNKNOWN'						=> 'Unknown',
 	'UPDATE_MOD'					=> 'Update %s',
 	'UPDATE_MOD_CONFIRM'			=> 'Are you ready to update %s?',
-	'UPDATE_UMIL'					=> 'Please download the latest UMIL (Unified MOD Install Library) from: <a href="%1$s">%1$s</a>',
+	'UPDATE_UMIL'					=> 'This version of UMIL is outdated.<br /><br />Please download the latest UMIL (Unified MOD Install Library) from: <a href="%1$s">%1$s</a>',
 
 	'VERSIONS'						=> 'Mod Version: <strong>%1$s</strong><br />Currently Installed: <strong>%2$s</strong>',
 	'VERSION_SELECT'				=> 'Version Select',
