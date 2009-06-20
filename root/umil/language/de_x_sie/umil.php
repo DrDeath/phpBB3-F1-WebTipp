@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * umil [Deutsch — Du]
+ * umil [Deutsch — Sie]
  *
  * @author Nathan Guse (EXreaction) http://lithiumstudios.org
  * @author David Lewis (Highway of Life) highwayoflife@gmail.com
@@ -13,7 +13,7 @@
  * Deutsche Übersetzung durch die Übersetzer-Gruppe von phpBB.de:
  * (http://www.phpbb.de/go/3/uebersetzer)
  * Frank Doerr, Ingo Köhler, Fabian Koglin, Philipp Kordowich, Ingo Migliarina, Martin Rauscher
- * Ehemalige Mitglieder: Dirk Gaffke, Christopher Gerharz, Paul Rauch
+ * Ehemalige Mitglieder: Dirk Gaffke
  */
 
 /**
@@ -59,14 +59,14 @@ $lang = array_merge($lang, array(
 	'CONFIG_UPDATE'					=> 'Aktualisiere Konfigurationsvariable: %s',
 
 	'DISPLAY_RESULTS'				=> 'Vollständige Ergebnisse anzeigen',
-	'DISPLAY_RESULTS_EXPLAIN'		=> 'Wähle Ja aus, um alle Vorgänge und Ergebnisse der Aktion angezeigt zu bekommen.',
+	'DISPLAY_RESULTS_EXPLAIN'		=> 'Wählen Sie Ja aus, um alle Vorgänge und Ergebnisse der Aktion angezeigt zu bekommen.',
 
-	'ERROR_NOTICE'					=> 'Einer oder mehrere Fehler sind während der angeforderten Aktion aufgetreten. Bitte lade <a href="%1$s">diese Datei</a>, die eine Liste der Fehler enthält, herunter und bitte den Autor der Modifikation um Unterstützung.<br /><br />Wenn beim herunterladen der Datei Probleme auftreten, kannst du sie auch direkt mit einem FTP-Programm unter folgender Adresse herunterladen: %2$s',
-	'ERROR_NOTICE_NO_FILE'			=> 'Einer oder mehrere Fehler sind während der angeforderten Aktion aufgetreten. Bitte erstelle eine vollständige Kopie aller aufgetretenen Fehler und bitte den Autor der Modifikation um Unterstützung.',
+	'ERROR_NOTICE'					=> 'Einer oder mehrere Fehler sind während der angeforderten Aktion aufgetreten. Bitte laden Sie <a href="%1$s">diese Datei</a>, die eine Liste der Fehler enthält, herunter und bitten Sie den Autor der Modifikation um Unterstützung.<br /><br />Wenn beim herunterladen der Datei Probleme auftreten, können Sie sie auch direkt mit einem FTP-Programm unter folgender Adresse herunterladen: %2$s',
+	'ERROR_NOTICE_NO_FILE'			=> 'Einer oder mehrere Fehler sind während der angeforderten Aktion aufgetreten. Bitte erstellen Sie eine vollständige Kopie aller aufgetretenen Fehler und bitte Sie den Autor der Modifikation um Unterstützung.',
 
 	'FAIL'							=> 'Gescheitert',
 	'FILE_COULD_NOT_READ'			=> 'FEHLER: Datei %s konnte nicht zum Lesen geöffnet werden.',
-	'FOUNDERS_ONLY'					=> 'Du musst Gründer-Status haben, um diese Seite betreten zu können.',
+	'FOUNDERS_ONLY'					=> 'Sie müssen Gründer-Status haben, um diese Seite betreten zu können.',
 
 	'GROUP_NOT_EXIST'				=> 'Gruppe existiert nicht',
 
@@ -74,7 +74,7 @@ $lang = array_merge($lang, array(
 	'IMAGESET_CACHE_PURGE'			=> 'Aktualisiere die Grafiksammlung %s',
 	'INSTALL'						=> 'Installieren',
 	'INSTALL_MOD'					=> 'Installiere %s',
-	'INSTALL_MOD_CONFIRM'			=> 'Bist du bereit, %s zu installieren?',
+	'INSTALL_MOD_CONFIRM'			=> 'Sind Sie bereit, %s zu installieren?',
 
 	'MODULE_ADD'					=> 'Füge %1$s-Modul hinzu: %2$s',
 	'MODULE_ALREADY_EXIST'			=> 'FEHLER: Modul existiert bereits.',
@@ -85,7 +85,7 @@ $lang = array_merge($lang, array(
 	'NO_TABLE_DATA'					=> 'FEHLER: Es wurden keine Tabellendaten angegeben',
 
 	'PARENT_NOT_EXIST'				=> 'FEHLER: Die übergeordnete Kategorie, die für dieses Modul angegeben wurde, existiert nicht.',
-	'PERMISSIONS_WARNING'			=> 'Es wurden neue Berechtigungen hinzugefügt. Bitte prüfe die Berechtigungseinstellungen und passe sie nach deinen Wünschen an.',
+	'PERMISSIONS_WARNING'			=> 'Es wurden neue Berechtigungen hinzugefügt. Bitte prüfen Sie die Berechtigungseinstellungen und passen Sie sie nach Ihren Wünschen an.',
 	'PERMISSION_ADD'				=> 'Füge neue Berechtigungsoption hinzu: %s',
 	'PERMISSION_ALREADY_EXISTS'		=> 'FEHLER: Berechtigungsoption %s existiert bereits.',
 	'PERMISSION_NOT_EXIST'			=> 'FEHLER: Berechtigungsoption %s existiert nicht.',
@@ -120,15 +120,15 @@ $lang = array_merge($lang, array(
 
 	'UNINSTALL'						=> 'Deinstallieren',
 	'UNINSTALL_MOD'					=> 'Deinstalliere %s',
-	'UNINSTALL_MOD_CONFIRM'			=> 'Bist du bereit, %s zu deinstallieren? Alle Einstellungen und Daten, die von dieser Modifikation gespeichert wurden, werden dadurch gelöscht!',
+	'UNINSTALL_MOD_CONFIRM'			=> 'Sind Sie bereit, %s zu deinstallieren? Alle Einstellungen und Daten, die von dieser Modifikation gespeichert wurden, werden dadurch gelöscht!',
 	'UNKNOWN'						=> 'Unbekannt',
 	'UPDATE_MOD'					=> 'Aktualisiere %s',
-	'UPDATE_MOD_CONFIRM'			=> 'Bist du bereit, %s zu aktualisieren?',
-	'UPDATE_UMIL'					=> 'Diese Version von UMIL (Unified MOD Install Library) ist veraltet.<br /><br />Bitte lade die aktuelle UMIL-Version von <a href="%1$s">%1$s</a> herunter.',
+	'UPDATE_MOD_CONFIRM'			=> 'Sind Sie bereit, %s zu aktualisieren?',
+	'UPDATE_UMIL'					=> 'Diese Version von UMIL (Unified MOD Install Library) ist veraltet.<br /><br />Bitte laden Sie die aktuelle UMIL-Version von <a href="%1$s">%1$s</a> herunter.',
 
 	'VERSIONS'						=> 'Version der Modifikation: <strong>%1$s</strong><br />Derzeit installiert: <strong>%2$s</strong>',
 	'VERSION_SELECT'				=> 'Versionsauswahl',
-	'VERSION_SELECT_EXPLAIN'		=> 'Wähle keine andere Option als „Ignorieren“ aus, sofern du nicht weißt, was du damit machst oder du explizit dazu aufgefordert wurdest.',
+	'VERSION_SELECT_EXPLAIN'		=> 'Wählen Sie keine andere Option als „Ignorieren“ aus, sofern Sie nicht wissen, was Sie damit machen oder Sie explizit dazu aufgefordert wurden.',
 ));
 
 ?>
