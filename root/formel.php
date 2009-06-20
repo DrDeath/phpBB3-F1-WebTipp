@@ -123,10 +123,30 @@ switch ($mode)
 			{
 				trigger_error('FORM_INVALID');
 			}
-			
-			add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_DELETED', $race_id);			
-			formel_del_tip($user_id,$race_id);
 
+			//Ultimate Points MOD enabled for f1 webtipp?
+			if($formel_config['points_enabled'] == true)
+			{   
+				//Ultimate Points MOD  installed and enabled?
+				if(isset($config['points_enable']) and $config['points_enable'] == true)
+				{
+					$sql = 'SELECT user_points 
+							FROM ' . USERS_TABLE . ' 
+							WHERE user_id = ' . $user_id; 	
+					$result = $db->sql_query($sql);
+					$row = $db->sql_fetchrow($result);
+					$db->sql_freeresult($result);
+
+					$sql = 'UPDATE ' . USERS_TABLE . ' 
+							SET user_points = ' . ($row['user_points'] - $formel_config['points_value']) . ' 
+							WHERE user_id = ' . $user_id; 
+					$db->sql_query($sql);
+				}
+			}
+			
+			add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_DELETED', $race_id);
+			
+			formel_del_tip($user_id,$race_id);
 		}
 
 		// Add or edit a tip
@@ -164,6 +184,26 @@ switch ($mode)
 
 				$db->sql_query('INSERT INTO ' . FORMEL_TIPPS_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
 				add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_GIVEN', $race_id);
+				
+				//Ultimate Points MOD enabled for F1 webtipp?
+				if($formel_config['points_enabled'] == true)
+				{   
+					//Ultimate Points MOD installed and enabled?
+					if(isset($config['points_enable']) and $config['points_enable'] == true)
+					{
+						$sql = 'SELECT user_points 
+								FROM ' . USERS_TABLE . ' 
+								WHERE user_id = ' . $user_id; 	
+						$result = $db->sql_query($sql);
+						$row = $db->sql_fetchrow($result);
+						$db->sql_freeresult($result);
+
+						$sql = 'UPDATE ' . USERS_TABLE . ' 
+								SET user_points = ' . ($row['user_points'] + $formel_config['points_value'])  . ' 
+								WHERE user_id = ' . $user_id; 
+						$db->sql_query($sql);
+					}
+				}
 			}
 			else 
 			{

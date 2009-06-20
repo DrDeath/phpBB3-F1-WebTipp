@@ -43,7 +43,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
     <installation>
 		<level>easy</level>
 		<time>600</time>
-		<target-version>3.0.4</target-version>
+		<target-version>3.0.5</target-version>
 	</installation>
 	
 	<link-group>
@@ -265,6 +265,16 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<change>BugFix: Top 5 Statistik auf der Formel Index Seite korrigiert ( Danke an z4reg )</change>
 				<change>Hinzugefügt: Option - WebTipp sichtbar für Gäste</change>
 				<change>Entfernt: Alten Javascript Code aus der overall_header.html entfernt</change>
+			</changelog>
+		</entry>
+		<entry>
+			<date>2009-06-14T00:00:00+02:00</date>
+			<rev-version>0.3.2</rev-version>
+			<changelog lang="en-gb">
+				<change>Added support for Ultimate Points MOD</change>
+			</changelog>
+			<changelog lang="de">
+				<change>Support für Ultimate Points MOD hinzugefügt.</change>
 			</changelog>
 		</entry>
 	</history>

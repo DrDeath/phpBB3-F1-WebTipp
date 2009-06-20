@@ -1,16 +1,24 @@
 <?php
 /**
-*
-* umil [German]
-*
-* @author Nathan Guse (EXreaction) http://lithiumstudios.org
-* @package phpBB3 UMIL - Unified MOD Install File
-* @version $Id: umil.php 88 2009-01-28 03:51:36Z HighwayofLife $
-* @copyright (c) 2009 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
+ *
+ * umil [Deutsch — Du]
+ *
+ * @author Nathan Guse (EXreaction) http://lithiumstudios.org
+ * @author David Lewis (Highway of Life) highwayoflife@gmail.com
+ * @package umil
+ * @version $Id: umil.php 390 2009-06-10 20:32:38Z philippk $
+ * @copyright (c) 2008 phpBB Group
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ *
+ * Deutsche Übersetzung durch die Übersetzer-Gruppe von phpBB.de:
+ * (http://www.phpbb.de/go/3/uebersetzer)
+ * Frank Doerr, Ingo Köhler, Fabian Koglin, Philipp Kordowich, Ingo Migliarina, Martin Rauscher
+ * Ehemalige Mitglieder: Dirk Gaffke, Christopher Gerharz, Paul Rauch
+ */
 
+/**
+ * @ignore
+ */
 if (!defined('IN_PHPBB'))
 {
 	exit;
@@ -38,87 +46,89 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'ACTION'						=> 'Aktion',
-	'ADVANCED'						=> 'Erweiterte Einstellungen',
-	'AUTH_CACHE_PURGE'				=> 'Leere den Authentifizierungs-Cache',
+	'ACTION'						=> 'Vorgang',
+	'ADVANCED'						=> 'Fortgeschritten',
+	'AUTH_CACHE_PURGE'				=> 'Leere Berechtigungs-Cache',
 
-	'CACHE_PURGE'					=> 'Leere den Forums-Cache',
-	'CONFIGURE'						=> 'Konfigurieren',
-	'CONFIG_ADD'					=> 'Erstelle neue Konfigurations-Variable: %s',
-	'CONFIG_ALREADY_EXISTS'			=> 'ERROR: Konfigurations-Variable %s existiert bereits.',
-	'CONFIG_NOT_EXIST'				=> 'ERROR: Konfigurations-Variable %s existiert nicht.',
-	'CONFIG_REMOVE'					=> 'Entferne Konfigurations-Variable: %s',
-	'CONFIG_UPDATE'					=> 'Aktualisiere Konfigurations-Variable: %s',
+	'CACHE_PURGE'					=> 'Leere Cache des Forums',
+	'CONFIGURE'						=> 'Konfiguration',
+	'CONFIG_ADD'					=> 'Lege neue Konfigurationsvariable an: %s',
+	'CONFIG_ALREADY_EXISTS'			=> 'FEHLER: Konfigurationsvariable %s existiert bereits.',
+	'CONFIG_NOT_EXIST'				=> 'FEHLER: Konfigurationsvariable %s existiert nicht.',
+	'CONFIG_REMOVE'					=> 'Lösche Konfigurationsvariable: %s',
+	'CONFIG_UPDATE'					=> 'Aktualisiere Konfigurationsvariable: %s',
 
-	'DISPLAY_RESULTS'				=> 'Zeige ausführliches Ergebnis',
-	'DISPLAY_RESULTS_EXPLAIN'		=> 'Wähle “Ja” aus, um alle Aktionen und Ergebnisse während des ausgewählten Vorgangs anzeigen zu lassen.',
+	'DISPLAY_RESULTS'				=> 'Vollständige Ergebnisse anzeigen',
+	'DISPLAY_RESULTS_EXPLAIN'		=> 'Wähle Ja aus, um alle Vorgänge und Ergebnisse der Aktion angezeigt zu bekommen.',
 
-	'ERROR_NOTICE'					=> 'Ein oder mehrere Fehler sind während des ausgewählten Vorgangs aufgetreten.<br />Bitte lade <a href="%1$s">diese Datei</a>, die die aufgetretenen Fehler beinhaltet, herunter und bitte den MOD Author um Unterstützung.<br /><br />Solltest Du Problem haben diese Datei direkt herunterzuladen, versuche es über Deinen FTP Client. Der Pfad dazu lautet: %2$s',
-	'ERROR_NOTICE_NO_FILE'			=> 'Ein oder mehrere Fehler sind während des ausgewählten Vorgangs aufgetreten.  Bitte notiere Dir alle aufgetretenen Fehler und bitte den MOD Author um Unterstützung.',
+	'ERROR_NOTICE'					=> 'Einer oder mehrere Fehler sind während der angeforderten Aktion aufgetreten. Bitte lade <a href="%1$s">diese Datei</a>, die eine Liste der Fehler enthält, herunter und bitte den Autor der Modifikation um Unterstützung.<br /><br />Wenn beim herunterladen der Datei Probleme auftreten, kannst du sie auch direkt mit einem FTP-Programm unter folgender Adresse herunterladen: %2$s',
+	'ERROR_NOTICE_NO_FILE'			=> 'Einer oder mehrere Fehler sind während der angeforderten Aktion aufgetreten. Bitte erstelle eine vollständige Kopie aller aufgetretenen Fehler und bitte den Autor der Modifikation um Unterstützung.',
 
-	'FAIL'							=> 'Fehlgeschlagen',
-	'FILE_COULD_NOT_READ'			=> 'ERROR: Konnte folgende Datei zum lesen nicht öffnen: %s',
-	'FOUNDERS_ONLY'					=> 'Du musst Forum Gründer sein um auf diese Seite zugreifen zu können.',
+	'FAIL'							=> 'Gescheitert',
+	'FILE_COULD_NOT_READ'			=> 'FEHLER: Datei %s konnte nicht zum Lesen geöffnet werden.',
+	'FOUNDERS_ONLY'					=> 'Du musst Gründer-Status haben, um diese Seite betreten zu können.',
 
 	'GROUP_NOT_EXIST'				=> 'Gruppe existiert nicht',
 
 	'IGNORE'						=> 'Ignorieren',
-	'IMAGESET_CACHE_PURGE'			=> 'Aktualisiere den %s imageset',
+	'IMAGESET_CACHE_PURGE'			=> 'Aktualisiere die Grafiksammlung %s',
 	'INSTALL'						=> 'Installieren',
 	'INSTALL_MOD'					=> 'Installiere %s',
-	'INSTALL_MOD_CONFIRM'			=> 'Bist Du bereit “%s” zu installieren?',
+	'INSTALL_MOD_CONFIRM'			=> 'Bist du bereit, %s zu installieren?',
 
-	'MODULE_ADD'					=> 'Erstelle %1$s Module: %2$s',
-	'MODULE_ALREADY_EXIST'			=> 'ERROR: Module existiert bereits.',
-	'MODULE_NOT_EXIST'				=> 'ERROR: Module existiert nicht.',
-	'MODULE_REMOVE'					=> 'Entferne %1$s Module: %2$s',
+	'MODULE_ADD'					=> 'Füge %1$s-Modul hinzu: %2$s',
+	'MODULE_ALREADY_EXIST'			=> 'FEHLER: Modul existiert bereits.',
+	'MODULE_NOT_EXIST'				=> 'FEHLER: Modul existiert nicht.',
+	'MODULE_REMOVE'					=> 'Entferne %1$s-Modul: %2$s',
 
-	'NONE'							=> 'Keine',
-	'NO_TABLE_DATA'					=> 'ERROR: Es wurden keine Tabellen Daten spezifiziert',
+	'NONE'							=> 'keine',
+	'NO_TABLE_DATA'					=> 'FEHLER: Es wurden keine Tabellendaten angegeben',
 
-	'PARENT_NOT_EXIST'				=> 'ERROR: Die übergeordnete Kategorie für das angegebene Modul existiert nicht.',
-	'PERMISSIONS_WARNING'			=> 'Neue Berechtigungen wurden hinzugefügt. Bitte prüfe dringend Deine Berechtigungseinstellungen um sicher zu sein, dass sie so sind wie Du es möchtest.',
-	'PERMISSION_ADD'				=> 'Erstelle neue Berechtigungs-Option: %s',
-	'PERMISSION_ALREADY_EXISTS'		=> 'ERROR: Berechtigungs-Option %s existiert bereits.',
-	'PERMISSION_NOT_EXIST'			=> 'ERROR: PBerechtigungs-Option %s existiert nicht.',
-	'PERMISSION_REMOVE'				=> 'Entferne Berechtigungs-Option: %s',
-	'PERMISSION_SET_GROUP'			=> 'Setze Berechtigung für die Gruppe: %s',
-	'PERMISSION_SET_ROLE'			=> 'Setze Berechtigung für die Rolle: %s',
-	'PERMISSION_UNSET_GROUP'		=> 'Entferne Berechtigung von der Gruppe %s',
-	'PERMISSION_UNSET_ROLE'			=> 'Entferne Berechtigung von der Rolle %s',
+	'PARENT_NOT_EXIST'				=> 'FEHLER: Die übergeordnete Kategorie, die für dieses Modul angegeben wurde, existiert nicht.',
+	'PERMISSIONS_WARNING'			=> 'Es wurden neue Berechtigungen hinzugefügt. Bitte prüfe die Berechtigungseinstellungen und passe sie nach deinen Wünschen an.',
+	'PERMISSION_ADD'				=> 'Füge neue Berechtigungsoption hinzu: %s',
+	'PERMISSION_ALREADY_EXISTS'		=> 'FEHLER: Berechtigungsoption %s existiert bereits.',
+	'PERMISSION_NOT_EXIST'			=> 'FEHLER: Berechtigungsoption %s existiert nicht.',
+	'PERMISSION_REMOVE'				=> 'Entferne Berechtigungsoption: %s',
+	'PERMISSION_SET_GROUP'			=> 'Setze Berechtigungen für die %s-Gruppe.',
+	'PERMISSION_SET_ROLE'			=> 'Setze Berechtigungen für die %s-Rolle.',
+	'PERMISSION_UNSET_GROUP'		=> 'Entferne Berechtigung für die %s-Gruppe.',
+	'PERMISSION_UNSET_ROLE'			=> 'Entferne Berechtigung für die %s-Rolle.',
 
 	'ROLE_NOT_EXIST'				=> 'Rolle existiert nicht',
 
 	'SUCCESS'						=> 'Erfolgreich',
 
-	'TABLE_ADD'						=> 'Erstelle neue Datenbanktabelle: %s',
-	'TABLE_ALREADY_EXISTS'			=> 'ERROR: Datenbank Tabelle %s existiert bereits.',
-	'TABLE_COLUMN_ADD'				=> 'Erstelle neue Spalte mit dem Namen: %2$s zur Tabelle: %1$s',
-	'TABLE_COLUMN_ALREADY_EXISTS'	=> 'ERROR: Die Spalte %2$s exitiert bereits in der Tabelle %1$s.',
-	'TABLE_COLUMN_NOT_EXIST'		=> 'ERROR: Die Spalte %2$s existiert in der Tabelle %1$s nicht.',
-	'TABLE_COLUMN_REMOVE'			=> 'Entferne die Spalte mit dem Namen: %2$s aus der Tabelle: %1$s',
-	'TABLE_COLUMN_UPDATE'			=> 'Aktualisiere die Spalte mit dem Namen: %2$s aus der Tabelle: %1$s',
-	'TABLE_INSERT_DATA'				=> 'Füge Daten in die Tabelle %s ein.',
-	'TABLE_KEY_ADD'					=> 'Erstelle einen Schlüssel mit dem Namen: %2$s zur Tabelle: %1$s',
-	'TABLE_KEY_ALREADY_EXIST'		=> 'ERROR: Der Index: %2$s exisitert bereits in der Tabelle: %1$s.',
-	'TABLE_KEY_NOT_EXIST'			=> 'ERROR: Der Index: %2$s existiert nicht in der Tabelle: %1$s.',
-	'TABLE_KEY_REMOVE'				=> 'Entferne einen Schlüssel mit dem Namen: %2$s aus der Tabelle: %1$s',
-	'TABLE_NOT_EXIST'				=> 'ERROR: Datenbank Tabelle: %s existiert nicht.',
-	'TABLE_REMOVE'					=> 'Entferne Datenbank Tabelle: %s',
-	'TEMPLATE_CACHE_PURGE'			=> 'Aktualisiere das Template: %s ',
-	'THEME_CACHE_PURGE'				=> 'Aktualisiere das Theme: %s ',
+	'TABLE_ADD'						=> 'Eine neue Datenbanktabelle erstellen: %s',
+	'TABLE_ALREADY_EXISTS'			=> 'FEHLER: Die Datenbanktabelle %s existiert bereits.',
+	'TABLE_COLUMN_ADD'				=> 'Eine neue Spalte %2$s der Tabelle %1$s hinzufügen',
+	'TABLE_COLUMN_ALREADY_EXISTS'	=> 'FEHLER: Die Spalte %2$s existiert bereits in Tabelle %1$s.',
+	'TABLE_COLUMN_NOT_EXIST'		=> 'FEHLER: Die Spalte %2$s existiert nicht in Tabelle %1$s.',
+	'TABLE_COLUMN_REMOVE'			=> 'Lösche die Spalte %2$s aus Tabelle %1$s',
+	'TABLE_COLUMN_UPDATE'			=> 'Aktualisiere die Spalte %2$s in Tabelle %1$s',
+	'TABLE_KEY_ADD'					=> 'Füge Index %2$s der Tabelle %1$s hinzu',
+	'TABLE_KEY_ALREADY_EXIST'		=> 'FEHLER: Der Index %2$s existiert bereits in Tabelle %1$s.',
+	'TABLE_KEY_NOT_EXIST'			=> 'FEHLER: Der Index %2$s existiert nicht in Tabelle %1$s.',
+	'TABLE_KEY_REMOVE'				=> 'Entferne Index %2$s von Tabelle %1$s',
+	'TABLE_NOT_EXIST'				=> 'FEHLER: Datenbanktabelle %s existiert nicht.',
+	'TABLE_REMOVE'					=> 'Lösche Datenbanktabelle: %s',
+	'TABLE_ROW_INSERT_DATA'			=> 'Füge Datensätze der Tabelle %s hinzu.',
+	'TABLE_ROW_REMOVE_DATA'			=> 'Lösche Datensätze der Tabelle %s',
+	'TABLE_ROW_UPDATE_DATA'			=> 'Aktualisiere einen Datensatz in Tabelle %s.',
+	'TEMPLATE_CACHE_PURGE'			=> 'Aktualisiere das Template %s',
+	'THEME_CACHE_PURGE'				=> 'Aktualisiere das Theme %s',
 
 	'UNINSTALL'						=> 'Deinstallieren',
 	'UNINSTALL_MOD'					=> 'Deinstalliere %s',
-	'UNINSTALL_MOD_CONFIRM'			=> 'Bist Du bereit “%s” zu deinstallieren?<br />Alle Einstellungen und Daten, die dieses MOD gespeichert hat gehen verloren und werden endgültig gelöscht!',
+	'UNINSTALL_MOD_CONFIRM'			=> 'Bist du bereit, %s zu deinstallieren? Alle Einstellungen und Daten, die von dieser Modifikation gespeichert wurden, werden dadurch gelöscht!',
 	'UNKNOWN'						=> 'Unbekannt',
 	'UPDATE_MOD'					=> 'Aktualisiere %s',
-	'UPDATE_MOD_CONFIRM'			=> 'Bist Du bereit “%s” zu aktualisieren?',
-	'UPDATE_UMIL'					=> 'Diese Version von UMIL ist veraltet.<br /><br />Bitte lade dir die aktuellste UMIL Version (Unified MOD Install Library) von: <a href="%1$s">%1$s</a> herunter',
+	'UPDATE_MOD_CONFIRM'			=> 'Bist du bereit, %s zu aktualisieren?',
+	'UPDATE_UMIL'					=> 'Diese Version von UMIL (Unified MOD Install Library) ist veraltet.<br /><br />Bitte lade die aktuelle UMIL-Version von <a href="%1$s">%1$s</a> herunter.',
 
-	'VERSIONS'						=> 'Mod Version: <strong>%1$s</strong><br />Aktuell installiert: <strong>%2$s</strong>',
-	'VERSION_SELECT'				=> 'Versions-Auswahl',
-	'VERSION_SELECT_EXPLAIN'		=> 'Wähle bitte nichts anderes als “Ignorieren” aus, außer Du weißt was Du tust oder jemand hat Dir gesagt dies zu tun.',
+	'VERSIONS'						=> 'Version der Modifikation: <strong>%1$s</strong><br />Derzeit installiert: <strong>%2$s</strong>',
+	'VERSION_SELECT'				=> 'Versionsauswahl',
+	'VERSION_SELECT_EXPLAIN'		=> 'Wähle keine andere Option als „Ignorieren“ aus, sofern du nicht weißt, was du damit machst oder du explizit dazu aufgefordert wurdest.',
 ));
 
 ?>

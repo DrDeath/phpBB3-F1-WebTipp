@@ -175,6 +175,16 @@
 					<td><input type="text" class="post" maxsize="64" size="8" name="team_img_width" value="{ACP_F1_SETTING_TEAM_IMG_WIDTH}" /></td>
 				</tr>
 				<!-- END gfx_on -->
+				<tr class="row3">
+					<td nowrap="nowrap"><strong>{L_ACP_F1_SETTINGS_POINTS_ENABLED}:</strong><br />{L_ACP_F1_SETTINGS_POINTS_ENABLED_EXPLAIN}</td>
+					<td><input type="radio" class="radio" name="points_enabled" value="1" {S_POINTS_ENABLED_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" class="radio" name="points_enabled" value="0" {S_POINTS_ENABLED_NO} /> {L_NO}</td>
+				</tr>
+				<!-- BEGIN points_on -->
+				<tr class="row1">
+					<td nowrap="nowrap"><strong>{L_ACP_F1_SETTINGS_POINTS_VALUE}:</strong><br />{L_ACP_F1_SETTINGS_POINTS_VALUE_EXPLAIN}</td>
+					<td><input type="text" class="post" maxsize="64" size="30" name="points_value" value="{ACP_F1_SETTING_POINTS_VALUE}" /></td>
+				</tr>
+				<!-- END points_on -->
 			</tbody>	
 		</table>
 		<p class="submit-buttons">

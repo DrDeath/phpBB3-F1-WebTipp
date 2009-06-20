@@ -213,6 +213,12 @@ $versions = array(
 		// Version 0.3.1 - adding feature "Guests are allowed to view the f1webtipp". Default is false.
 		'custom'	=> 'fill_0_3_1',
 	),
+	
+	// Version 0.3.2
+	'0.3.2' => array(
+		// Version 0.3.12- adding support for Ultimate Point System. Default is point systems disabled and point value 50.00
+		'custom'	=> 'fill_0_3_2',
+	),
 
 );
 
@@ -424,6 +430,53 @@ function fill_0_3_1($action, $version)
 			$sql = 'DELETE FROM ' . $table_prefix . "formel_config
 				WHERE config_name = 'guest_viewing'";
 			$db->sql_query($sql);
+			}
+			
+			// Method 1 of displaying the command (and Success for the result)
+			return 'INSERT_F1_CONFIG';
+		break;
+	}
+}
+
+/*
+* Here is our custom function that will be called for version 0.3.2.
+*
+* @param string $action The action (install|update|uninstall) will be sent through this.
+* @param string $version The version this is being run for will be sent through this.
+*/
+function fill_0_3_2($action, $version)
+{
+	global $db, $table_prefix, $umil;
+
+	switch ($action)
+	{
+		case 'install' :
+		case 'update' :
+			// Run this when installing/updating
+			if ($umil->table_exists($table_prefix . 'formel_config'))
+			{
+				$sql_ary = array();
+				
+				$sql_ary[] = array('config_name' => 'points_enabled', 'config_value' => '0',);
+				$sql_ary[] = array('config_name' => 'points_value', 'config_value' => '50.00',);
+				
+				$db->sql_multi_insert($table_prefix . 'formel_config ', $sql_ary);
+			}
+			
+			// Method 1 of displaying the command (and Success for the result)
+			return 'INSERT_F1_CONFIG';
+		break;
+
+		case 'uninstall' :
+			// Run this when uninstalling
+			if ($umil->table_exists($table_prefix . 'formel_config'))
+			{
+				$sql = 'DELETE FROM ' . $table_prefix . "formel_config
+				WHERE config_name = 'points_enabled'";
+				$db->sql_query($sql);
+				$sql = 'DELETE FROM ' . $table_prefix . "formel_config
+				WHERE config_name = 'points_value'";
+				$db->sql_query($sql);
 			}
 			
 			// Method 1 of displaying the command (and Success for the result)

@@ -69,6 +69,8 @@ class acp_formel
 				$points_placed		= request_var('points_placed',		0	);
 				$points_fastest		= request_var('points_fastest',		0	);
 				$points_tired		= request_var('points_tired',		0	);
+				$points_enabled		= request_var('points_enabled',		0	);
+				$points_per_tip		= request_var('points_per_tip',		0	);
 
 				$lang = 'ACP_F1_SETTINGS';
 
@@ -177,6 +179,9 @@ class acp_formel
 
 				$guest_viewing_yes 		= ( $new['guest_viewing']) ? "checked=\"checked\"" : "";
 				$guest_viewing_no 		= ( !$new['guest_viewing']) ? "checked=\"checked\"" : "";
+				
+				$points_enabled_yes		= ( $new['points_enabled']) ? "checked=\"checked\"" : "";
+				$points_enabled_no 		= ( !$new['points_enabled']) ? "checked=\"checked\"" : "";
 
 				//Get all possible moderators
 				$sql = 'SELECT u.username, u.user_id
@@ -271,6 +276,10 @@ class acp_formel
 				{
 					$template->assign_block_vars('gfx_on', array());
 				}
+				if ( $new['points_enabled'] )
+				{
+					$template->assign_block_vars('points_on', array());
+				}
 
 				$template->assign_vars(array(
 					'D_MODERATOR'						=> $mods_combo,
@@ -292,6 +301,8 @@ class acp_formel
 					'S_SHOW_COUNTDOWN_NO'				=> $show_countdown_no,
 					'S_GUEST_VIEWING_YES'				=> $guest_viewing_yes,
 					'S_GUEST_VIEWING_NO'				=> $guest_viewing_no,
+					'S_POINTS_ENABLED_YES'				=> $points_enabled_yes,
+					'S_POINTS_ENABLED_NO'				=> $points_enabled_no,
 
 					'ACP_F1_SETTING_OFFSET'					=> $formel_config['deadline_offset'],
 					'ACP_F1_SETTING_RACEOFFSET'				=> $formel_config['event_change'],
@@ -323,6 +334,7 @@ class acp_formel
 					'ACP_F1_SETTING_TEAM_IMG_WIDTH'			=> $new['team_img_width'],
 					'ACP_F1_SETTING_SHOW_COUNTDOWN'			=> $new['show_countdown'],
 					'ACP_F1_SETTING_GUEST_VIEWING'			=> $new['guest_viewing'],
+					'ACP_F1_SETTING_POINTS_VALUE'			=> $new['points_value'],
 					'ACP_F1_SETTING_SHOW_AVATAR'			=> $new['show_avatar'],
 				));
 			break;

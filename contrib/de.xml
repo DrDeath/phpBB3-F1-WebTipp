@@ -28,7 +28,7 @@
 	    <installation>
 			<level>easy</level>
 			<time>60</time>
-			<target-version>3.0.4</target-version>
+			<target-version>3.0.5</target-version>
 	    </installation>
 		
 	    <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />

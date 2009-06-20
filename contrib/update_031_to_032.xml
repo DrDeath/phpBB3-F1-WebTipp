@@ -29,18 +29,18 @@
 		<installation>
 			<level>easy</level>
 			<time>300</time>
-			<target-version>3.0.4</target-version>
+			<target-version>3.0.5</target-version>
 		</installation>
 		
 		<history>
 			<entry>
-				<date>2009-05-01T00:00:00+02:00</date>
+				<date>2009-06-14T00:00:00+02:00</date>
 				<rev-version>0.3.2</rev-version>
 				<changelog lang="en-gb">
-					<change>Only version number update</change>
+					<change>Added support for Ultimate Points MOD</change>
 				</changelog>
 				<changelog lang="de">
-					<change>Nur Versionsnummer update</change>
+					<change>Support für Ultimate Points MOD hinzugefügt.</change>
 				</changelog>
 			</entry>
 		</history>
@@ -52,6 +52,13 @@
 	    <copy>
 			<file from="root/umil/*.*" to="umil/*.*" />
 			<file from="root/install_f1.php" to="install_f1.php" />
+			<file from="root/formel.php" to="formel.php" />
+			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html" />
+			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php" />
+			
+			<file from="root/language/en/mods/acp_formel.php" to="language/en/mods/acp_formel.php" />
+			<file from="root/language/de/mods/acp_formel.php" to="language/de/mods/acp_formel.php" />
+			<file from="root/language/gr/mods/acp_formel.php" to="language/fr/mods/acp_formel.php" />
 			
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
 		</copy>

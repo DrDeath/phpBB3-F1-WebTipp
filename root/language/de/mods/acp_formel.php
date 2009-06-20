@@ -123,6 +123,10 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_SEASON_RESETTED'				=> 'Saison zurückgesetzt. Renntermine aktualisieren!',
 	'ACP_F1_SETTING_GUEST_VIEWING'					=> 'WebTipp sichtbar für Gäste',
 	'ACP_F1_SETTING_GUEST_VIEWING_EXPLAIN'			=> 'Nur möglich wenn Zugriff für <strong>WebTipp Gruppe</strong> deaktiviert ist.',
+	'ACP_F1_SETTINGS_POINTS_ENABLED'				=> 'Ultimate Points Unterstützung aktivieren',
+	'ACP_F1_SETTINGS_POINTS_ENABLED_EXPLAIN'		=> 'Hier kannst Du angeben, ob für abgegebene Tipps Punkte vergeben werden sollen.<br /><strong>Hinweis: </strong>Funktioniert nur, wenn zuvor das Ultimate Points MOD installiert worden ist.',
+	'ACP_F1_SETTINGS_POINTS_VALUE'					=> 'Punkte pro abgegebenen Tipp',
+	'ACP_F1_SETTINGS_POINTS_VALUE_EXPLAIN'			=> 'Hier kannst Du angeben, wieviel <strong>Punkte</strong> ein abgegebener Tipp wert ist.',
 	
 	'ACP_F1_DRIVERS'								=> 'Formel 1 Fahrer',
 	'ACP_F1_DRIVERS_EXPLAIN'						=> 'Hier kannst Du neue Formel 1 Fahrer erstellen oder vorhandene bearbeiten',

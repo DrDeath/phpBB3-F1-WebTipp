@@ -123,6 +123,10 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_SEASON_RESETTED'				=> 'Season resettet. Update race start times!',
 	'ACP_F1_SETTING_GUEST_VIEWING'					=> 'WebTipp visible for guests',
 	'ACP_F1_SETTING_GUEST_VIEWING_EXPLAIN'			=> 'Only possible if permission for a <strong>WebTip Group</strong> is <strong>de-activated</strong>.',
+	'ACP_F1_SETTINGS_POINTS_ENABLED'				=> 'Activate Ultimate Point support',
+	'ACP_F1_SETTINGS_POINTS_ENABLED_EXPLAIN'		=> 'Here you can define whether to enable giving points for WebTipps or not.<br /><strong>Hint: </strong>Only operational if you have installed the Ultimate Points MOD.',
+	'ACP_F1_SETTINGS_POINTS_VALUE'					=> 'Points for given WebTipps',
+	'ACP_F1_SETTINGS_POINTS_VALUE_EXPLAIN'			=> 'Here you can define how much <strong>Points</strong> a given WebTipp is worth.',
 	
 	'ACP_F1_DRIVERS'								=> 'Formula 1 Drivers',
 	'ACP_F1_DRIVERS_EXPLAIN'						=> 'Here you can add or edit the drivers',
