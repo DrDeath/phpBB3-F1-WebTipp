@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../contrib/modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.2.xsd">
+	<header>
+	
+		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+		
+		<title lang="en-gb">Formula 1 WebTip update from 0.3.2 to 0.3.3</title>
+		<title lang="de">Formel 1 WebTipp Update von 0.3.2 auf 0.3.3</title>
+		
+		<description lang="en-gb"><![CDATA[With this mod you can update your Formula 1 tipp game from version 0.3.2 to 0.3.3.]]></description>
+		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel von Version 0.3.2 auf 0.3.3.]]></description>
+		
+		<author-group>
+			<author>
+				<realname>Stefan Temath</realname>
+				<email>dr.death@lpi-clan.de</email>
+				<username>Dr.Death</username>
+				<homepage>http://www.lpi-clan.de</homepage>
+				<contributions-group>
+					<contributions status="past" from="2006-01-01" position="Developer"/>
+				</contributions-group>
+			</author>
+		</author-group>
+		
+		<mod-version>0.3.3</mod-version>
+		
+		<installation>
+			<level>easy</level>
+			<time>300</time>
+			<target-version>3.0.5</target-version>
+		</installation>
+		
+		<history>
+			<entry>
+				<date>2009-06-21T00:00:00+02:00</date>
+				<rev-version>0.3.3</rev-version>
+				<changelog lang="en-gb">
+					<change>Cosmetic change in acp modul</change>
+				</changelog>
+				<changelog lang="de">
+					<change>Kosmetische Änderung im ACP Modul</change>
+				</changelog>
+			</entry>
+		</history>
+    
+		<meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
+	</header>
+
+	<action-group>
+	    <copy>
+			<file from="root/umil/*.*" to="umil/*.*" />
+			<file from="root/install_f1.php" to="install_f1.php" />
+			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html" />
+			
+			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
+		</copy>
+		<diy-instructions lang="en-gb"><![CDATA[After copying these files, you have to point your web browser to the UMIL install_f1.php file
+like:  http://your-domian.tld/path-to-your-forum/install_f1.php
+
+Please make sure that the action is set to "Update" !!!
+
+Now you have updated your Formel 1 WebTipp to version 0.3.3 !
+
+
+Don't forget to delete the file "install_f1.php" from your webspace.
+
+And now: Have fun!]]></diy-instructions>
+		<diy-instructions lang="de"><![CDATA[Nach dem Kopieren der o.g. Dateien musst Du noch den UMIL Installer/Updater install_f1.php mit Deinem Browser aufrufen.
+Beispiel: http://deine-domaene.tld/pfad-zum-forum/install_f1.php
+
+Bitte prüfe vor der Bestätigung, das der Vorgang auf "Aktualisiere" steht.
+
+Geschafft! Euer Formel 1 Webtipp ist nun auf die Version 0.3.3 aktualisiert worden!
+
+Vergesst nicht nach erfolgreicher Aktualisierung die Datei "install_f1.php" von Eurem Webspace zu löschen.
+
+
+Und nun: Viel Spass !
+]]></diy-instructions>
+	</action-group>
+</mod>
+
+ 

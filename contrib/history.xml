@@ -277,6 +277,16 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<change>Support für Ultimate Points MOD hinzugefügt.</change>
 			</changelog>
 		</entry>
+		<entry>
+			<date>2009-06-21T00:00:00+02:00</date>
+			<rev-version>0.3.3</rev-version>
+			<changelog lang="en-gb">
+				<change>Cosmetic change in acp modul</change>
+			</changelog>
+			<changelog lang="de">
+				<change>Kosmetische Änderung im ACP Modul</change>
+			</changelog>
+		</entry>
 	</history>
 	
     <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
