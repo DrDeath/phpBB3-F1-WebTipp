@@ -4,7 +4,7 @@
  * @author Nathan Guse (EXreaction) http://lithiumstudios.org
  * @author David Lewis (Highway of Life) highwayoflife@gmail.com
  * @package umil
- * @version $Id: umil.php 151 2009-06-20 06:13:22Z EXreaction $
+ * @version $Id: umil.php 158 2009-07-09 03:42:37Z exreaction $
  * @copyright (c) 2008 phpBB Group
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -18,7 +18,7 @@ if (!defined('IN_PHPBB'))
 	exit;
 }
 
-define('UMIL_VERSION', '1.0.0-RC3');
+define('UMIL_VERSION', '1.0.0');
 
 /**
 * Multicall instructions
@@ -1910,7 +1910,16 @@ class umil
 		// Use sql_table_exists if available
 		if (method_exists($this->db_tools, 'sql_table_exists'))
 		{
-			return $this->db_tools->sql_table_exists($table_name);
+			$roe = $this->db->return_on_error;
+			$result = $this->db_tools->sql_table_exists($table_name);
+
+			// db_tools::sql_table_exists resets the return_on_error to false always after completing, so we must make sure we set it to true again if it was before
+			if ($roe)
+			{
+				$this->db->sql_return_on_error(true);
+			}
+
+			return $result;
 		}
 
 		if (!function_exists('get_tables'))
