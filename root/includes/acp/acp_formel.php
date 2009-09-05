@@ -301,6 +301,8 @@ class acp_formel
 					'S_SHOW_COUNTDOWN_NO'				=> $show_countdown_no,
 					'S_GUEST_VIEWING_YES'				=> $guest_viewing_yes,
 					'S_GUEST_VIEWING_NO'				=> $guest_viewing_no,
+					'S_POINTS_ENABLED_YES'				=> $points_enabled_yes,
+					'S_POINTS_ENABLED_NO'				=> $points_enabled_no,
 
 					'ACP_F1_SETTING_OFFSET'					=> $formel_config['deadline_offset'],
 					'ACP_F1_SETTING_RACEOFFSET'				=> $formel_config['event_change'],
