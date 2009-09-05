@@ -216,8 +216,19 @@ $versions = array(
 	
 	// Version 0.3.2
 	'0.3.2' => array(
-		// Version 0.3.12- adding support for Ultimate Point System. Default is point systems disabled and point value 50.00
+		// Version 0.3.2- adding support for Ultimate Point System. Default is point systems disabled and point value 50.00
 		'custom'	=> 'fill_0_3_2',
+	),
+	
+	// Version 0.3.3
+	'0.3.3' => array(
+		// Version 0.3.3- adding option to disable drivers
+		'table_column_add' => array(
+			array('phpbb_formel_drivers', 'driver_disabled', array(
+					'BOOL', 0
+				)
+			),
+		),
 	),
 
 );

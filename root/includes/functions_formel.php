@@ -172,8 +172,8 @@ function get_formel_drivers()
 /**
 * get_formel_drivers_data
 *
-* Get all formel drivers data for combobox
-* Returns all drivers in array $drivers
+* Get all active formel drivers data for combobox
+* Returns all active drivers in array $drivers
 */
 function get_formel_drivers_data()
 {
@@ -182,6 +182,7 @@ function get_formel_drivers_data()
 	$drivers = array();
 	$sql = 'SELECT * 
 		FROM ' . FORMEL_DRIVERS_TABLE . '
+		WHERE driver_disabled <> 1
 		ORDER BY driver_name ASC';
 	$result = $db->sql_query($sql);
 

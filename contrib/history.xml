@@ -278,13 +278,15 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2009-06-21T00:00:00+02:00</date>
+			<date>2009-09-06T00:00:00+02:00</date>
 			<rev-version>0.3.3</rev-version>
 			<changelog lang="en-gb">
 				<change>Cosmetic change in acp modul</change>
+				<change>Added option to disable a driver</change>
 			</changelog>
 			<changelog lang="de">
 				<change>Kosmetische Änderung im ACP Modul</change>
+				<change>Option zum Deaktivieren von Fahrern hinzugefügt</change>
 			</changelog>
 		</entry>
 	</history>

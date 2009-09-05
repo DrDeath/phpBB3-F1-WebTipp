@@ -34,13 +34,15 @@
 		
 		<history>
 			<entry>
-				<date>2009-06-21T00:00:00+02:00</date>
+				<date>2009-09-06T00:00:00+02:00</date>
 				<rev-version>0.3.3</rev-version>
 				<changelog lang="en-gb">
 					<change>Cosmetic change in acp modul</change>
+					<change>Added option to disable a driver</change>
 				</changelog>
 				<changelog lang="de">
 					<change>Kosmetische Änderung im ACP Modul</change>
+					<change>Option zum Deaktivieren von Fahrern hinzugefügt</change>
 				</changelog>
 			</entry>
 		</history>
@@ -51,10 +53,20 @@
 	<action-group>
 	    <copy>
 			<file from="root/umil/*.*" to="umil/*.*" />
+
 			<file from="root/install_f1.php" to="install_f1.php" />
-			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html" />
-			
+
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
+			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html" />
+
+			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php" />
+			<file from="root/includes/functions_formel.php" to="includes/functions_formel.php" />
+			
+			<file from="root/language/en/mods/acp_formel.php" to="language/en/mods/acp_formel.php" />
+			<file from="root/language/de/mods/acp_formel.php" to="language/de/mods/acp_formel.php" />
+			<file from="root/language/fr/mods/acp_formel.php" to="language/fr/mods/acp_formel.php" />
+			
+			
 		</copy>
 		<diy-instructions lang="en-gb"><![CDATA[After copying these files, you have to point your web browser to the UMIL install_f1.php file
 like:  http://your-domian.tld/path-to-your-forum/install_f1.php

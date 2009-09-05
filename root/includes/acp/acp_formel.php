@@ -301,8 +301,6 @@ class acp_formel
 					'S_SHOW_COUNTDOWN_NO'				=> $show_countdown_no,
 					'S_GUEST_VIEWING_YES'				=> $guest_viewing_yes,
 					'S_GUEST_VIEWING_NO'				=> $guest_viewing_no,
-					'S_POINTS_ENABLED_YES'				=> $points_enabled_yes,
-					'S_POINTS_ENABLED_NO'				=> $points_enabled_no,
 
 					'ACP_F1_SETTING_OFFSET'					=> $formel_config['deadline_offset'],
 					'ACP_F1_SETTING_RACEOFFSET'				=> $formel_config['event_change'],
@@ -357,6 +355,7 @@ class acp_formel
 				$driverteam			= request_var('driverteam'		,	0	);
 				$driver_id			= request_var('driver_id'		,	0	);
 				$driver_penalty		= request_var('driver_penalty'	,	0.0	);
+				$driver_disabled	= request_var('driver_disabled'	,	0	);
 
 				// Init some vars
 				$formel_config = get_formel_config();
@@ -377,6 +376,7 @@ class acp_formel
 							'driver_img'		=> $driverimg,
 							'driver_team'		=> $driverteam,
 							'driver_penalty'	=> $driver_penalty,
+							'driver_disabled'	=> $driver_disabled,
 						);
 						$db->sql_query('INSERT INTO ' . FORMEL_DRIVERS_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
 						add_log('admin', 'LOG_FORMEL_DRIVER_ADDED');
@@ -390,6 +390,7 @@ class acp_formel
 								'driver_img'		=> $driverimg,
 								'driver_team'		=> $driverteam,
 								'driver_penalty'	=> $driver_penalty,
+								'driver_disabled'	=> $driver_disabled,
 							);
 							$sql = 'UPDATE ' . FORMEL_DRIVERS_TABLE . ' 
 								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
@@ -402,6 +403,7 @@ class acp_formel
 								'driver_name'		=> $drivername,
 								'driver_team'		=> $driverteam,
 								'driver_penalty'	=> $driver_penalty,
+								'driver_disabled'	=> $driver_disabled,
 							);
 							$sql = 'UPDATE ' . FORMEL_DRIVERS_TABLE . ' 
 								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
@@ -470,6 +472,7 @@ class acp_formel
 						$driverimg 			= $row['driver_img'];
 						$preselected_id 	= $row['driver_team'];
 						$driver_penalty 	= $row['driver_penalty'];
+						$driver_disabled 	= $row['driver_disabled'];
 						$db->sql_freeresult($result);
 					}
 
@@ -504,6 +507,8 @@ class acp_formel
 						'PREDEFINED_NAME'			=> $drivername,
 						'PREDEFINED_IMG'			=> $driverimg,
 						'PREDEFINED_PENALTY'		=> $driver_penalty,
+						'S_DRIVER_DISABLED'			=> ($driver_disabled == true) ? "checked=\"checked\"" : "",
+						'S_DRIVER_ENABLED'			=> ($driver_disabled == false) ? "checked=\"checked\"" : "",
 						'DRIVER_ID'					=> $driver_id,
 						'L_ACP_F1_DRIVERS_EXPLAIN'	=> $title_exp,
 						'L_ACP_F1_DRIVERS'			=> $title,
@@ -538,6 +543,7 @@ class acp_formel
 						$current_user_id	= $row['driver_id'];
 						$driverimg			= ( $driverimg == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="">' : '<img src="' . $phpbb_root_path . 'images/formel/' . $driverimg . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="">';
 						$driver_penalty 	= $row['driver_penalty'];
+						$driver_disabled 	= $row['driver_disabled'];
 
 						$pointssql = 'SELECT SUM(wm_points) AS total_points 
 							FROM ' . FORMEL_WM_TABLE . ' 
@@ -556,6 +562,7 @@ class acp_formel
 								'DRIVERTEAM'		=> (isset($teams[$row['driver_team']])) ? $teams[$row['driver_team']] : '',
 								'DRIVERPOINTS'		=> $points,
 								'DRIVER_PENALTY'	=> $driver_penalty,
+								'DRIVER_DISABLED'	=> ($driver_disabled == true) ? $user->lang['NO'] : $user->lang['YES'],
 								)
 							);
 						}
@@ -568,16 +575,17 @@ class acp_formel
 								'DRIVERTEAM'		=> (isset($teams[$row['driver_team']])) ? $teams[$row['driver_team']] : '',
 								'DRIVERPOINTS'		=> $points,
 								'DRIVER_PENALTY'	=> $driver_penalty,
+								'DRIVER_DISABLED'	=> ($driver_disabled == true) ? $user->lang['NO'] : $user->lang['YES'],
 								)
 							);
 						}
 					}
 					$db->sql_freeresult($result);
 
-					$colspan = 6;
+					$colspan = 7;
 					if ( $formel_config['show_gfx'] == 1 )
 					{
-						$colspan = 7;
+						$colspan = 8;
 						$template->assign_block_vars('gfx_on', array());
 					}
 
