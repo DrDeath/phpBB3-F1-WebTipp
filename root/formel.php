@@ -158,7 +158,7 @@ switch ($mode)
 				trigger_error('FORM_INVALID');
 			}
 			
-			for ($i = 0; $i < 8; $i++) 
+			for ($i = 0; $i < 10; $i++) 
 			{
 				$value = request_var('place' . ( $i + 1 ), 0);
 				if (checkarrayforvalue($value,$my_tipp_array)) 
@@ -169,8 +169,8 @@ switch ($mode)
 				}
 				$my_tipp_array[$i] = $value;
 			}
-			$my_tipp_array[8] = request_var('place9', 0);  //[8] --> fastest driver
-			$my_tipp_array[9] = request_var('place10', 0); //[9] --> tired count
+			$my_tipp_array[10] = request_var('place11', 0);  //[10] --> fastest driver
+			$my_tipp_array[11] = request_var('place12', 0); //[11] --> tired count
 			$my_tipp = implode(",",$my_tipp_array);
 
 			if ($place_my_tipp) 
@@ -626,21 +626,21 @@ switch ($mode)
 						//Actual Race is over
 						$single_fastest	= '';
 						$single_tired	= '';
-						$drivercombo	= (isset($drivers[$tipp_array[8]]['driver_name'])) ? $drivers[$tipp_array[8]]['driver_name'] : '';
-						$tiredcombo		= (isset($tipp_array[9])) ? $tipp_array[9] : '';
+						$drivercombo	= (isset($drivers[$tipp_array[10]]['driver_name'])) ? $drivers[$tipp_array[10]]['driver_name'] : '';
+						$tiredcombo		= (isset($tipp_array[11])) ? $tipp_array[11] : '';
 
 						//Recalc tip points for fastest driver
-						if (isset($results[8]) && $results[8] <> 0 )
+						if (isset($results[10]) && $results[10] <> 0 )
 						{
-							if ($tipp_array[8] == $results[8])
+							if ($tipp_array[10] == $results[10])
 							{
 								$single_fastest += $formel_config['points_fastest'];
 							}
 						}
 						//Recalc tip points for tired count
-						if (isset($results[9]))
+						if (isset($results[11]))
 						{
-							if ($tipp_array[9] == $results[9])
+							if ($tipp_array[11] == $results[11])
 							{
 								$single_tired += $formel_config['points_tired'];
 							}
@@ -649,22 +649,22 @@ switch ($mode)
 					else 
 					{
 						//Actual Race is not over
-						$drivercombo = '<select name="place9" size="1">';
+						$drivercombo = '<select name="place11" size="1">';
 						for ($k = 0; $k < count($driver_combodata); $k++) 
 						{
 							$this_driver_id		 = $driver_combodata[$k]['driver_id'];
 							$this_driver_name	 = $driver_combodata[$k]['driver_name'];
-							$selected			 = ( $this_driver_id == $tipp_array[8]) ? 'selected' : '';
+							$selected			 = ( $this_driver_id == $tipp_array[10]) ? 'selected' : '';
 							$drivercombo		.= '<option value="' . $this_driver_id . '" ' . $selected .'>' . $this_driver_name . '</option>';
 						}
 						$drivercombo .= '</select>';
 
-						$tiredcombo = '<select name="place10" size="1">';
+						$tiredcombo = '<select name="place12" size="1">';
 						
 						//We have 10 Teams with 2 cars each --> 20 drivers
 						for ($k = 0; $k < 21; $k++) 
 						{
-							$selected 			 = ( $k == $tipp_array[9]) ? 'selected' : '';
+							$selected 			 = ( $k == $tipp_array[11]) ? 'selected' : '';
 							$tiredcombo 		.= '<option value="' . $k . '" ' . $selected . '>' . $k . '</option>';
 						}
 						$tiredcombo .= '</select>';
@@ -702,7 +702,7 @@ switch ($mode)
 						if ($races[$chosen_race]['race_time'] - $formel_config['deadline_offset'] > $current_time) 
 						{
 							//Actual Race is not over
-							for ($i = 0; $i < 8; $i++) 
+							for ($i = 0; $i < 10; $i++) 
 							{
 								$position = ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
 								$box_name = 'place' . ($i+1);
@@ -722,7 +722,7 @@ switch ($mode)
 								);
 							}
 
-							$drivercombo = '<select name="place9" size="1">';
+							$drivercombo = '<select name="place11" size="1">';
 							for ($k = 0; $k < count($driver_combodata); $k++) 
 							{
 								$this_driver_id		 = $driver_combodata[$k]['driver_id'];
@@ -731,7 +731,7 @@ switch ($mode)
 							}
 							$drivercombo .= '</select>';
 
-							$tiredcombo = '<select name="place10" size="1">';
+							$tiredcombo = '<select name="place12" size="1">';
 							
 							//We have 10 Teams with 2 cars each --> 20 drivers
 							for ($k = 0; $k < 21; $k++) 
@@ -825,16 +825,16 @@ switch ($mode)
 					if ( $formel_config['show_gfx'] == 1 )
 					{
 						$template->assign_block_vars('extended_results_gfx', array(
-							'PACE'				=> (isset($drivers[$results[8]]['driver_name'])) ? $drivers[$results[8]]['driver_name'] : '',
-							'TIRED'				=> (isset($results[9])) ? $results[9] : '',
+							'PACE'				=> (isset($drivers[$results[10]]['driver_name'])) ? $drivers[$results[10]]['driver_name'] : '',
+							'TIRED'				=> (isset($results[11])) ? $results[11] : '',
 							'YOUR_POINTS'		=> $user_tipp_points)	
 						);
 					}
 					else
 					{
 						$template->assign_block_vars('extended_results', array(
-							'PACE'				=> (isset($drivers[$results[8]]['driver_name'])) ? $drivers[$results[8]]['driver_name'] : '',
-							'TIRED'				=> (isset($results[9])) ? $results[9] : '',
+							'PACE'				=> (isset($drivers[$results[10]]['driver_name'])) ? $drivers[$results[10]]['driver_name'] : '',
+							'TIRED'				=> (isset($results[11])) ? $results[11] : '',
 							'YOUR_POINTS'		=> $user_tipp_points)
 						);
 					}
@@ -1166,7 +1166,7 @@ switch ($mode)
 					$db->sql_query($sql);
 				}
 				
-				for ($i = 0; $i < 8; $i++) 
+				for ($i = 0; $i < 10; $i++) 
 				{
 					$value = request_var('place' . ( $i + 1 ), 0);
 					if (checkarrayforvalue($value,$result_array)) 
@@ -1178,8 +1178,8 @@ switch ($mode)
 					$result_array[$i] = $value;
 				}
 				
-				$result_array[8] = request_var('place9' , 0);	//[8] --> fastest driver
-				$result_array[9] = request_var('place10' , 0);	//[9] --> tired count
+				$result_array[10] = request_var('place11' , 0);	//[10] --> fastest driver
+				$result_array[11] = request_var('place12' , 0);	//[11] --> tired count
 				$new_result = implode(",",$result_array);
 				$sql_ary = array(
 					'race_result'	=> $new_result
@@ -1221,11 +1221,11 @@ switch ($mode)
 							}
 						}
 					}
-					if ( $current_tipp_array[8] == $result_array[8] && $current_tipp_array[8] <> 0) 
+					if ( $current_tipp_array[10] == $result_array[10] && $current_tipp_array[10] <> 0) 
 					{
 						$user_tipp_points += $formel_config['points_fastest'];
 					}
-					if ( $current_tipp_array[9] == $result_array[9] ) 
+					if ( $current_tipp_array[11] == $result_array[11] ) 
 					{
 						$user_tipp_points += $formel_config['points_tired'];
 					}
@@ -1253,14 +1253,19 @@ switch ($mode)
 					$teams[$row['driver_id']] = $row['driver_team'];
 				}
 				$db->sql_freeresult($result);
-				// wm points:  10-8-6-5-4-3-2-1
+				// wm points:  25-20-15-10-8-6-4-3-2-1
 				$wm = array();
-                $wm[0] = 10;       // 10 Point for first place
-                $wm[1] = 8;        // 8 Points for second place 
-                for ( $i=2; $i < 8; $i++ )  
+				$wm[0] = 25;		// 25 Point for first place
+				$wm[1] = 20;		// 20 Point for second place
+				$wm[2] = 15;		// 15 Point for third place
+                $wm[3] = 10;		// 10 Point for forth place
+                $wm[4] = 8;			// 8 Points for fifth place 
+                $wm[5] = 6;			// 6 Points for sixt place
+                for ( $i=6; $i < 10; $i++ )  
 				{
-					$wm[$i] = ( 8 - $i );
+					$wm[$i] = ( 10 - $i );
 				}
+
 				for ( $i=0; $i < count($result_array)-2; $i++ ) 
 				{
 					$current_driver = $result_array[$i];
@@ -1380,7 +1385,7 @@ switch ($mode)
 			$db->sql_freeresult($result);
 			$drivers[0]['driver_id'] = '0';
 			$drivers[0]['driver_name'] = $user->lang['FORMEL_DEFINE'];
-			for ($i = 0; $i < 8; $i++) 
+			for ($i = 0; $i < 10; $i++) 
 			{
 				$position = ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
 				$box_name = 'place' . ($i+1);
@@ -1405,14 +1410,14 @@ switch ($mode)
 					'DRIVERCOMBO' 	=> $drivercombo)
 				);
 			}
-			$drivercombo_pace = '<select name="place9" size="1">';
+			$drivercombo_pace = '<select name="place11" size="1">';
 			for ($k = 0; $k < count($drivers); $k++) 
 			{
 				$this_driver_id = $drivers[$k]['driver_id'];
 				$this_driver_name = $drivers[$k]['driver_name'];
-				if (isset($result_array[8]))
+				if (isset($result_array[10]))
 				{
-					$selected = ( $this_driver_id == $result_array[8]) ? 'selected="selected"' : '';
+					$selected = ( $this_driver_id == $result_array[10]) ? 'selected="selected"' : '';
 				}
 				else
 				{
@@ -1421,14 +1426,14 @@ switch ($mode)
 				$drivercombo_pace .= '<option value="' . $this_driver_id . '" ' . $selected . '>' . $this_driver_name . '</option>';
 			}
 			$drivercombo_pace .= '</select>';
-			$combo_tired = '<select name="place10" size="1">';
+			$combo_tired = '<select name="place12" size="1">';
 			
 			//We have 10 Teams with 2 cars each --> 20 drivers
 			for ($k = 0; $k < 21; $k++) 
 			{
-				if (isset($result_array[9]))
+				if (isset($result_array[11]))
 				{
-					$selected = ( $k == $result_array[9]) ? 'selected="selected"' : '';
+					$selected = ( $k == $result_array[11]) ? 'selected="selected"' : '';
 				}
 				else
 				{
@@ -1556,22 +1561,22 @@ switch ($mode)
 				);
 			}
 
-			$fastest_driver_name 	= (isset($driver_name[$tipp_array[8]])) ? $driver_name[$tipp_array[8]] : '';
-			$tired 					= (isset($tipp_array[9])) ? $tipp_array[9] : '';
+			$fastest_driver_name 	= (isset($driver_name[$tipp_array[10]])) ? $driver_name[$tipp_array[10]] : '';
+			$tired 					= (isset($tipp_array[11])) ? $tipp_array[11] : '';
 
 			//Recalc tip points for fastest driver and tired count
 			$single_fastest = '';
 			$single_tired = '';
-			if (isset($results[8]) && $results[8] <> 0)
+			if (isset($results[10]) && $results[10] <> 0)
 			{
-				if ($tipp_array[8] == $results[8])
+				if ($tipp_array[10] == $results[10])
 				{
 					$single_fastest += $formel_config['points_fastest'];
 				}
 			}
-			if (isset($results[9]))
+			if (isset($results[11]))
 			{
-				if ($tipp_array[9] == $results[9])
+				if ($tipp_array[11] == $results[11])
 				{
 					$single_tired += $formel_config['points_tired'];
 				}
@@ -1901,7 +1906,7 @@ switch ($mode)
 			$points_tired .= ' ' . $points;
 		}
 
-		$points_total = 8 * ( $points_mentioned + $points_placed ) + $points_fastest + $points_tired;
+		$points_total = 10 * ( $points_mentioned + $points_placed ) + $points_fastest + $points_tired;
 		if ( $points_total == '1' ) 
 		{
 			$points_total .= ' ' . $point;

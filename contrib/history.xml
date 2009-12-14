@@ -38,12 +38,12 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		</author>
 	</author-group>
 	
-	<mod-version>0.3.2</mod-version>
+	<mod-version>0.3.4</mod-version>
 	
     <installation>
 		<level>easy</level>
 		<time>600</time>
-		<target-version>3.0.5</target-version>
+		<target-version>3.0.6</target-version>
 	</installation>
 	
 	<link-group>
@@ -287,6 +287,16 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<changelog lang="de">
 				<change>Kosmetische Änderung im ACP Modul</change>
 				<change>Option zum Deaktivieren von Fahrern hinzugefügt</change>
+			</changelog>
+		</entry>
+		<entry>
+			<date>2009-12-14T00:00:00+02:00</date>
+			<rev-version>0.3.4</rev-version>
+			<changelog lang="en-gb">
+				<change>Changed Points calculating according to new 2010 F1 rules</change>
+			</changelog>
+			<changelog lang="de">
+				<change>Punktberechnung an die neuen F1 Regeln von 2010 angepasst</change>
 			</changelog>
 		</entry>
 	</history>

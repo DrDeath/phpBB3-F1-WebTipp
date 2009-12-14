@@ -34,7 +34,7 @@
 		
 		<history>
 			<entry>
-				<date>2009-09-06T00:00:00+02:00</date>
+				<date>2009-12-14T00:00:00+02:00</date>
 				<rev-version>0.3.4</rev-version>
 				<changelog lang="en-gb">
 					<change>Changed Points calculating according to new 2010 F1 rules</change>
@@ -51,10 +51,9 @@
 	<action-group>
 	    <copy>
 			<file from="root/umil/*.*" to="umil/*.*" />
-
 			<file from="root/install_f1.php" to="install_f1.php" />
-
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
+			<file from="root/formel.php" to="formel.php" />
 		</copy>
 		<diy-instructions lang="en-gb"><![CDATA[After copying these files, you have to point your web browser to the UMIL install_f1.php file
 like:  http://your-domian.tld/path-to-your-forum/install_f1.php
