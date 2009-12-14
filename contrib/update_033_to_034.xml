@@ -54,6 +54,12 @@
 			<file from="root/install_f1.php" to="install_f1.php" />
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
 			<file from="root/formel.php" to="formel.php" />
+			
+			<file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php" />
+			
+			<file from="root/language/de/mods/formel.php" to="language/de/mods/formel.php" />
+			
+			<file from="root/language/fr/mods/formel.php" to="language/fr/mods/formel.php" />
 		</copy>
 		<diy-instructions lang="en-gb"><![CDATA[After copying these files, you have to point your web browser to the UMIL install_f1.php file
 like:  http://your-domian.tld/path-to-your-forum/install_f1.php
