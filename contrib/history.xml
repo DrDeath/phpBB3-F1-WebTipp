@@ -290,13 +290,15 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2009-12-14T00:00:00+02:00</date>
+			<date>2009-12-23T00:00:00+02:00</date>
 			<rev-version>0.3.4</rev-version>
 			<changelog lang="en-gb">
-				<change>Changed Points calculating according to new 2010 F1 rules</change>
+				<change>Changed Points calculating according to new 2010 F1 rules (25-20-15-10-8-6-5-3-2-1)</change>
+				<change>Changed Qualify design. We have now 26 drivers. In Q1 and Q2 eight driver will drop out</change>
 			</changelog>
 			<changelog lang="de">
-				<change>Punktberechnung an die neuen F1 Regeln von 2010 angepasst</change>
+				<change>Punktberechnung an die neuen F1 Regeln von 2010 angepasst (25-20-15-10-8-6-5-3-2-1)</change>
+				<change>Qualify Ergebnis Ansicht angepasst.Wir haben nun 26 Fahrer. In Q1 und Q2 werden acht Fahrer ausscheiden</change>
 			</changelog>
 		</entry>
 	</history>
