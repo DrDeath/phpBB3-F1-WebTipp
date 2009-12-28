@@ -34,15 +34,17 @@
 		
 		<history>
 			<entry>
-				<date>2009-12-23T00:00:00+02:00</date>
+				<date>2009-12-28T00:00:00+02:00</date>
 				<rev-version>0.3.4</rev-version>
 				<changelog lang="en-gb">
 					<change>Changed Points calculating according to new 2010 F1 rules (25-20-15-10-8-6-5-3-2-1)</change>
 					<change>Changed Qualify design. We have now 26 drivers. In Q1 and Q2 eight driver will drop out</change>
+					<change>Fix: Module ACP Team/Driver language button.</change>
 				</changelog>
 				<changelog lang="de">
 					<change>Punktberechnung an die neuen F1 Regeln von 2010 angepasst (25-20-15-10-8-6-5-3-2-1)</change>
-					<change>Qualify Ergebnis Ansicht angepasst.Wir haben nun 26 Fahrer. In Q1 und Q2 werden acht Fahrer ausscheiden</change>
+					<change>Qualify Ergebnis Ansicht angepasst. Wir haben nun 26 Fahrer. In Q1 und Q2 werden acht Fahrer ausscheiden</change>
+					<change>Fix: Modul ACP Team/Driver Sprachbutton.</change>
 				</changelog>
 			</entry>
 		</history>
@@ -61,6 +63,7 @@
 			<file from="root/language/de/mods/formel.php" to="language/de/mods/formel.php" />
 			<file from="root/language/fr/mods/formel.php" to="language/fr/mods/formel.php" />
 			
+			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html" />
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
 			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
 		</copy>
