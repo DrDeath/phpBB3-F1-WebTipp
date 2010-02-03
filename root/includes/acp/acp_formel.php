@@ -99,6 +99,24 @@ class acp_formel
 							SET ' . $db->sql_build_array('UPDATE', $sql_ary) ;
 						$db->sql_query($sql);
 						
+						//remove penalty from drivers
+						$sql_ary = array(
+							'driver_penalty'	=> 0,
+						);
+
+						$sql = 'UPDATE ' . FORMEL_DRIVERS_TABLE . ' 
+							SET ' . $db->sql_build_array('UPDATE', $sql_ary) ;
+						$db->sql_query($sql);
+						
+						//remove penalty from teams
+						$sql_ary = array(
+							'team_penalty'	=> 0,
+						);
+
+						$sql = 'UPDATE ' . FORMEL_TEAMS_TABLE . ' 
+							SET ' . $db->sql_build_array('UPDATE', $sql_ary) ;
+						$db->sql_query($sql);
+						
 						add_log('admin', 'LOG_FORMEL_SAISON_RESET');
 						$error = $user->lang[$lang . '_SEASON_RESETTED'];
 						trigger_error($error . adm_back_link($this->u_action));

@@ -34,17 +34,19 @@
 		
 		<history>
 			<entry>
-				<date>2009-12-28T00:00:00+02:00</date>
+				<date>2010-02-03T00:00:00+02:00</date>
 				<rev-version>0.3.4</rev-version>
 				<changelog lang="en-gb">
-					<change>Changed Points calculating according to new 2010 F1 rules (25-20-15-10-8-6-5-3-2-1)</change>
+					<change>Changed Points calculating according to new 2010 F1 rules (25-18-15-12-10-8-6-4-2-1)</change>
 					<change>Changed Qualify design. We have now 26 drivers. In Q1 and Q2 eight driver will drop out</change>
-					<change>Fix: Module ACP Team/Driver language button.</change>
+					<change>BugFix: Module ACP Team/Driver language button.</change>
+					<change>Added: Saison reset in ACP will remove driver and team penalty points.</change>
 				</changelog>
 				<changelog lang="de">
-					<change>Punktberechnung an die neuen F1 Regeln von 2010 angepasst (25-20-15-10-8-6-5-3-2-1)</change>
-					<change>Qualify Ergebnis Ansicht angepasst. Wir haben nun 26 Fahrer. In Q1 und Q2 werden acht Fahrer ausscheiden</change>
-					<change>Fix: Modul ACP Team/Driver Sprachbutton.</change>
+					<change>Punktberechnung an die neuen F1 Regeln von 2010 angepasst (25-18-15-12-10-8-6-4-2-1)</change>
+					<change>Qualify Ergebnis Ansicht angepasst.Wir haben nun 26 Fahrer. In Q1 und Q2 werden acht Fahrer ausscheiden</change>
+					<change>BugFix: Modul ACP Team/Driver Sprachbutton.</change>
+					<change>Hinzugefügt: Saison zurücksetzen im ACP entfernt nun auch vorhandene Fahrer und Team Strafpunkte.</change>
 				</changelog>
 			</entry>
 		</history>
@@ -64,6 +66,7 @@
 			<file from="root/language/fr/mods/formel.php" to="language/fr/mods/formel.php" />
 			
 			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html" />
+			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php" />
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
 			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
 		</copy>
