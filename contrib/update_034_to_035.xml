@@ -6,11 +6,11 @@
 	
 		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
 		
-		<title lang="en-gb">Formula 1 WebTip update from 0.3.3 to 0.3.4</title>
-		<title lang="de">Formel 1 WebTipp Update von 0.3.3 auf 0.3.4</title>
+		<title lang="en-gb">Formula 1 WebTip update from 0.3.4 to 0.3.5</title>
+		<title lang="de">Formel 1 WebTipp Update von 0.3.4 auf 0.3.5</title>
 		
-		<description lang="en-gb"><![CDATA[With this mod you can update your Formula 1 tipp game from version 0.3.3 to 0.3.4.]]></description>
-		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel von Version 0.3.3 auf 0.3.4.]]></description>
+		<description lang="en-gb"><![CDATA[With this mod you can update your Formula 1 tipp game from version 0.3.4 to 0.3.5.]]></description>
+		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel von Version 0.3.4 auf 0.3.5.]]></description>
 		
 		<author-group>
 			<author>
@@ -24,29 +24,25 @@
 			</author>
 		</author-group>
 		
-		<mod-version>0.3.4</mod-version>
+		<mod-version>0.3.5</mod-version>
 		
 		<installation>
 			<level>easy</level>
 			<time>300</time>
-			<target-version>3.0.6</target-version>
+			<target-version>3.0.7</target-version>
 		</installation>
 		
 		<history>
 			<entry>
-				<date>2010-02-03T00:00:00+02:00</date>
-				<rev-version>0.3.4</rev-version>
+				<date>2010-03-14T00:00:00+02:00</date>
+				<rev-version>0.3.5</rev-version>
 				<changelog lang="en-gb">
-					<change>Changed Points calculating according to new 2010 F1 rules (25-18-15-12-10-8-6-4-2-1)</change>
-					<change>Changed Qualify design. We have now 26 drivers. In Q1 and Q2 eight driver will drop out</change>
-					<change>BugFix: Module ACP Team/Driver language button.</change>
-					<change>Added: Saison reset in ACP will remove driver and team penalty points.</change>
+					<change>Changed design. We have now 24 drivers (12 teams). In Q1 and Q2 seven driver will drop out</change>
+					<change>Added feature: Give half points if race aborted. (Thanks to Dungeonwatcher for his idea)</change>
 				</changelog>
 				<changelog lang="de">
-					<change>Punktberechnung an die neuen F1 Regeln von 2010 angepasst (25-18-15-12-10-8-6-4-2-1)</change>
-					<change>Qualify Ergebnis Ansicht angepasst.Wir haben nun 26 Fahrer. In Q1 und Q2 werden acht Fahrer ausscheiden</change>
-					<change>BugFix: Modul ACP Team/Driver Sprachbutton.</change>
-					<change>Hinzugefügt: Saison zurücksetzen im ACP entfernt nun auch vorhandene Fahrer und Team Strafpunkte.</change>
+					<change>Design angepasst. Wir haben nun 24 Fahrer (12 Teams). In Q1 und Q2 werden sieben Fahrer ausscheiden</change>
+					<change>Hinzugefügt: Halbe Punkte Vergabe bei Rennabbruch. (Danke an Dungeonwatcher für die Idee)</change>
 				</changelog>
 			</entry>
 		</history>
@@ -64,9 +60,7 @@
 			<file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php" />
 			<file from="root/language/de/mods/formel.php" to="language/de/mods/formel.php" />
 			<file from="root/language/fr/mods/formel.php" to="language/fr/mods/formel.php" />
-			
-			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html" />
-			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php" />
+
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
 			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
 		</copy>
@@ -75,7 +69,7 @@ like:  http://your-domian.tld/path-to-your-forum/install_f1.php
 
 Please make sure that the action is set to "Update" !!!
 
-Now you have updated your Formel 1 WebTipp to version 0.3.4 !
+Now you have updated your Formel 1 WebTipp to version 0.3.5 !
 
 
 Don't forget to clear your chache, refresh your template files and delete the file "install_f1.php" from your webspace.
@@ -86,7 +80,7 @@ Beispiel: http://deine-domaene.tld/pfad-zum-forum/install_f1.php
 
 Bitte prüfe vor der Bestätigung, das der Vorgang auf "Aktualisiere" steht.
 
-Geschafft! Euer Formel 1 Webtipp ist nun auf die Version 0.3.4 aktualisiert worden!
+Geschafft! Euer Formel 1 Webtipp ist nun auf die Version 0.3.5 aktualisiert worden!
 
 Vergesst nicht Euren Style zu aktualisieren, den Cache zu leeren und die Datei "install_f1.php" von Eurem Webspace zu löschen.
 

@@ -126,7 +126,7 @@ $lang = array_merge($lang, array(
 	'INSERT_F1_FIRST_FILL'					=> 'Insérer les données dans les tables config, pilotes, écuries et courses.',
 	'INSERT_F1_CONFIG'						=> 'Insérer les données dans les tables formel_config',
 	'FORMEL_GUESTS_PLACE_NO_TIP'			=> '<strong>Les invités ne peuvent pas faire de pronostics.</strong><br /><br />Pour placer un pronostic vous devez être enregistrés et connectés.<br />',
-	
+	'FORMEL_RACE_ABORD'						=> 'Course interrompue. (Demi de points.)',
 ));
 
 ?>

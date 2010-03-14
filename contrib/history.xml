@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <?xml-stylesheet type="text/xsl" href="../contrib/modx.prosilver.en.xsl"?>
 <!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
-<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.3.xsd">
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
 		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
 	<title lang="en-gb">Formula 1 WebTip</title>
@@ -303,6 +303,18 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<change>Qualify Ergebnis Ansicht angepasst.Wir haben nun 26 Fahrer. In Q1 und Q2 werden acht Fahrer ausscheiden</change>
 				<change>BugFix: Modul ACP Team/Driver Sprachbutton.</change>
 				<change>Hinzugefügt: Saison zurücksetzen im ACP entfernt nun auch vorhandene Fahrer und Team Strafpunkte.</change>
+			</changelog>
+		</entry>
+		<entry>
+			<date>2010-03-14T00:00:00+02:00</date>
+			<rev-version>0.3.5</rev-version>
+			<changelog lang="en-gb">
+				<change>Changed design. We have now 24 drivers (12 teams). In Q1 and Q2 seven driver will drop out</change>
+				<change>Added feature: Give half points if race aborted. (Thanks to Dungeonwatcher for his idea)</change>
+			</changelog>
+			<changelog lang="de">
+				<change>Design angepasst. Wir haben nun 24 Fahrer (12 Teams). In Q1 und Q2 werden sieben Fahrer ausscheiden</change>
+				<change>Hinzugefügt: Halbe Punkte Vergabe bei Rennabbruch. (Danke an Dungeonwatcher für die Idee)</change>
 			</changelog>
 		</entry>
 	</history>

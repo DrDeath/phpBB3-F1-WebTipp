@@ -35,8 +35,8 @@ INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car) VALUES (
 INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car) VALUES (7, 'Force India F1 Team', '', '');
 INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car) VALUES (8, 'Scuderia Toro Rosso', '', '');
 INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car) VALUES (9, 'Lotus F1 Racing', '', '');
-INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car) VALUES (10, 'Campos Meta 1', '', '');
-INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car) VALUES (11, 'US F1 Team', '', '');
+INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car) VALUES (10, 'HRT F1 Team', '', '');
+# -- Team 11 US F1 Team removed
 INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car) VALUES (12, 'Virgin Racing', '', '');
 INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car) VALUES (13, 'Sauber Motorsport', '', '');
 
@@ -88,13 +88,12 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (19, 'Kovalainen, Heikki', '', 9);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (61, 'Fauzy, Fairuz', '', 9);
 
-# -- Team 10 Campos Meta 1
+# -- Team 10 Campos Meta 1 --> now HRT F1 Team
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (20, 'Senna, Bruno', '', 10);
-
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (21, 'Chandhok, Karun', '', 10);
 
 # -- Team 11 US F1 Team
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (22, 'López, José María', '', 11);
-
+# -- not available this saison
 
 # -- Team 12 Virgin Racing
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (24, 'Glock, Timo', '', 12);

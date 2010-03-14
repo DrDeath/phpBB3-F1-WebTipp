@@ -235,6 +235,18 @@ $versions = array(
 	'0.3.4' => array(
 		// Version 0.3.4- nothing to change
 	),
+	
+	// Version 0.3.5
+	'0.3.5' => array(
+		// Version 0.3.5- adding option for race abort - change table column to decimal
+		//ALTER TABLE  `phpbb_formel_wm` CHANGE  `wm_points`  `wm_points` DECIMAL( 4, 2 ) NOT NULL DEFAULT  '0'
+		'table_column_update' => array(
+			array('phpbb_formel_wm', 'wm_points', array(
+					'DECIMAL', 0
+				)
+			),
+		),
+	),
 
 );
 

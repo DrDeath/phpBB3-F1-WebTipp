@@ -212,7 +212,7 @@ function showtipps(showtipps)
 								<!-- BEGIN qualirow_gfx -->
 								<!-- IF qualirow_gfx.S_ROW_COUNT < 10 -->
 								<tr class="row1">
-								<!-- ELSEIF qualirow_gfx.S_ROW_COUNT < 18 -->
+								<!-- ELSEIF qualirow_gfx.S_ROW_COUNT < 17 -->
 								<tr class="row2">
 								<!-- ELSE -->
 								<tr class="row1">
@@ -228,7 +228,7 @@ function showtipps(showtipps)
 								<!-- BEGIN qualirow -->
 								<!-- IF qualirow.S_ROW_COUNT < 10 -->
 								<tr class="row1">
-								<!-- ELSEIF qualirow.S_ROW_COUNT < 18 -->
+								<!-- ELSEIF qualirow.S_ROW_COUNT < 17 -->
 								<tr class="row2">
 								<!-- ELSE -->
 								<tr class="row1">
@@ -512,7 +512,7 @@ function showtipps(showtipps)
 		<!-- BEGIN qualirow -->
 		<!-- IF qualirow.S_ROW_COUNT < 10 -->
 		<tr class="row1">
-		<!-- ELSEIF qualirow.S_ROW_COUNT < 18 -->
+		<!-- ELSEIF qualirow.S_ROW_COUNT < 17 -->
 		<tr class="row2">
 		<!-- ELSE -->
 		<tr class="row3">
@@ -549,6 +549,10 @@ function showtipps(showtipps)
 		<tr>
 			<td class="row1" width="50%" nowrap="nowrap" align="right" valign="middle"><span class="gen">&nbsp;{L_FORMEL_TIRED}&nbsp;</span></td>
 			<td class="row1" width="50%" nowrap="nowrap" align="left"  valign="middle">&nbsp;{result.TIREDCOMBO}&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="row1" width="50%" nowrap="nowrap" align="right" valign="middle"><span class="gen">&nbsp;{L_FORMEL_RACE_ABORD}&nbsp;</span></td>
+			<td class="row1" width="50%" nowrap="nowrap" align="left"  valign="middle">&nbsp;<input type="radio" name="race_abort" value="1" />&nbsp;{L_YES}&nbsp;&nbsp;<input type="radio" name="race_abort" value="0" checked />&nbsp;{L_NO}&nbsp;</td>
 		</tr>
 		<tr>
 			<td class="row3" align="center" colspan="2" valign="middle" nowrap="nowrap">&nbsp;<input type="submit" name="{result.MODE}" value="{L_FORMEL_RESULTS_ADD}" />&nbsp;</td>
