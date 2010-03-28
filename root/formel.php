@@ -358,10 +358,14 @@ switch ($mode)
 				$race_id = $races[$chosen_race]['race_id'];
 				$user_id = $user->data['user_id'];
 
+				$timezone = $user->data['user_timezone'] *3600;
+				$dst = $user->data['user_dst'] * 3600;
+				$zone_offset = $timezone - $dst;
+				
 				//Countdown data
 				if ($formel_config['show_countdown'] == 1)
 				{
-					$event_stop	= date($races[$chosen_race]['race_time'] - $formel_config['deadline_offset']);
+					$event_stop	= date($races[$chosen_race]['race_time'] - $zone_offset - $formel_config['deadline_offset']);
 					$b_day		= $user->format_date($event_stop, 'd');
 					$b_month	= $user->format_date($event_stop, 'n');
 					$b_year		= $user->format_date($event_stop, 'Y');
