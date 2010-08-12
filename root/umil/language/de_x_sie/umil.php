@@ -90,12 +90,16 @@ $lang = array_merge($lang, array(
 	'PERMISSION_ALREADY_EXISTS'		=> 'FEHLER: Berechtigungsoption %s existiert bereits.',
 	'PERMISSION_NOT_EXIST'			=> 'FEHLER: Berechtigungsoption %s existiert nicht.',
 	'PERMISSION_REMOVE'				=> 'Entferne Berechtigungsoption: %s',
+	'PERMISSION_ROLE_ADD'			=> 'Füge neue Berechtigungsrolle hinzu: %s',
+	'PERMISSION_ROLE_UPDATE'		=> 'Aktualisiere Berechtigungsrolle: %s',
+	'PERMISSION_ROLE_REMOVE'		=> 'Entferne Berechtigungsrolle: %s',
 	'PERMISSION_SET_GROUP'			=> 'Setze Berechtigungen für die %s-Gruppe.',
 	'PERMISSION_SET_ROLE'			=> 'Setze Berechtigungen für die %s-Rolle.',
 	'PERMISSION_UNSET_GROUP'		=> 'Entferne Berechtigung für die %s-Gruppe.',
 	'PERMISSION_UNSET_ROLE'			=> 'Entferne Berechtigung für die %s-Rolle.',
 
-	'ROLE_NOT_EXIST'				=> 'Rolle existiert nicht',
+	'ROLE_ALREADY_EXISTS'			=> 'Berechtigungsrolle existiert bereits.',
+	'ROLE_NOT_EXIST'				=> 'Berechtigungsrolle existiert nicht.',
 
 	'SUCCESS'						=> 'Erfolgreich',
 
@@ -124,7 +128,7 @@ $lang = array_merge($lang, array(
 	'UNKNOWN'						=> 'Unbekannt',
 	'UPDATE_MOD'					=> 'Aktualisiere %s',
 	'UPDATE_MOD_CONFIRM'			=> 'Sind Sie bereit, %s zu aktualisieren?',
-	'UPDATE_UMIL'					=> 'Diese Version von UMIL (Unified MOD Install Library) ist veraltet.<br /><br />Bitte laden Sie die aktuelle UMIL-Version von <a href="%1$s">%1$s</a> herunter.',
+	'UPDATE_UMIL'					=> 'Diese Version von UMIL (Unified MOD Install Library) ist veraltet.<br /><br />Bitte laden Sie die aktuelle UMIL-Version von <a href="%1$s" target="_blank">%1$s</a> herunter.',
 
 	'VERSIONS'						=> 'Version der Modifikation: <strong>%1$s</strong><br />Derzeit installiert: <strong>%2$s</strong>',
 	'VERSION_SELECT'				=> 'Versionsauswahl',
