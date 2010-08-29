@@ -47,7 +47,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
     <installation>
       <level>easy</level>
       <time>692</time>
-      <target-version>3.0.6</target-version>
+      <target-version>3.0.7</target-version>
     </installation>
 	<link-group>
 		<link type="parent" lang="en-gb" href="contrib/history.xml">History</link>

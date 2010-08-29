@@ -34,16 +34,18 @@
 		
 		<history>
 			<entry>
-				<date>2010-08-12T00:00:00+02:00</date>
+				<date>2010-08-29T00:00:00+02:00</date>
 				<rev-version>0.3.5</rev-version>
 				<changelog lang="en-gb">
 					<change>Changed design. We have now 24 drivers (12 teams). In Q1 and Q2 seven driver will drop out</change>
+					<change>Changed design. Replaced the "#" with "place" on statistic pages. (femu's idea)</change>
 					<change>BugFix: JavaScript Countdown now reflect correct timezone settings.</change>
 					<change>Added feature: Give half points if race aborted. (Thanks to Dungeonwatcher for his idea)</change>
 					<change>UMIL update to 1.0.3</change>
 				</changelog>
 				<changelog lang="de">
 					<change>Design angepasst. Wir haben nun 24 Fahrer (12 Teams). In Q1 und Q2 werden sieben Fahrer ausscheiden</change>
+					<change>Design angepasst. Auf den Statistik Seiten wurde das "#" Zeichen durch "Platz" ersetzt. (femu's Idee)</change>
 					<change>BugFix: JavaScript Countdown passt sich nun auch den Zeitzonen korrekt an.</change>
 					<change>Hinzugefügt: Halbe Punkte Vergabe bei Rennabbruch. (Danke an Dungeonwatcher für die Idee)</change>
 					<change>UMIL aktualisiert auf 1.0.3</change>
