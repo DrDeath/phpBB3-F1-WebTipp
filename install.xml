@@ -176,6 +176,15 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
 		]]></action>
       </edit>
     </open>
+	<open src="includes/mcp/mcp_notes">
+      <edit>
+		<find><![CDATA[			case 'user_notes':
+				$user->add_lang('acp/common');
+		]]></find>
+		<action type="after-add"><![CDATA[				$user->add_lang('mods/info_acp_formel');
+		]]></action>
+      </edit>
+    </open>	
     <open src="styles/prosilver/template/memberlist_view.html">
       <edit>
         <find><![CDATA[			<!-- IF S_SHOW_ACTIVITY and POSTS -->
