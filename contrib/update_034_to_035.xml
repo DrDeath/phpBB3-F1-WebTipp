@@ -75,10 +75,8 @@
 		<open src="includes/mcp/mcp_notes">
 			<edit>
 				<find><![CDATA[			case 'user_notes':
-				$user->add_lang('acp/common');
-				]]></find>
-				<action type="after-add"><![CDATA[				$user->add_lang('mods/info_acp_formel');
-				]]></action>
+				$user->add_lang('acp/common');]]></find>
+				<action type="after-add"><![CDATA[				$user->add_lang('mods/info_acp_formel');]]></action>
 			</edit>
 		</open>
 		<diy-instructions lang="en-gb"><![CDATA[After copying these files, you have to point your web browser to the UMIL install_f1.php file
