@@ -260,6 +260,21 @@ switch ($mode)
 		}
  		$db->sql_freeresult($result);
 
+		//Get all first place winner, count all first places,  grep all gold medals...  Marker for first place: 25 WM Points
+		$sql = 'SELECT 	count(wm_driver) as gold_medals, 
+						wm_driver
+				FROM 	' . FORMEL_WM_TABLE . '
+				WHERE 	wm_points = 25
+				GROUP BY wm_driver
+				ORDER BY gold_medals DESC';
+		$result = $db->sql_query($sql);
+		
+		// Now put the gold medals into the $drivers array
+		while ($row = $db->sql_fetchrow($result))
+		{
+			$drivers[$row['wm_driver']]['gold_medals']	= $row['gold_medals'];
+		}
+		
 		// Get all wm points and fill top10 drivers
 		$sql = 'SELECT sum(wm_points) AS total_points, wm_driver 
 			FROM ' . FORMEL_WM_TABLE . '
@@ -272,11 +287,12 @@ switch ($mode)
 		while ($row = $db->sql_fetchrow($result))
 		{
 			$recalc_drivers[$row['wm_driver']]['total_points'] 	= $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'];
+			$recalc_drivers[$row['wm_driver']]['gold_medals']	= (isset($drivers[$row['wm_driver']]['gold_medals'])) ? $drivers[$row['wm_driver']]['gold_medals'] : 0;
 			$recalc_drivers[$row['wm_driver']]['driver_name']	= $drivers[$row['wm_driver']]['driver_name'];
 		}
 		// re-sort the drivers. Big points first ;-)
 		arsort($recalc_drivers);
-		
+
 		$rank = $real_rank  = 0;
 		$previous_points = false;
 		$limit = 0;
@@ -1724,6 +1740,21 @@ switch ($mode)
 			$teams 		= get_formel_teams();
 			$drivers 	= get_formel_drivers();
 
+			//Get all first place winner, count all first places,  grep all gold medals...  Marker for first place: 25 WM Points
+			$sql = 'SELECT 	count(wm_driver) as gold_medals, 
+							wm_driver
+					FROM 	' . FORMEL_WM_TABLE . '
+					WHERE 	wm_points = 25
+					GROUP BY wm_driver
+					ORDER BY gold_medals DESC';
+			$result = $db->sql_query($sql);
+			
+			// Now put the gold medals into the $drivers array
+			while ($row = $db->sql_fetchrow($result))
+			{
+				$drivers[$row['wm_driver']]['gold_medals']	= $row['gold_medals'];
+			}
+
 			// Get all wm points and fill top10 drivers
 			$sql = 'SELECT sum(wm_points) AS total_points, wm_driver, wm_team 
 				FROM ' . FORMEL_WM_TABLE . '
@@ -1736,6 +1767,7 @@ switch ($mode)
 			while ($row = $db->sql_fetchrow($result))
 			{
 				$recalc_drivers[$row['wm_driver']]['total_points'] 	= $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'];
+				$recalc_drivers[$row['wm_driver']]['gold_medals']	= (isset($drivers[$row['wm_driver']]['gold_medals'])) ? $drivers[$row['wm_driver']]['gold_medals'] : 0;
 				$recalc_drivers[$row['wm_driver']]['driver_name']	= $drivers[$row['wm_driver']]['driver_name'];
 				$recalc_drivers[$row['wm_driver']]['driver_img']	= $drivers[$row['wm_driver']]['driver_img'];
 				$recalc_drivers[$row['wm_driver']]['driver_car']	= $drivers[$row['wm_driver']]['driver_car'];
