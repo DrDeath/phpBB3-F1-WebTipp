@@ -60,9 +60,9 @@ $is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_t
 $is_in_group = group_memberships($formel_group_id, $user->data['user_id'], true);
 
 // Check for : restricted group access - admin access - formular 1 moderator access
-if ( $formel_group_id <> 0 && !$is_in_group && $is_admin <> 1 && $user->data['user_id'] <> $formel_mod_id )
+if ($formel_group_id <> 0 && !$is_in_group && $is_admin <> 1 && $user->data['user_id'] <> $formel_mod_id)
 {
-	$auth_msg = sprintf($user->lang['FORMEL_ACCESS_DENIED'], '<a href="' . append_sid("ucp.$phpEx?i=groups") . '" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+	$auth_msg = sprintf($user->lang['FORMEL_ACCESS_DENIED'], '<a href="' . append_sid("ucp.$phpEx?i=groups") . '" class="gen">', '</a>', '<a href="' . append_sid("index.$phpEx") . '" class="gen">', '</a>');
 	trigger_error($auth_msg);
 }
 
@@ -70,7 +70,8 @@ if ( $formel_group_id <> 0 && !$is_in_group && $is_admin <> 1 && $user->data['us
 $template->assign_block_vars('navlinks', array( 
 	'U_VIEW_FORUM'		=> append_sid("{$phpbb_root_path}formel.$phpEx"),
 	'FORUM_NAME' 		=> $user->lang['FORMEL_TITLE'],
-));
+	)
+);
 
 // Salting the form...yumyum ...
 add_form_key('formel');
@@ -84,8 +85,8 @@ switch ($mode)
 	case 'standard':
 
 		// Set template vars
-		$page_title = $user->lang['FORMEL_TITLE'];
-		$template_html = 'formel_body.html';
+		$page_title 	= $user->lang['FORMEL_TITLE'];
+		$template_html 	= 'formel_body.html';
 
 		// Check buttons & data
 		$next 			= (isset($_POST['next'])) 			? true : false;
@@ -94,29 +95,29 @@ switch ($mode)
 		$edit_my_tipp 	= (isset($_POST['edit_my_tipp'])) 	? true : false;
 		$del_tipp 		= (isset($_POST['del_tipp'])) 		? true : false;	
 		
-		$race_offset 	= request_var('race_offset'		,	0	);
-		$race_id 		= request_var('race_id'			,	0	);
+		$race_offset 	= request_var('race_offset'	, 0);
+		$race_id 		= request_var('race_id'		, 0);
 		$user_id 		= $user->data['user_id'];
+		$tipp_time 		= request_var('tipp_time'	, 0);
+		$tipp_time 		= intval($tipp_time);
 		$my_tipp_array 	= array();
 		$my_tipp 		= '';
-		$tipp_time 		= request_var('tipp_time'		,	0	);
-		$tipp_time 		= intval($tipp_time);
-				
+
 		//Define some vars
 		$driver_team_name = $driverteamname = $gfxdrivercar = $gfxdrivercombo = $single_fastest	= $single_tired	= '';
 
 		// Check if the user want to see prev/next race
 		if ($next) 
 		{
-			$race_offset++;
+			++$race_offset;
 		}
 		else if ($prev) 
 		{
-			$race_offset--;
+			--$race_offset;
 		}
 
 		// Delete a tip
-		if ( $del_tipp ) 
+		if ($del_tipp) 
 		{
 			// Check the salt... yumyum
 			if (!check_form_key('formel'))
@@ -125,10 +126,10 @@ switch ($mode)
 			}
 
 			//Ultimate Points MOD enabled for f1 webtipp?
-			if($formel_config['points_enabled'] == true)
+			if ($formel_config['points_enabled'] == true)
 			{   
 				//Ultimate Points MOD  installed and enabled?
-				if(isset($config['points_enable']) and $config['points_enable'] == true)
+				if (isset($config['points_enable']) && $config['points_enable'] == true)
 				{
 					$sql = 'SELECT user_points 
 							FROM ' . USERS_TABLE . ' 
@@ -146,11 +147,11 @@ switch ($mode)
 			
 			add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_DELETED', $race_id);
 			
-			formel_del_tip($user_id,$race_id);
+			formel_del_tip($user_id, $race_id);
 		}
 
 		// Add or edit a tip
-		if ( ($place_my_tipp || $edit_my_tipp) && $tipp_time - $formel_config['deadline_offset'] >= time() ) 
+		if (($place_my_tipp || $edit_my_tipp) && $tipp_time - $formel_config['deadline_offset'] >= time()) 
 		{
 			// Check the salt... yumyum
 			if (!check_form_key('formel'))
@@ -158,20 +159,24 @@ switch ($mode)
 				trigger_error('FORM_INVALID');
 			}
 			
-			for ($i = 0; $i < 10; $i++) 
+			for ($i = 0; $i < 10; ++$i) 
 			{
 				$value = request_var('place' . ( $i + 1 ), 0);
-				if (checkarrayforvalue($value,$my_tipp_array)) 
+				
+				if (checkarrayforvalue($value, $my_tipp_array)) 
 				{
 					add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_NOT_VALID', $race_id);
-					$tipp_msg = sprintf($user->lang['FORMEL_DUBLICATE_VALUES'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
+					
+					$tipp_msg = sprintf($user->lang['FORMEL_DUBLICATE_VALUES'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
 					trigger_error($tipp_msg);
 				}
+				
 				$my_tipp_array[$i] = $value;
 			}
-			$my_tipp_array[10] = request_var('place11', 0);  //[10] --> fastest driver
-			$my_tipp_array[11] = request_var('place12', 0); //[11] --> tired count
-			$my_tipp = implode(",",$my_tipp_array);
+			
+			$my_tipp_array['10'] 	= request_var('place11', 0); //['10'] --> fastest driver
+			$my_tipp_array['11'] 	= request_var('place12', 0); //['11'] --> tired count
+			$my_tipp 				= implode(",", $my_tipp_array);
 
 			if ($place_my_tipp) 
 			{
@@ -179,17 +184,18 @@ switch ($mode)
 					'tipp_user'		=> $user_id,
 					'tipp_race'		=> $race_id,
 					'tipp_result'	=> $my_tipp,
-					'tipp_points'	=> 0
+					'tipp_points'	=> 0,
 				);
 
 				$db->sql_query('INSERT INTO ' . FORMEL_TIPPS_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
+				
 				add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_GIVEN', $race_id);
 				
 				//Ultimate Points MOD enabled for F1 webtipp?
-				if($formel_config['points_enabled'] == true)
+				if ($formel_config['points_enabled'] == true)
 				{   
 					//Ultimate Points MOD installed and enabled?
-					if(isset($config['points_enable']) and $config['points_enable'] == true)
+					if (isset($config['points_enable']) && $config['points_enable'] == true)
 					{
 						$sql = 'SELECT user_points 
 								FROM ' . USERS_TABLE . ' 
@@ -208,7 +214,7 @@ switch ($mode)
 			else 
 			{
 				$sql_ary = array(
-					'tipp_result'	=> $my_tipp
+					'tipp_result'	=> $my_tipp,
 				);
 
 				$sql = 'UPDATE ' . FORMEL_TIPPS_TABLE . ' 
@@ -216,9 +222,11 @@ switch ($mode)
 					WHERE tipp_user = ' . (int) $user_id . '
 						AND tipp_race = ' . (int) $race_id;
 				$db->sql_query($sql);
+				
 				add_log('user', $user->data['user_id'], 'LOG_FORMEL_TIP_EDITED', $race_id);
 			}
-			$tipp_msg = sprintf($user->lang['FORMEL_ACCEPTED_TIPP'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
+			
+			$tipp_msg = sprintf($user->lang['FORMEL_ACCEPTED_TIPP'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
 			trigger_error( $tipp_msg);
 		}
 
@@ -242,24 +250,45 @@ switch ($mode)
 
 		$rank = $real_rank  = 0;
 		$previous_points = false;
+		
 		while ($row = $db->sql_fetchrow($result)) 
 		{ 
-			$real_rank++; 
+			++$real_rank;
+			
 			if ($row['total_points'] <> $previous_points) 
 			{ 
 				$rank = $real_rank; 
 				$previous_points = $row['total_points']; 
 			}
+			
 			$tipp_user_row		= get_formel_userdata($row['tipp_user']);
 			$tipp_username_link	= get_username_string('full', $tipp_user_row['user_id'], $tipp_user_row['username'], $tipp_user_row['user_colour']);
+			
 			$template->assign_block_vars('top_tippers', array(
 				'TIPPER_NAME' 	=> $tipp_username_link,
-				'RANK'		=> $rank,
-				'TIPPER_POINTS' => $row['total_points'])
+				'RANK'			=> $rank,
+				'TIPPER_POINTS' => $row['total_points'],
+				)
 			);
 		}
+		
  		$db->sql_freeresult($result);
 
+		//Get all first place winner, count all first places,  grep all gold medals...  Marker for first place: 25 WM Points
+		$sql = 'SELECT 	count(wm_driver) as gold_medals, 
+						wm_driver
+				FROM 	' . FORMEL_WM_TABLE . '
+				WHERE 	wm_points = 25
+				GROUP BY wm_driver
+				ORDER BY gold_medals DESC';
+		$result = $db->sql_query($sql);
+		
+		// Now put the gold medals into the $drivers array
+		while ($row = $db->sql_fetchrow($result))
+		{
+			$drivers[$row['wm_driver']]['gold_medals']	= $row['gold_medals'];
+		}
+		
 		// Get all wm points and fill top10 drivers
 		$sql = 'SELECT sum(wm_points) AS total_points, wm_driver 
 			FROM ' . FORMEL_WM_TABLE . '
@@ -269,35 +298,41 @@ switch ($mode)
 
 		//Stop! we have to recalc the driver WM points... maybe we have some penalty !
 		$recalc_drivers = array();
+		
 		while ($row = $db->sql_fetchrow($result))
 		{
 			$recalc_drivers[$row['wm_driver']]['total_points'] 	= $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'];
+			$recalc_drivers[$row['wm_driver']]['gold_medals']	= (isset($drivers[$row['wm_driver']]['gold_medals'])) ? $drivers[$row['wm_driver']]['gold_medals'] : 0;
 			$recalc_drivers[$row['wm_driver']]['driver_name']	= $drivers[$row['wm_driver']]['driver_name'];
 		}
+		
 		// re-sort the drivers. Big points first ;-)
 		arsort($recalc_drivers);
-		
-		$rank = $real_rank  = 0;
+
+		$rank = $limit = 0;
 		$previous_points = false;
-		$limit = 0;
+		
 		foreach ($recalc_drivers as $driver_id => $driver) 
 		{ 
-			if ($limit == 5) break;
-			$real_rank++; 
-			if ($driver['total_points'] <> $previous_points) 
-			{ 
-				$rank = $real_rank; 
-				$previous_points = $driver['total_points']; 
+			if ($limit == 5) 
+			{
+				break;
 			}
+			
+			++$rank; 
+
 			$wm_drivername = $driver['driver_name'];
+			
 			$template->assign_block_vars('top_drivers', array(
 				'RANK'			=> $rank,
 				'WM_DRIVERNAME'	=> $wm_drivername,
 				'WM_POINTS'		=> $driver['total_points'],
 				)
 			);
-			$limit++;
+			
+			++$limit;
 		}
+		
 		$db->sql_freeresult($result);
 
 		// Get all wm points and fill top10 teams
@@ -309,6 +344,7 @@ switch ($mode)
 
 		//Stop! we have to recalc the team WM points... maybe we have some penalty !
 		$recalc_teams = array();
+		
 		while ($row = $db->sql_fetchrow($result))
 		{
 			$recalc_teams[$row['wm_team']]['total_points'] 	= $row['total_points'] - $teams[$row['wm_team']]['team_penalty'];
@@ -316,21 +352,28 @@ switch ($mode)
 			$recalc_teams[$row['wm_team']]['team_img']		= $teams[$row['wm_team']]['team_img'];
 			$recalc_teams[$row['wm_team']]['team_car']		= $teams[$row['wm_team']]['team_car'];
 		}
+		
 		// re-sort the teams. Big points first ;-)
 		arsort($recalc_teams);
 		
-		$rank = $real_rank  = 0;
+		$rank = $real_rank = $limit = 0;
 		$previous_points = false;
-		$limit = 0;
+		
 		foreach ($recalc_teams as $team_id => $team) 
 		{ 
-			if ($limit == 5) break;
-			$real_rank++; 
+			if ($limit == 5) 
+			{
+				break;
+			}
+			
+			++$real_rank;
+			
 			if ($team['total_points'] <> $previous_points) 
 			{ 
 				$rank = $real_rank; 
 				$previous_points = $team['total_points']; 
 			}
+			
 			$wm_teamname = $team['team_name'];
 			$template->assign_block_vars('top_teams', array(
 				'RANK'			=> $rank,
@@ -338,18 +381,20 @@ switch ($mode)
 				'WM_POINTS'		=> $team['total_points'],
 				)
 			);
-			$limit++;
+			
+			++$limit;
 		}
+		
 		$db->sql_freeresult($result);
 
 		// Find current race
-		for ($i = 0; $i < count($races); $i++) 
+		for ($i = 0; $i < count($races); ++$i) 
 		{
 			if ($races[$i]['race_time'] > $current_time - $formel_config['event_change']) 
 			{
 				// Check for a overflow
-				$race_offset = ($i + $race_offset == count($races)) ? 0-$i  : $race_offset;
-				$race_offset = ($i + $race_offset < 0) ? count($races)-1-$i : $race_offset;
+				$race_offset = ($i + $race_offset == count($races)) ? 0 - $i  : $race_offset;
+				$race_offset = ($i + $race_offset < 0) ? count($races) - 1 - $i : $race_offset;
 
 				// Define current race incl. user given offset
 				$chosen_race = $i + $race_offset;
@@ -372,6 +417,7 @@ switch ($mode)
 					$b_hour		= $user->format_date($event_stop, 'H');
 					$b_minute	= $user->format_date($event_stop, 'i');
 					$b_second	= $user->format_date($event_stop, 's');
+					
 					switch ($b_month)
 					{
 						case 1:
@@ -423,10 +469,11 @@ switch ($mode)
 						break;
 					}
 
-					$stop = $b_month.' '.$b_day.', '.$b_year.' '.$b_hour.':'.$b_minute.':'.$b_second;
+					$stop = $b_month . ' ' . $b_day . ', ' . $b_year . ' ' . $b_hour . ':' . $b_minute . ':' . $b_second;
+					
 					$countdown = "<script type=\"text/javascript\">
 								// <![CDATA[
-								var eventdate = new Date('".$stop."');
+								var eventdate = new Date('" . $stop . "');
 								function toSt(n)
 								{
 															s=''
@@ -465,6 +512,7 @@ switch ($mode)
 				// Get race image and data
 				$race_img = $races[$chosen_race]['race_img'];
 				$race_img = ($race_img == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_race_img'] . '" width="' . $formel_config['race_img_width'] . '" height="' . $formel_config['race_img_height'] . '" alt="" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $race_img . '" width="' . $formel_config['race_img_width'] . '" height="' . $formel_config['race_img_height'] . '" alt="" />';
+
 				$template->assign_block_vars('racerow', array(
 					'RACEIMG' 		=> $race_img,
 					'RACENAME' 		=> $races[$chosen_race]['race_name'],
@@ -473,10 +521,11 @@ switch ($mode)
 					'RACEDISTANCE' 	=> $races[$chosen_race]['race_distance'] . ' km',
 					'RACELAPS' 		=> $races[$chosen_race]['race_laps'],
 					'RACETIME' 		=> $user->format_date($races[$chosen_race]['race_time']),
-					'RACEDEAD' 		=> $user->format_date($races[$chosen_race]['race_time'] - $formel_config['deadline_offset']))
+					'RACEDEAD' 		=> $user->format_date($races[$chosen_race]['race_time'] - $formel_config['deadline_offset']),
+					)
 				);
 
-				if ( $formel_config['show_gfxr'] == 1 )
+				if ($formel_config['show_gfxr'] == 1)
 				{
 					$template->assign_block_vars('racerow.racegfx', array());
 				}
@@ -491,13 +540,15 @@ switch ($mode)
 
 				$tippers_active = $db->sql_affectedrows($result);
 				$cur_counter = 1;
+				
 				while ($row = $db->sql_fetchrow($result)) 
 				{
 					$current_tippers_userdata 	= get_formel_userdata($row['tipp_user']);
 					$current_tipp_id 			= $row['tipp_id'];
 					$current_tippers_username 	= get_username_string('username', $row['tipp_user'], $current_tippers_userdata['username'], $current_tippers_userdata['user_colour'] );
 					$current_tippers_colour		= get_username_string('colour'  , $row['tipp_user'], $current_tippers_userdata['username'], $current_tippers_userdata['user_colour'] );
-					$separator 					= ( $cur_counter == $tippers_active ) ? '': ', ';
+					$separator 					= ($cur_counter == $tippers_active) ? '': ', ';
+					
 					$template->assign_block_vars('tipps_made', array(
 						'USERTIPP' 		=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=usertipp&amp;tipp=$current_tipp_id&amp;race=$chosen_race"),
 						'SEPARATOR' 	=> $separator,
@@ -505,14 +556,15 @@ switch ($mode)
 						'STYLE'			=> ($current_tippers_colour) ? ' style="color: ' . $current_tippers_colour . '; font-weight: bold;"' : '',
 						)
 					);
-					$cur_counter++;
+					
+					++$cur_counter;
 				}
-				if ( $tippers_active == 0 ) 
+				
+				if ($tippers_active == 0) 
 				{
-					$template->assign_block_vars('no_tipps_made', array(
-						)
-					);
+					$template->assign_block_vars('no_tipps_made', array());
 				}
+				
 				$db->sql_freeresult($result);
 
 				// Get tip data
@@ -522,11 +574,12 @@ switch ($mode)
 						AND tipp_user = ' . (int) $user_id;
 				$result = $db->sql_query($sql);
 
-				$tipp_active = $db->sql_affectedrows($result);
-				$delete_button = '';
-				$tipp_button = $user->lang['FORMEL_ADD_TIPP'];
-				$tipp_button_name = 'place_my_tipp';
-				$tipp_data = $db->sql_fetchrowset($result);
+				$tipp_active 		= $db->sql_affectedrows($result);
+				$delete_button 		= '';
+				$tipp_button 		= $user->lang['FORMEL_ADD_TIPP'];
+				$tipp_button_name 	= 'place_my_tipp';
+				$tipp_data 			= $db->sql_fetchrowset($result);
+				
 				$db->sql_freeresult($result);
 
 				// Check if a tip has been made before
@@ -535,14 +588,14 @@ switch ($mode)
 					$tipp_button		= $user->lang['FORMEL_EDIT_TIPP'];
 					$tipp_button_name	= 'edit_my_tipp';
 					$delete_button		= '&nbsp;<input class="button1" type="submit" name="del_tipp" value="' . $user->lang['FORMEL_DEL_TIPP'] . '" />';
-					$tipp_array			= explode(",",$tipp_data[0]['tipp_result']);
-					$user_tipp_points	= $tipp_data[0]['tipp_points'];
+					$tipp_array			= explode(",", $tipp_data['0']['tipp_result']);
+					$user_tipp_points	= $tipp_data['0']['tipp_points'];
 
-					for ($i = 0; $i < count($tipp_array) - 2; $i++) 
+					for ($i = 0; $i < count($tipp_array) - 2; ++$i) 
 					{
-						$results		= explode(",",$races[$chosen_race]['race_result']);
-						$position		= ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
-						$box_name		= 'place' . ($i+1);
+						$results		= explode(",", $races[$chosen_race]['race_result']);
+						$position		= ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i + 1 . '. ' . $user->lang['FORMEL_PLACE'];
+						$box_name		= 'place' . ($i + 1);
 						$single_points	= '';
 
 						if ($races[$chosen_race]['race_time'] - $formel_config['deadline_offset'] < $current_time) 
@@ -562,7 +615,8 @@ switch ($mode)
 									$single_points += $formel_config['points_placed'];
 								}
 							}
-							for ($j = 0; $j < count($tipp_array) - 2; $j++)
+							
+							for ($j = 0; $j < count($tipp_array) - 2; ++$j)
 							{
 								if (isset($results[$j]))
 								{
@@ -572,23 +626,30 @@ switch ($mode)
 									}
 								}
 							}
-							if ($single_points == 0) $single_points='';
+							
+							if ($single_points == 0) 
+							{
+								$single_points='';
+							}
 							// End recalc
 						}
 						else 
 						{
 							//Actual race is not over
-							$drivercombo = '<select name="' . $box_name . '" size="1">';   
-							for ($k = 0; $k < count($driver_combodata); $k++) 
+							$drivercombo = '<select name="' . $box_name . '" size="1">';
+							
+							for ($k = 0; $k < count($driver_combodata); ++$k) 
 							{
 								$this_driver_id 	 = $driver_combodata[$k]['driver_id'];
 								$this_driver_name 	 = $driver_combodata[$k]['driver_name'];
-								$selected 			 = ( $this_driver_id == $tipp_array[$i]) ? 'selected' : '';
+								$selected 			 = ($this_driver_id == $tipp_array[$i]) ? 'selected' : '';
 								$drivercombo 		.= '<option value="' . $this_driver_id . '" ' . $selected . '>' . $this_driver_name . '</option>';
 							}
+							
 							$drivercombo .= '</select>';
 						}
-						if ( $formel_config['show_gfx'] == 1 )
+						
+						if ($formel_config['show_gfx'] == 1)
 						{
 							//Layout cosmetic
 							if ($races[$chosen_race]['race_time'] - $formel_config['deadline_offset'] < $current_time)
@@ -600,7 +661,8 @@ switch ($mode)
 									'DRIVERTEAMNAME'	=>	'&nbsp;' . $driverteamname,
 									'GFXDRIVERCOMBO'	=>	$gfxdrivercombo,
 									'GXFDRIVERCAR'		=>	$gfxdrivercar,
-									'SINGLE_POINTS'		=>	$single_points)
+									'SINGLE_POINTS'		=>	$single_points,
+									)
 								);
 							}
 							else
@@ -612,7 +674,8 @@ switch ($mode)
 									'DRIVERTEAMNAME'	=>	$driverteamname,
 									'GFXDRIVERCOMBO'	=>	$position,
 									'GXFDRIVERCAR'		=>	$gfxdrivercar,
-									'SINGLE_POINTS'		=>	$single_points)
+									'SINGLE_POINTS'		=>	$single_points,
+									)
 								);
 							}
 						}
@@ -621,30 +684,33 @@ switch ($mode)
 							$template->assign_block_vars('users_tipp', array(
 								'L_PLACE'		=>	$position,
 								'DRIVERCOMBO'	=>	$drivercombo,
-								'SINGLE_POINTS'	=>	$single_points)
+								'SINGLE_POINTS'	=>	$single_points,
+								)
 							);
 						}
 					}
+					
 					if ($races[$chosen_race]['race_time'] - $formel_config['deadline_offset'] < $current_time) 
 					{
 						//Actual Race is over
 						$single_fastest	= '';
 						$single_tired	= '';
-						$drivercombo	= (isset($drivers[$tipp_array[10]]['driver_name'])) ? $drivers[$tipp_array[10]]['driver_name'] : '';
-						$tiredcombo		= (isset($tipp_array[11])) ? $tipp_array[11] : '';
+						$drivercombo	= (isset($drivers[$tipp_array['10']]['driver_name'])) ? $drivers[$tipp_array['10']]['driver_name'] : '';
+						$tiredcombo		= (isset($tipp_array['11'])) ? $tipp_array['11'] : '';
 
 						//Recalc tip points for fastest driver
-						if (isset($results[10]) && $results[10] <> 0 )
+						if (isset($results['10']) && $results['10'] <> 0)
 						{
-							if ($tipp_array[10] == $results[10])
+							if ($tipp_array['10'] == $results['10'])
 							{
 								$single_fastest += $formel_config['points_fastest'];
 							}
 						}
+						
 						//Recalc tip points for tired count
-						if (isset($results[11]))
+						if (isset($results['11']))
 						{
-							if ($tipp_array[11] == $results[11])
+							if ($tipp_array['11'] == $results['11'])
 							{
 								$single_tired += $formel_config['points_tired'];
 							}
@@ -654,35 +720,39 @@ switch ($mode)
 					{
 						//Actual Race is not over
 						$drivercombo = '<select name="place11" size="1">';
-						for ($k = 0; $k < count($driver_combodata); $k++) 
+						
+						for ($k = 0; $k < count($driver_combodata); ++$k) 
 						{
 							$this_driver_id		 = $driver_combodata[$k]['driver_id'];
 							$this_driver_name	 = $driver_combodata[$k]['driver_name'];
-							$selected			 = ( $this_driver_id == $tipp_array[10]) ? 'selected' : '';
+							$selected			 = ($this_driver_id == $tipp_array['10']) ? 'selected' : '';
 							$drivercombo		.= '<option value="' . $this_driver_id . '" ' . $selected .'>' . $this_driver_name . '</option>';
 						}
+						
 						$drivercombo .= '</select>';
 
 						$tiredcombo = '<select name="place12" size="1">';
 						
 						//We have 12 Teams with 2 cars each --> 24 drivers
-						for ($k = 0; $k < 25; $k++) 
+						for ($k = 0; $k < 25; ++$k) 
 						{
-							$selected 			 = ( $k == $tipp_array[11]) ? 'selected' : '';
+							$selected 			 = ($k == $tipp_array['11']) ? 'selected' : '';
 							$tiredcombo 		.= '<option value="' . $k . '" ' . $selected . '>' . $k . '</option>';
 						}
+						
 						$tiredcombo .= '</select>';
 					}
 
 
-					if ( $formel_config['show_gfx'] == 1 )
+					if ($formel_config['show_gfx'] == 1)
 					{
 						$template->assign_block_vars('extended_users_tipp_gfx', array(
 							'TIREDCOMBO'		=> $tiredcombo,
 							'DRIVERCOMBO'		=> $drivercombo,
 							'GFXDRIVERCOMBO'	=> $gfxdrivercombo,
 							'SINGLE_FASTEST'	=> $single_fastest,
-							'SINGLE_TIRED'		=> $single_tired)
+							'SINGLE_TIRED'		=> $single_tired,
+							)
 						);
 					}
 					else
@@ -692,7 +762,8 @@ switch ($mode)
 							'DRIVERCOMBO'		=> $drivercombo,
 							'GFXDRIVERCOMBO'	=> $gfxdrivercombo,
 							'SINGLE_FASTEST'	=> $single_fastest,
-							'SINGLE_TIRED'		=> $single_tired)
+							'SINGLE_TIRED'		=> $single_tired,
+							)
 						);
 					}
 				}
@@ -706,84 +777,95 @@ switch ($mode)
 						if ($races[$chosen_race]['race_time'] - $formel_config['deadline_offset'] > $current_time) 
 						{
 							//Actual Race is not over
-							for ($i = 0; $i < 10; $i++) 
+							for ($i = 0; $i < 10; ++$i) 
 							{
-								$position = ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
-								$box_name = 'place' . ($i+1);
+								$position = ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i + 1 . '. ' . $user->lang['FORMEL_PLACE'];
+								$box_name = 'place' . ($i + 1);
 
 								$drivercombo = '<select name="' . $box_name . '" size="1">';
-								for ($k = 0; $k < count($driver_combodata); $k++) 
+								
+								for ($k = 0; $k < count($driver_combodata); ++$k) 
 								{
 									$this_driver_id		 = $driver_combodata[$k]['driver_id'];
 									$this_driver_name	 = $driver_combodata[$k]['driver_name'];
 									$drivercombo		.= '<option value="' . $this_driver_id . '">' . $this_driver_name . '</option>';
 								}
+								
 								$drivercombo .= '</select>';
 
 								$template->assign_block_vars('add_tipp', array(
 									'L_PLACE'		=> $position,
-									'DRIVERCOMBO'	=> $drivercombo)
+									'DRIVERCOMBO'	=> $drivercombo,
+									)
 								);
 							}
 
 							$drivercombo = '<select name="place11" size="1">';
-							for ($k = 0; $k < count($driver_combodata); $k++) 
+							
+							for ($k = 0; $k < count($driver_combodata); ++$k) 
 							{
 								$this_driver_id		 = $driver_combodata[$k]['driver_id'];
 								$this_driver_name	 = $driver_combodata[$k]['driver_name'];
 								$drivercombo 		.= '<option value="' . $this_driver_id . '">' . $this_driver_name . '</option>';
 							}
+							
 							$drivercombo .= '</select>';
 
 							$tiredcombo = '<select name="place12" size="1">';
 							
 							//We have 12 Teams with 2 cars each --> 24 drivers
-							for ($k = 0; $k < 25; $k++) 
+							for ($k = 0; $k < 25; ++$k) 
 							{
 								$tiredcombo .= '<option value="' . $k . '">' . $k . '</option>';
 							}
+							
 							$tiredcombo .= '</select>';
 
 							$template->assign_block_vars('extended_add_tipp', array(
 								'TIREDCOMBO'	=> $tiredcombo,
-								'DRIVERCOMBO'	=> $drivercombo)
+								'DRIVERCOMBO'	=> $drivercombo,
+								)
 							);
 						}
 					}
 					else
 					{
 						$template->assign_block_vars('add_tipp', array(
-							'DRIVERCOMBO'	=> '<br /> ' . $user->lang['FORMEL_GUESTS_PLACE_NO_TIP'])
+							'DRIVERCOMBO'	=> '<br /> ' . $user->lang['FORMEL_GUESTS_PLACE_NO_TIP'],
+							)
 						);
 					}
 				}
 
 				// Checks for a saved quali
-				if ( $races[$chosen_race]['race_quali'] <> '0' ) 
+				if ($races[$chosen_race]['race_quali'] <> '0') 
 				{
 					// Get the driver ids
-					$quali = explode(",",$races[$chosen_race]['race_quali']);
+					$quali = explode(",", $races[$chosen_race]['race_quali']);
 
 					// Start output
-					for ($j = 0; $j < count($quali); $j++) 
+					for ($j = 0; $j < count($quali); ++$j) 
 					{
 						$current_driver_id = $quali[$j];
-						$position = ($j == 0) ? $user->lang['FORMEL_POLE'].': ' : $j+1 . '. ' . $user->lang['FORMEL_PLACE'] . ': ';
-						if ( $formel_config['show_gfx'] == 1 )
+						$position = ($j == 0) ? $user->lang['FORMEL_POLE'].': ' : $j + 1 . '. ' . $user->lang['FORMEL_PLACE'] . ': ';
+						
+						if ($formel_config['show_gfx'] == 1)
 						{
 							$template->assign_block_vars('qualirow_gfx', array(
 								'L_PLACE'			=> $position,
-								'DRIVERIMG'			=> (isset($drivers[$current_driver_id]['driver_img'])) ? $drivers[$current_driver_id]['driver_img'] : '',
-								'DRIVERCAR'			=> (isset($drivers[$current_driver_id]['driver_car'])) ? $drivers[$current_driver_id]['driver_car'] : '',
-								'DRIVERNAME'		=> (isset($drivers[$current_driver_id]['driver_name'])) ? $drivers[$current_driver_id]['driver_name'] : '',
-								'DRIVERTEAMNAME'	=> (isset($drivers[$current_driver_id]['driver_team_name'])) ? $drivers[$current_driver_id]['driver_team_name'] : '')
+								'DRIVERIMG'			=> (isset($drivers[$current_driver_id]['driver_img'])) 			? $drivers[$current_driver_id]['driver_img'] 		: '',
+								'DRIVERCAR'			=> (isset($drivers[$current_driver_id]['driver_car'])) 			? $drivers[$current_driver_id]['driver_car'] 		: '',
+								'DRIVERNAME'		=> (isset($drivers[$current_driver_id]['driver_name'])) 		? $drivers[$current_driver_id]['driver_name'] 		: '',
+								'DRIVERTEAMNAME'	=> (isset($drivers[$current_driver_id]['driver_team_name'])) 	? $drivers[$current_driver_id]['driver_team_name'] 	: '',
+								)
 							);
 						}
 						else 
 						{
 							$template->assign_block_vars('qualirow', array(
-								'L_PLACE'		=> $position,
-								'DRIVERNAME'	=> (isset($drivers[$current_driver_id]['driver_name'])) ? $drivers[$current_driver_id]['driver_name'] : '')
+								'L_PLACE'			=> $position,
+								'DRIVERNAME'		=> (isset($drivers[$current_driver_id]['driver_name'])) 		? $drivers[$current_driver_id]['driver_name'] 		: '',
+								)
 							);
 						}
 					}
@@ -791,72 +873,71 @@ switch ($mode)
 				else 
 				{
 					// If no quali was found
-					$template->assign_block_vars('no_quali', array(
-						)
-					);
+					$template->assign_block_vars('no_quali', array());
 				}
 
 				// Checks for a saved result
-				if ( $races[$chosen_race]['race_result'] <> '0' ) 
+				if ($races[$chosen_race]['race_result'] <> '0') 
 				{
 					// Get the driver ids
-					$results = explode(",",$races[$chosen_race]['race_result']);
+					$results = explode(",", $races[$chosen_race]['race_result']);
 
 					// Start output
-					for ($j = 0; $j < count($results)-2; $j++) 
+					for ($j = 0; $j < count($results) - 2; ++$j) 
 					{
 						$current_driver_id = $results[$j];
-						$position = ($j == 0) ? $user->lang['FORMEL_RACE_WINNER'].': ' : $j+1 . '. ' . $user->lang['FORMEL_PLACE'] . ': ';
-						if ( $formel_config['show_gfx'] == 1 )
+						$position = ($j == 0) ? $user->lang['FORMEL_RACE_WINNER'].': ' : $j + 1 . '. ' . $user->lang['FORMEL_PLACE'] . ': ';
+						
+						if ($formel_config['show_gfx'] == 1)
 						{
 							$template->assign_block_vars('resultsrow_gfx', array(
 								'L_PLACE'			=> $position,
-								'DRIVERIMG'			=> (isset($drivers[$current_driver_id]['driver_img'])) ? $drivers[$current_driver_id]['driver_img'] : '',
-								'DRIVERCAR'			=> (isset($drivers[$current_driver_id]['driver_car'])) ? $drivers[$current_driver_id]['driver_car'] : '',
-								'DRIVERNAME'		=> (isset($drivers[$current_driver_id]['driver_name'])) ? $drivers[$current_driver_id]['driver_name'] : '',
-								'DRIVERTEAMNAME'	=> (isset($drivers[$current_driver_id]['driver_team_name'])) ? $drivers[$current_driver_id]['driver_team_name'] : '',)
+								'DRIVERIMG'			=> (isset($drivers[$current_driver_id]['driver_img'])) 			? $drivers[$current_driver_id]['driver_img'] 		: '',
+								'DRIVERCAR'			=> (isset($drivers[$current_driver_id]['driver_car'])) 			? $drivers[$current_driver_id]['driver_car'] 		: '',
+								'DRIVERNAME'		=> (isset($drivers[$current_driver_id]['driver_name'])) 		? $drivers[$current_driver_id]['driver_name'] 		: '',
+								'DRIVERTEAMNAME'	=> (isset($drivers[$current_driver_id]['driver_team_name'])) 	? $drivers[$current_driver_id]['driver_team_name'] 	: '',
+								)
 							);
 						}
 						else 
 						{
 							$template->assign_block_vars('resultsrow', array(
-								'L_PLACE'		=> $position,
-								'DRIVERNAME'	=> (isset($drivers[$current_driver_id]['driver_name'])) ? $drivers[$current_driver_id]['driver_name'] : '')
+								'L_PLACE'			=> $position,
+								'DRIVERNAME'		=> (isset($drivers[$current_driver_id]['driver_name'])) 		? $drivers[$current_driver_id]['driver_name'] 		: '',
+								)
 							);
 						}
 					}
 
-					if ( $formel_config['show_gfx'] == 1 )
+					if ($formel_config['show_gfx'] == 1)
 					{
 						$template->assign_block_vars('extended_results_gfx', array(
-							'PACE'				=> (isset($drivers[$results[10]]['driver_name'])) ? $drivers[$results[10]]['driver_name'] : '',
-							'TIRED'				=> (isset($results[11])) ? $results[11] : '',
-							'YOUR_POINTS'		=> $user_tipp_points)	
+							'PACE'				=> (isset($drivers[$results['10']]['driver_name']))	? $drivers[$results['10']]['driver_name'] 	: '',
+							'TIRED'				=> (isset($results['11'])) 							? $results['11'] 							: '',
+							'YOUR_POINTS'		=> $user_tipp_points,
+							)	
 						);
 					}
 					else
 					{
 						$template->assign_block_vars('extended_results', array(
-							'PACE'				=> (isset($drivers[$results[10]]['driver_name'])) ? $drivers[$results[10]]['driver_name'] : '',
-							'TIRED'				=> (isset($results[11])) ? $results[11] : '',
-							'YOUR_POINTS'		=> $user_tipp_points)
+							'PACE'				=> (isset($drivers[$results['10']]['driver_name']))	? $drivers[$results['10']]['driver_name'] 	: '',
+							'TIRED'				=> (isset($results['11'])) 							? $results['11'] 							: '',
+							'YOUR_POINTS'		=> $user_tipp_points,
+							)
 						);
 					}
 				}
 				else 
 				{
 					// If no result was found
-					$template->assign_block_vars('no_results', array(
-						)
-					);
+					$template->assign_block_vars('no_results', array());
 				}
 
 				// Game over
 				if ($races[$chosen_race]['race_time'] - $formel_config['deadline_offset'] < $current_time) 
 				{
-					$template->assign_block_vars('game_over', array(
-						)
-					);
+					$template->assign_block_vars('game_over', array());
 				}
 				else 
 				{
@@ -866,17 +947,20 @@ switch ($mode)
 						$template->assign_block_vars('place_tipp', array(
 							'DELETE_TIPP'	=> $delete_button,
 							'L_PLACE_TIPP'	=> $tipp_button,
-							'PLACE_TIPP'	=> $tipp_button_name)
+							'PLACE_TIPP'	=> $tipp_button_name,
+							)
 						);
 					}
 				}
+				
 				break;
 			}
 		}
 
 		// Forum button
 		$discuss_button = '';
-		if ( $formel_forum_id ) 
+		
+		if ($formel_forum_id) 
 		{
 			$formel_forum_url	= append_sid("viewforum.$phpEx?f=$formel_forum_id");
 			$formel_forum_name	= $user->lang['FORMEL_FORUM'];
@@ -891,15 +975,16 @@ switch ($mode)
 		//echo "<pre>";print_r($auth);echo "</pre>";die();
 		
 		//Check if user is formel moderator or has admin access
-		if ($user_id == $formel_config['mod_id'] || ($is_admin == 1) ) 
+		if ($user_id == $formel_config['mod_id'] || ($is_admin == 1)) 
 		{
-			$u_call_mod = append_sid("./formel.$phpEx?mode=results");
+			$u_call_mod = append_sid("{$phpbb_root_path}formel.$phpEx?mode=results");
 			$l_call_mod = $user->lang['FORMEL_MOD_BUTTON_TEXT'];
+			
 			$template->assign_block_vars('tipp_moderator', array());
 		}
 
 		// Show headerbanner ?
-		if ( $formel_config['show_headbanner'] )
+		if ($formel_config['show_headbanner'])
 		{
 			$template->assign_block_vars('head_on', array());
 		}
@@ -926,8 +1011,10 @@ switch ($mode)
 			'U_FORMEL_STATISTICS'	=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=stats"),
 			'U_FORMEL_CALL_MOD'		=> $u_call_mod,
 			'COUNTDOWN'				=> (isset($countdown)) ? $countdown : '',
-			'L_FORMEL_CALL_MOD'		=> $l_call_mod)
+			'L_FORMEL_CALL_MOD'		=> $l_call_mod,
+			)
 		);
+		
 	break;
 		
 	case 'results':
@@ -939,12 +1026,13 @@ switch ($mode)
 		$template->assign_block_vars('navlinks', array( 
 			'U_VIEW_FORUM'	=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=results"),
 			'FORUM_NAME'	=> $user->lang['FORMEL_RESULTS_TITLE'],
-		));
+			)
+		);
 		
 		// Check URL hijacker . Access only for formel moderators or admins
-		if ( $user->data['user_id'] <> $formel_mod_id && $is_admin <> 1)
+		if ($user->data['user_id'] <> $formel_mod_id && $is_admin <> 1)
 		{
-			$auth_msg = sprintf($user->lang['FORMEL_MOD_ACCESS_DENIED'], '<a href="' . append_sid("formel.$phpEx") . '" class="gen">', '</a>', '<a href="'.append_sid("index.$phpEx").'" class="gen">', '</a>');
+			$auth_msg = sprintf($user->lang['FORMEL_MOD_ACCESS_DENIED'], '<a href="' . append_sid("formel.$phpEx") . '" class="gen">', '</a>', '<a href="' . append_sid("index.$phpEx") . '" class="gen">', '</a>');
 			trigger_error($auth_msg);
 		}
 		
@@ -964,10 +1052,10 @@ switch ($mode)
 			$race_img 			= $row['race_img'];
 			$race_id 			= $row['race_id'];
 			$race_img 			= ($race_img == '') 				? '' : '<img src="' . $phpbb_root_path . 'images/formel/' . $race_img . '" width="94" height="54" alt="" />';
-			$quali_buttons 		= ( $row['race_quali'] == '0' ) 	? '<input class="button1" type="submit" name="quali"  value="' . $l_add . '" />' : '<input class="button1" type="submit" name="editquali"  value="' . $l_edit . '" />&nbsp;&nbsp;<input class="button1" type="submit" name="resetquali"  value="' . $l_del . '" />';
-			$result_buttons 	= ( $row['race_result'] == '0' ) 	? '<input class="button1" type="submit" name="result" value="' . $l_add . '" />' : '<input class="button1" type="submit" name="editresult" value="' . $l_edit . '" />&nbsp;&nbsp;<input class="button1" type="submit" name="resetresult" value="' . $l_del . '" />';
+			$quali_buttons 		= ($row['race_quali'] == '0') 		? '<input class="button1" type="submit" name="quali"  value="' . $l_add . '" />' : '<input class="button1" type="submit" name="editquali"  value="' . $l_edit . '" />&nbsp;&nbsp;<input class="button1" type="submit" name="resetquali"  value="' . $l_del . '" />';
+			$result_buttons 	= ($row['race_result'] == '0') 		? '<input class="button1" type="submit" name="result" value="' . $l_add . '" />' : '<input class="button1" type="submit" name="editresult" value="' . $l_edit . '" />&nbsp;&nbsp;<input class="button1" type="submit" name="resetresult" value="' . $l_del . '" />';
 
-			if ( $formel_config['show_gfxr'] == 1 )
+			if ($formel_config['show_gfxr'] == 1)
 			{
 				$template->assign_block_vars('racerow_gfxr', array(
 					'RACEIMG'			=> $race_img,
@@ -976,7 +1064,8 @@ switch ($mode)
 					'RACEID'			=> $race_id,
 					'RACENAME'			=> $row['race_name'],
 					'RACETIME'			=> $user->format_date($row['race_time']),
-					'RACEDEAD'			=> $user->format_date($row['race_time'] - $formel_config['deadline_offset']))
+					'RACEDEAD'			=> $user->format_date($row['race_time'] - $formel_config['deadline_offset']),
+					)
 				);
 			}
 			else 
@@ -987,10 +1076,12 @@ switch ($mode)
 					'RACEID'			=> $race_id,
 					'RACENAME'			=> $row['race_name'],
 					'RACETIME'			=> $user->format_date($row['race_time']),
-					'RACEDEAD'			=> $user->format_date($row['race_time'] - $formel_config['deadline_offset']))
+					'RACEDEAD'			=> $user->format_date($row['race_time'] - $formel_config['deadline_offset']),
+					)
 				);
 			}
 		}
+		
 		$db->sql_freeresult($result);
 		
 		$template->assign_vars(array(
@@ -1000,6 +1091,7 @@ switch ($mode)
 			'U_FORMEL_RESULTS'				=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=results"),
 			)
 		);
+		
 	break;
 		
 	case 'addresults':
@@ -1011,12 +1103,13 @@ switch ($mode)
 		$template->assign_block_vars('navlinks', array( 
 			'U_VIEW_FORUM'	=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=results"),
 			'FORUM_NAME'	=> $user->lang['FORMEL_RESULTS_TITLE'],
-		));
+			)
+		);
 		
 		// Check URL hijacker . Access only for formel moderators or admins
-		if ( $user->data['user_id'] <> $formel_mod_id && $is_admin <> 1)
+		if ($user->data['user_id'] <> $formel_mod_id && $is_admin <> 1)
 		{
-			$auth_msg = sprintf($user->lang['FORMEL_MOD_ACCESS_DENIED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
+			$auth_msg = sprintf($user->lang['FORMEL_MOD_ACCESS_DENIED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
 			trigger_error($auth_msg);
 		}
 		
@@ -1043,7 +1136,7 @@ switch ($mode)
 		$result_array	= array();
 		
 		// Reset a quali
-		if ( $resetquali && $race_id <> 0 ) 
+		if ($resetquali && $race_id <> 0) 
 		{
 			// Check the salt... yumyum
 			if (!check_form_key('formel'))
@@ -1052,21 +1145,22 @@ switch ($mode)
 			}
 			
 			$sql_ary = array(
-				'race_quali'		=> 0
+				'race_quali'		=> 0,
 			);
 
 			$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
-				SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
-				WHERE race_id = $race_id";
+				SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
+				WHERE race_id = ' . (int) $race_id;
 			$db->sql_query($sql);
 			
 			add_log('mod', $user->data['user_id'], 'LOG_FORMEL_QUALI_DELETED', $race_id);
-			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
+			
+			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
 			trigger_error($tipp_msg);
 		}
 		
 		// Reset a result
-		if ( $resetresult && $race_id <> 0 ) 
+		if ($resetresult && $race_id <> 0) 
 		{
 			// Check the salt... yumyum
 			if (!check_form_key('formel'))
@@ -1082,7 +1176,7 @@ switch ($mode)
 
 			// Delete the race result for this race
 			$sql_ary = array(
-				'race_result'	=> 0
+				'race_result'	=> 0,
 			);
 
 			$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
@@ -1092,7 +1186,7 @@ switch ($mode)
 			
 			// Delete all gathered tip points for this race
 			$sql_ary = array(
-				'tipp_points'	=> 0
+				'tipp_points'	=> 0,
 			);
 
 			$sql = 'UPDATE ' . FORMEL_TIPPS_TABLE . ' 
@@ -1102,18 +1196,19 @@ switch ($mode)
 
 			// Pull out a success message
 			add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_DELETED', $race_id);
-			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
+			
+			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
 			trigger_error($tipp_msg);
 		}
 
-		if ( ( $reset || $resetresult || $resetquali ) && $race_id == 0 ) 
+		if (($reset || $resetresult || $resetquali) && $race_id == 0) 
 		{
-			$reset_msg = sprintf($user->lang['FORMEL_RESULTS_ERROR'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
+			$reset_msg = sprintf($user->lang['FORMEL_RESULTS_ERROR'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
 			trigger_error($reset_msg);
 		}
 		
 		// Add a quali
-		if ( $addquali ) 
+		if ($addquali) 
 		{
 			// Check the salt... yumyum
 			if (!check_form_key('formel'))
@@ -1121,23 +1216,28 @@ switch ($mode)
 				trigger_error('FORM_INVALID');
 			}
 			
-			if ( $race_id <> 0 ) 
+			if ($race_id <> 0) 
 			{
 				//We have 12 Teams with 2 cars each --> 24 drivers
-				for ($i = 0; $i < 24; $i++) 
+				for ($i = 0; $i < 24; ++$i) 
 				{
 					$value = request_var('place' . ( $i + 1 ), 0);
-					if (checkarrayforvalue($value,$quali_array)) 
+					
+					if (checkarrayforvalue($value, $quali_array)) 
 					{
 						add_log('user', $user->data['user_id'], 'LOG_FORMEL_QUALI_NOT_VALID', $race_id);
-						$quali_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
+						
+						$quali_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
 						trigger_error($quali_msg);
 					}
+					
 					$quali_array[$i] = $value;
 				}
-				$new_quali = implode(",",$quali_array);
+				
+				$new_quali = implode(",", $quali_array);
+				
 				$sql_ary = array(
-					'race_quali'	=> $new_quali
+					'race_quali'	=> $new_quali,
 				);
 
 				$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
@@ -1146,13 +1246,14 @@ switch ($mode)
 				$db->sql_query($sql);
 
 				add_log('user', $user->data['user_id'], 'LOG_FORMEL_QUALI_ADDED', $race_id);
-				$quali_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
+				
+				$quali_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
 				trigger_error($quali_msg);
 			}
 		}
 		
 		// Add a result
-		if ( $addresult || $addeditresult ) 
+		if ($addresult || $addeditresult) 
 		{
 			// Check the salt... yumyum
 			if (!check_form_key('formel'))
@@ -1160,9 +1261,9 @@ switch ($mode)
 				trigger_error('FORM_INVALID');
 			}
 			
-			if ( $race_id <> 0 ) 
+			if ($race_id <> 0) 
 			{
-				if ( $addeditresult ) 
+				if ($addeditresult) 
 				{
 					$sql = 'DELETE 
 						FROM ' . FORMEL_WM_TABLE . ' 
@@ -1170,23 +1271,27 @@ switch ($mode)
 					$db->sql_query($sql);
 				}
 				
-				for ($i = 0; $i < 10; $i++) 
+				for ($i = 0; $i < 10; ++$i) 
 				{
 					$value = request_var('place' . ( $i + 1 ), 0);
-					if (checkarrayforvalue($value,$result_array)) 
+					
+					if (checkarrayforvalue($value, $result_array)) 
 					{
 						add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_NOT_VALID', $race_id);
-						$result_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
+						
+						$result_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
 						trigger_error($result_msg);
 					}
+					
 					$result_array[$i] = $value;
 				}
 				
-				$result_array[10] = request_var('place11' , 0);	//[10] --> fastest driver
-				$result_array[11] = request_var('place12' , 0);	//[11] --> tired count
-				$new_result = implode(",",$result_array);
+				$result_array['10'] = request_var('place11', 0);	//['10'] --> fastest driver
+				$result_array['11'] = request_var('place12', 0);	//['11'] --> tired count
+				$new_result = implode(",", $result_array);
+				
 				$sql_ary = array(
-					'race_result'	=> $new_result
+					'race_result'	=> $new_result,
 				);
 
 				$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
@@ -1205,37 +1310,42 @@ switch ($mode)
 				{
 					$user_tipp_points = 0;
 					$current_user = $row['tipp_user'];
-					$current_tipp_array = explode(',',$row['tipp_result']);
+					$current_tipp_array = explode(',', $row['tipp_result']);
 					$temp_results_array = array();
-					for ( $i=0; $i < count($current_tipp_array)-2; $i++ ) 
+					
+					for ($i=0; $i < count($current_tipp_array) - 2; ++$i) 
 					{
 						$temp_results_array[$i] = $result_array[$i];
 					}
-					for ( $i=0; $i < count($current_tipp_array)-2; $i++ ) 
+					
+					for ($i=0; $i < count($current_tipp_array) - 2; ++$i) 
 					{
-						if ( $current_tipp_array[$i] <> '0' ) 
+						if ($current_tipp_array[$i] <> '0') 
 						{
-							if ( checkarrayforvalue($current_tipp_array[$i],$temp_results_array) ) 
+							if (checkarrayforvalue($current_tipp_array[$i], $temp_results_array)) 
 							{
 								$user_tipp_points += $formel_config['points_mentioned'];
-								if ( $current_tipp_array[$i] == $result_array[$i] ) 
+								
+								if ($current_tipp_array[$i] == $result_array[$i]) 
 								{
 									$user_tipp_points += $formel_config['points_placed'];
 								}
 							}
 						}
 					}
-					if ( $current_tipp_array[10] == $result_array[10] && $current_tipp_array[10] <> 0) 
+					
+					if ($current_tipp_array['10'] == $result_array['10'] && $current_tipp_array['10'] <> 0) 
 					{
 						$user_tipp_points += $formel_config['points_fastest'];
 					}
-					if ( $current_tipp_array[11] == $result_array[11] ) 
+					
+					if ($current_tipp_array['11'] == $result_array['11']) 
 					{
 						$user_tipp_points += $formel_config['points_tired'];
 					}
 					
 					$sql_ary = array(
-						'tipp_points'	=> $user_tipp_points
+						'tipp_points'	=> $user_tipp_points,
 					);
 
 					$sql = 'UPDATE ' . FORMEL_TIPPS_TABLE . ' 
@@ -1244,6 +1354,7 @@ switch ($mode)
 						AND tipp_user = ' . (int) $current_user;
 					$update = $db->sql_query($sql);
 				}
+				
 				$db->sql_freeresult($result);
 				
 				// Calc wm points
@@ -1252,48 +1363,50 @@ switch ($mode)
 					FROM ' . FORMEL_DRIVERS_TABLE;
 				$result = $db->sql_query($sql);
 
-				while ( $row = $db->sql_fetchrow($result) ) 
+				while ($row = $db->sql_fetchrow($result)) 
 				{
 					$teams[$row['driver_id']] = $row['driver_team'];
 				}
+				
 				$db->sql_freeresult($result);
 				
 				if ($race_abort == false)
 				{
 					// wm points:  25-18-15-12-10-8-6-4-2-1
 					$wm = array();
-					$wm[0] = 25;		// first place
-					$wm[1] = 18;		// second place
-					$wm[2] = 15;		// third place
-					$wm[3] = 12;		// forth place
-					$wm[4] = 10;		// fifth place 
-					$wm[5] = 8;			// sixth place
-					$wm[6] = 6;			// seventh place
-					$wm[7] = 4;			// eighth place 
-					$wm[8] = 2;			// ninth place
-					$wm[9] = 1;			// tenth place                
+					$wm['0'] = 25;		// first place
+					$wm['1'] = 18;		// second place
+					$wm['2'] = 15;		// third place
+					$wm['3'] = 12;		// forth place
+					$wm['4'] = 10;		// fifth place 
+					$wm['5'] = 8;		// sixth place
+					$wm['6'] = 6;		// seventh place
+					$wm['7'] = 4;		// eighth place 
+					$wm['8'] = 2;		// ninth place
+					$wm['9'] = 1;		// tenth place                
 				}
 				else
 				// the race was aborted, we use now half points
 				{
 					// wm points:  12.5-9-7.5-6-5-4-3-2-1-0.5
 					$wm = array();
-					$wm[0] = 12.5;		// first place
-					$wm[1] = 9;		// second place
-					$wm[2] = 7.5;		// third place
-					$wm[3] = 6;		// forth place
-					$wm[4] = 5;		// fifth place 
-					$wm[5] = 4;			// sixth place
-					$wm[6] = 3;			// seventh place
-					$wm[7] = 2;			// eighth place 
-					$wm[8] = 1;			// ninth place
-					$wm[9] = 0.5;			// tenth place				
+					$wm['0'] = 12.5;	// first place
+					$wm['1'] = 9;		// second place
+					$wm['2'] = 7.5;		// third place
+					$wm['3'] = 6;		// forth place
+					$wm['4'] = 5;		// fifth place 
+					$wm['5'] = 4;		// sixth place
+					$wm['6'] = 3;		// seventh place
+					$wm['7'] = 2;		// eighth place 
+					$wm['8'] = 1;		// ninth place
+					$wm['9'] = 0.5;		// tenth place				
 				}
 
-				for ( $i=0; $i < count($result_array)-2; $i++ ) 
+				for ($i = 0; $i < count($result_array) - 2; ++$i) 
 				{
 					$current_driver = $result_array[$i];
-					if ( $current_driver <> '0' ) 
+					
+					if ($current_driver <> '0') 
 					{
 						$current_team 	= $teams[$current_driver];
 						$wm_points 		= $wm[$i];
@@ -1301,7 +1414,7 @@ switch ($mode)
 							'wm_race'	=> $race_id,
 							'wm_driver'	=> $current_driver,
 							'wm_team'	=> $current_team,
-							'wm_points'	=> $wm_points
+							'wm_points'	=> $wm_points,
 						);
 
 						$db->sql_query('INSERT INTO ' . FORMEL_WM_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
@@ -1310,15 +1423,16 @@ switch ($mode)
 				// END points calc
 
 				add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_ADDED', $race_id);
-				$result_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx?mode=results").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
+				
+				$result_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
 				trigger_error($result_msg);
 			}
 		}
 		
 		// Load add/edit quali
-		if ( ( $quali || $editquali ) && $race_id <> 0 ) 
+		if (($quali || $editquali) && $race_id <> 0) 
 		{
-			if ( $editquali ) 
+			if ($editquali) 
 			{
 				// Get the race
 				$sql = 'SELECT * 
@@ -1327,7 +1441,7 @@ switch ($mode)
 				$result = $db->sql_query($sql);
 
 				$row = $db->sql_fetchrow($result);
-				$quali_array = explode(',',$row['race_quali']);
+				$quali_array = explode(',', $row['race_quali']);
 				$db->sql_freeresult($result);
 			}
 			
@@ -1337,26 +1451,32 @@ switch ($mode)
 				ORDER BY driver_name ASC';
 			$result = $db->sql_query($sql);
 
-			$counter=1;
+			$counter = 1;
+			
 			while ($row = $db->sql_fetchrow($result)) 
 			{
 				$drivers[$counter] = $row;
-				$counter++;
+				++$counter;
 			}
+			
 			$db->sql_freeresult($result);
-			$drivers[0]['driver_id'] = '0';
-			$drivers[0]['driver_name'] = $user->lang['FORMEL_DEFINE'];
+			
+			$drivers['0']['driver_id'] = '0';
+			$drivers['0']['driver_name'] = $user->lang['FORMEL_DEFINE'];
 			
 			//We have 12 Teams with 2 cars each --> 24 drivers
-			for ($i = 0; $i < 24; $i++) 
+			for ($i = 0; $i < 24; ++$i) 
 			{
-				$position = ($i == 0) ? $user->lang['FORMEL_POLE'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
-				$box_name = 'place' . ($i+1);
+				$position = ($i == 0) ? $user->lang['FORMEL_POLE'] : $i + 1 . '. ' . $user->lang['FORMEL_PLACE'];
+				$box_name = 'place' . ($i + 1);
+				
 				$drivercombo = '<select name="' . $box_name . '" size="1">';
-				for ($k = 0; $k < count($drivers); $k++) 
+				
+				for ($k = 0; $k < count($drivers); ++$k) 
 				{
 					$this_driver_id = $drivers[$k]['driver_id'];
 					$this_driver_name = $drivers[$k]['driver_name'];
+					
 					if (isset($quali_array[$i]))
 					{
 						$selected = ( $this_driver_id == $quali_array[$i]) ? 'selected="selected"' : '';
@@ -1365,23 +1485,26 @@ switch ($mode)
 					{
 						$selected = '';
 					}
+					
 					$drivercombo .= '<option value="' . $this_driver_id . '" ' . $selected . '>' . $this_driver_name . '</option>';
 				}
+				
 				$drivercombo .= '</select>';
+				
 				$template->assign_block_vars('qualirow', array(
 					'L_PLACE'		=> $position,
-					'DRIVERCOMBO'	=> $drivercombo)
+					'DRIVERCOMBO'	=> $drivercombo,
+					)
 				);
 			}
-			$template->assign_block_vars('quali', array(
-				)
-			);
+			
+			$template->assign_block_vars('quali', array());
 		}	
 
 		// Load add or edit result
-		if ( ( $results || $editresult ) && $race_id <> 0 ) 
+		if (($results || $editresult) && $race_id <> 0) 
 		{
-			if ( $editresult ) 
+			if ($editresult) 
 			{
 				// Get the race
 				$sql = 'SELECT * 
@@ -1390,7 +1513,7 @@ switch ($mode)
 				$result = $db->sql_query($sql);
 
 				$row = $db->sql_fetchrow($result);
-				$result_array = explode(',',$row['race_result']);
+				$result_array = explode(',', $row['race_result']);
 				$db->sql_freeresult($result);
 			}
 			
@@ -1400,73 +1523,94 @@ switch ($mode)
 				ORDER BY driver_name ASC';
 			$result = $db->sql_query($sql);
 
-			$counter=1;
+			$counter = 1;
+			
 			while ($row = $db->sql_fetchrow($result)) 
 			{
 				$drivers[$counter] = $row;
-				$counter++;
+				++$counter;
 			}
+			
 			$db->sql_freeresult($result);
-			$drivers[0]['driver_id'] = '0';
-			$drivers[0]['driver_name'] = $user->lang['FORMEL_DEFINE'];
-			for ($i = 0; $i < 10; $i++) 
+			
+			$drivers['0']['driver_id'] = '0';
+			$drivers['0']['driver_name'] = $user->lang['FORMEL_DEFINE'];
+			
+			for ($i = 0; $i < 10; ++$i) 
 			{
-				$position = ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
-				$box_name = 'place' . ($i+1);
+				$position = ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i + 1 . '. ' . $user->lang['FORMEL_PLACE'];
+				$box_name = 'place' . ($i + 1);
+				
 				$drivercombo = '<select name="' . $box_name . '" size="1">';
-				for ($k = 0; $k < count($drivers); $k++) 
+				
+				for ($k = 0; $k < count($drivers); ++$k) 
 				{
 					$this_driver_id = $drivers[$k]['driver_id'];
 					$this_driver_name = $drivers[$k]['driver_name'];
+					
 					if (isset($result_array[$i]))
 					{
-						$selected = ( $this_driver_id == $result_array[$i]) ? 'selected="selected"' : '';
+						$selected = ($this_driver_id == $result_array[$i]) ? 'selected="selected"' : '';
 					}
 					else
 					{
 						$selected = '';
 					}
+					
 					$drivercombo .= '<option value="' . $this_driver_id . '" ' . $selected . '>' . $this_driver_name . '</option>';
 				}
+				
 				$drivercombo .= '</select>';
+				
 				$template->assign_block_vars('resultrow', array(
 					'L_PLACE' 		=> $position,
-					'DRIVERCOMBO' 	=> $drivercombo)
+					'DRIVERCOMBO' 	=> $drivercombo,
+					)
 				);
 			}
+			
 			$drivercombo_pace = '<select name="place11" size="1">';
-			for ($k = 0; $k < count($drivers); $k++) 
+			
+			for ($k = 0; $k < count($drivers); ++$k) 
 			{
 				$this_driver_id = $drivers[$k]['driver_id'];
 				$this_driver_name = $drivers[$k]['driver_name'];
-				if (isset($result_array[10]))
+				
+				if (isset($result_array['10']))
 				{
-					$selected = ( $this_driver_id == $result_array[10]) ? 'selected="selected"' : '';
+					$selected = ( $this_driver_id == $result_array['10']) ? 'selected="selected"' : '';
 				}
 				else
 				{
 					$selected = '';
 				}
+				
 				$drivercombo_pace .= '<option value="' . $this_driver_id . '" ' . $selected . '>' . $this_driver_name . '</option>';
 			}
+			
 			$drivercombo_pace .= '</select>';
+			
 			$combo_tired = '<select name="place12" size="1">';
 			
 			//We have 12 Teams with 2 cars each --> 24 drivers
-			for ($k = 0; $k < 25; $k++) 
+			for ($k = 0; $k < 25; ++$k) 
 			{
-				if (isset($result_array[11]))
+				if (isset($result_array['11']))
 				{
-					$selected = ( $k == $result_array[11]) ? 'selected="selected"' : '';
+					$selected = ( $k == $result_array['11']) ? 'selected="selected"' : '';
 				}
 				else
 				{
 					$selected = '';
-				}			
+				}
+				
 				$combo_tired .= '<option value="' . $k . '" ' . $selected . '>' . $k . '</option>';
 			}
+			
 			$combo_tired .= '</select>';
-			$modus = ( $editresult ) ? 'addeditresult' : 'addresult';
+			
+			$modus = ($editresult) ? 'addeditresult' : 'addresult';
+			
 			$template->assign_block_vars('result', array(
 				'PACECOMBO' 	=> $drivercombo_pace,
 				'MODE' 			=> $modus,
@@ -1493,12 +1637,12 @@ switch ($mode)
 		$template_html = 'formel_body.html';
 		
 		// Check buttons & data
-		$tipp_id = request_var('tipp'	,	0	);
-		$race_id = request_var('race'	,	0	);
+		$tipp_id = request_var('tipp',	0);
+		$race_id = request_var('race',	0);
 
 		// Get current race and time
 		$race 			= get_formel_races();
-		$results		= explode(",",$race[$race_id]['race_result']);
+		$results		= explode(",", $race[$race_id]['race_result']);
 		$current_time	= time();
 
 		// Get current tip
@@ -1513,7 +1657,7 @@ switch ($mode)
 		if ($tipp_active)
 		{
 			$tippdata = $db->sql_fetchrowset($result);
-			$tipp_userdata = get_formel_userdata($tippdata[0]['tipp_user']);
+			$tipp_userdata = get_formel_userdata($tippdata['0']['tipp_user']);
 			$db->sql_freeresult($result);
 
 			// Get all drivers
@@ -1526,6 +1670,7 @@ switch ($mode)
 			{
 				$driver_name[$row['driver_id']] = $row['driver_name'];
 			}
+			
 			$db->sql_freeresult($result);
 
 			// Get all tip points
@@ -1538,6 +1683,7 @@ switch ($mode)
 			{
 				$tipper_all_points = $row['total_points'];
 			}
+			
 			$db->sql_freeresult($result);
 
 			// Build output
@@ -1547,60 +1693,69 @@ switch ($mode)
 			$tipp_user_colour	= get_username_string('colour', $tipp_userdata['user_id'], $tipp_userdata['username'], $tipp_userdata['user_colour']);	
 			$tipper_style		= ($tipp_user_colour) ? ' style="color: ' . $tipp_user_colour . '; font-weight: bold;"' : '' ;
 			$tipper_link 		= ($tipper_name <> $user->lang['GUEST']) ? '<a href="' . append_sid("{$phpbb_root_path}memberlist.$phpEx", 'mode=viewprofile&amp;u=' . (int) $tipp_userdata['user_id']) . '"' . $tipper_style . ' onclick="window.open(this.href); return false">' . $tipper_name . '</a>' : $tipper_name;
-			$tipper_points 		= $tippdata[0]['tipp_points'];
-			$tipp_array 		= explode(',', $tippdata[0]['tipp_result']);
+			$tipper_points 		= $tippdata['0']['tipp_points'];
+			$tipp_array 		= explode(',', $tippdata['0']['tipp_result']);
 			$is_hidden			= ($race[$race_id]['race_time'] - $formel_config['deadline_offset']  <= $current_time ) ? false : true ;		
 
-			for ($i = 0; $i < count($tipp_array) - 2; $i++)
+			for ($i = 0; $i < count($tipp_array) - 2; ++$i)
 			{
-				$position 		= ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i+1 . '. ' . $user->lang['FORMEL_PLACE'];
+				$position 		= ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i + 1 . '. ' . $user->lang['FORMEL_PLACE'];
 				$driver_placed 	= (isset($driver_name[$tipp_array[$i]])) ? $driver_name[$tipp_array[$i]] : '';
 				$driverid 		= (isset($tipp_array[$i])) ? $tipp_array[$i] : '';
 
-				//Recalc Tipp Points for Place 1 - 8
+				//Recalc Tipp Points for Place 1 - 10
 				$single_points = 0;
+				
 				if (isset($results[$i]))
 				{
-					if ( ($driverid == $results[$i]) && $driverid <>0 )
+					if (($driverid == $results[$i]) && $driverid <> 0)
 					{
 						$single_points += $formel_config['points_placed'];
 					}
 				}
-				for ($j = 0; $j < count($tipp_array) - 2; $j++)
+				
+				for ($j = 0; $j < count($tipp_array) - 2; ++$j)
 				{
 					if (isset($results[$j]))
 					{
-						if ( ($driverid == $results[$j]) && $driverid <>0)
+						if (($driverid == $results[$j]) && $driverid <> 0)
 						{
 							$single_points += $formel_config['points_mentioned'];
 						}
 					}
 				}
-				if ($single_points == 0) $single_points='';
+				
+				if ($single_points == 0) 
+				{
+					$single_points='';
+				}
 
 				$template->assign_block_vars('user_drivers', array(
 					'DRIVER_PLACED' 	=> ($is_hidden == true && $tipp_userdata['user_id'] <> $user->data['user_id']) ? $user->lang['FORMEL_HIDDEN'] : $driver_placed,
 					'POSITION' 			=> $position,
-					'SINGLE_POINTS' 	=> $single_points)
+					'SINGLE_POINTS' 	=> $single_points,
+					)
 				);
 			}
 
-			$fastest_driver_name 	= (isset($driver_name[$tipp_array[10]])) ? $driver_name[$tipp_array[10]] : '';
-			$tired 					= (isset($tipp_array[11])) ? $tipp_array[11] : '';
+			$fastest_driver_name 	= (isset($driver_name[$tipp_array['10']])) ? $driver_name[$tipp_array['10']] : '';
+			$tired 					= (isset($tipp_array['11'])) ? $tipp_array['11'] : '';
 
 			//Recalc tip points for fastest driver and tired count
 			$single_fastest = '';
 			$single_tired = '';
-			if (isset($results[10]) && $results[10] <> 0)
+			
+			if (isset($results['10']) && $results['10'] <> 0)
 			{
-				if ($tipp_array[10] == $results[10])
+				if ($tipp_array['10'] == $results['10'])
 				{
 					$single_fastest += $formel_config['points_fastest'];
 				}
 			}
-			if (isset($results[11]))
+			
+			if (isset($results['11']))
 			{
-				if ($tipp_array[11] == $results[11])
+				if ($tipp_array['11'] == $results['11'])
 				{
 					$single_tired += $formel_config['points_tired'];
 				}
@@ -1613,14 +1768,13 @@ switch ($mode)
 				'FASTEST_DRIVER' 	=> (isset($fastest_driver_name)) ? ($is_hidden == true && $tipp_userdata['user_id'] <> $user->data['user_id']) ? $user->lang['FORMEL_HIDDEN'] : $fastest_driver_name : '',
 				'TIRED' 			=> (isset($tired)) ? ($is_hidden == true && $tipp_userdata['user_id'] <> $user->data['user_id']) ? $user->lang['FORMEL_HIDDEN'] : $tired : '',
 				'SINGLE_FASTEST' 	=> (isset($single_fastest)) ? $single_fastest : '',
-				'SINGLE_TIRED' 		=> (isset($single_tired)) ? $single_tired : '')
+				'SINGLE_TIRED' 		=> (isset($single_tired)) ? $single_tired : '',
+				)
 			);
 		}
 		else
 		{
-			$template->assign_block_vars('no_tipp', array(
-				)
-			);
+			$template->assign_block_vars('no_tipp', array());
 		}
 
 		// Output global values
@@ -1628,6 +1782,7 @@ switch ($mode)
 			'S_USERTIPP'		=> true,
 			)
 		);
+		
 	break;
 		
 	case 'stats':
@@ -1639,11 +1794,12 @@ switch ($mode)
 		$template->assign_block_vars('navlinks', array( 
 			'U_VIEW_FORUM'		=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=stats"),
 			'FORUM_NAME' 		=> $user->lang['FORMEL_STATS_TITLE'],
-		));	
+			)
+		);	
 		
 		// Check buttons & data
-		$show_drivers 	= request_var('show_drivers'	,	'');
-		$show_teams 	= request_var('show_teams'		,	'');
+		$show_drivers 	= request_var('show_drivers'	, '');
+		$show_teams 	= request_var('show_teams'		, '');
 		
 		// Show teams toplist
 		if ($show_teams) 
@@ -1662,6 +1818,7 @@ switch ($mode)
 			
 			//Stop! we have to recalc the team WM points... maybe we have some penalty !
 			$recalc_teams = array();
+			
 			while ($row = $db->sql_fetchrow($result))
 			{
 				$recalc_teams[$row['wm_team']]['total_points'] 	= $row['total_points'] - $teams[$row['wm_team']]['team_penalty'];
@@ -1672,12 +1829,13 @@ switch ($mode)
 			// re-sort the teams. Big points first ;-)
 			arsort($recalc_teams);
 
-
 			$rank = $real_rank  = 0;
 			$previous_points = false;
+			
 			foreach ($recalc_teams as $team_id => $team) 
 			{ 
-				$real_rank++; 
+				++$real_rank;
+				
 				if ($team['total_points'] <> $previous_points) 
 				{ 
 					$rank = $real_rank; 
@@ -1691,7 +1849,7 @@ switch ($mode)
 				$wm_teamimg 	= ( $wm_teamimg == '' ) ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_team_img'] . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $wm_teamimg . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />';
 				$wm_teamcar 	= ( $wm_teamcar == '' ) ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img']  . '" alt="" width="' . $formel_config['car_img_width']  . '" height="' . $formel_config['car_img_height']  . '" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $wm_teamcar . '" alt="" width="' . $formel_config['car_img_width']  . '" height="' . $formel_config['car_img_height']  . '" />';
 
-				if ( $formel_config['show_gfx'] == 1 )
+				if ($formel_config['show_gfx'] == 1)
 				{
 					$template->assign_block_vars('top_teams_gfx', array(
 						'RANK' 			=> $rank,
@@ -1712,9 +1870,9 @@ switch ($mode)
 					);
 				}
 			}
+			
 			$db->sql_freeresult($result);
 		}
-
 		// Show drivers toplist
 		else if ($show_drivers) 
 		{
@@ -1723,6 +1881,21 @@ switch ($mode)
 			// Get all data
 			$teams 		= get_formel_teams();
 			$drivers 	= get_formel_drivers();
+
+			//Get all first place winner, count all first places,  grep all gold medals...  Marker for first place: 25 WM Points
+			$sql = 'SELECT 	count(wm_driver) as gold_medals, 
+							wm_driver
+					FROM 	' . FORMEL_WM_TABLE . '
+					WHERE 	wm_points = 25
+					GROUP BY wm_driver
+					ORDER BY gold_medals DESC';
+			$result = $db->sql_query($sql);
+			
+			// Now put the gold medals into the $drivers array
+			while ($row = $db->sql_fetchrow($result))
+			{
+				$drivers[$row['wm_driver']]['gold_medals']	= $row['gold_medals'];
+			}
 
 			// Get all wm points and fill top10 drivers
 			$sql = 'SELECT sum(wm_points) AS total_points, wm_driver, wm_team 
@@ -1733,9 +1906,11 @@ switch ($mode)
 
 			//Stop! we have to recalc the driver WM points... maybe we have some penalty !
 			$recalc_drivers = array();
+			
 			while ($row = $db->sql_fetchrow($result))
 			{
 				$recalc_drivers[$row['wm_driver']]['total_points'] 	= $row['total_points'] - $drivers[$row['wm_driver']]['driver_penalty'];
+				$recalc_drivers[$row['wm_driver']]['gold_medals']	= (isset($drivers[$row['wm_driver']]['gold_medals'])) ? $drivers[$row['wm_driver']]['gold_medals'] : 0;
 				$recalc_drivers[$row['wm_driver']]['driver_name']	= $drivers[$row['wm_driver']]['driver_name'];
 				$recalc_drivers[$row['wm_driver']]['driver_img']	= $drivers[$row['wm_driver']]['driver_img'];
 				$recalc_drivers[$row['wm_driver']]['driver_car']	= $drivers[$row['wm_driver']]['driver_car'];
@@ -1745,23 +1920,20 @@ switch ($mode)
 			// re-sort the drivers. Big points first ;-)
 			arsort($recalc_drivers);			
 
-			$rank = $real_rank  = 0;
+			$rank = 0;
 			$previous_points = false;
+			
 			foreach ($recalc_drivers as $driver_id => $driver)  
 			{ 
-				$real_rank++; 
-				if ($driver['total_points'] <> $previous_points) 
-				{ 
-					$rank = $real_rank; 
-					$previous_points = $driver['total_points']; 
-				}
+				++$rank;
+				
 				$wm_drivername 	= $driver['driver_name'];
 				$wm_driverimg 	= $driver['driver_img'];
 				$wm_drivercar 	= $driver['driver_car'];
 				$wm_driverteam 	= $driver['team_img'];
 				$wm_driverteam 	= ( $wm_driverteam == '' ) ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_team_img'] . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $wm_driverteam . '" alt="" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" />';
 
-				if ( $formel_config['show_gfx'] == 1 )
+				if ($formel_config['show_gfx'] == 1)
 				{
 					$template->assign_block_vars('top_drivers_gfx', array(
 						'RANK' 				=> $rank,
@@ -1783,9 +1955,9 @@ switch ($mode)
 					);
 				}
 			}
+			
 			$db->sql_freeresult($result);
 		}
-
 		// Show users toplist
 		else 
 		{
@@ -1801,20 +1973,23 @@ switch ($mode)
 			$rank = $real_rank  = 0;
 			$previous_points = false;
 			$alt = 'USER_AVATAR';
+			
 			while ($row = $db->sql_fetchrow($result)) 
 			{ 
-				$real_rank++; 
+				++$real_rank;
+				
 				if ($row['total_points'] <> $previous_points) 
 				{ 
 					$rank = $real_rank; 
 					$previous_points = $row['total_points']; 
 				}
+				
 				$tipp_user_row			= get_formel_userdata($row['tipp_user']);
 				$tipp_username_link		= get_username_string('full', $tipp_user_row['user_id'], $tipp_user_row['username'], $tipp_user_row['user_colour'] );
 				$tipp_user_avatar 		= '';
 				$show_avatar_switch 	= false;
 				
-				if ( $formel_config['show_avatar'] == 1 )
+				if ($formel_config['show_avatar'] == 1)
 				{
 					if (!empty($tipp_user_row['user_avatar']))
 					{
@@ -1828,6 +2003,7 @@ switch ($mode)
 								$tipp_user_avatar = $phpbb_root_path . $config['avatar_gallery_path'] . '/';
 							break;
 						}
+						
 						$tipp_user_avatar .= $tipp_user_row['user_avatar'];
 
 						$tipp_user_avatar = '<img src="' . $tipp_user_avatar . '" width="' . $tipp_user_row['user_avatar_width'] . '" height="' . $tipp_user_row['user_avatar_height'] . '" alt="' . ((!empty($user->lang[$alt])) ? $user->lang[$alt] : $alt) . '" />';
@@ -1836,10 +2012,10 @@ switch ($mode)
 					{
 						$tipp_user_avatar = '<img src="' . $phpbb_root_path . 'adm/images/no_avatar.gif" width="' . $config['avatar_max_width'] . '" height="' . $config['avatar_max_height'] . '" alt="' . ((!empty($user->lang[$alt])) ? $user->lang[$alt] : $alt) . '" />';				
 					}
+					
 					$show_avatar_switch 	= true;
 				}
-				
-				
+
 				$template->assign_block_vars('top_tippers', array(
 					'S_AVATAR_SWITCH'		=> $show_avatar_switch,
 					'TIPPER_AVATAR'			=> $tipp_user_avatar,
@@ -1847,14 +2023,16 @@ switch ($mode)
 					'TIPPER_AVATAR_HEIGHT'	=> $config['avatar_max_height'] + 10,
 					'TIPPER_NAME'			=> $tipp_username_link,
 					'RANK'					=> ($rank == 1 || $rank == 2 || $rank == 3) ? "<b>" . $rank . "</b>" : $rank,
-					'TIPPER_POINTS'			=> $row['total_points'])
+					'TIPPER_POINTS'			=> $row['total_points'],
+					)
 				);
 			}
+			
 			$db->sql_freeresult($result);
 		}
 
 		// Show headerbanner ?
-		if ( $formel_config['show_headbanner'] )
+		if ($formel_config['show_headbanner'])
 		{
 			$template->assign_block_vars('head_on', array());
 		}
@@ -1872,6 +2050,7 @@ switch ($mode)
 			'U_BACK_TO_TIPP' 		=> append_sid("{$phpbb_root_path}formel.$phpEx"),
 			)
 		);
+		
 	break;
 		
 	case 'rules':
@@ -1883,7 +2062,8 @@ switch ($mode)
 		$template->assign_block_vars('navlinks', array( 
 			'U_VIEW_FORUM'		=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=rules"),
 			'FORUM_NAME' 		=> $user->lang['FORMEL_RULES_TITLE'],
-		));	
+			)
+		);	
 		
 		// Build rules
 		$points_mentioned 	= $formel_config['points_mentioned'];
@@ -1894,7 +2074,7 @@ switch ($mode)
 		$point 				= $user->lang['FORMEL_RULES_POINT'];
 		$points 			= $user->lang['FORMEL_RULES_POINTS'];
 
-		if ( $points_mentioned == '1' ) 
+		if ($points_mentioned == '1') 
 		{
 			$points_mentioned .= ' ' . $point;
 		}
@@ -1903,7 +2083,7 @@ switch ($mode)
 			$points_mentioned .= ' ' . $points;
 		}
 
-		if ( $points_placed == '1' ) 
+		if ($points_placed == '1') 
 		{
 			$points_placed .= ' ' . $point;
 		}
@@ -1912,7 +2092,7 @@ switch ($mode)
 			$points_placed .= ' ' . $points;
 		}
 
-		if ( $points_fastest == '1' ) 
+		if ($points_fastest == '1') 
 		{
 			$points_fastest .= ' ' . $point;
 		}
@@ -1921,7 +2101,7 @@ switch ($mode)
 			$points_fastest .= ' ' . $points;
 		}
 
-		if ( $points_tired == '1' ) 
+		if ($points_tired == '1') 
 		{
 			$points_tired .= ' ' . $point;
 		}
@@ -1930,8 +2110,9 @@ switch ($mode)
 			$points_tired .= ' ' . $points;
 		}
 
-		$points_total = 10 * ( $points_mentioned + $points_placed ) + $points_fastest + $points_tired;
-		if ( $points_total == '1' ) 
+		$points_total = 10 * ($points_mentioned + $points_placed) + $points_fastest + $points_tired;
+		
+		if ($points_total == '1') 
 		{
 			$points_total .= ' ' . $point;
 		}
@@ -1947,7 +2128,7 @@ switch ($mode)
 		$rules_total 		= sprintf($user->lang['FORMEL_RULES_TOTAL'] 		, $points_total);
 
 		// Show headerbanner ?
-		if ( $formel_config['show_headbanner'] )
+		if ($formel_config['show_headbanner'])
 		{
 			$template->assign_block_vars('head_on', array());
 		}
@@ -1967,10 +2148,11 @@ switch ($mode)
 			'U_FORMEL_RULES' 			=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=rules"),
 			)
 		);
+		
 	break;
 		
 	default:
-		$auth_msg = sprintf($user->lang['FORMEL_ERROR_MODE'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
+		$auth_msg = sprintf($user->lang['FORMEL_ERROR_MODE'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
 		trigger_error($auth_msg);
 	break;
 }

@@ -34,13 +34,14 @@
 		
 		<history>
 			<entry>
-				<date>2010-10-05T00:00:00+02:00</date>
+				<date>2010-10-10T00:00:00+02:00</date>
 				<rev-version>0.3.5</rev-version>
 				<changelog lang="en-gb">
 					<change>Changed design. We have now 24 drivers (12 teams). In Q1 and Q2 seven driver will drop out</change>
 					<change>Changed design. Replaced the "#" with "place" on statistic pages. (femu's idea)</change>
 					<change>BugFix: JavaScript Countdown now reflect correct timezone settings.</change>
 					<change>BugFix: Added missing language vars to MCP / User Notes. (Thanks to femu for finding this issue)</change>
+					<change>BugFix: If two or more drive have the same WM points, the driver with most 1st places will take the lead.</change>
 					<change>Added feature: Give half points if race aborted. (Thanks to Dungeonwatcher for his idea)</change>
 					<change>UMIL update to 1.0.3</change>
 				</changelog>
@@ -49,6 +50,7 @@
 					<change>Design angepasst. Auf den Statistik Seiten wurde das "#" Zeichen durch "Platz" ersetzt. (femu's Idee)</change>
 					<change>BugFix: JavaScript Countdown passt sich nun auch den Zeitzonen korrekt an.</change>
 					<change>BugFix: Fehlende Sprachvariablen im MCP / Benutzer-Notizen hinzugefügt (Danke an femu für das finden des Bugs)</change>
+					<change>BugFix: Wenn zwei oder mehr Fahrer in der WM Tabelle Punktgleich sind, übernimmt der Fahrer mit den meisten Siegen (1. Platz) die Führung.</change>
 					<change>Hinzugefügt: Halbe Punkte Vergabe bei Rennabbruch. (Danke an Dungeonwatcher für die Idee)</change>
 					<change>UMIL aktualisiert auf 1.0.3</change>
 				</changelog>
@@ -75,10 +77,8 @@
 		<open src="includes/mcp/mcp_notes">
 			<edit>
 				<find><![CDATA[			case 'user_notes':
-				$user->add_lang('acp/common');
-				]]></find>
-				<action type="after-add"><![CDATA[				$user->add_lang('mods/info_acp_formel');
-				]]></action>
+				$user->add_lang('acp/common');]]></find>
+				<action type="after-add"><![CDATA[				$user->add_lang('mods/info_acp_formel');]]></action>
 			</edit>
 		</open>
 		<diy-instructions lang="en-gb"><![CDATA[After copying these files, you have to point your web browser to the UMIL install_f1.php file

@@ -26,12 +26,13 @@ if (!defined('IN_PHPBB'))
 * Returns true or false
 * If returns true, the tip is invalid.
 */
-function checkarrayforvalue($wert,$array)
+function checkarrayforvalue($wert, $array)
 {
 	$ret = false;
+	
 	if ($wert <> 0) 
 	{
-		for ($i = 0; $i < count($array); $i++)
+		for ($i = 0; $i < count($array); ++$i)
 		{
 			if ($wert == $array[$i])
 			{
@@ -39,6 +40,7 @@ function checkarrayforvalue($wert,$array)
 			}
 		}
 	}
+	
 	return $ret;
 }
 
@@ -48,7 +50,7 @@ function checkarrayforvalue($wert,$array)
 * Delete a users tip
 * Deletes a given user tip for a given race
 */
-function formel_del_tip($user_id,$race_id)
+function formel_del_tip($user_id, $race_id)
 {
 	global $db, $user, $phpEx, $phpbb_root_path;
 
@@ -58,7 +60,7 @@ function formel_del_tip($user_id,$race_id)
 			AND tipp_race = ' . (int) $race_id;
 	$db->sql_query($sql);
 
-	$tipp_msg = sprintf($user->lang['FORMEL_TIPP_DELETED'], '<a href="'.append_sid("{$phpbb_root_path}formel.$phpEx").'" class="gen">', '</a>', '<a href="'.append_sid("{$phpbb_root_path}index.$phpEx").'" class="gen">', '</a>');
+	$tipp_msg = sprintf($user->lang['FORMEL_TIPP_DELETED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
 	trigger_error( $tipp_msg);
 }
 
@@ -73,6 +75,7 @@ function get_formel_config()
 	global $db;
 
 	$config = array();
+	
 	$sql = 'SELECT * 
 		FROM ' . FORMEL_CONFIG_TABLE;
 	$result = $db->sql_query($sql);
@@ -81,6 +84,7 @@ function get_formel_config()
 	{
 		$config[$row['config_name']] = $row['config_value'];
 	}
+	
 	$db->sql_freeresult($result);
 
 	return $config;
@@ -97,12 +101,14 @@ function get_formel_races()
 	global $db;
 
 	$races = array();
+	
 	$sql = 'SELECT * 
 		FROM ' . FORMEL_RACES_TABLE . '
 		ORDER BY race_time ASC';
 	$result = $db->sql_query($sql);
 
 	$races = $db->sql_fetchrowset($result);
+	
 	$db->sql_freeresult($result);
 
 	return $races;
@@ -119,6 +125,7 @@ function get_formel_teams()
 	global $db;
 
 	$teams = array();
+	
 	$sql = 'SELECT * 
 		FROM ' . FORMEL_TEAMS_TABLE;
 	$result = $db->sql_query($sql);
@@ -127,6 +134,7 @@ function get_formel_teams()
 	{
 		$teams[$row['team_id']] = $row;
 	}
+	
 	$db->sql_freeresult($result);
 
 	return $teams;
@@ -144,6 +152,7 @@ function get_formel_drivers()
 	global $phpEx, $phpbb_root_path;
 
 	$drivers = array();
+	
 	$sql = 'SELECT * 
 		FROM ' . FORMEL_DRIVERS_TABLE . '
 		ORDER BY driver_id ASC';
@@ -160,12 +169,14 @@ function get_formel_drivers()
 			$drivercar = '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="" />';
 		}
 		
-		$row['driver_img'] 			= ( $row['driver_img'] == '' ) ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $row['driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="" />';
+		$row['driver_img'] 			= ($row['driver_img'] == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $row['driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="" />';
 		$row['driver_car'] 			= $drivercar;
 		$row['driver_team_name'] 	= $teams[$row['driver_team']]['team_name'];
 		$drivers[$row['driver_id']]	= $row;
 	}
+	
 	$db->sql_freeresult($result);
+	
 	return $drivers;
 }
 
@@ -180,21 +191,26 @@ function get_formel_drivers_data()
 	global $db, $teams, $formel_config, $user;
 
 	$drivers = array();
+	
 	$sql = 'SELECT * 
 		FROM ' . FORMEL_DRIVERS_TABLE . '
 		WHERE driver_disabled <> 1
 		ORDER BY driver_name ASC';
 	$result = $db->sql_query($sql);
 
-	$counter=1;
+	$counter = 1;
+	
 	while ($row = $db->sql_fetchrow($result)) 
 	{
 		$drivers[$counter] = $row;
-		$counter++;
+		++$counter;
 	}
-	$drivers[0]['driver_id']   = '0';
-	$drivers[0]['driver_name'] = $user->lang['FORMEL_DEFINE'];
+	
+	$drivers['0']['driver_id']   = '0';
+	$drivers['0']['driver_name'] = $user->lang['FORMEL_DEFINE'];
+	
 	$db->sql_freeresult($result);
+	
 	return $drivers;
 }
 
@@ -214,6 +230,6 @@ function get_formel_userdata($user_id)
 			AND user_id <> ' . ANONYMOUS;
 	$result = $db->sql_query($sql);
 
-	return ( $row = $db->sql_fetchrow($result) ) ? $row : false;
+	return ($row = $db->sql_fetchrow($result)) ? $row : false;
 }
 ?>
