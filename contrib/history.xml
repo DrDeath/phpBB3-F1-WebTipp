@@ -306,7 +306,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2010-10-05T00:00:00+02:00</date>
+			<date>2010-10-17T00:00:00+02:00</date>
 			<rev-version>0.3.5</rev-version>
 			<changelog lang="en-gb">
 				<change>Changed design. We have now 24 drivers (12 teams). In Q1 and Q2 seven driver will drop out</change>
@@ -315,6 +315,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<change>BugFix: Added missing language vars to MCP / User Notes. (Thanks to femu for finding this issue)</change>
 				<change>BugFix: If two or more drive have the same WM points, the driver with most 1st places will take the lead.</change>
 				<change>Added feature: Give half points if race aborted. (Thanks to Dungeonwatcher for his idea)</change>
+				<change>Added feature: "Safety Car Deployment". Default: 2 additional points</change>
 				<change>UMIL update to 1.0.3</change>
 			</changelog>
 			<changelog lang="de">
@@ -324,6 +325,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<change>BugFix: Fehlende Sprachvariablen im MCP / Benutzer-Notizen hinzugefügt (Danke an femu für das finden des Bugs)</change>
 				<change>BugFix: Wenn zwei oder mehr Fahrer in der WM Tabelle Punktgleich sind, übernimmt der Fahrer mit den meisten Siegen (1. Platz) die Führung.</change>
 				<change>Hinzugefügt: Halbe Punkte Vergabe bei Rennabbruch. (Danke an Dungeonwatcher für die Idee)</change>
+				<change>Hinzugefügt: "Safety Car Einsätze". Standard: 2 Zusatzpunkte.</change>
 				<change>UMIL aktualisiert auf 1.0.3</change>
 			</changelog>
 		</entry>

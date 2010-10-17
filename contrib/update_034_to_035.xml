@@ -43,6 +43,7 @@
 					<change>BugFix: Added missing language vars to MCP / User Notes. (Thanks to femu for finding this issue)</change>
 					<change>BugFix: If two or more drive have the same WM points, the driver with most 1st places will take the lead.</change>
 					<change>Added feature: Give half points if race aborted. (Thanks to Dungeonwatcher for his idea)</change>
+					<change>Added feature: "Safety Car Deployment". Default: 2 additional points</change>
 					<change>UMIL update to 1.0.3</change>
 				</changelog>
 				<changelog lang="de">
@@ -52,6 +53,7 @@
 					<change>BugFix: Fehlende Sprachvariablen im MCP / Benutzer-Notizen hinzugefügt (Danke an femu für das finden des Bugs)</change>
 					<change>BugFix: Wenn zwei oder mehr Fahrer in der WM Tabelle Punktgleich sind, übernimmt der Fahrer mit den meisten Siegen (1. Platz) die Führung.</change>
 					<change>Hinzugefügt: Halbe Punkte Vergabe bei Rennabbruch. (Danke an Dungeonwatcher für die Idee)</change>
+					<change>Hinzugefügt: "Safety Car Einsätze". Standard: 2 Zusatzpunkte.</change>
 					<change>UMIL aktualisiert auf 1.0.3</change>
 				</changelog>
 			</entry>
@@ -68,8 +70,11 @@
 			<file from="root/formel.php" to="formel.php" />
 			
 			<file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php" />
+			<file from="root/language/en/mods/acp_formel.php" to="language/en/mods/acp_formel.php" />
 			<file from="root/language/de/mods/formel.php" to="language/de/mods/formel.php" />
+			<file from="root/language/de/mods/acp_formel.php" to="language/de/mods/acp_formel.php" />
 			<file from="root/language/fr/mods/formel.php" to="language/fr/mods/formel.php" />
+			<file from="root/language/fr/mods/acp_formel.php" to="language/fr/mods/acp_formel.php" />
 
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
 			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />

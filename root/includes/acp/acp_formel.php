@@ -72,6 +72,7 @@ class acp_formel
 				$points_tired		= request_var('points_tired',		0	);
 				$points_enabled		= request_var('points_enabled',		0	);
 				$points_per_tip		= request_var('points_per_tip',		0	);
+				$points_safety_car	= request_var('points_safety_car',	0	);
 
 				$lang = 'ACP_F1_SETTINGS';
 
@@ -345,6 +346,7 @@ class acp_formel
 					'ACP_F1_SETTING_POINTS_PLACED'			=> $new['points_placed'],
 					'ACP_F1_SETTING_POINTS_FASTEST'			=> $new['points_fastest'],
 					'ACP_F1_SETTING_POINTS_TIRED'			=> $new['points_tired'],
+					'ACP_F1_SETTING_POINTS_SAFETY_CAR'		=> $new['points_safety_car'],
 					'ACP_F1_SETTING_HEADBANNER_IMG_HEIGHT'	=> $new['head_height'],
 					'ACP_F1_SETTING_HEADBANNER_IMG_WIDTH'	=> $new['head_width'],
 					'ACP_F1_SETTING_HEADBANNER1_IMG'		=> $new['headbanner1_img'],
