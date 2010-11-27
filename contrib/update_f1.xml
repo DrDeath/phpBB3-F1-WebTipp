@@ -32,7 +32,7 @@ Der Updater wird zuerst alle Renn- , Team- und Fahrer Tabellen leeren und anschl
 		<installation>
 			<level>easy</level>
 			<time>120</time>
-			<target-version>3.0.7</target-version>
+			<target-version>3.0.8</target-version>
 		</installation>
 
 		<link-group>	
