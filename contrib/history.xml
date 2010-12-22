@@ -315,7 +315,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<change>BugFix: If two or more drive have the same WM points, the driver with most 1st places will take the lead.</change>
 				<change>Added feature: Give half points if race aborted. (Thanks to Dungeonwatcher for his idea)</change>
 				<change>Added feature: "Safety Car Deployment". Default: 2 additional points</change>
-				<change>UMIL update to 1.0.3</change>
+				<change>UMIL update to 1.0.4</change>
 			</changelog>
 			<changelog lang="de">
 				<change>Design angepasst. Wir haben nun 24 Fahrer (12 Teams). In Q1 und Q2 werden sieben Fahrer ausscheiden</change>
@@ -324,7 +324,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<change>BugFix: Wenn zwei oder mehr Fahrer in der WM Tabelle Punktgleich sind, übernimmt der Fahrer mit den meisten Siegen (1. Platz) die Führung.</change>
 				<change>Hinzugefügt: Halbe Punkte Vergabe bei Rennabbruch. (Danke an Dungeonwatcher für die Idee)</change>
 				<change>Hinzugefügt: "Safety Car Einsätze". Standard: 2 Zusatzpunkte.</change>
-				<change>UMIL aktualisiert auf 1.0.3</change>
+				<change>UMIL aktualisiert auf 1.0.4</change>
 			</changelog>
 		</entry>
 	</history>
