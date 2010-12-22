@@ -1,20 +1,33 @@
 <?php
 /**
-*
-* umil [French]
-*
-* @package umil
-* @version $Id: umil.php 149 2009-06-16 00:58:51Z exreaction $
-* @copyright (c) 2008 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-* @author Nathan Guse (EXreaction) http://lithiumstudios.org
-* @author David Lewis (Highway of Life) highwayoflife@gmail.com
-*
-*/
+ * This file is part of French UMIL translation.
+ * Copyright (c) 2010 Maël Soucaze.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; version 2 of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * @package   umil
+ * @author    Maël Soucaze <maelsoucaze@gmail.com> (Maël Soucaze) http://mael.soucaze.com/
+ * @author    EXreaction (Nathan Guse) http://lithiumstudios.org
+ * @author    Highway of Life <highwayoflife@gmail.com> (David Lewis)
+ * @copyright (c) 2008 phpBB Group
+ * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
+ * @version   $Id$
+ */
 
 /**
-* DO NOT CHANGE
-*/
+ * @ignore
+ */
 if (!defined('IN_PHPBB'))
 {
 	exit;
@@ -25,26 +38,6 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
-//
-// TRANSLATION DETAILS
-//
-// Author: Maël Soucaze
-// Website: http://twitter.com/MaelSoucaze
-//
-// TRANSLATION LICENSE
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, version 2 of the License.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with this program. If not, see http://opensource.org/licenses/gpl-license.php.
-//
 // DEVELOPERS PLEASE NOTE
 //
 // All language files should use UTF-8 as their encoding and the files must not contain a BOM.
@@ -75,10 +68,10 @@ $lang = array_merge($lang, array(
 	'CONFIG_UPDATE'					=> 'Mise à jour d’une variable de configuration : %s',
 
 	'DISPLAY_RESULTS'				=> 'Afficher tous les résultats',
-	'DISPLAY_RESULTS_EXPLAIN'		=> 'Sélectionnez “Oui” afin d’afficher toutes les actions et tous les résultats durant l’action demandée.',
+	'DISPLAY_RESULTS_EXPLAIN'		=> 'Sélectionnez “oui” afin d’afficher toutes les actions et tous les résultats durant l’action demandée.',
 
-	'ERROR_NOTICE'					=> 'Une ou plusieurs erreurs sont survenues lors de la réalisaton de l’action demandée. Veuillez télécharger <a href="%1$s">ce fichier</a> listant les erreurs et demander de l’aide à l’auteur du MOD.<br /><br />Si vous éprouvez des difficultés à télécharger ce fichier, veuillez le télécharger directement par FTP en cliquant sur le lien suivant : %2$s',
-	'ERROR_NOTICE_NO_FILE'			=> 'Une ou plusieurs erreurs sont survenues lors de la réalisaton de l’action demandée. Veuillez procéder à un enregistrement complet de toutes les erreurs et demander de l’aide à l’auteur du MOD.',
+	'ERROR_NOTICE'					=> 'Une ou plusieurs erreurs sont survenues lors de la réalisation de l’action demandée. Veuillez télécharger <a href="%1$s">ce fichier</a> listant les erreurs et demander de l’aide à l’auteur du MOD.<br /><br />Si vous éprouvez des difficultés à télécharger ce fichier, veuillez le télécharger directement par FTP en cliquant sur le lien suivant : %2$s',
+	'ERROR_NOTICE_NO_FILE'			=> 'Une ou plusieurs erreurs sont survenues lors de la réalisation de l’action demandée. Veuillez procéder à un enregistrement complet de toutes les erreurs et demander de l’aide à l’auteur du MOD.',
 
 	'FAIL'							=> 'Échec',
 	'FILE_COULD_NOT_READ'			=> 'ERREUR : il n’a pas été possible d’ouvrir le fichier %s afin de le lire.',
@@ -101,16 +94,20 @@ $lang = array_merge($lang, array(
 	'NO_TABLE_DATA'					=> 'ERREUR : aucune donnée n’a été spécifiée dans la table',
 
 	'PARENT_NOT_EXIST'				=> 'ERREUR : la catégorie parent spécifiée pour ce module n’existe pas.',
-	'PERMISSIONS_WARNING'			=> 'Les réglages de la nouvelle permission ont été ajoutés. Assurez-vous de vérifier les réglages de votre permission afin qu’ils soient exactement comme vous le voulez.',
+	'PERMISSIONS_WARNING'			=> 'Les réglages de la nouvelle permission ont été ajoutés. Assurez-vous de vérifier les réglages de votre permission afin qu’ils soient exactement comme vous le souhaitez.',
 	'PERMISSION_ADD'				=> 'Ajout d’une nouvelle option de permission : %s',
 	'PERMISSION_ALREADY_EXISTS'		=> 'ERREUR : l’option de permission %s existe déjà.',
 	'PERMISSION_NOT_EXIST'			=> 'ERREUR : l’option de permission %s n’existe pas.',
 	'PERMISSION_REMOVE'				=> 'Suppression d’une option de permission : %s',
+	'PERMISSION_ROLE_ADD'			=> 'Ajout d’un nouveau rôle de permission : %s',
+	'PERMISSION_ROLE_UPDATE'		=> 'Mise à jour d’un rôle de permission : %s',
+	'PERMISSION_ROLE_REMOVE'		=> 'Suppression d’un rôle de permission : %s',
 	'PERMISSION_SET_GROUP'			=> 'Régler les permissions du groupe %s.',
 	'PERMISSION_SET_ROLE'			=> 'Régler les permissions du rôle %s.',
 	'PERMISSION_UNSET_GROUP'		=> 'Dérégler les permissions du groupe %s.',
 	'PERMISSION_UNSET_ROLE'			=> 'Dérégler les permissions du rôle %s.',
 
+	'ROLE_ALREADY_EXISTS'			=> 'Le rôle de permission existe déjà.',
 	'ROLE_NOT_EXIST'				=> 'Le rôle n’existe pas',
 
 	'SUCCESS'						=> 'Succès',
@@ -140,11 +137,11 @@ $lang = array_merge($lang, array(
 	'UNKNOWN'						=> 'Inconnu',
 	'UPDATE_MOD'					=> 'Mettre à jour %s',
 	'UPDATE_MOD_CONFIRM'			=> 'Êtes-vous prêt à mettre à jour %s ?',
-	'UPDATE_UMIL'					=> 'Cette version d’UMIL n’est pas à jour.<br /><br />Veuillez télécharger la dernière version d’UMIL sur : <a href="%1$s">%1$s</a>',
+	'UPDATE_UMIL'					=> 'Cette version d’UMIL n’est pas à jour.<br /><br />Veuillez télécharger la dernière version d’UMIL sur : <a href="%1$s" target="_blank">%1$s</a>',
 
 	'VERSIONS'						=> 'Version du MOD : <strong>%1$s</strong><br />Actuellement installée : <strong>%2$s</strong>',
 	'VERSION_SELECT'				=> 'Sélectionnez la version',
-	'VERSION_SELECT_EXPLAIN'		=> 'Ne modifiez pas “Ignorer” sauf si vous savez ce que vous faites.',
+	'VERSION_SELECT_EXPLAIN'		=> 'Ne modifiez pas “ignorer” sauf si vous savez ce que vous faites.',
 ));
 
 ?>

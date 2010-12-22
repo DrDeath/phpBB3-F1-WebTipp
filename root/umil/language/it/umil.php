@@ -4,11 +4,10 @@
  * @author Nathan Guse (EXreaction) http://lithiumstudios.org
  * @author David Lewis (Highway of Life) highwayoflife@gmail.com
  * @package umil
- * @version $Id: umil.php 149 2009-06-16 00:58:51Z exreaction $
+ * @version $Id$
  * @copyright (c) 2008 phpBB Group
+ * @copyright (c) 2010 phpBB.it - upgrade translation on 2010/08/19
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- *
- * Translated By: phpBB.it
  *
  */
 
@@ -86,11 +85,15 @@ $lang = array_merge($lang, array(
 	'PERMISSION_ALREADY_EXISTS'		=> 'ERRORE: Opzione permessi %s esiste già.',
 	'PERMISSION_NOT_EXIST'			=> 'ERRORE: Opzione permessi %s non esiste.',
 	'PERMISSION_REMOVE'				=> 'Rimuovi opzione permessi: %s',
+	'PERMISSION_ROLE_ADD'			=> 'Aggiunti nuovi ruoli permessi: %s',
+	'PERMISSION_ROLE_UPDATE'		=> 'Aggiornati nuovi ruoli permessi: %s',
+	'PERMISSION_ROLE_REMOVE'		=> 'Eliminati nuovi ruoli permessi: %s',
 	'PERMISSION_SET_GROUP'			=> 'Imposta permessi per il gruppo %s.',
 	'PERMISSION_SET_ROLE'			=> 'Imposta permessi per il ruolo %s.',
 	'PERMISSION_UNSET_GROUP'		=> 'Annulla permessi per il gruppo %s.',
 	'PERMISSION_UNSET_ROLE'			=> 'Annulla permessi per il ruolo %s.',
 
+	'ROLE_ALREADY_EXISTS'			=> 'Ruolo permessi già esistenti.',
 	'ROLE_NOT_EXIST'				=> 'Ruolo non esiste',
 
 	'SUCCESS'						=> 'Successo',
@@ -120,7 +123,8 @@ $lang = array_merge($lang, array(
 	'UNKNOWN'						=> 'Sconosciuto',
 	'UPDATE_MOD'					=> 'Aggiorna %s',
 	'UPDATE_MOD_CONFIRM'			=> 'Sei pronto per l’aggiornamento %s?',
-	'UPDATE_UMIL'					=> 'Questa versione di UMIL è obsoleta.<br /><br />Scarica l’ultima versione di UMIL (Unified MOD Install Library) da: <a href="%1$s">%1$s</a>',
+	'UPDATE_UMIL'					=> 'Questa versione di UMIL è obsoleta.<br /><br />Scarica l’ultima versione di UMIL (Unified MOD Install Library) da: <a href="%1$s" target="_blank">%1$s</a>',
+
 
 	'VERSIONS'						=> 'Versione Mod: <strong>%1$s</strong><br />Attualmente installata: <strong>%2$s</strong>',
 	'VERSION_SELECT'				=> 'Seleziona versione',

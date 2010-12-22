@@ -6,14 +6,13 @@
  * @author Nathan Guse (EXreaction) http://lithiumstudios.org
  * @author David Lewis (Highway of Life) highwayoflife@gmail.com
  * @package umil
- * @version $Id: umil.php 149 2009-06-16 00:58:51Z exreaction $
+ * @version $Id$
  * @copyright (c) 2008 phpBB Group
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * Deutsche Übersetzung durch die Übersetzer-Gruppe von phpBB.de:
- * (http://www.phpbb.de/go/3/uebersetzer)
- * Frank Doerr, Ingo Köhler, Fabian Koglin, Philipp Kordowich, Ingo Migliarina, Martin Rauscher
- * Ehemalige Mitglieder: Dirk Gaffke
+ * siehe docs/AUTHORS und http://www.phpbb.de/go/ubersetzerteam
+ *
  */
 
 /**
@@ -90,16 +89,16 @@ $lang = array_merge($lang, array(
 	'PERMISSION_ALREADY_EXISTS'		=> 'FEHLER: Berechtigungsoption %s existiert bereits.',
 	'PERMISSION_NOT_EXIST'			=> 'FEHLER: Berechtigungsoption %s existiert nicht.',
 	'PERMISSION_REMOVE'				=> 'Entferne Berechtigungsoption: %s',
-	'PERMISSION_ROLE_ADD'			=> 'Füge neue Berechtigungsrolle hinzu: %s',
-	'PERMISSION_ROLE_UPDATE'		=> 'Aktualisiere Berechtigungsrolle: %s',
-	'PERMISSION_ROLE_REMOVE'		=> 'Entferne Berechtigungsrolle: %s',
+	'PERMISSION_ROLE_ADD'			=> 'Füge neue Berechtigungs-Rolle hinzu: %s',
+	'PERMISSION_ROLE_UPDATE'		=> 'Aktualisiere Berechtiguns-Rolle: %s',
+	'PERMISSION_ROLE_REMOVE'		=> 'Entferne Berechtiguns-Rolle: %s',
 	'PERMISSION_SET_GROUP'			=> 'Setze Berechtigungen für die %s-Gruppe.',
 	'PERMISSION_SET_ROLE'			=> 'Setze Berechtigungen für die %s-Rolle.',
 	'PERMISSION_UNSET_GROUP'		=> 'Entferne Berechtigung für die %s-Gruppe.',
 	'PERMISSION_UNSET_ROLE'			=> 'Entferne Berechtigung für die %s-Rolle.',
 
-	'ROLE_ALREADY_EXISTS'			=> 'Berechtigungsrolle existiert bereits.',
-	'ROLE_NOT_EXIST'				=> 'Berechtigungsrolle existiert nicht.',
+	'ROLE_ALREADY_EXISTS'			=> 'Berechtigungs-Rolle existiert bereits.',
+	'ROLE_NOT_EXIST'				=> 'Berechtigungs-Rolle exisitert nicht.',
 
 	'SUCCESS'						=> 'Erfolgreich',
 
@@ -128,7 +127,7 @@ $lang = array_merge($lang, array(
 	'UNKNOWN'						=> 'Unbekannt',
 	'UPDATE_MOD'					=> 'Aktualisiere %s',
 	'UPDATE_MOD_CONFIRM'			=> 'Sind Sie bereit, %s zu aktualisieren?',
-	'UPDATE_UMIL'					=> 'Diese Version von UMIL (Unified MOD Install Library) ist veraltet.<br /><br />Bitte laden Sie die aktuelle UMIL-Version von <a href="%1$s" target="_blank">%1$s</a> herunter.',
+	'UPDATE_UMIL'					=> 'Diese Version von UMIL (Unified MOD Install Library) ist veraltet.<br /><br />Bitte laden Sie die aktuelle UMIL-Version von <a href="%1$s">%1$s</a> herunter.',
 
 	'VERSIONS'						=> 'Version der Modifikation: <strong>%1$s</strong><br />Derzeit installiert: <strong>%2$s</strong>',
 	'VERSION_SELECT'				=> 'Versionsauswahl',
