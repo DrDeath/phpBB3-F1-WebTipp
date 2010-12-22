@@ -29,7 +29,7 @@
 		<installation>
 			<level>easy</level>
 			<time>300</time>
-			<target-version>3.0.7</target-version>
+			<target-version>3.0.8</target-version>
 		</installation>
 		
 		<history>
@@ -43,6 +43,7 @@
 					<change>BugFix: Added missing language vars to MCP / User Notes. (Thanks to femu for finding this issue)</change>
 					<change>BugFix: If two or more drive have the same WM points, the driver with most 1st places will take the lead.</change>
 					<change>Added feature: Give half points if race aborted. (Thanks to Dungeonwatcher for his idea)</change>
+					<change>Added feature: "Safety Car Deployment". Default: 2 additional points</change>
 					<change>UMIL update to 1.0.3</change>
 				</changelog>
 				<changelog lang="de">
@@ -52,6 +53,7 @@
 					<change>BugFix: Fehlende Sprachvariablen im MCP / Benutzer-Notizen hinzugefügt (Danke an femu für das finden des Bugs)</change>
 					<change>BugFix: Wenn zwei oder mehr Fahrer in der WM Tabelle Punktgleich sind, übernimmt der Fahrer mit den meisten Siegen (1. Platz) die Führung.</change>
 					<change>Hinzugefügt: Halbe Punkte Vergabe bei Rennabbruch. (Danke an Dungeonwatcher für die Idee)</change>
+					<change>Hinzugefügt: "Safety Car Einsätze". Standard: 2 Zusatzpunkte.</change>
 					<change>UMIL aktualisiert auf 1.0.3</change>
 				</changelog>
 			</entry>
@@ -63,13 +65,24 @@
 	<action-group>
 	    <copy>
 			<file from="root/umil/*.*" to="umil/*.*" />
-			<file from="root/install_f1.php" to="install_f1.php" />
-			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
+			
 			<file from="root/formel.php" to="formel.php" />
+			<file from="root/install_f1.php" to="install_f1.php" />
+			
+			<file from="root/acp/acp_formel.php" to="acp/acp_formel.php" />
+			
+			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
+
+			<file from="root/includes/functions_formel.php" to="includes/functions_formel.php" />
 			
 			<file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php" />
+			<file from="root/language/en/mods/acp_formel.php" to="language/en/mods/acp_formel.php" />
+			
 			<file from="root/language/de/mods/formel.php" to="language/de/mods/formel.php" />
+			<file from="root/language/de/mods/acp_formel.php" to="language/de/mods/acp_formel.php" />
+			
 			<file from="root/language/fr/mods/formel.php" to="language/fr/mods/formel.php" />
+			<file from="root/language/fr/mods/acp_formel.php" to="language/fr/mods/acp_formel.php" />
 
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
 			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
@@ -82,7 +95,7 @@
 			</edit>
 		</open>
 		<diy-instructions lang="en-gb"><![CDATA[After copying these files, you have to point your web browser to the UMIL install_f1.php file
-like:  http://your-domian.tld/path-to-your-forum/install_f1.php
+like:  http://your-domain.tld/path-to-your-forum/install_f1.php
 
 Please make sure that the action is set to "Update" !!!
 
@@ -93,7 +106,7 @@ Don't forget to clear your chache, refresh your template files and delete the fi
 
 And now: Have fun!]]></diy-instructions>
 		<diy-instructions lang="de"><![CDATA[Nach dem Kopieren der o.g. Dateien musst Du noch den UMIL Installer/Updater install_f1.php mit Deinem Browser aufrufen.
-Beispiel: http://deine-domaene.tld/pfad-zum-forum/install_f1.php
+Beispiel: http://deine-domäne.tld/pfad-zum-forum/install_f1.php
 
 Bitte prüfe vor der Bestätigung, das der Vorgang auf "Aktualisiere" steht.
 

@@ -246,6 +246,8 @@ $versions = array(
 				)
 			),
 		),
+		// Version 0.3.5- adding feature "Safety Car Deployment". Default points 2
+		'custom'	=> 'fill_0_3_5',
 	),
 
 );
@@ -504,6 +506,49 @@ function fill_0_3_2($action, $version)
 				$db->sql_query($sql);
 				$sql = 'DELETE FROM ' . $table_prefix . "formel_config
 				WHERE config_name = 'points_value'";
+				$db->sql_query($sql);
+			}
+			
+			// Method 1 of displaying the command (and Success for the result)
+			return 'INSERT_F1_CONFIG';
+		break;
+	}
+}
+
+/*
+* Here is our custom function that will be called for version 0.3.5.
+*
+* @param string $action The action (install|update|uninstall) will be sent through this.
+* @param string $version The version this is being run for will be sent through this.
+*/
+function fill_0_3_5($action, $version)
+{
+	global $db, $table_prefix, $umil;
+
+	switch ($action)
+	{
+		case 'install' :
+		case 'update' :
+			// Run this when installing/updating
+			if ($umil->table_exists($table_prefix . 'formel_config'))
+			{
+				$sql_ary = array();
+				
+				$sql_ary[] = array('config_name' => 'points_safety_car', 'config_value' => '2',);
+				
+				$db->sql_multi_insert($table_prefix . 'formel_config ', $sql_ary);
+			}
+			
+			// Method 1 of displaying the command (and Success for the result)
+			return 'INSERT_F1_CONFIG';
+		break;
+
+		case 'uninstall' :
+			// Run this when uninstalling
+			if ($umil->table_exists($table_prefix . 'formel_config'))
+			{
+				$sql = 'DELETE FROM ' . $table_prefix . "formel_config
+					WHERE config_name = 'points_safety_car'";
 				$db->sql_query($sql);
 			}
 			

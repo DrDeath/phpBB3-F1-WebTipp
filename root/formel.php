@@ -2,10 +2,10 @@
 /** 
 *
 * @package phpbb3f1webtipp
-* $LastChangedDate$
-* $LastChangedBy$
-* $Id$
-* $Revision$
+* $LastChangedDate: 2010-11-27 10:24:03 +0100 (Sa, 27 Nov 2010) $
+* $LastChangedBy: stoffel04 $
+* $Id: formel.php 176 2010-11-27 09:24:03Z stoffel04 $
+* $Revision: 176 $
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License 
 *
 */
@@ -104,7 +104,7 @@ switch ($mode)
 		$my_tipp 		= '';
 
 		//Define some vars
-		$driver_team_name = $driverteamname = $gfxdrivercar = $gfxdrivercombo = $single_fastest	= $single_tired	= '';
+		$driver_team_name = $driverteamname = $gfxdrivercar = $gfxdrivercombo = $single_fastest	= $single_tired	= $single_safety_car = '';
 
 		// Check if the user want to see prev/next race
 		if ($next) 
@@ -176,6 +176,8 @@ switch ($mode)
 			
 			$my_tipp_array['10'] 	= request_var('place11', 0); //['10'] --> fastest driver
 			$my_tipp_array['11'] 	= request_var('place12', 0); //['11'] --> tired count
+			$my_tipp_array['12'] 	= request_var('place13', 0); //['12'] --> count of safety car deployments
+			
 			$my_tipp 				= implode(",", $my_tipp_array);
 
 			if ($place_my_tipp) 
@@ -402,15 +404,11 @@ switch ($mode)
 				$user_tipp_points = 0;
 				$race_id = $races[$chosen_race]['race_id'];
 				$user_id = $user->data['user_id'];
-
-				$timezone = $user->data['user_timezone'] *3600;
-				$dst = $user->data['user_dst'] * 3600;
-				$zone_offset = $timezone - $dst;
 				
 				//Countdown data
 				if ($formel_config['show_countdown'] == 1)
 				{
-					$event_stop	= date($races[$chosen_race]['race_time'] - $zone_offset - $formel_config['deadline_offset']);
+					$event_stop	= date($races[$chosen_race]['race_time'] - $formel_config['deadline_offset']);
 					$b_day		= $user->format_date($event_stop, 'd');
 					$b_month	= $user->format_date($event_stop, 'n');
 					$b_year		= $user->format_date($event_stop, 'Y');
@@ -591,7 +589,7 @@ switch ($mode)
 					$tipp_array			= explode(",", $tipp_data['0']['tipp_result']);
 					$user_tipp_points	= $tipp_data['0']['tipp_points'];
 
-					for ($i = 0; $i < count($tipp_array) - 2; ++$i) 
+					for ($i = 0; $i < count($tipp_array) - 3; ++$i) 
 					{
 						$results		= explode(",", $races[$chosen_race]['race_result']);
 						$position		= ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i + 1 . '. ' . $user->lang['FORMEL_PLACE'];
@@ -616,7 +614,7 @@ switch ($mode)
 								}
 							}
 							
-							for ($j = 0; $j < count($tipp_array) - 2; ++$j)
+							for ($j = 0; $j < count($tipp_array) - 3; ++$j)
 							{
 								if (isset($results[$j]))
 								{
@@ -693,10 +691,13 @@ switch ($mode)
 					if ($races[$chosen_race]['race_time'] - $formel_config['deadline_offset'] < $current_time) 
 					{
 						//Actual Race is over
-						$single_fastest	= '';
-						$single_tired	= '';
+						$single_fastest		= '';
+						$single_tired		= '';
+						$single_safety_car 	= '';
+						
 						$drivercombo	= (isset($drivers[$tipp_array['10']]['driver_name'])) ? $drivers[$tipp_array['10']]['driver_name'] : '';
 						$tiredcombo		= (isset($tipp_array['11'])) ? $tipp_array['11'] : '';
+						$safetycarcombo	= (isset($tipp_array['12'])) ? $tipp_array['12'] : '';
 
 						//Recalc tip points for fastest driver
 						if (isset($results['10']) && $results['10'] <> 0)
@@ -715,10 +716,21 @@ switch ($mode)
 								$single_tired += $formel_config['points_tired'];
 							}
 						}
+						
+						//Recalc tip points for correct count of safety car deployments
+						if (isset($results['12']))
+						{
+							if ($tipp_array['12'] == $results['12'])
+							{
+								$single_safety_car += $formel_config['points_safety_car'];
+							}
+						}
 					}
 					else 
 					{
 						//Actual Race is not over
+						
+						//Fastest Driver DropDown
 						$drivercombo = '<select name="place11" size="1">';
 						
 						for ($k = 0; $k < count($driver_combodata); ++$k) 
@@ -731,6 +743,7 @@ switch ($mode)
 						
 						$drivercombo .= '</select>';
 
+						//Count Tired DropDown
 						$tiredcombo = '<select name="place12" size="1">';
 						
 						//We have 12 Teams with 2 cars each --> 24 drivers
@@ -741,6 +754,18 @@ switch ($mode)
 						}
 						
 						$tiredcombo .= '</select>';
+						
+						//Count Safety Car Deployments DropDown
+						$safetycarcombo = '<select name="place13" size="1">';
+						
+						//We assume to have no more then 9 safety car placed in a normal race ;-)
+						for ($k = 0; $k < 10; ++$k) 
+						{
+							$selected 			 = ( $k == $tipp_array['12']) ? 'selected' : '';
+							$safetycarcombo 	.= '<option value="' . $k . '" ' . $selected . '>' . $k . '</option>';
+						}
+						
+						$safetycarcombo .= '</select>';
 					}
 
 
@@ -749,9 +774,11 @@ switch ($mode)
 						$template->assign_block_vars('extended_users_tipp_gfx', array(
 							'TIREDCOMBO'		=> $tiredcombo,
 							'DRIVERCOMBO'		=> $drivercombo,
+							'SAFETYCARCOMBO'	=> $safetycarcombo,
 							'GFXDRIVERCOMBO'	=> $gfxdrivercombo,
 							'SINGLE_FASTEST'	=> $single_fastest,
 							'SINGLE_TIRED'		=> $single_tired,
+							'SINGLE_SAFETY_CAR'	=> $single_safety_car,
 							)
 						);
 					}
@@ -760,9 +787,11 @@ switch ($mode)
 						$template->assign_block_vars('extended_users_tipp', array(
 							'TIREDCOMBO'		=> $tiredcombo,
 							'DRIVERCOMBO'		=> $drivercombo,
+							'SAFETYCARCOMBO'	=> $safetycarcombo,
 							'GFXDRIVERCOMBO'	=> $gfxdrivercombo,
 							'SINGLE_FASTEST'	=> $single_fastest,
 							'SINGLE_TIRED'		=> $single_tired,
+							'SINGLE_SAFETY_CAR'	=> $single_safety_car,
 							)
 						);
 					}
@@ -800,6 +829,7 @@ switch ($mode)
 								);
 							}
 
+							//Fastest Driver DropDown
 							$drivercombo = '<select name="place11" size="1">';
 							
 							for ($k = 0; $k < count($driver_combodata); ++$k) 
@@ -811,6 +841,7 @@ switch ($mode)
 							
 							$drivercombo .= '</select>';
 
+							//Count Tired DropDown
 							$tiredcombo = '<select name="place12" size="1">';
 							
 							//We have 12 Teams with 2 cars each --> 24 drivers
@@ -820,10 +851,22 @@ switch ($mode)
 							}
 							
 							$tiredcombo .= '</select>';
+							
+							//Count Safety Car Deployments DropDown
+							$safetycarcombo = '<select name="place13" size="1">';
+							
+							//We assume to have no more then 9 safety car placed in a normal race ;-)
+							for ($k = 0; $k < 10; ++$k) 
+							{
+								$safetycarcombo .= '<option value="' . $k . '">' . $k . '</option>';
+							}
+							
+							$safetycarcombo .= '</select>';
 
 							$template->assign_block_vars('extended_add_tipp', array(
-								'TIREDCOMBO'	=> $tiredcombo,
-								'DRIVERCOMBO'	=> $drivercombo,
+								'TIREDCOMBO'		=> $tiredcombo,
+								'DRIVERCOMBO'		=> $drivercombo,
+								'SAFETYCARCOMBO'	=> $safetycarcombo,
 								)
 							);
 						}
@@ -883,7 +926,7 @@ switch ($mode)
 					$results = explode(",", $races[$chosen_race]['race_result']);
 
 					// Start output
-					for ($j = 0; $j < count($results) - 2; ++$j) 
+					for ($j = 0; $j < count($results) - 3; ++$j) 
 					{
 						$current_driver_id = $results[$j];
 						$position = ($j == 0) ? $user->lang['FORMEL_RACE_WINNER'].': ' : $j + 1 . '. ' . $user->lang['FORMEL_PLACE'] . ': ';
@@ -914,6 +957,7 @@ switch ($mode)
 						$template->assign_block_vars('extended_results_gfx', array(
 							'PACE'				=> (isset($drivers[$results['10']]['driver_name']))	? $drivers[$results['10']]['driver_name'] 	: '',
 							'TIRED'				=> (isset($results['11'])) 							? $results['11'] 							: '',
+							'SAFETYCAR'			=> (isset($results['12'])) 							? $results['12'] 							: '',
 							'YOUR_POINTS'		=> $user_tipp_points,
 							)	
 						);
@@ -923,6 +967,7 @@ switch ($mode)
 						$template->assign_block_vars('extended_results', array(
 							'PACE'				=> (isset($drivers[$results['10']]['driver_name']))	? $drivers[$results['10']]['driver_name'] 	: '',
 							'TIRED'				=> (isset($results['11'])) 							? $results['11'] 							: '',
+							'SAFETYCAR'			=> (isset($results['12'])) 							? $results['12'] 							: '',
 							'YOUR_POINTS'		=> $user_tipp_points,
 							)
 						);
@@ -1288,6 +1333,8 @@ switch ($mode)
 				
 				$result_array['10'] = request_var('place11', 0);	//['10'] --> fastest driver
 				$result_array['11'] = request_var('place12', 0);	//['11'] --> tired count
+				$result_array['12'] = request_var('place13', 0);	//['12'] --> count safety car deployment
+				
 				$new_result = implode(",", $result_array);
 				
 				$sql_ary = array(
@@ -1313,12 +1360,12 @@ switch ($mode)
 					$current_tipp_array = explode(',', $row['tipp_result']);
 					$temp_results_array = array();
 					
-					for ($i=0; $i < count($current_tipp_array) - 2; ++$i) 
+					for ($i = 0; $i < count($current_tipp_array) - 3; ++$i) 
 					{
 						$temp_results_array[$i] = $result_array[$i];
 					}
 					
-					for ($i=0; $i < count($current_tipp_array) - 2; ++$i) 
+					for ($i = 0; $i < count($current_tipp_array) - 3; ++$i) 
 					{
 						if ($current_tipp_array[$i] <> '0') 
 						{
@@ -1342,6 +1389,11 @@ switch ($mode)
 					if ($current_tipp_array['11'] == $result_array['11']) 
 					{
 						$user_tipp_points += $formel_config['points_tired'];
+					}
+					
+					if ($current_tipp_array['12'] == $result_array['12'] ) 
+					{
+						$user_tipp_points += $formel_config['points_safety_car'];
 					}
 					
 					$sql_ary = array(
@@ -1402,7 +1454,7 @@ switch ($mode)
 					$wm['9'] = 0.5;		// tenth place				
 				}
 
-				for ($i = 0; $i < count($result_array) - 2; ++$i) 
+				for ($i = 0; $i < count($result_array) - 3; ++$i) 
 				{
 					$current_driver = $result_array[$i];
 					
@@ -1479,7 +1531,7 @@ switch ($mode)
 					
 					if (isset($quali_array[$i]))
 					{
-						$selected = ( $this_driver_id == $quali_array[$i]) ? 'selected="selected"' : '';
+						$selected = ($this_driver_id == $quali_array[$i]) ? 'selected="selected"' : '';
 					}
 					else
 					{
@@ -1609,12 +1661,32 @@ switch ($mode)
 			
 			$combo_tired .= '</select>';
 			
+			$combo_safetycar = '<select name="place13" size="1">';
+			
+			//We assume to have no more then 9 safety car placed in a normal race ;-)
+			for ($k = 0; $k < 10; ++$k) 
+			{
+				if (isset($result_array['12']))
+				{
+					$selected = ($k == $result_array['12']) ? 'selected="selected"' : '';
+				}
+				else
+				{
+					$selected = '';
+				}	
+				
+				$combo_safetycar .= '<option value="' . $k . '" ' . $selected . '>' . $k . '</option>';
+			}
+			
+			$combo_safetycar .= '</select>';	
+			
 			$modus = ($editresult) ? 'addeditresult' : 'addresult';
 			
 			$template->assign_block_vars('result', array(
-				'PACECOMBO' 	=> $drivercombo_pace,
-				'MODE' 			=> $modus,
-				'TIREDCOMBO' 	=> $combo_tired,
+				'PACECOMBO' 		=> $drivercombo_pace,
+				'MODE' 				=> $modus,
+				'TIREDCOMBO' 		=> $combo_tired,
+				'SAFETYCARCOMBO'	=> $combo_safetycar,
 				)
 			);
 		}
@@ -1697,7 +1769,7 @@ switch ($mode)
 			$tipp_array 		= explode(',', $tippdata['0']['tipp_result']);
 			$is_hidden			= ($race[$race_id]['race_time'] - $formel_config['deadline_offset']  <= $current_time ) ? false : true ;		
 
-			for ($i = 0; $i < count($tipp_array) - 2; ++$i)
+			for ($i = 0; $i < count($tipp_array) - 3; ++$i)
 			{
 				$position 		= ($i == 0) ? $user->lang['FORMEL_RACE_WINNER'] : $i + 1 . '. ' . $user->lang['FORMEL_PLACE'];
 				$driver_placed 	= (isset($driver_name[$tipp_array[$i]])) ? $driver_name[$tipp_array[$i]] : '';
@@ -1714,7 +1786,7 @@ switch ($mode)
 					}
 				}
 				
-				for ($j = 0; $j < count($tipp_array) - 2; ++$j)
+				for ($j = 0; $j < count($tipp_array) - 3; ++$j)
 				{
 					if (isset($results[$j]))
 					{
@@ -1740,10 +1812,11 @@ switch ($mode)
 
 			$fastest_driver_name 	= (isset($driver_name[$tipp_array['10']])) ? $driver_name[$tipp_array['10']] : '';
 			$tired 					= (isset($tipp_array['11'])) ? $tipp_array['11'] : '';
-
+			$safetycar				= (isset($tipp_array['12'])) ? $tipp_array['12'] : '';
+			
 			//Recalc tip points for fastest driver and tired count
-			$single_fastest = '';
-			$single_tired = '';
+			$single_fastest	= $single_tired = $single_safety_car = '';
+
 			
 			if (isset($results['10']) && $results['10'] <> 0)
 			{
@@ -1761,14 +1834,24 @@ switch ($mode)
 				}
 			}
 			
+			if (isset($results['12']))
+			{
+				if ($tipp_array['12'] == $results['12'])
+				{
+					$single_safety_car += $formel_config['points_safety_car'];
+				}
+			}
+			
 			$template->assign_block_vars('user_tipp', array(
 				'TIPPER' 			=> $tipper_link,
 				'POINTS' 			=> $tipper_points,
 				'ALL_POINTS' 		=> $tipper_all_points,
-				'FASTEST_DRIVER' 	=> (isset($fastest_driver_name)) ? ($is_hidden == true && $tipp_userdata['user_id'] <> $user->data['user_id']) ? $user->lang['FORMEL_HIDDEN'] : $fastest_driver_name : '',
-				'TIRED' 			=> (isset($tired)) ? ($is_hidden == true && $tipp_userdata['user_id'] <> $user->data['user_id']) ? $user->lang['FORMEL_HIDDEN'] : $tired : '',
-				'SINGLE_FASTEST' 	=> (isset($single_fastest)) ? $single_fastest : '',
-				'SINGLE_TIRED' 		=> (isset($single_tired)) ? $single_tired : '',
+				'FASTEST_DRIVER' 	=> (isset($fastest_driver_name)) 	? ($is_hidden == true && $tipp_userdata['user_id'] <> $user->data['user_id']) ? $user->lang['FORMEL_HIDDEN'] : $fastest_driver_name : '',
+				'TIRED' 			=> (isset($tired)) 					? ($is_hidden == true && $tipp_userdata['user_id'] <> $user->data['user_id']) ? $user->lang['FORMEL_HIDDEN'] : $tired : '',
+				'SAFETYCAR' 		=> (isset($safetycar)) 				? ($is_hidden == true && $tipp_userdata['user_id'] <> $user->data['user_id']) ? $user->lang['FORMEL_HIDDEN'] : $safetycar : '',	
+				'SINGLE_FASTEST' 	=> (isset($single_fastest)) 		? $single_fastest : '',
+				'SINGLE_TIRED' 		=> (isset($single_tired)) 			? $single_tired : '',
+				'SINGLE_SAFETY_CAR' => (isset($single_safety_car)) 		? $single_safety_car : '',
 				)
 			);
 		}
@@ -2070,6 +2153,7 @@ switch ($mode)
 		$points_placed 		= $formel_config['points_placed'];
 		$points_fastest 	= $formel_config['points_fastest'];
 		$points_tired 		= $formel_config['points_tired'];
+		$points_safetycar	= $formel_config['points_safety_car'];
 
 		$point 				= $user->lang['FORMEL_RULES_POINT'];
 		$points 			= $user->lang['FORMEL_RULES_POINTS'];
@@ -2109,8 +2193,17 @@ switch ($mode)
 		{
 			$points_tired .= ' ' . $points;
 		}
+		
+		if ($points_safetycar == '1') 
+		{
+			$points_safetycar .= ' ' . $point;
+		}
+		else 
+		{
+			$points_safetycar .= ' ' . $points;
+		}
 
-		$points_total = 10 * ($points_mentioned + $points_placed) + $points_fastest + $points_tired;
+		$points_total = 10 * ($points_mentioned + $points_placed) + $points_fastest + $points_tired + $points_safetycar;
 		
 		if ($points_total == '1') 
 		{
@@ -2125,6 +2218,7 @@ switch ($mode)
 		$rules_placed 		= sprintf($user->lang['FORMEL_RULES_PLACED']		, $points_placed);
 		$rules_fastest 		= sprintf($user->lang['FORMEL_RULES_FASTEST'] 		, $points_fastest);
 		$rules_tired 		= sprintf($user->lang['FORMEL_RULES_TIRED'] 		, $points_tired);
+		$rules_safetycar	= sprintf($user->lang['FORMEL_RULES_SAFETYCAR'] 	, $points_safetycar);
 		$rules_total 		= sprintf($user->lang['FORMEL_RULES_TOTAL'] 		, $points_total);
 
 		// Show headerbanner ?
@@ -2143,6 +2237,7 @@ switch ($mode)
 			'FORMEL_RULES_PLACED' 		=> $rules_placed,
 			'FORMEL_RULES_FASTEST' 		=> $rules_fastest,
 			'FORMEL_RULES_TIRED' 		=> $rules_tired,
+			'FORMEL_RULES_SAFETYCAR' 	=> $rules_safetycar,
 			'FORMEL_RULES_TOTAL' 		=> $rules_total,
 			'U_FORMEL' 					=> append_sid("{$phpbb_root_path}formel.$phpEx"),
 			'U_FORMEL_RULES' 			=> append_sid("{$phpbb_root_path}formel.$phpEx?mode=rules"),

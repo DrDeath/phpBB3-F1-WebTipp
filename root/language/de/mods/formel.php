@@ -4,7 +4,7 @@
 * \language\de\mods\formel.php - [Language - Formel 1 WebTipp][German]
 *
 * @package language
-* @version $Id$
+* @version $Id: formel.php 174 2010-10-17 18:25:50Z stoffel04 $
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License 
 *
 */
@@ -65,6 +65,7 @@ $lang = array_merge($lang, array(
 	'FORMEL_DELETE'							=> 'Löschen',
 	'FORMEL_PACE'							=> 'Schnellste Runde',
 	'FORMEL_TIRED'							=> 'Anzahl Ausfälle',
+	'FORMEL_SAFETYCAR'						=> 'Safety Car Einsätze',
 	'FORMEL_NO_TIPP'						=> 'Es wurde kein Tipp gefunden',
 	'FORMEL_YOUR_TIPP'						=> 'Dein Tipp',
 	'FORMEL_YOUR_POINTS'					=> 'Deine Punkte',
@@ -108,10 +109,11 @@ $lang = array_merge($lang, array(
 	'FORMEL_RULES_GENERAL_EXP'				=> 'Der Formel 1 WebTipp ist ein Saison begleitendes Tippspiel. Hier kannst Du den anderen Communitymitgliedern zeigen, wer wirklich Ahnung von der Formel 1 hat!<br /><br />Du kannst zu jedem Formel 1 Rennen einen Tipp abgeben und Punkte sammeln. Solltest Du einmal längere Zeit nicht anwesend sein, kannst Du auch jetzt schon Deinen Tipp für die kommenden Rennen abgeben. Diese kannst Du auch jederzeit wieder ändern. Die aktuellen Punktestände von Dir und den anderen Tippern kannst Du auf der Statistikseite einsehen. Du kannst Dir auch die Tipps der anderen User ansehen, indem Du auf der WebTipp Übersichtsseite bei den abgegebenen Tipps auf einen Usernamen klickst. ( Tipps werden allerdings erst nach Erreichen der Deadline angezeigt )',
 	'FORMEL_RULES_SCORE'					=> 'Punktevergabe',
 	'FORMEL_RULES_MENTIONED'				=> 'Hast Du in Deinem Tipp einen Fahrer erwähnt, der als einer der ersten 10 Fahrer ins Ziel kam, erhälst Du dafür <strong>%s</strong>.',
-	'FORMEL_RULES_SCORE_EXP'				=> 'Getippt wird auf die ersten 10 Plätze, die schnellste Runde, sowie die Anzahl der Ausfälle.',
+	'FORMEL_RULES_SCORE_EXP'				=> 'Getippt wird auf die ersten 10 Plätze, die schnellste Runde, die Anzahl der Ausfälle, sowie die Anzahl der Safety Car Einsätze.',
 	'FORMEL_RULES_PLACED'					=> 'Wenn Du diesen Fahrer auch noch auf den richtigen Platz gesetzt hast, erhälst Du dafür noch einmal <strong>%s</strong>.',
 	'FORMEL_RULES_FASTEST'					=> 'Hast Du den schnellsten Fahrer richtig genannt, bekommst Du dafür <strong>%s</strong>.',
 	'FORMEL_RULES_TIRED'					=> 'Für die richtige Anzahl der Ausfälle bekommst Du <strong>%s</strong>.',
+	'FORMEL_RULES_SAFETYCAR'				=> 'Für die richtige Anzahl der Safety Car Einsätze bekommst Du <strong>%s</strong>.',
 	'FORMEL_RULES_TOTAL'					=> 'Insgesamt kannst Du also mit jedem Tipp (rein theoretisch) <strong>%s</strong> erspielen.',
 	'FORMEL_RULES_POINT'					=> 'Punkt',
 	'FORMEL_RULES_POINTS'					=> 'Punkte',

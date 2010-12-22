@@ -367,6 +367,10 @@ function showtipps(showtipps)
 									<td align="right" style="width: 50%;" >&nbsp;<strong>{L_FORMEL_TIRED}:</strong></td>
 									<td align="left" style="width: 50%;" >&nbsp;{extended_results.TIRED}&nbsp;</td>
 								</tr>
+								<tr class="bg1">
+									<td align="right" style="width: 50%;" >&nbsp;<strong>{L_FORMEL_SAFETYCAR}:</strong></td>
+									<td align="left" style="width: 50%;" >&nbsp;{extended_results.SAFETYCAR}&nbsp;</td>
+								</tr>
 								<!-- END extended_results -->
 								<!-- BEGIN extended_results_gfx -->
 								<tr class="bg1">
@@ -376,6 +380,10 @@ function showtipps(showtipps)
 								<tr class="bg1">
 									<td align="right" style="width: 30%; white-space:nowrap;">&nbsp;<strong>{L_FORMEL_TIRED}:</strong></td>
 									<td align="left" style="width: 70%;" >&nbsp;{extended_results_gfx.TIRED}&nbsp;</td>
+								</tr>
+								<tr class="bg1">
+									<td align="right" style="width: 30%; white-space:nowrap;">&nbsp;<strong>{L_FORMEL_SAFETYCAR}:</strong></td>
+									<td align="left" style="width: 70%;" >&nbsp;{extended_results_gfx.SAFETYCAR}&nbsp;</td>
 								</tr>
 								<!-- END extended_results_gfx -->
 								<!-- BEGIN extended_results -->
@@ -434,9 +442,14 @@ function showtipps(showtipps)
 									<td style="width: 10%;" align="center"><span class="gen">&nbsp;{extended_users_tipp.SINGLE_FASTEST}&nbsp;</span></td>
 								</tr>
 								<tr class="bg1">
-									<td style="width: 50%;" align="right"><span class="gen"><strong>&nbsp;{L_FORMEL_TIRED}:</strong></span></td>
+									<td style="width: 40%;" align="right"><span class="gen"><strong>&nbsp;{L_FORMEL_TIRED}:</strong></span></td>
 									<td style="width: 50%;" align="left"><span class="gen">&nbsp;{extended_users_tipp.TIREDCOMBO}&nbsp;</span></td>
-									<td style="width: 50%;" align="center"><span class="gen">&nbsp;{extended_users_tipp.SINGLE_TIRED}&nbsp;</span></td>
+									<td style="width: 10%;" align="center"><span class="gen">&nbsp;{extended_users_tipp.SINGLE_TIRED}&nbsp;</span></td>
+								</tr>
+								<tr class="bg1">
+									<td style="width: 40%;" align="right"><span class="gen"><strong>&nbsp;{L_FORMEL_SAFETYCAR}:</strong></span></td>
+									<td style="width: 50%;" align="left"><span class="gen">&nbsp;{extended_users_tipp.SAFETYCARCOMBO}&nbsp;</span></td>
+									<td style="width: 10%;" align="center"><span class="gen">&nbsp;{extended_users_tipp.SINGLE_SAFETY_CAR}&nbsp;</span></td>
 								</tr>
 								<!-- END extended_users_tipp -->
 								<!-- BEGIN extended_users_tipp_gfx -->
@@ -449,6 +462,11 @@ function showtipps(showtipps)
 									<td style="width: 30%; white-space:nowrap;" align="right"><span class="gen"><strong>&nbsp;{L_FORMEL_TIRED}:</strong></span></td>
 									<td style="width: 60%;" align="left"><span class="gen">&nbsp;{extended_users_tipp_gfx.TIREDCOMBO}&nbsp;</span></td>
 									<td style="width: 10%;" align="center"><span class="gen">&nbsp;{extended_users_tipp_gfx.SINGLE_TIRED}&nbsp;</span></td>
+								</tr>
+								<tr class="bg1">
+									<td style="width: 30%; white-space:nowrap;" align="right"><span class="gen"><strong>&nbsp;{L_FORMEL_SAFETYCAR}:</strong></span></td>
+									<td style="width: 60%;" align="left"><span class="gen">&nbsp;{extended_users_tipp_gfx.SAFETYCARCOMBO}&nbsp;</span></td>
+									<td style="width: 10%;" align="center"><span class="gen">&nbsp;{extended_users_tipp_gfx.SINGLE_SAFETY_CAR}&nbsp;</span></td>
 								</tr>
 								<!-- END extended_users_tipp_gfx -->
 								<!-- BEGIN add_tipp -->
@@ -472,6 +490,11 @@ function showtipps(showtipps)
 								<tr class="bg1">
 									<td style="width: 40%; white-space:nowrap;" align="right"><span class="gen"><strong>&nbsp;{L_FORMEL_TIRED}:</strong></span></td>
 									<td style="width: 50%;" align="left"><span class="gen">&nbsp;{extended_add_tipp.TIREDCOMBO}&nbsp;</span></td>
+									<td style="width: 10%;" align="left">&nbsp;</td>
+								</tr>
+								<tr class="bg1">
+									<td style="width: 40%; white-space:nowrap;" align="right"><span class="gen"><strong>&nbsp;{L_FORMEL_SAFETYCAR}:</strong></span></td>
+									<td style="width: 50%;" align="left"><span class="gen">&nbsp;{extended_add_tipp.SAFETYCARCOMBO}&nbsp;</span></td>
 									<td style="width: 10%;" align="left">&nbsp;</td>
 								</tr>
 								<!-- END extended_add_tipp -->
@@ -663,6 +686,10 @@ function showtipps(showtipps)
 					<tr class="bg1">
 						<td style="width: 50%;" align="right">{L_FORMEL_TIRED}&nbsp;</td>
 						<td style="width: 50%;" align="left">&nbsp;{result.TIREDCOMBO}</td>
+					</tr>
+					<tr class="bg1">
+						<td style="width: 50%;" align="right">{L_FORMEL_SAFETYCAR}&nbsp;</td>
+						<td style="width: 50%;" align="left">&nbsp;{result.SAFETYCARCOMBO}</td>
 					</tr>
 					<tr class="bg1">
 						<td style="width: 50%;" align="right">{L_FORMEL_RACE_ABORD}&nbsp;</td>
@@ -896,6 +923,7 @@ function showtipps(showtipps)
 						- {FORMEL_RULES_PLACED}<br/>
 						- {FORMEL_RULES_FASTEST}<br/>
 						- {FORMEL_RULES_TIRED}<br/>
+						- {FORMEL_RULES_SAFETYCAR}<br/>
 						<br />
 						{FORMEL_RULES_TOTAL}
 						<br />
@@ -961,6 +989,11 @@ Please leave the copyright information at the bottom of your page for our mod.
 					<td style="width: 30%;" class="row3" align="right"><strong><span class="gen">&nbsp;{L_FORMEL_TIRED}:&nbsp;</span></strong></td>
 					<td style="width: 50%;"><span class="gen">&nbsp;{user_tipp.TIRED}&nbsp;</span></td>
 					<td style="width: 20%;"><span class="gen">&nbsp;{user_tipp.SINGLE_TIRED}&nbsp;</span></td>
+				</tr>
+				<tr class="bg1">
+					<td style="width: 30%;" class="row3" align="right"><strong><span class="gen">&nbsp;{L_FORMEL_SAFETYCAR}:&nbsp;</span></strong></td>
+					<td style="width: 50%;"><span class="gen">&nbsp;{user_tipp.SAFETYCAR}&nbsp;</span></td>
+					<td style="width: 20%;"><span class="gen">&nbsp;{user_tipp.SINGLE_SAFETY_CAR}&nbsp;</span></td>
 				</tr>
 				<tr class="bg3">
 					<td colspan="3">&nbsp;</td>

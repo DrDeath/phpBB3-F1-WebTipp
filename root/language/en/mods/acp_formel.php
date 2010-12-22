@@ -2,10 +2,10 @@
 /** 
 *
 * @package phpbb3f1webtipp
-* $LastChangedDate$
-* $LastChangedBy$
-* $Id$
-* $Revision$
+* $LastChangedDate: 2010-10-17 09:41:57 +0200 (So, 17 Okt 2010) $
+* $LastChangedBy: stoffel04 $
+* $Id: acp_formel.php 173 2010-10-17 07:41:57Z stoffel04 $
+* $Revision: 173 $
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 * language/en/mods/acp_formel.php - [Language ACP - English]
 *
@@ -68,7 +68,9 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_POINTS_FASTEST'				=> 'Fastest',
 	'ACP_F1_SETTINGS_POINTS_FASTEST_EXPLAIN'		=> 'Points for the fastest lap',
 	'ACP_F1_SETTINGS_POINTS_TIRED'					=> 'Tired',
-	'ACP_F1_SETTINGS_POINTS_TIRED_EXPLAIN'			=> 'Points for the correct tired count',
+	'ACP_F1_SETTINGS_POINTS_TIRED_EXPLAIN'			=> 'Points for the correct count of tired cars',
+	'ACP_F1_SETTINGS_SAFETY_CAR'					=> 'Safety Car',
+	'ACP_F1_SETTINGS_SAFETY_CAR_EXPLAIN'			=> 'Points for the correct count of safety car deployment',
 	'ACP_F1_SETTINGS_PICS'							=> 'Pics',
 	'ACP_F1_SETTINGS_SHOW_HEADBANNER'				=> 'Show banner',
 	'ACP_F1_SETTINGS_SHOW_HEADBANNER_EXPLAIN'		=> 'Here you can define whether to show the headbanners or not',

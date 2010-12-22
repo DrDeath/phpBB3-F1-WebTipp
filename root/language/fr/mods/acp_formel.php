@@ -2,10 +2,10 @@
 /** 
 *
 * @package phpbb3f1webtipp
-* $LastChangedDate$
-* $LastChangedBy$
-* $Id$
-* $Revision$
+* $LastChangedDate: 2010-10-17 20:25:50 +0200 (So, 17 Okt 2010) $
+* $LastChangedBy: stoffel04 $
+* $Id: acp_formel.php 174 2010-10-17 18:25:50Z stoffel04 $
+* $Revision: 174 $
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 * French translation: Fafa ( fafa@ufolep62tt.net )
 * language/fr/mods/acp_formel.php - [Language ACP - french]
@@ -70,6 +70,8 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_POINTS_FASTEST_EXPLAIN'		=> 'Points pour le tour le plus rapide',
 	'ACP_F1_SETTINGS_POINTS_TIRED'					=> 'Abandons',
 	'ACP_F1_SETTINGS_POINTS_TIRED_EXPLAIN'			=> 'Points pour le nombre correct d\'abandons',
+	'ACP_F1_SETTINGS_SAFETY_CAR'					=> 'Voiture de Sécurité',
+	'ACP_F1_SETTINGS_SAFETY_CAR_EXPLAIN' 			=> 'Points pour le décompte exact du déploiement de la voiture de sécurité',
 	'ACP_F1_SETTINGS_PICS'							=> 'Images',
 	'ACP_F1_SETTINGS_SHOW_HEADBANNER'				=> 'Montrer la bannière',
 	'ACP_F1_SETTINGS_SHOW_HEADBANNER_EXPLAIN'		=> 'Ici vous pouvez définir si vous montrez ou non la bannière',

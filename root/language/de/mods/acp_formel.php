@@ -2,10 +2,10 @@
 /** 
 *
 * @package phpbb3f1webtipp
-* $LastChangedDate$
-* $LastChangedBy$
-* $Id$
-* $Revision$
+* $LastChangedDate: 2010-10-17 09:41:57 +0200 (So, 17 Okt 2010) $
+* $LastChangedBy: stoffel04 $
+* $Id: acp_formel.php 173 2010-10-17 07:41:57Z stoffel04 $
+* $Revision: 173 $
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 * language/de/mods/acp_formel.php - [Language ACP - Deutsch]
 *
@@ -69,6 +69,8 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_POINTS_FASTEST_EXPLAIN'		=> 'Punkte für die schnellste Runde',
 	'ACP_F1_SETTINGS_POINTS_TIRED'					=> 'Ausfälle',
 	'ACP_F1_SETTINGS_POINTS_TIRED_EXPLAIN'			=> 'Punkte für die richtige Anzahl Ausfälle',
+	'ACP_F1_SETTINGS_SAFETY_CAR'					=> 'Safety Car',
+	'ACP_F1_SETTINGS_SAFETY_CAR_EXPLAIN'			=> 'Punkte für die richtige Anzahl von Safety Car Einsätzen',
 	'ACP_F1_SETTINGS_PICS'							=> 'Bilder',
 	'ACP_F1_SETTINGS_SHOW_HEADBANNER'				=> 'Banner anzeigen',
 	'ACP_F1_SETTINGS_SHOW_HEADBANNER_EXPLAIN'		=> 'Hier kannst Du festlegen, ob der Banner im Header gezeigt werden soll.',
