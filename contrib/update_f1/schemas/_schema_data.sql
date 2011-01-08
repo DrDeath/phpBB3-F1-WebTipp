@@ -61,7 +61,7 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 
 # -- Team 5 Lotus Renault GP
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (9, 'Kubica, Robert', '', 5);
-
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (10, 'Petrow, Witali', '', 5);
 
 # -- Team 6 Williams
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (11, 'Barrichello, Rubens', '', 6);
@@ -84,7 +84,7 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (20, 'Kovalainen, Heikki', '', 10);
 
 # -- Team 11 HRT F1 Team
-
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (21, 'Karthikeyan, Narain', '', 11);
 
 
 # -- Team 12 Marussia Virgin Racing
