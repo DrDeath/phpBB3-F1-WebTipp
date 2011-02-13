@@ -29,7 +29,7 @@
     </installation>
     <history>
      <entry>
-        <date>2008-05-12T00:00:00+02:00</date>
+        <date>2008-05-12</date>
         <rev-version>0.1.28</rev-version>
         <changelog lang="en-gb">
           <change>Cleaned up some code. Added $phpbb_root_path to most of URLs</change>

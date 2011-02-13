@@ -62,7 +62,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 	
 	<history>
 		<entry>
-			<date>2007-05-28T00:00:00+02:00</date>
+			<date>2007-05-28</date>
 			<rev-version>0.1.20</rev-version>
 			<changelog lang="en-gb">
 				<change> first public version for phpbb3 Olympus RC1</change>
@@ -72,7 +72,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2007-06-06T00:00:00+02:00</date>
+			<date>2007-06-06</date>
 			<rev-version>0.1.21</rev-version>
 			<changelog lang="en-gb">
 				<change> Installerfile updatet. Fix for mysql smaller than 4.1.3</change>
@@ -88,7 +88,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2007-06-06T00:00:00+02:00</date>
+			<date>2007-06-06</date>
 			<rev-version>0.1.22</rev-version>
 			<changelog lang="en-gb">
 				<change>Changes for meeting the new coding guidelines: != bad.</change>
@@ -106,7 +106,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2007-08-04T00:00:00+02:00</date>
+			<date>2007-08-04</date>
 			<rev-version>0.1.23</rev-version>
 			<changelog lang="en-gb">
 				<change>Change: unsecure $_POST replaced with request_var() in formel.php</change>
@@ -126,7 +126,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2007-09-15T00:00:00+02:00</date>
+			<date>2007-09-15</date>
 			<rev-version>0.1.24</rev-version>
 			<changelog lang="en-gb">
 				<change>Change: unsecure $_POST replaced with request_var() in includes/acp/acp_formel.php</change>
@@ -140,7 +140,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2007-10-06T00:00:00+02:00</date>
+			<date>2007-10-06</date>
 			<rev-version>0.1.25</rev-version>
 			<changelog lang="en-gb">
 				<change>Added: New installer. Now (hopefully) support for all databases.</change>
@@ -156,7 +156,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2008-02-09T00:00:00+02:00</date>
+			<date>2008-02-09</date>
 			<rev-version>0.1.26</rev-version>
 			<changelog lang="en-gb">
 				<change>Added: user and admin logs.</change>
@@ -168,7 +168,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2008-03-30T00:00:00+02:00</date>
+			<date>2008-03-30</date>
 			<rev-version>0.1.27</rev-version>
 			<changelog lang="en-gb">
 				<change>Fix: Show avatar on user statistic.</change>
@@ -188,7 +188,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2008-05-09T00:00:00+02:00</date>
+			<date>2008-05-09</date>
 			<rev-version>0.1.28</rev-version>
 			<changelog lang="en-gb">
 				<change>Cleaned up some code. Added $phpbb_root_path to most of URLs</change>
@@ -200,7 +200,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2008-07-25T00:00:00+02:00</date>
+			<date>2008-07-25</date>
 			<rev-version>0.1.29</rev-version>
 			<changelog lang="en-gb">
 				<change>Changed install instructions to MODX 1.2.0</change>
@@ -218,7 +218,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2008-08-02T00:00:00+02:00</date>
+			<date>2008-08-02</date>
 			<rev-version>0.1.30</rev-version>
 			<changelog lang="en-gb">
 				<change>Changed: complete rewritten installer file.</change>
@@ -230,7 +230,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2009-04-16T00:00:00+02:00</date>
+			<date>2009-04-16</date>
 			<rev-version>0.3.0</rev-version>
 			<changelog lang="en-gb">
 				<change>NEW: Using now the UMIL installer. Complete new written installer.</change>
@@ -254,7 +254,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2009-04-26T00:00:00+02:00</date>
+			<date>2009-04-26</date>
 			<rev-version>0.3.1</rev-version>
 			<changelog lang="en-gb">
 				<change>BugFix: Top 5 stats on formel index corrected ( Thx for z4reg )</change>
@@ -268,7 +268,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2009-06-14T00:00:00+02:00</date>
+			<date>2009-06-14</date>
 			<rev-version>0.3.2</rev-version>
 			<changelog lang="en-gb">
 				<change>Added support for Ultimate Points MOD</change>
@@ -278,7 +278,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2009-09-06T00:00:00+02:00</date>
+			<date>2009-09-06</date>
 			<rev-version>0.3.3</rev-version>
 			<changelog lang="en-gb">
 				<change>Cosmetic change in acp modul</change>
@@ -290,7 +290,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2010-02-03T00:00:00+02:00</date>
+			<date>2010-02-03</date>
 			<rev-version>0.3.4</rev-version>
 			<changelog lang="en-gb">
 				<change>Changed Points calculating according to new 2010 F1 rules (25-18-15-12-10-8-6-4-2-1)</change>
@@ -306,7 +306,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</changelog>
 		</entry>
 		<entry>
-			<date>2010-10-17T00:00:00+02:00</date>
+			<date>2010-10-17</date>
 			<rev-version>0.3.5</rev-version>
 			<changelog lang="en-gb">
 				<change>Changed design. We have now 24 drivers (12 teams). In Q1 and Q2 seven driver will drop out</change>

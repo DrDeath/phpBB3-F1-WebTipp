@@ -34,7 +34,7 @@
 		
 		<history>
 			<entry>
-				<date>2009-04-16T00:00:00+02:00</date>
+				<date>2009-04-16</date>
 				<rev-version>0.3.0</rev-version>
 				<changelog lang="en-gb">
 					<change>NEW: Using now the UMIL installer. Complete new written installer.</change>

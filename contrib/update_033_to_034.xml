@@ -34,7 +34,7 @@
 		
 		<history>
 			<entry>
-				<date>2010-02-03T00:00:00+02:00</date>
+				<date>2010-02-03</date>
 				<rev-version>0.3.4</rev-version>
 				<changelog lang="en-gb">
 					<change>Changed Points calculating according to new 2010 F1 rules (25-18-15-12-10-8-6-4-2-1)</change>

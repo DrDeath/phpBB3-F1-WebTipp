@@ -34,7 +34,7 @@
 		
 		<history>
 			<entry>
-				<date>2010-10-10T00:00:00+02:00</date>
+				<date>2010-10-10</date>
 				<rev-version>0.3.5</rev-version>
 				<changelog lang="en-gb">
 					<change>Changed design. We have now 24 drivers (12 teams). In Q1 and Q2 seven driver will drop out</change>

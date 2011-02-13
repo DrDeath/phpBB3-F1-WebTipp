@@ -34,7 +34,7 @@
 		
 		<history>
 			<entry>
-				<date>2008-07-25T00:00:00+02:00</date>
+				<date>2008-07-25</date>
 				<rev-version>0.1.29</rev-version>
 				<changelog lang="en-gb">
 					<change>Style prosilver goes xhtml strict</change>

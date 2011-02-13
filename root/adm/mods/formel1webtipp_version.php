@@ -8,6 +8,11 @@
 *
 */
 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
+
 /**
 * @package formel1webtipp
 */

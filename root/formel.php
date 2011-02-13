@@ -1016,9 +1016,6 @@ switch ($mode)
 		$u_call_mod = append_sid("ucp.$phpEx?i=pm&amp;mode=compose&amp;u=$formel_mod_id");
 		$l_call_mod = $user->lang['FORMEL_CALL_MOD'];
 		
-		// Some debug code to test the $auth
-		//echo "<pre>";print_r($auth);echo "</pre>";die();
-		
 		//Check if user is formel moderator or has admin access
 		if ($user_id == $formel_config['mod_id'] || ($is_admin == 1)) 
 		{
