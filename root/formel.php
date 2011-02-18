@@ -133,14 +133,14 @@ switch ($mode)
 				{
 					$sql = 'SELECT user_points 
 							FROM ' . USERS_TABLE . ' 
-							WHERE user_id = ' . $user_id; 	
+							WHERE user_id = ' . (int) $user_id; 	
 					$result = $db->sql_query($sql);
 					$row = $db->sql_fetchrow($result);
 					$db->sql_freeresult($result);
 
 					$sql = 'UPDATE ' . USERS_TABLE . ' 
 							SET user_points = ' . ($row['user_points'] - $formel_config['points_value']) . ' 
-							WHERE user_id = ' . $user_id; 
+							WHERE user_id = ' . (int) $user_id; 
 					$db->sql_query($sql);
 				}
 			}
@@ -183,8 +183,8 @@ switch ($mode)
 			if ($place_my_tipp) 
 			{
 				$sql_ary = array(
-					'tipp_user'		=> $user_id,
-					'tipp_race'		=> $race_id,
+					'tipp_user'		=> (int) $user_id,
+					'tipp_race'		=> (int) $race_id,
 					'tipp_result'	=> $my_tipp,
 					'tipp_points'	=> 0,
 				);
@@ -201,14 +201,14 @@ switch ($mode)
 					{
 						$sql = 'SELECT user_points 
 								FROM ' . USERS_TABLE . ' 
-								WHERE user_id = ' . $user_id; 	
+								WHERE user_id = ' . (int) $user_id; 	
 						$result = $db->sql_query($sql);
 						$row = $db->sql_fetchrow($result);
 						$db->sql_freeresult($result);
 
 						$sql = 'UPDATE ' . USERS_TABLE . ' 
 								SET user_points = ' . ($row['user_points'] + $formel_config['points_value'])  . ' 
-								WHERE user_id = ' . $user_id; 
+								WHERE user_id = ' . (int) $user_id; 
 						$db->sql_query($sql);
 					}
 				}
@@ -402,7 +402,7 @@ switch ($mode)
 				$chosen_race = $i + $race_offset;
 
 				$user_tipp_points = 0;
-				$race_id = $races[$chosen_race]['race_id'];
+				$race_id = (int) $races[$chosen_race]['race_id'];
 				$user_id = $user->data['user_id'];
 				
 				//Countdown data
@@ -1460,9 +1460,9 @@ switch ($mode)
 						$current_team 	= $teams[$current_driver];
 						$wm_points 		= $wm[$i];
 						$sql_ary = array(
-							'wm_race'	=> $race_id,
-							'wm_driver'	=> $current_driver,
-							'wm_team'	=> $current_team,
+							'wm_race'	=> (int) $race_id,
+							'wm_driver'	=> (int) $current_driver,
+							'wm_team'	=> (int) $current_team,
 							'wm_points'	=> $wm_points,
 						);
 
