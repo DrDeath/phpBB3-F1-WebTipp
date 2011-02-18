@@ -102,6 +102,4 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (33, 'Hülkenberg, Nico', '', 7);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (34, 'Gutierrez, Esteban', '', 8);
 
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (36, 'Razia, Luiz', '', 10);
-
 # POSTGRES COMMIT #
