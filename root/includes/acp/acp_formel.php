@@ -471,8 +471,8 @@ class acp_formel
 						trigger_error('FORM_INVALID');
 					}
 					
-					$sql = 'DELETE FROM ' . FORMEL_DRIVERS_TABLE . " 
-							WHERE driver_id = $driver_id";
+					$sql = 'DELETE FROM ' . FORMEL_DRIVERS_TABLE . ' 
+							WHERE driver_id = ' . (int) $driver_id;
 					$db->sql_query($sql);
 
 					add_log('admin', 'LOG_FORMEL_DRIVER_DELETED', $driver_id);
