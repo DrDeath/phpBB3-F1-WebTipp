@@ -5,7 +5,6 @@
 # POSTGRES BEGIN #
 
 # -- Races -- 2011 (missing local start times for India)
-#INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES(1, 'Bahrain / Manama', '', '0', '0', 1300017600, '5,412', 57, '308,238', 2004);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES(1, 'Australien / Melbourne', '', '0', '0', 1301205600, '5,303', 58, '307,574', 1996);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES(2, 'Malaysia / Kuala Lumpur', '', '0', '0', 1302422400, '5,543', 56, '310,408', 1999);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES(3, 'China / Shanghai', '', '0', '0', 1303023600, '5,451', 56, '305,066', 2004);
@@ -25,6 +24,7 @@ INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_r
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES(17, 'Indien / Greater Noida', '', '0', '0', 1319979600, '5,141', 0, '0', 2011);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES(18, 'Arabische Emirate / Abu Dhabi', '', '0', '0', 1321189200, '5,554', 55, '305,361', 2009);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES(19, 'Brasilien / São Paulo', '', '0', '0', 1322409600, '4,309', 71, '305,909', 1973);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES(20, 'Bahrain / Manama', '', '0', '0', 1322956800, '5,412', 57, '308,238', 2004);
 
 
 # -- Teams -- 2011
