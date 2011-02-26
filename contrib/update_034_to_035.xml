@@ -39,7 +39,7 @@
 				<changelog lang="en-gb">
 					<change>Changed design. We have now 24 drivers (12 teams). In Q1 and Q2 seven driver will drop out</change>
 					<change>Changed design. Replaced the "#" with "place" on statistic pages. (femu's idea)</change>
-					<change>BugFix: Added missing language vars to MCP / User Notes. (Thanks to femu for finding this issue)</change>
+					<change>BugFix: Added missing language vars to MCP / User Notes. (Thanks to femu for finding this issue and thanks to Unimatrix_0 for helping me on github)</change>
 					<change>BugFix: If two or more drive have the same WM points, the driver with most 1st places will take the lead.</change>
 					<change>Added feature: Give half points if race aborted. (Thanks to Dungeonwatcher for his idea)</change>
 					<change>Added feature: "Safety Car Deployment". Default: 2 additional points</change>
@@ -48,7 +48,7 @@
 				<changelog lang="de">
 					<change>Design angepasst. Wir haben nun 24 Fahrer (12 Teams). In Q1 und Q2 werden sieben Fahrer ausscheiden</change>
 					<change>Design angepasst. Auf den Statistik Seiten wurde das "#" Zeichen durch "Platz" ersetzt. (femu's Idee)</change>
-					<change>BugFix: Fehlende Sprachvariablen im MCP / Benutzer-Notizen hinzugefügt (Danke an femu für das finden des Bugs)</change>
+					<change>BugFix: Fehlende Sprachvariablen im MCP / Benutzer-Notizen hinzugefügt (Danke an femu für das finden des Bugs und auch Danke an Unimatrix_0 für die Unterstützung auf github)</change>
 					<change>BugFix: Wenn zwei oder mehr Fahrer in der WM Tabelle Punktgleich sind, übernimmt der Fahrer mit den meisten Siegen (1. Platz) die Führung.</change>
 					<change>Hinzugefügt: Halbe Punkte Vergabe bei Rennabbruch. (Danke an Dungeonwatcher für die Idee)</change>
 					<change>Hinzugefügt: "Safety Car Einsätze". Standard: 2 Zusatzpunkte.</change>
