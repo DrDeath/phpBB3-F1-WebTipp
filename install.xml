@@ -1,109 +1,91 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<?xml-stylesheet type="text/xsl" href="./modx.prosilver.en.xsl"?>
-<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
-  <header>
-    <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
-    <title lang="en-gb">Formula 1 WebTip</title>
-	<title lang="de">Formel 1 WebTipp</title>
-    <description lang="en-gb"><![CDATA[With this mod you can add a Formula 1 webtip game to your forum.
+	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (phpBB version)"/>
+		<meta name="generator" content="Phpbb.ModTeam.Tools (c#)"/>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[Formula 1 WebTip]]></title>
+		<title lang="de"><![CDATA[Formel 1 WebTipp]]></title>
+		<description lang="en"><![CDATA[With this mod you can add a Formula 1 webtip game to your forum.
 Your user can tip race results and collect points.
-Current season standings ( users / drivers / teams ) are listed on a statistics page and in the memberlist view profile.]]>
-</description>
-<description lang="de"><![CDATA[Mit diesem MOD fügst Du ein Formel 1 WebTipp Spiel Deinem Forum hinzu.
+Current season standings ( users / drivers / teams ) are listed on a statistics page and in the memberlist view profile.]]></description>
+		<description lang="de"><![CDATA[Mit diesem MOD fügst Du ein Formel 1 WebTipp Spiel Deinem Forum hinzu.
 Deine Benutzer können auf die Rennergebnisse tippen und erhalten dadurch Punkte.
-Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den eingebauten Statistikseiten und im Benutzerprofil begutachten.]]>
-</description>
-    <author-notes lang="en-gb"><![CDATA[- Dr.Death ported and enhanced the origin phpBB2 MOD to phpBB3 Olympus
+Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den eingebauten Statistikseiten und im Benutzerprofil begutachten.]]></description>
+		<author-notes lang="en"><![CDATA[- Dr.Death ported and enhanced the origin phpBB2 MOD to phpBB3 Olympus
 - AceVentura is the origin Author of the Formula 1 WebTip MOD for phpBB2.
 - OXPUS is the author of the "Advanced countdown MOD" ( used some code for the "Countdown till deadline" )]]></author-notes>
-    <author-notes lang="de"><![CDATA[- Dr.Death hat das Original phpBB2 MOD auf phpBB3 Olympus portiert ( Neu programmiert und erweitert )
+		<author-notes lang="de"><![CDATA[- Dr.Death hat das Original phpBB2 MOD auf phpBB3 Olympus portiert ( Neu programmiert und erweitert )
 - AceVentura ist der Autor des Formula 1 WebTip MOD für phpBB2.
 - OXPUS ist der Autor vom "Advanced countdown MOD" ( Ich habe einen Teil seines Codes für den "Countdown bis deadline" verwendet )]]></author-notes>
-    <author-group>
-      <author>
-        <realname>Stefan Temath</realname>
-        <email>dr.death@lpi-clan.de</email>
-        <username>Dr.Death</username>
-        <homepage>http://www.lpi-clan.de</homepage>
-		<contributions-group>
-		  <contributions status="past" from="2006-01-01" position="Developer"/>
-		</contributions-group>	
-      </author>
-      <author>
-        <realname>Christian Neumann</realname>
-        <email>2714323@web.de</email>
-        <username>AceVentura</username>
-        <homepage>http://www.uptempo.de.vu</homepage>
-      </author>
-      <author>
-        <realname>Karsten Ude</realname>
-        <email>webmaster@oxpus.de</email>
-        <username>OXPUS</username>
-        <homepage>http://www.oxpus.de</homepage>
-      </author>
-    </author-group>
-    <mod-version>0.3.5</mod-version>
-    <installation>
-      <level>easy</level>
-      <time>692</time>
-      <target-version>3.0.8</target-version>
-    </installation>
-	<link-group>
-		<link type="parent" lang="en-gb" href="contrib/history.xml">History</link>
-		<link type="parent" lang="de" href="contrib/history.xml">Historie</link>
-		<link type="language" lang="en-gb" href="contrib/de.xml">Manual for german language-set</link>
-		<link type="language" lang="de" href="contrib/de.xml">Anleitung für das deutsche Sprachpaket</link>
-		<link type="language" lang="en-gb" href="contrib/fr.xml">Manual for french language-set</link>
-		<link type="language" lang="de" href="contrib/fr.xml">Anleitung für das französische Sprachpaket</link>
-		<link type="template" lang="en-gb" href="contrib/subsilver2.xml">Manual for subsilver2 style</link>
-		<link type="template" lang="de" href="contrib/subsilver2.xml">Anleitung für das Style subsilver2</link>
-	</link-group>
-
-    <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
-	
-  </header>
-  <action-group>
-    <copy>
-      <file from="root/formel.php" to="formel.php" />
-	  <file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
-      <file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html" />
-      <file from="root/includes/acp/info/acp_formel.php" to="includes/acp/info/acp_formel.php" />
-      <file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php" />
-      <file from="root/includes/functions_formel.php" to="includes/functions_formel.php" />
-      <file from="root/language/en/mods/acp_formel.php" to="language/en/mods/acp_formel.php" />
-      <file from="root/language/en/mods/info_acp_formel.php" to="language/en/mods/info_acp_formel.php" />
-      <file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php" />
-      <file from="root/language/en/mods/permissions_formel.php" to="language/en/mods/permissions_formel.php" />
-      <file from="root/images/formel/*.*" to="images/formel/*.*" />
-	  <file from="root/umil/*.*" to="umil/*.*" />
-	  <file from="root/install_f1.php" to="install_f1.php" />
-	  <file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
-    </copy>
-    <open src="includes/constants.php">
-      <edit>
-        <find><![CDATA[// Additional tables]]></find>
-        <action type="after-add"><![CDATA[
-// F1 WebTipp
-define('FORMEL_TEAMS_TABLE', 		$table_prefix . 'formel_teams');
-define('FORMEL_DRIVERS_TABLE', 		$table_prefix . 'formel_drivers');
-define('FORMEL_RACES_TABLE', 		$table_prefix . 'formel_races');
-define('FORMEL_TIPPS_TABLE', 		$table_prefix . 'formel_tipps');
-define('FORMEL_CONFIG_TABLE', 		$table_prefix . 'formel_config');
-define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
-// F1 WebTipp End
-]]></action>
-      </edit>
-    </open>
-    <open src="memberlist.php">
-      <edit>
-        <find><![CDATA[$user->setup(array('memberlist', 'groups'));]]></find>
-        <action type="after-add"><![CDATA[$user->add_lang('mods/formel');]]></action>
-      </edit>
-      <edit>
-        <find><![CDATA[	// Now generate page title]]></find>
-        <action type="before-add"><![CDATA[
-		//
+		<author-group>
+			<author>
+				<realname><![CDATA[Stefan Temath]]></realname>
+				<username><![CDATA[Dr.Death]]></username>
+				<homepage><![CDATA[http://www.lpi-clan.de]]></homepage>
+				<email><![CDATA[dr.death@lpi-clan.de]]></email>
+				<contributions-group>
+					<contributions status="current" from="2006-01-01" position="Developer"/>
+				</contributions-group>
+			</author>
+			<author>
+				<realname><![CDATA[Christian Neumann]]></realname>
+				<username><![CDATA[AceVentura]]></username>
+				<homepage><![CDATA[http://www.uptempo.de.vu]]></homepage>
+				<email><![CDATA[2714323@web.de]]></email>
+			</author>
+			<author>
+				<realname><![CDATA[Karsten Ude]]></realname>
+				<username><![CDATA[OXPUS]]></username>
+				<homepage><![CDATA[http://www.oxpus.de]]></homepage>
+				<email><![CDATA[webmaster@oxpus.de]]></email>
+			</author>
+		</author-group>
+		<mod-version>0.3.5</mod-version>
+		<installation>
+			<level>easy</level>
+			<time>720</time>
+			<target-version>3.0.8</target-version>
+		</installation>
+		<link-group>
+			<link type="parent" href="contrib/history.xml" lang="en">History</link>
+			<link type="parent" href="contrib/history.xml" lang="de">Historie</link>
+			<link type="language" href="contrib/de.xml" lang="en">Manual for german language-set</link>
+			<link type="language" href="contrib/de.xml" lang="de">Anleitung für das deutsche Sprachpaket</link>
+			<link type="language" href="contrib/fr.xml" lang="en">Manual for french language-set</link>
+			<link type="language" href="contrib/fr.xml" lang="de">Anleitung für das französische Sprachpaket</link>
+			<link type="template" href="contrib/subsilver2.xml" lang="en">Manual for subsilver2 style</link>
+			<link type="template" href="contrib/subsilver2.xml" lang="de">Anleitung für das Style subsilver2</link>
+		</link-group>
+	</header>
+	<action-group>
+		<copy>
+			<file from="root/formel.php" to="formel.php"/>
+			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php"/>
+			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html"/>
+			<file from="root/includes/acp/info/acp_formel.php" to="includes/acp/info/acp_formel.php"/>
+			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php"/>
+			<file from="root/includes/functions_formel.php" to="includes/functions_formel.php"/>
+			<file from="root/language/en/mods/acp_formel.php" to="language/en/mods/acp_formel.php"/>
+			<file from="root/language/en/mods/info_acp_formel.php" to="language/en/mods/info_acp_formel.php"/>
+			<file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php"/>
+			<file from="root/language/en/mods/permissions_formel.php" to="language/en/mods/permissions_formel.php"/>
+			<file from="root/images/formel/*.*" to="images/formel/*.*"/>
+			<file from="root/umil/*.*" to="umil/*.*"/>
+			<file from="root/install_f1.php" to="install_f1.php"/>
+			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html"/>
+		</copy>
+		<open src="memberlist.php">
+			<edit>
+				<find><![CDATA[$user->setup(array('memberlist', 'groups'));]]></find>
+				<action type="after-add"><![CDATA[$user->add_lang('mods/formel');]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[	// Now generate page title]]></find>
+				<action type="before-add"><![CDATA[		//
 		// F1 WebTipp
 		//
 		include($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
@@ -174,24 +156,38 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
 		// END of F1 WebTipp
 		//
 		]]></action>
-      </edit>
-    </open>
-	<open src="includes/mcp/mcp_notes">
-      <edit>
-		<find><![CDATA[			case 'user_notes':
+			</edit>
+		</open>
+		<open src="includes/constants.php">
+			<edit>
+				<find><![CDATA[// Additional tables]]></find>
+				<action type="after-add"><![CDATA[// F1 WebTipp
+define('FORMEL_TEAMS_TABLE', 		$table_prefix . 'formel_teams');
+define('FORMEL_DRIVERS_TABLE', 		$table_prefix . 'formel_drivers');
+define('FORMEL_RACES_TABLE', 		$table_prefix . 'formel_races');
+define('FORMEL_TIPPS_TABLE', 		$table_prefix . 'formel_tipps');
+define('FORMEL_CONFIG_TABLE', 		$table_prefix . 'formel_config');
+define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
+// F1 WebTipp End
+]]></action>
+			</edit>
+		</open>
+		<open src="includes/mcp/mcp_notes">
+			<edit>
+				<find><![CDATA[			case 'user_notes':
 				$user->add_lang('acp/common');]]></find>
-		<action type="after-add"><![CDATA[				$user->add_lang('mods/info_acp_formel');]]></action>
-      </edit>
-    </open>	
-    <open src="styles/prosilver/template/memberlist_view.html">
-      <edit>
-        <find><![CDATA[			<!-- IF S_SHOW_ACTIVITY and POSTS -->
+				<action type="after-add"><![CDATA[				$user->add_lang('mods/info_acp_formel');]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/memberlist_view.html">
+			<edit>
+				<find><![CDATA[			<!-- IF S_SHOW_ACTIVITY and POSTS -->
 				<dt>{L_ACTIVE_IN_FORUM}:</dt> <dd><!-- IF ACTIVE_FORUM --><strong><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br />({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
 				<dt>{L_ACTIVE_IN_TOPIC}:</dt> <dd><!-- IF ACTIVE_TOPIC --><strong><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br />({ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
 			<!-- ENDIF -->
 		</dl>
 	</div>]]></find>
-        <action type="after-add"><![CDATA[	<!-- BEGIN formel_webtipp -->
+				<action type="after-add"><![CDATA[	<!-- BEGIN formel_webtipp -->
 	<div class="column2">
 		<h3>{L_FORMEL_TITLE}</h3>
 		<dl class="details">
@@ -199,22 +195,17 @@ define('FORMEL_WM_TABLE', 			$table_prefix . 'formel_wm');
 		</dl>
 	</div>
 	<!-- END formel_webtipp -->]]></action>
-      </edit>
-    </open>
-    <open src="styles/prosilver/template/overall_header.html">
-      <edit>
-        <find><![CDATA[</head>]]></find>
-        <action type="replace-with"><![CDATA[{COUNTDOWN}
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/overall_header.html">
+			<edit>
+				<find><![CDATA[</head>]]></find>
+				<action type="replace-with"><![CDATA[{COUNTDOWN}
 </head>]]></action>
-      </edit>
-    </open>
-	<diy-instructions lang="en-gb"><![CDATA[After installing this MOD, you have to point your web browser to the install_f1.php file
-like:  http://your-domian.tld/path-to-your-forum/install_f1.php
-
-After running the UMIL installer, delete the file install_f1.php from your webspace to prevent erasing tables from your database.
-
-
-Now your are able to give ACP permissions to certain users/groups.
+			</edit>
+		</open>
+		<php-installer><![CDATA[install/index.php]]></php-installer>
+		<diy-instructions lang="en"><![CDATA[Now your are able to give ACP permissions to certain users/groups.
 You'll find the new permission in:
 ACP - Permissions - Administrative Permissions  - F1:
 Can alter Formular 1 settings
@@ -230,12 +221,7 @@ Insert a name for the link ( i.e ) : "Formula 1 WebTip"
 Insert in the field Forums-link : "formel.php"
 
 And now: Have fun!]]></diy-instructions>
-	<diy-instructions lang="de"><![CDATA[Nach der Installation des MODs musst Du noch die UMIL Installationsdatei install_f1.php mit Deinem Browser aufrufen.
-Beispiel: http://deine-domaene.tld/pfad-zum-forum/install_f1.php
-
-Danach solltest Du nicht vergessen die Datei "install_f1.php" von Deinem WebSpace zu löschen!
-
-Nun kannst Du im ACP Berechtigunen fuer Deinen Gruppen/Benutzer vergeben.
+		<diy-instructions lang="de"><![CDATA[Nun kannst Du im ACP Berechtigunen fuer Deinen Gruppen/Benutzer vergeben.
 Du findest die neuen Berechtigungen unter:
 ACP - Berechtigungen - Allgemeine Berechtigungen - Administratoren - F1
 Kann Formel 1 Fahrer verwalten
@@ -250,7 +236,6 @@ Wähle ein Übergeordnetes Forum Deiner Wahl
 Vergebe einen Namen für den Link ( Beispiel ) : "Formel 1 WebTipp"
 Als Forums-Link : "formel.php"
 
-Und nun: Viel Spass !
-]]></diy-instructions>
-  </action-group>
+Und nun: Viel Spass !]]></diy-instructions>
+	</action-group>
 </mod>
