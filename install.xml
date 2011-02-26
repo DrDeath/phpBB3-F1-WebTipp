@@ -172,7 +172,7 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 ]]></action>
 			</edit>
 		</open>
-		<open src="includes/mcp/mcp_notes">
+		<open src="includes/mcp/mcp_notes.php">
 			<edit>
 				<find><![CDATA[			case 'user_notes':
 				$user->add_lang('acp/common');]]></find>
