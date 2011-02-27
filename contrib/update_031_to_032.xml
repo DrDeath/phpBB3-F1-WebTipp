@@ -51,7 +51,7 @@
 	<action-group>
 	    <copy>
 			<file from="root/umil/*.*" to="umil/*.*" />
-			<file from="root/install_f1.php" to="install_f1.php" />
+			<file from="root/install/index.php" to="install/index.php" />
 			<file from="root/formel.php" to="formel.php" />
 			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html" />
 			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php" />
@@ -62,25 +62,11 @@
 			
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
 		</copy>
-		<diy-instructions lang="en-gb"><![CDATA[After copying these files, you have to point your web browser to the UMIL install_f1.php file
-like:  http://your-domian.tld/path-to-your-forum/install_f1.php
-
-Please make sure that the action is set to "Update" !!!
-
-Now you have updated your Formel 1 WebTipp to version 0.3.2 !
-
-
-Don't forget to delete the file "install_f1.php" from your webspace.
+		<php-installer><![CDATA[install/index.php]]></php-installer>
+		<diy-instructions lang="en-gb"><![CDATA[After copying these files, you have to clear your chache, refresh your template files and delete the "install" folder from your webspace.
 
 And now: Have fun!]]></diy-instructions>
-		<diy-instructions lang="de"><![CDATA[Nach dem Kopieren der o.g. Dateien musst Du noch den UMIL Installer/Updater install_f1.php mit Deinem Browser aufrufen.
-Beispiel: http://deine-domaene.tld/pfad-zum-forum/install_f1.php
-
-Bitte prüfe vor der Bestätigung, das der Vorgang auf "Aktualisiere" steht.
-
-Geschafft! Euer Formel 1 Webtipp ist nun auf die Version 0.3.2 aktualisiert worden!
-
-Vergesst nicht nach erfolgreicher Aktualisierung die Datei "install_f1.php" von Eurem Webspace zu löschen.
+		<diy-instructions lang="de"><![CDATA[Nach dem Kopieren der o.g. Dateien musst Du noch Deinen Style aktualisieren, den Cache leeren und den Ordner "install" von Deinem Webspace löschen.
 
 
 Und nun: Viel Spass !
