@@ -85,7 +85,7 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 
 # -- Team 11 HRT F1 Team
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (22, 'Karthikeyan, Narain', '', 11);
-# -- missing drivers can be added in the ACP modul
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (23, 'Liuzzi, Vitantonio', '', 11);
 
 # -- Team 12 Marussia Virgin Racing
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (24, 'D''Ambrosio, Jérôme', '', 12);
@@ -94,7 +94,8 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 # -- Testdrivers
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (26, 'Ricciardo, Daniel', '', 1);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (27, 'Paffett, Gary', '', 2);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (28, 'Bianchi, Jules', '', 3);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (28, 'Rosa de la, Pedro', '', 2);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (29, 'Bianchi, Jules', '', 3);
 
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (30, 'Grosjean, Romain', '', 5);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (31, 'Senna, Bruno', '', 5);
