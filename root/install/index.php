@@ -380,16 +380,18 @@ function first_fill_0_3_0($action, $version)
 				
 				$sql_ary = array();
 
-				$sql_ary[] = array('team_id' => 1,  'team_name' => 'McLaren Mercedes', 		'team_img' => '', 'team_car' => '',);
-				$sql_ary[] = array('team_id' => 2,  'team_name' => 'Scuderia Ferrari', 		'team_img' => '', 'team_car' => '',);
-				$sql_ary[] = array('team_id' => 3,  'team_name' => 'BMW Sauber F1 Team', 	'team_img' => '', 'team_car' => '',);
-				$sql_ary[] = array('team_id' => 4,  'team_name' => 'Renault F1 Team', 		'team_img' => '', 'team_car' => '',);
-				$sql_ary[] = array('team_id' => 5,  'team_name' => 'Toyota Racing', 		'team_img' => '', 'team_car' => '',);
-				$sql_ary[] = array('team_id' => 6,  'team_name' => 'Scuderia Toro Rosso', 	'team_img' => '', 'team_car' => '',);
-				$sql_ary[] = array('team_id' => 7,  'team_name' => 'Red Bull Racing', 		'team_img' => '', 'team_car' => '',);
-				$sql_ary[] = array('team_id' => 8,  'team_name' => 'Williams F1 Team', 		'team_img' => '', 'team_car' => '',);
-				$sql_ary[] = array('team_id' => 9,  'team_name' => 'Brawn GP F1 Team', 		'team_img' => '', 'team_car' => '',);
-				$sql_ary[] = array('team_id' => 10, 'team_name' => 'Force India F1 Team', 	'team_img' => '', 'team_car' => '',);
+				$sql_ary[] = array('team_id' => 1,  'team_name' => 'Red Bull Racing', 			'team_img' => '', 'team_car' => '', 'team_penalty' => 0.00,);
+				$sql_ary[] = array('team_id' => 2,  'team_name' => 'McLaren Mercedes', 			'team_img' => '', 'team_car' => '', 'team_penalty' => 0.00,);
+				$sql_ary[] = array('team_id' => 3,  'team_name' => 'Scuderia Ferrari', 			'team_img' => '', 'team_car' => '', 'team_penalty' => 0.00,);
+				$sql_ary[] = array('team_id' => 4,  'team_name' => 'Mercedes GP F1 Team',	 	'team_img' => '', 'team_car' => '', 'team_penalty' => 0.00,);
+				$sql_ary[] = array('team_id' => 5,  'team_name' => 'Lotus Renault GP', 			'team_img' => '', 'team_car' => '', 'team_penalty' => 0.00,);
+				$sql_ary[] = array('team_id' => 6,  'team_name' => 'Williams', 					'team_img' => '', 'team_car' => '', 'team_penalty' => 0.00,);
+				$sql_ary[] = array('team_id' => 7,  'team_name' => 'Force India F1 Team', 		'team_img' => '', 'team_car' => '', 'team_penalty' => 0.00,);
+				$sql_ary[] = array('team_id' => 8,  'team_name' => 'Sauber F1 Team', 			'team_img' => '', 'team_car' => '', 'team_penalty' => 0.00,);
+				$sql_ary[] = array('team_id' => 9,  'team_name' => 'Scuderia Toro Rosso', 		'team_img' => '', 'team_car' => '', 'team_penalty' => 0.00,);
+				$sql_ary[] = array('team_id' => 10, 'team_name' => 'Team Lotus', 				'team_img' => '', 'team_car' => '', 'team_penalty' => 0.00,);
+				$sql_ary[] = array('team_id' => 10, 'team_name' => 'HRT F1 Team', 				'team_img' => '', 'team_car' => '', 'team_penalty' => 0.00,);
+				$sql_ary[] = array('team_id' => 10, 'team_name' => 'Marussia Virgin Racing', 	'team_img' => '', 'team_car' => '', 'team_penalty' => 0.00,);
 
 				$db->sql_multi_insert($table_prefix . 'formel_teams ', $sql_ary);
 			}
