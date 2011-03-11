@@ -758,8 +758,8 @@ switch ($mode)
 						//Count Safety Car Deployments DropDown
 						$safetycarcombo = '<select name="place13" size="1">';
 						
-						//We assume to have no more then 9 safety car placed in a normal race ;-)
-						for ($k = 0; $k < 10; ++$k) 
+						//We assume to have no more then 10 safety car placed in a normal race ;-)
+						for ($k = 0; $k < 11; ++$k) 
 						{
 							$selected 			 = ( $k == $tipp_array['12']) ? 'selected' : '';
 							$safetycarcombo 	.= '<option value="' . $k . '" ' . $selected . '>' . $k . '</option>';
@@ -855,8 +855,8 @@ switch ($mode)
 							//Count Safety Car Deployments DropDown
 							$safetycarcombo = '<select name="place13" size="1">';
 							
-							//We assume to have no more then 9 safety car placed in a normal race ;-)
-							for ($k = 0; $k < 10; ++$k) 
+							//We assume to have no more then 10 safety car placed in a normal race ;-)
+							for ($k = 0; $k < 11; ++$k) 
 							{
 								$safetycarcombo .= '<option value="' . $k . '">' . $k . '</option>';
 							}
@@ -1660,8 +1660,8 @@ switch ($mode)
 			
 			$combo_safetycar = '<select name="place13" size="1">';
 			
-			//We assume to have no more then 9 safety car placed in a normal race ;-)
-			for ($k = 0; $k < 10; ++$k) 
+			//We assume to have no more then 10 safety car placed in a normal race ;-)
+			for ($k = 0; $k < 11; ++$k) 
 			{
 				if (isset($result_array['12']))
 				{
