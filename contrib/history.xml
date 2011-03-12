@@ -16,25 +16,34 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 
 	<author-group>
 		<author>
-			<realname>Stefan Temath</realname>
-			<email>dr.death@lpi-clan.de</email>
-			<username>Dr.Death</username>
-			<homepage>http://www.lpi-clan.de</homepage>
+			<realname><![CDATA[Stefan Temath]]></realname>
+			<email><![CDATA[dr.death@lpi-clan.de]]></email>
+			<username><![CDATA[Dr.Death]]></username>
+			<homepage><![CDATA[http://www.lpi-clan.de]]></homepage>
 			<contributions-group>
 				<contributions status="past" from="2006-01-01" position="Developer"/>
 			</contributions-group>
 		</author>
 		<author>
-			<realname>Christian Neumann</realname>
-			<email>2714323@web.de</email>
-			<username>AceVentura</username>
-			<homepage>http://www.uptempo.de.vu</homepage>
+			<realname><![CDATA[Christian Neumann]]></realname>
+			<email><![CDATA[2714323@web.de]]></email>
+			<username><![CDATA[AceVentura]]></username>
+			<homepage><![CDATA[http://www.uptempo.de.vu]]></homepage>
 		</author>
 		<author>
-			<realname>Karsten Ude</realname>
-			<email>webmaster@oxpus.de</email>
-			<username>OXPUS</username>
-			<homepage>http://www.oxpus.de</homepage>
+			<realname><![CDATA[Karsten Ude]]></realname>
+			<email><![CDATA[webmaster@oxpus.de]]></email>
+			<username><![CDATA[OXPUS]]></username>
+			<homepage><![CDATA[http://www.oxpus.de]]></homepage>
+		</author>
+		<author>
+			<realname><![CDATA[Falk Seidel]]></realname>
+			<email><![CDATA[admin@un1matr1x.de]]></email>
+			<username><![CDATA[Unimatrix_0]]></username>
+			<homepage><![CDATA[http://un1matr1x.de/]]></homepage>
+			<contributions-group>
+				<contributions status="current" from="2011-02-22" position="Co-Developer" />
+			</contributions-group>
 		</author>
 	</author-group>
 	
@@ -55,6 +64,8 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		<link type="language" lang="de" href="../contrib/fr.xml">Anleitung für das französische Sprachpaket</link>
 		<link type="template" lang="en-gb" href="../contrib/subsilver2.xml">Manual for subsilver2 style</link>
 		<link type="template" lang="de" href="../contrib/subsilver2.xml">Anleitung für das Style subsilver2</link>
+		<link type="contrib" href="../contrib/update_f1.xml" lang="en">F1-Season Update 2011</link>
+		<link type="contrib" href="../contrib/update_f1.xml" lang="de">F1-Saison Update 2011</link>
 	</link-group>
 	
     <author-notes lang="en-gb">This file contains all parts of the History, all Developers, a.s.o.</author-notes>
@@ -311,7 +322,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<changelog lang="en-gb">
 				<change>Changed design. We have now 24 drivers (12 teams). In Q1 and Q2 seven driver will drop out</change>
 				<change>Changed design. Replaced the "#" with "place" on statistic pages. (femu's idea)</change>
-				<change>BugFix: Added missing language vars to MCP / User Notes. (Thanks to femu for finding this issue)</change>
+				<change>BugFix: Added missing language vars to MCP / User Notes. (Thanks to femu for finding this issue and thanks to Unimatrix_0 for helping me on github)</change>
 				<change>BugFix: If two or more drive have the same WM points, the driver with most 1st places will take the lead.</change>
 				<change>Added feature: Give half points if race aborted. (Thanks to Dungeonwatcher for his idea)</change>
 				<change>Added feature: "Safety Car Deployment". Default: 2 additional points</change>
@@ -320,7 +331,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<changelog lang="de">
 				<change>Design angepasst. Wir haben nun 24 Fahrer (12 Teams). In Q1 und Q2 werden sieben Fahrer ausscheiden</change>
 				<change>Design angepasst. Auf den Statistik Seiten wurde das "#" Zeichen durch "Platz" ersetzt. (femu's Idee)</change>
-				<change>BugFix: Fehlende Sprachvariablen im MCP / Benutzer-Notizen hinzugefügt (Danke an femu für das finden des Bugs)</change>
+				<change>BugFix: Fehlende Sprachvariablen im MCP / Benutzer-Notizen hinzugefügt (Danke an femu für das finden des Bugs und auch Danke an Unimatrix_0 für die Unterstützung auf github)</change>
 				<change>BugFix: Wenn zwei oder mehr Fahrer in der WM Tabelle Punktgleich sind, übernimmt der Fahrer mit den meisten Siegen (1. Platz) die Führung.</change>
 				<change>Hinzugefügt: Halbe Punkte Vergabe bei Rennabbruch. (Danke an Dungeonwatcher für die Idee)</change>
 				<change>Hinzugefügt: "Safety Car Einsätze". Standard: 2 Zusatzpunkte.</change>
