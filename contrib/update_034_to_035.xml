@@ -14,12 +14,21 @@
 		
 		<author-group>
 			<author>
-				<realname>Stefan Temath</realname>
-				<email>dr.death@lpi-clan.de</email>
-				<username>Dr.Death</username>
-				<homepage>http://www.lpi-clan.de</homepage>
+				<realname><![CDATA[Stefan Temath]]></realname>
+				<username><![CDATA[Dr.Death]]></username>
+				<homepage><![CDATA[http://www.lpi-clan.de]]></homepage>
+				<email><![CDATA[dr.death@lpi-clan.de]]></email>
 				<contributions-group>
-					<contributions status="past" from="2006-01-01" position="Developer"/>
+					<contributions status="current" position="Developer"/>
+				</contributions-group>
+			</author>
+			<author>
+				<realname><![CDATA[Falk Seidel]]></realname>
+				<email><![CDATA[admin@un1matr1x.de]]></email>
+				<username><![CDATA[Unimatrix_0]]></username>
+				<homepage><![CDATA[http://un1matr1x.de/]]></homepage>
+				<contributions-group>
+					<contributions status="current" from="2011-02-22" position="Co-Developer" />
 				</contributions-group>
 			</author>
 		</author-group>

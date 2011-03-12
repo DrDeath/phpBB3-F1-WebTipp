@@ -21,7 +21,16 @@ Der Updater wird zuerst alle Renn- , Team- und Fahrer Tabellen leeren und anschl
 				<homepage><![CDATA[http://www.lpi-clan.de]]></homepage>
 				<email><![CDATA[dr.death@lpi-clan.de]]></email>
 				<contributions-group>
-					<contributions status="past" from="2006-01-01" position="Developer"/>
+					<contributions status="current" position="Developer"/>
+				</contributions-group>
+			</author>
+			<author>
+				<realname><![CDATA[Falk Seidel]]></realname>
+				<email><![CDATA[admin@un1matr1x.de]]></email>
+				<username><![CDATA[Unimatrix_0]]></username>
+				<homepage><![CDATA[http://un1matr1x.de/]]></homepage>
+				<contributions-group>
+					<contributions status="current" from="2011-02-22" position="Co-Developer" />
 				</contributions-group>
 			</author>
 		</author-group>

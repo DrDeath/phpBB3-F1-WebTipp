@@ -68,39 +68,38 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (12, 'Maldonado, Pastor', '', 6);
 
 # -- Team 7 Force India F1 Team
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (13, 'Sutil, Adrian', '', 7);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (14, 'Resta di, Paul', '', 7);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (14, 'Sutil, Adrian', '', 7);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (15, 'Resta di, Paul', '', 7);
 
 # -- Team 8 Sauber F1 Team
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (15, 'Kobayashi, Kamui', '', 8);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (16, 'Pérez Mendoza, Sergio', '', 8);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (16, 'Kobayashi, Kamui', '', 8);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (17, 'Pérez Mendoza, Sergio', '', 8);
 
 # -- Team 9 Scuderia Toro Rosso
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (17, 'Buemi, Sébastien', '', 9);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (18, 'Alguersuari, Jaime', '', 9);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (18, 'Buemi, Sébastien', '', 9);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (19, 'Alguersuari, Jaime', '', 9);
 
 # -- Team 10 Team Lotus
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (19, 'Trulli, Jarno', '', 10);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (20, 'Kovalainen, Heikki', '', 10);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (20, 'Trulli, Jarno', '', 10);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (21, 'Kovalainen, Heikki', '', 10);
 
 # -- Team 11 HRT F1 Team
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (21, 'Karthikeyan, Narain', '', 11);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (22, 'Liuzzi, Vitantonio', '', 11);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (22, 'Karthikeyan, Narain', '', 11);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (23, 'Liuzzi, Vitantonio', '', 11);
 
 # -- Team 12 Marussia Virgin Racing
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (23, "D'Ambrosio, Jérôme", '', 12);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (24, 'Glock, Timo', '', 12);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (24, "D'Ambrosio, Jérôme", '', 12);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (25, 'Glock, Timo', '', 12);
 
 # -- Testdrivers
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (25, 'Ricciardo, Daniel', '', 1);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (26, 'Paffett, Gary', '', 2);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (27, 'Rosa de la, Pedro', '', 2);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (28, 'Bianchi, Jules', '', 3);
-
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (29, 'Grosjean, Romain', '', 5);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (30, 'Senna, Bruno', '', 5);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (31, 'Bottas, Valtteri', '', 6);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (32, 'Hülkenberg, Nico', '', 7);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (33, 'Gutierrez, Esteban', '', 8);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (26, 'Ricciardo, Daniel', '', 1);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (27, 'Paffett, Gary', '', 2);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (28, 'Rosa de la, Pedro', '', 2);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (29, 'Bianchi, Jules', '', 3);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (30, 'Grosjean, Romain', '', 5);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (31, 'Senna, Bruno', '', 5);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (32, 'Bottas, Valtteri', '', 6);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (33, 'Hülkenberg, Nico', '', 7);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (34, 'Gutierrez, Esteban', '', 8);
 
 # POSTGRES COMMIT #
