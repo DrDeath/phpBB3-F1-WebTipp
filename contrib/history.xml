@@ -338,6 +338,16 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<change>UMIL aktualisiert auf 1.0.4</change>
 			</changelog>
 		</entry>
+		<entry>
+			<date>2011-XX-YY</date>
+			<rev-version>0.3.6</rev-version>
+			<changelog lang="en-gb">
+				<change>[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) added by default</change>
+			</changelog>
+			<changelog lang="de">
+				<change>[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) standardmäßig hinzugefügt</change>
+			</changelog>
+		</entry>
 	</history>
 	
     <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />

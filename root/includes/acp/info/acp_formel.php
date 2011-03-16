@@ -29,7 +29,7 @@ class acp_formel_info
 		return array(
 			'filename'	=> 'acp_formel',
 			'title'		=> 'ACP_FORMEL_MANAGEMENT',
-			'version'	=> '1.0.0',
+			'version'	=> '0.3.6',
 			'modes'		=> array(
 				'settings'		=> array('title' => 'ACP_FORMEL_SETTINGS',	'auth' => 'acl_a_formel_settings',	'cat' => array('ACP_FORMEL_MANAGEMENT')),
 				'drivers'		=> array('title' => 'ACP_FORMEL_DRIVERS',	'auth' => 'acl_a_formel_drivers',	'cat' => array('ACP_FORMEL_MANAGEMENT')),
