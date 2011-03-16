@@ -1,53 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<?xml-stylesheet type="text/xsl" href="../contrib/modx.prosilver.en.xsl"?>
-<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
-		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
-
-		<title lang="en-gb">Formula 1 WebTip - subsilver2 modifications</title>
-		<title lang="de">Formel 1 WebTipp - subsilver2 Änderungen</title>
-
-		<description lang="en-gb"><![CDATA[These are the instructions to install this MOD for subsilver2.]]></description>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[Formula 1 WebTip - subsilver2 modifications]]></title>
+		<title lang="de"><![CDATA[Formel 1 WebTipp - subsilver2 Änderungen]]></title>
+		<description lang="en"><![CDATA[These are the instructions to install this MOD for subsilver2.]]></description>
 		<description lang="de"><![CDATA[Dies ist die Installationsanleitung für die Änderungen am Style subsilver2]]></description>
-
 		<author-group>
 			<author>
-				<realname>Stefan Temath</realname>
-				<email>dr.death@lpi-clan.de</email>
-				<username>Dr.Death</username>
-				<homepage>http://www.lpi-clan.de</homepage>
+				<realname><![CDATA[Stefan Temath]]></realname>
+				<username><![CDATA[Dr.Death]]></username>
+				<homepage><![CDATA[http://www.lpi-clan.de]]></homepage>
+				<email><![CDATA[dr.death@lpi-clan.de]]></email>
 				<contributions-group>
 					<contributions status="past" from="2006-01-01" position="Developer"/>
 				</contributions-group>
 			</author>
 		</author-group>
-
 		<mod-version>0.3.6</mod-version>
-
 		<installation>
 			<level>easy</level>
 			<time>120</time>
 			<target-version>3.0.8</target-version>
 		</installation>
-
 		<link-group>
-			<link type="parent" lang="en-gb" href="../install.xml">Main installation instruction</link>
-			<link type="parent" lang="de" href="../install.xml">Installations Anleitung</link>
-			<link type="parent" lang="en-gb" href="../contrib/history.xml">History</link>
-			<link type="parent" lang="de" href="../contrib/history.xml">Historie</link>
-			<link type="language" lang="en-gb" href="../contrib/de.xml">Manual for german language-set</link>
-			<link type="language" lang="de" href="../contrib/de.xml">Anleitung für das deutsche Sprachpaket</link>
-			<link type="language" lang="en-gb" href="../contrib/fr.xml">Manual for french language-set</link>
-			<link type="language" lang="de" href="../contrib/fr.xml">Anleitung für das französische Sprachpaket</link>
+			<link type="parent" href="../install.xml" lang="en">Main installation instruction</link>
+			<link type="parent" href="../install.xml" lang="de">Installations Anleitung</link>
+			<link type="parent" href="../contrib/history.xml" lang="en">History</link>
+			<link type="parent" href="../contrib/history.xml" lang="de">Historie</link>
+			<link type="language" href="../contrib/de.xml" lang="en">Manual for german language-set</link>
+			<link type="language" href="../contrib/de.xml" lang="de">Anleitung für das deutsche Sprachpaket</link>
+			<link type="language" href="../contrib/fr.xml" lang="en">Manual for french language-set</link>
+			<link type="language" href="../contrib/fr.xml" lang="de">Anleitung für das französische Sprachpaket</link>
 		</link-group>
-
-		<meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
-
 	</header>
 	<action-group>
 		<copy>
-			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
+			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html"/>
 		</copy>
 		<open src="styles/subsilver2/template/memberlist_view.html">
 			<edit>

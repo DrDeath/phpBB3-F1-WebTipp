@@ -1,79 +1,68 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<?xml-stylesheet type="text/xsl" href="../contrib/modx.prosilver.en.xsl"?>
-<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
-	
-		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
-		
-		<title lang="en-gb">Formula 1 WebTip update from 0.1.30 to 0.3.0</title>
-		<title lang="de">Formel 1 WebTipp Update von 0.1.30 auf 0.3.0</title>
-		
-		<description lang="en-gb"><![CDATA[With this mod you can update your Formula 1 tipp game from version 0.1.30 to 0.3.0.]]></description>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[Formula 1 WebTip update from 0.1.30 to 0.3.0]]></title>
+		<title lang="de"><![CDATA[Formel 1 WebTipp Update von 0.1.30 auf 0.3.0]]></title>
+		<description lang="en"><![CDATA[With this mod you can update your Formula 1 tipp game from version 0.1.30 to 0.3.0.]]></description>
 		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel von Version 0.1.30 auf 0.3.0.]]></description>
-		
 		<author-group>
 			<author>
-				<realname>Stefan Temath</realname>
-				<email>dr.death@lpi-clan.de</email>
-				<username>Dr.Death</username>
-				<homepage>http://www.lpi-clan.de</homepage>
+				<realname><![CDATA[Stefan Temath]]></realname>
+				<username><![CDATA[Dr.Death]]></username>
+				<homepage><![CDATA[http://www.lpi-clan.de]]></homepage>
+				<email><![CDATA[dr.death@lpi-clan.de]]></email>
 				<contributions-group>
 					<contributions status="past" from="2006-01-01" position="Developer"/>
 				</contributions-group>
 			</author>
 		</author-group>
-		
 		<mod-version>0.3.0</mod-version>
-		
 		<installation>
 			<level>easy</level>
 			<time>300</time>
 			<target-version>3.0.8</target-version>
 		</installation>
-		
 		<history>
 			<entry>
 				<date>2009-04-16</date>
 				<rev-version>0.3.0</rev-version>
-				<changelog lang="en-gb">
-					<change>NEW: Using now the UMIL installer. Complete new written installer.</change>
-					<change>Fixed: Corrected the popup link in usertipp window.</change>
-					<change>Changed: reduced the driver count in qualifying from 22 to 20.</change>
-					<change>Changed: Show your "own" tip in usertipp popup even the deadline is not hit.</change>
-					<change>Changed: You are now able to add half penalty points.</change>
-					<change>Layout prosilver: Corrected the rules page. There was a missing width value.</change>
-					<change>Layout prosilver: Changed alignment of top 5 users, drivers and teams.</change>
-					<change>Layout prosilver and subsilver2: Changed row colours in qualifying table. Corrected some tiny placeholders and nowraps</change>
+				<changelog lang="en">
+					<change><![CDATA[NEW: Using now the UMIL installer. Complete new written installer.]]></change>
+					<change><![CDATA[Fixed: Corrected the popup link in usertipp window.]]></change>
+					<change><![CDATA[Changed: reduced the driver count in qualifying from 22 to 20.]]></change>
+					<change><![CDATA[Changed: Show your "own" tip in usertipp popup even the deadline is not hit.]]></change>
+					<change><![CDATA[Changed: You are now able to add half penalty points.]]></change>
+					<change><![CDATA[Layout prosilver: Corrected the rules page. There was a missing width value.]]></change>
+					<change><![CDATA[Layout prosilver: Changed alignment of top 5 users, drivers and teams.]]></change>
+					<change><![CDATA[Layout prosilver and subsilver2: Changed row colours in qualifying table. Corrected some tiny placeholders and nowraps]]></change>
 				</changelog>
 				<changelog lang="de">
-					<change>NEU: Komplett neu geschriebene Installationsroutine. Es wird nun der UMIL Installer benutzt.</change>
-					<change>BugFix: Usertipp Seite korrigiert. Der PopUp Link zum Benutzerprofil war nicht korrekt.</change>
-					<change>Aktualisiert: Anzahl der Fahrer beim Qualifying von 22 auf 20 reduziert.</change>
-					<change>Aktualisiert: Der "eigene" Tipp wird nun im Usertipp PopUp angezeigt, auch wenn die Deadline noch nicht erreicht wurde.</change>
-					<change>Aktualisiert: Man kann nun halbe Strafpunkte vergeben.</change>
-					<change>Layout prosilver: Spielregel Seite korrigiert. Es fehlte eine Breiten-Angabe.</change>
-					<change>Layout prosilver: Anordnung der Top 5 Spieler, Fahrer, Teams angepasst.</change>
-					<change>Layout prosilver und subsilver2: Zeilenfarben in der Qualifying Tabelle angepasst. Kleinere Abstandskorrekturen durchgeführt</change>
+					<change><![CDATA[NEU: Komplett neu geschriebene Installationsroutine. Es wird nun der UMIL Installer benutzt.]]></change>
+					<change><![CDATA[BugFix: Usertipp Seite korrigiert. Der PopUp Link zum Benutzerprofil war nicht korrekt.]]></change>
+					<change><![CDATA[Aktualisiert: Anzahl der Fahrer beim Qualifying von 22 auf 20 reduziert.]]></change>
+					<change><![CDATA[Aktualisiert: Der "eigene" Tipp wird nun im Usertipp PopUp angezeigt, auch wenn die Deadline noch nicht erreicht wurde.]]></change>
+					<change><![CDATA[Aktualisiert: Man kann nun halbe Strafpunkte vergeben.]]></change>
+					<change><![CDATA[Layout prosilver: Spielregel Seite korrigiert. Es fehlte eine Breiten-Angabe.]]></change>
+					<change><![CDATA[Layout prosilver: Anordnung der Top 5 Spieler, Fahrer, Teams angepasst.]]></change>
+					<change><![CDATA[Layout prosilver und subsilver2: Zeilenfarben in der Qualifying Tabelle angepasst. Kleinere Abstandskorrekturen durchgeführt]]></change>
 				</changelog>
 			</entry>
 		</history>
-    
-		<meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
 	</header>
-
 	<action-group>
 		<sql><![CDATA[ALTER TABLE `phpbb_formel_teams` CHANGE `team_penalty` `team_penalty` DECIMAL( 5, 2 ) UNSIGNED NOT NULL DEFAULT '0' ;
 ALTER TABLE `phpbb_formel_drivers` CHANGE `driver_penalty` `driver_penalty` DECIMAL( 5, 2 ) UNSIGNED NOT NULL DEFAULT '0' ;
 INSERT INTO phpbb_config (config_name, config_value, is_dynamic) VALUES ('f1webtipp_version', '0.3.0', '0');]]></sql>
-	    <copy>
-			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
-			<file from="root/formel.php" to="formel.php" />
-			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php" />
-			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html" />
-			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html" />
+		<copy>
+			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php"/>
+			<file from="root/formel.php" to="formel.php"/>
+			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php"/>
+			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html"/>
+			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html"/>
 		</copy>
 	</action-group>
 </mod>
-
- 

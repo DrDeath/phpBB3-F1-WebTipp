@@ -1,355 +1,348 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<?xml-stylesheet type="text/xsl" href="../contrib/modx.prosilver.en.xsl"?>
-<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
-		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
-	<title lang="en-gb">Formula 1 WebTip</title>
-	<title lang="de">Formel 1 WebTipp</title>
-    
-	<description lang="en-gb"><![CDATA[With this mod you can add a Formula 1 tipp game to your forum.
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[Formula 1 WebTip]]></title>
+		<title lang="de"><![CDATA[Formel 1 WebTipp]]></title>
+		<description lang="en"><![CDATA[With this mod you can add a Formula 1 tipp game to your forum.
 Your user can tipp race results and collect points.
 Current season standings ( users / drivers / teams ) are listed on a statistics page and in the memberlist view profile.]]></description>
-	<description lang="de"><![CDATA[Mit diesem MOD fügst Du ein Formel 1 WebTipp Spiel Deinem Forum hinzu.
+		<description lang="de"><![CDATA[Mit diesem MOD fügst Du ein Formel 1 WebTipp Spiel Deinem Forum hinzu.
 Deine Benutzer können auf die Rennergebnisse tippen und erhalten dadurch Punkte.
 Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den eingebauten Statistikseiten und im Benutzerprofil begutachten.]]></description>
-
-	<author-group>
-		<author>
-			<realname><![CDATA[Stefan Temath]]></realname>
-			<email><![CDATA[dr.death@lpi-clan.de]]></email>
-			<username><![CDATA[Dr.Death]]></username>
-			<homepage><![CDATA[http://www.lpi-clan.de]]></homepage>
-			<contributions-group>
-				<contributions status="past" from="2006-01-01" position="Developer"/>
-			</contributions-group>
-		</author>
-		<author>
-			<realname><![CDATA[Christian Neumann]]></realname>
-			<email><![CDATA[2714323@web.de]]></email>
-			<username><![CDATA[AceVentura]]></username>
-			<homepage><![CDATA[http://www.uptempo.de.vu]]></homepage>
-		</author>
-		<author>
-			<realname><![CDATA[Karsten Ude]]></realname>
-			<email><![CDATA[webmaster@oxpus.de]]></email>
-			<username><![CDATA[OXPUS]]></username>
-			<homepage><![CDATA[http://www.oxpus.de]]></homepage>
-		</author>
-		<author>
-			<realname><![CDATA[Falk Seidel]]></realname>
-			<email><![CDATA[admin@un1matr1x.de]]></email>
-			<username><![CDATA[Unimatrix_0]]></username>
-			<homepage><![CDATA[http://un1matr1x.de/]]></homepage>
-			<contributions-group>
-				<contributions status="current" from="2011-02-22" position="Co-Developer" />
-			</contributions-group>
-		</author>
-	</author-group>
-	
-	<mod-version>0.3.5</mod-version>
-	
-    <installation>
-		<level>easy</level>
-		<time>600</time>
-		<target-version>3.0.8</target-version>
-	</installation>
-	
-	<link-group>
-		<link type="parent" lang="en-gb" href="../install.xml">Main installation instruction</link>
-		<link type="parent" lang="de" href="../install.xml">Installations Anleitung</link>
-		<link type="language" lang="en-gb" href="../contrib/de.xml">Manual for german language-set</link>
-		<link type="language" lang="de" href="../contrib/de.xml">Anleitung für das deutsche Sprachpaket</link>
-		<link type="language" lang="en-gb" href="../contrib/fr.xml">Manual for french language-set</link>
-		<link type="language" lang="de" href="../contrib/fr.xml">Anleitung für das französische Sprachpaket</link>
-		<link type="template" lang="en-gb" href="../contrib/subsilver2.xml">Manual for subsilver2 style</link>
-		<link type="template" lang="de" href="../contrib/subsilver2.xml">Anleitung für das Style subsilver2</link>
-		<link type="contrib" href="../contrib/update_f1.xml" lang="en">F1-Season Update 2011</link>
-		<link type="contrib" href="../contrib/update_f1.xml" lang="de">F1-Saison Update 2011</link>
-	</link-group>
-	
-    <author-notes lang="en-gb">This file contains all parts of the History, all Developers, a.s.o.</author-notes>
-    <author-notes lang="de">Diese Datei enthält alle Teile der History, alle Entickler, usw.</author-notes>
-	
-	<history>
-		<entry>
-			<date>2007-05-28</date>
-			<rev-version>0.1.20</rev-version>
-			<changelog lang="en-gb">
-				<change> first public version for phpbb3 Olympus RC1</change>
-			</changelog>
-			<changelog lang="de">
-				<change> Erste öffentliche Version für phpbb3 Olympus RC1</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2007-06-06</date>
-			<rev-version>0.1.21</rev-version>
-			<changelog lang="en-gb">
-				<change> Installerfile updatet. Fix for mysql smaller than 4.1.3</change>
-				<change> Added german language to this installer modx </change>
-				<change> Changed the rank counting on user, driver, team stats and profile page</change>
-				<change> Update Info: If you update vom prior version 0.1.20: Have a look to the changes in memberlist.php ! Copy formel.php to ROOT/formel.php</change>
-			</changelog>
-			<changelog lang="de">
-				<change> Installationsdatei aktualisiert. Fix für MySQl kleiner als 4.1.3</change>
-				<change> Deutsche Sprache diesem Installationsanleitung hinzugefügt.</change>
-				<change> Änderung der Rangberechnung auf Spieler, Fahrer, Team Statistik und Profil Seite</change>
-				<change> Achtung: Wenn Ihr von Version 0.1.20 updatet: Änderung an der memberlist.php beachten! Kopiere formel.php nach ROOT/formel.php</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2007-06-06</date>
-			<rev-version>0.1.22</rev-version>
-			<changelog lang="en-gb">
-				<change>Changes for meeting the new coding guidelines: != bad.</change>
-				<change>Added french language files. Thank to the translator fafa</change>
-				<change>Changed package to the MODX Guideline http://www.phpbb.com/mods/documentation/modx/packaging/index.php</change>
-				<change>Style changes are now located in the subfolder templates</change>
-				<change>Additonal languages german and french are now located in the subfolder language</change>
-			</changelog>
-			<changelog lang="de">
-				<change>Änderung Aufgrund neuer Coding Guidelines: != schlecht.</change>
-				<change>Französische Sprachdateien hinzugefügt. Danke an den Übersetzer fafa.</change>
-				<change>MOD Paket angepasst auf die MODX Richtlinien. Siehe auch  http://www.phpbb.com/mods/documentation/modx/packaging/index.php</change>
-				<change>Anleitung für Änderungen an den Styles findet Ihr im Ordner templates</change>
-				<change>Die Anleitung für deutsche und französische Sprachdateien findet Ihr im Ordner language</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2007-08-04</date>
-			<rev-version>0.1.23</rev-version>
-			<changelog lang="en-gb">
-				<change>Change: unsecure $_POST replaced with request_var() in formel.php</change>
-				<change>Change: Installfile install_f1webtipp.php meets now the Coding Guidelines</change>
-				<change>fix: template input fields used not XHTML self closing tags</change>
-				<change>fix: Typo in this installer</change>
-				<change>fix: removed some empty INSERT statements for strikt mysql databases</change>
-				<change>Changed files: formel.php and includes/acp/acp_formel.php</change>
-			</changelog>
-			<changelog lang="de">
-				<change>Aktualisiert: Unsichere $_POST ersetzt durch request_var() in der formel.php</change>
-				<change>Aktualisiert: Installationsdatei install_f1webtipp.php den Coding Guidelines angepasst</change>
-				<change>Fix: Template INPUT Felder benutzen bisher keine XHTML selbst schliessende TAGS</change>
-				<change>Fix: Tippfehler in dieser Anleitung korrigiert</change>
-				<change>Fix: Es wurden einige leere INSERT Befehle für strikt eingestellte MySQL Datenbanken entfernt</change>
-				<change>Aktualisierte Dateien: formel.php und includes/acp/acp_formel.php</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2007-09-15</date>
-			<rev-version>0.1.24</rev-version>
-			<changelog lang="en-gb">
-				<change>Change: unsecure $_POST replaced with request_var() in includes/acp/acp_formel.php</change>
-				<change>Fix: Path corrected for installerfile templates prosilver and subsilver2</change>
-				<change>Changed files: includes/acp/acp_formel.php</change>
-			</changelog>
-			<changelog lang="de">
-				<change>Aktualisiert: Unsichere $_POST ersetzt durch request_var() in der includes/acp/acp_formel.php</change>
-				<change>Fix: Pfadangabe in Installationsdatei für die Templates prosilver und subsilver2 angepasst</change>
-				<change>Aktualisierte Dateien: includes/acp/acp_formel.php</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2007-10-06</date>
-			<rev-version>0.1.25</rev-version>
-			<changelog lang="en-gb">
-				<change>Added: New installer. Now (hopefully) support for all databases.</change>
-				<change>Added: add_form_key() and check_form_key() functions ( salt functions for submit security ).</change>
-				<change>Removed some xml files for modx install files.</change>
-				<change>Important for Updaters: replace all files (except the images). Security functions are added.</change>
-			</changelog>
-			<changelog lang="de">
-				<change>Hinzugefügt: Neue Installationsroutine. Unterstützt nun (hoffentlich) alle Datenbanktypen.</change>
-				<change>Hinzugefügt: add_form_key() und check_form_key() Funktionen ( Sicherheitsfunktionen für übermittelte Daten )</change>
-				<change>Entfernt: Überflüssige XML Dateien für das MODX Format dieser Installationsanleitung</change>
-				<change>Wichtig für Updater: Ersetze alle Dateien (ausser den Bildern). Es wurden zusätzliche Sicherheitsfunktionen hinzugefügt.</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2008-02-09</date>
-			<rev-version>0.1.26</rev-version>
-			<changelog lang="en-gb">
-				<change>Added: user and admin logs.</change>
-				<change>Important for Updaters: replace formel.php, includes/acp/acp_formel.php, language/en/mods/info_acp_formel.php</change>
-			</changelog>
-			<changelog lang="de">
-				<change>Hinzugefügt: Benutzer und Admin Logfunktion.</change>
-				<change>Wichtig für Updater: Ersetze formel.php, includes/acp/acp_formel.php, language/de/mods/info_acp_formel.php</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2008-03-30</date>
-			<rev-version>0.1.27</rev-version>
-			<changelog lang="en-gb">
-				<change>Fix: Show avatar on user statistic.</change>
-				<change>Fix: HTML error in formel_body.html fixed. Thanks for the fix to: -=[LCW]=-ExXtReMe</change>
-				<change>Added: Confirm box for saison reset in acp.</change>
-				<change>Added: log-action for saison reset.</change>
-				<change>Changed: language vars in all files to meet the coding guidelines.</change>
-				<change>Important for all Updaters: replace ALL files ( images are not in need to change ) ! Re-do the changes in the memberlist.php and memberlist_view.html !</change>
-			</changelog>
-			<changelog lang="de">
-				<change>Fix: Zeige Avatar auf Spieler Statistik.</change>
-				<change>Fix: HTML Fehler in der fomel_body.html behoben. Danke für den Fix an: -=[LCW]=-ExXtReMe</change>
-				<change>Hinzugefügt: Bestätigungsabfrage für "Saison zurücksetzen" im ACP.</change>
-				<change>Hinzugefügt: Log-Aktion für "Saison zurücksetzen".</change>
-				<change>Änderung: Es wurden alle Sprachvariablen den Coding Guidelines angepasst.</change>
-				<change>Wichtig für alle Updater: Ersetze ALLE Dateien außer den mitgelieferten Bildern! Führe die Änderungen an der memberlist.php und memberlist_view.html erneut durch.</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2008-05-09</date>
-			<rev-version>0.1.28</rev-version>
-			<changelog lang="en-gb">
-				<change>Cleaned up some code. Added $phpbb_root_path to most of URLs</change>
-				<change>Important for all Updaters: replace root/formel.php , root/includes/functions_formel.php and root/includes/acp/acp_formel.php</change>
-			</changelog>
-			<changelog lang="de">
-				<change>Codebereinigung. Die Variable $phpbb_root_path den meisten URLs angefügt.</change>
-				<change>Wichtig für alle Updater: Ersetze die Dateien root/formel.php , root/includes/functions_formel.php und root/includes/acp/acp_formel.php</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2008-07-25</date>
-			<rev-version>0.1.29</rev-version>
-			<changelog lang="en-gb">
-				<change>Changed install instructions to MODX 1.2.0</change>
-				<change>Style prosilver goes xhtml strict</change>
-				<change>Style subsilver2 goes xhtml transitional</change>
-				<change>Feature added: Penalty system for teams and drivers in ACP</change>
-				<change>Fix: missing phpbb_root_path added in includes/functions_formel.php</change>
-			</changelog>
-			<changelog lang="de">
-				<change>Installationsanleitung auf MODX 1.2.0 aktualisiert</change>
-				<change>Style prosilver xhtml strict valide</change>
-				<change>Style subsilver2 xhtml transitional valide</change>
-				<change>Funktion hinzugefügt: Strafpunkte System für Teams und Fahrer im Admin-Bereich</change>
-				<change>Fix: fehlende phpbb_root_path Variable in includes/functions_formel.php hinzugefügt</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2008-08-02</date>
-			<rev-version>0.1.30</rev-version>
-			<changelog lang="en-gb">
-				<change>Changed: complete rewritten installer file.</change>
-				<change>Added: MOD Version check</change>
-			</changelog>
-			<changelog lang="de">
-				<change>Aktualisiert: Komplett neue Installationsroutine.</change>
-				<change>Hinzugefügt: MOD Versions Check</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2009-04-16</date>
-			<rev-version>0.3.0</rev-version>
-			<changelog lang="en-gb">
-				<change>NEW: Using now the UMIL installer. Complete new written installer.</change>
-				<change>Fixed: Corrected the popup link in usertipp window.</change>
-				<change>Changed: reduced the driver count in qualifying from 22 to 20.</change>
-				<change>Changed: Show your "own" tip in usertipp popup even the deadline is not hit.</change>
-				<change>Changed: You are now able to add half penalty points.</change>
-				<change>Layout prosilver: Corrected the rules page. There was a missing width value.</change>
-				<change>Layout prosilver: Changed alignment of top 5 users, drivers and teams.</change>
-				<change>Layout prosilver and subsilver2: Changed row colours in qualifying table. Corrected some tiny placeholders and nowraps</change>
-			</changelog>
-			<changelog lang="de">
-				<change>NEU: Komplett neu geschriebene Installationsroutine. Es wird nun der UMIL Installer benutzt.</change>
-				<change>BugFix: Usertipp Seite korrigiert. Der PopUp Link zum Benutzerprofil war nicht korrekt.</change>
-				<change>Aktualisiert: Anzahl der Fahrer beim Qualifying von 22 auf 20 reduziert.</change>
-				<change>Aktualisiert: Der "eigene" Tipp wird nun im Usertipp PopUp angezeigt, auch wenn die Deadline noch nicht erreicht wurde.</change>
-				<change>Aktualisiert: Man kann nun halbe Strafpunkte vergeben.</change>
-				<change>Layout prosilver: Spielregel Seite korrigiert. Es fehlte eine Breiten-Angabe.</change>
-				<change>Layout prosilver: Anordnung der Top 5 Spieler, Fahrer, Teams angepasst.</change>
-				<change>Layout prosilver und subsilver2: Zeilenfarben in der Qualifying Tabelle angepasst. Kleinere Abstandskorrekturen durchgeführt</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2009-04-26</date>
-			<rev-version>0.3.1</rev-version>
-			<changelog lang="en-gb">
-				<change>BugFix: Top 5 stats on formel index corrected ( Thx for z4reg )</change>
-				<change>Added: Option - WebTipp visible for guests</change>
-				<change>Removed: Old javascript code removed from overall_header.html</change>
-			</changelog>
-			<changelog lang="de">
-				<change>BugFix: Top 5 Statistik auf der Formel Index Seite korrigiert ( Danke an z4reg )</change>
-				<change>Hinzugefügt: Option - WebTipp sichtbar für Gäste</change>
-				<change>Entfernt: Alten Javascript Code aus der overall_header.html entfernt</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2009-06-14</date>
-			<rev-version>0.3.2</rev-version>
-			<changelog lang="en-gb">
-				<change>Added support for Ultimate Points MOD</change>
-			</changelog>
-			<changelog lang="de">
-				<change>Support für Ultimate Points MOD hinzugefügt.</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2009-09-06</date>
-			<rev-version>0.3.3</rev-version>
-			<changelog lang="en-gb">
-				<change>Cosmetic change in acp modul</change>
-				<change>Added option to disable a driver</change>
-			</changelog>
-			<changelog lang="de">
-				<change>Kosmetische Änderung im ACP Modul</change>
-				<change>Option zum Deaktivieren von Fahrern hinzugefügt</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2010-02-03</date>
-			<rev-version>0.3.4</rev-version>
-			<changelog lang="en-gb">
-				<change>Changed Points calculating according to new 2010 F1 rules (25-18-15-12-10-8-6-4-2-1)</change>
-				<change>Changed Qualify design. We have now 26 drivers. In Q1 and Q2 eight driver will drop out</change>
-				<change>BugFix: Module ACP Team/Driver language button.</change>
-				<change>Added: Saison reset in ACP will remove driver and team penalty points.</change>
-			</changelog>
-			<changelog lang="de">
-				<change>Punktberechnung an die neuen F1 Regeln von 2010 angepasst (25-18-15-12-10-8-6-4-2-1)</change>
-				<change>Qualify Ergebnis Ansicht angepasst.Wir haben nun 26 Fahrer. In Q1 und Q2 werden acht Fahrer ausscheiden</change>
-				<change>BugFix: Modul ACP Team/Driver Sprachbutton.</change>
-				<change>Hinzugefügt: Saison zurücksetzen im ACP entfernt nun auch vorhandene Fahrer und Team Strafpunkte.</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2010-10-17</date>
-			<rev-version>0.3.5</rev-version>
-			<changelog lang="en-gb">
-				<change>Changed design. We have now 24 drivers (12 teams). In Q1 and Q2 seven driver will drop out</change>
-				<change>Changed design. Replaced the "#" with "place" on statistic pages. (femu's idea)</change>
-				<change>BugFix: Added missing language vars to MCP / User Notes. (Thanks to femu for finding this issue and thanks to Unimatrix_0 for helping me on github)</change>
-				<change>BugFix: If two or more drive have the same WM points, the driver with most 1st places will take the lead.</change>
-				<change>Added feature: Give half points if race aborted. (Thanks to Dungeonwatcher for his idea)</change>
-				<change>Added feature: "Safety Car Deployment". Default: 2 additional points</change>
-				<change>UMIL update to 1.0.4</change>
-			</changelog>
-			<changelog lang="de">
-				<change>Design angepasst. Wir haben nun 24 Fahrer (12 Teams). In Q1 und Q2 werden sieben Fahrer ausscheiden</change>
-				<change>Design angepasst. Auf den Statistik Seiten wurde das "#" Zeichen durch "Platz" ersetzt. (femu's Idee)</change>
-				<change>BugFix: Fehlende Sprachvariablen im MCP / Benutzer-Notizen hinzugefügt (Danke an femu für das finden des Bugs und auch Danke an Unimatrix_0 für die Unterstützung auf github)</change>
-				<change>BugFix: Wenn zwei oder mehr Fahrer in der WM Tabelle Punktgleich sind, übernimmt der Fahrer mit den meisten Siegen (1. Platz) die Führung.</change>
-				<change>Hinzugefügt: Halbe Punkte Vergabe bei Rennabbruch. (Danke an Dungeonwatcher für die Idee)</change>
-				<change>Hinzugefügt: "Safety Car Einsätze". Standard: 2 Zusatzpunkte.</change>
-				<change>UMIL aktualisiert auf 1.0.4</change>
-			</changelog>
-		</entry>
-		<entry>
-			<date>2011-XX-YY</date>
-			<rev-version>0.3.6</rev-version>
-			<changelog lang="en-gb">
-				<change>[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) added by default</change>
-			</changelog>
-			<changelog lang="de">
-				<change>[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) standardmäßig hinzugefügt</change>
-			</changelog>
-		</entry>
-	</history>
-	
-    <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
-  </header>
+		<author-notes lang="en"><![CDATA[This file contains all parts of the History, all Developers, a.s.o.]]></author-notes>
+		<author-notes lang="de"><![CDATA[Diese Datei enthält alle Teile der History, alle Entickler, usw.]]></author-notes>
+		<author-group>
+			<author>
+				<realname><![CDATA[Stefan Temath]]></realname>
+				<username><![CDATA[Dr.Death]]></username>
+				<homepage><![CDATA[http://www.lpi-clan.de]]></homepage>
+				<email><![CDATA[dr.death@lpi-clan.de]]></email>
+				<contributions-group>
+					<contributions status="past" from="2006-01-01" position="Developer"/>
+				</contributions-group>
+			</author>
+			<author>
+				<realname><![CDATA[Christian Neumann]]></realname>
+				<username><![CDATA[AceVentura]]></username>
+				<homepage><![CDATA[http://www.uptempo.de.vu]]></homepage>
+				<email><![CDATA[2714323@web.de]]></email>
+			</author>
+			<author>
+				<realname><![CDATA[Karsten Ude]]></realname>
+				<username><![CDATA[OXPUS]]></username>
+				<homepage><![CDATA[http://www.oxpus.de]]></homepage>
+				<email><![CDATA[webmaster@oxpus.de]]></email>
+			</author>
+			<author>
+				<realname><![CDATA[Falk Seidel]]></realname>
+				<username><![CDATA[Unimatrix_0]]></username>
+				<homepage><![CDATA[http://un1matr1x.de/]]></homepage>
+				<email><![CDATA[admin@un1matr1x.de]]></email>
+				<contributions-group>
+					<contributions status="current" from="2011-02-22" position="Co-Developer"/>
+				</contributions-group>
+			</author>
+		</author-group>
+		<mod-version>0.3.6</mod-version>
+		<installation>
+			<level>easy</level>
+			<time>900</time>
+			<target-version>3.0.8</target-version>
+		</installation>
+		<history>
+			<entry>
+				<date>2007-05-28</date>
+				<rev-version>0.1.20</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[first public version for phpbb3 Olympus RC1]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Erste öffentliche Version für phpbb3 Olympus RC1]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2007-06-06</date>
+				<rev-version>0.1.21</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Installerfile updatet. Fix for mysql smaller than 4.1.3]]></change>
+					<change><![CDATA[Added german language to this installer modx]]></change>
+					<change><![CDATA[Changed the rank counting on user, driver, team stats and profile page]]></change>
+					<change><![CDATA[Update Info: If you update vom prior version 0.1.20: Have a look to the changes in memberlist.php ! Copy formel.php to ROOT/formel.php]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Installationsdatei aktualisiert. Fix für MySQl kleiner als 4.1.3]]></change>
+					<change><![CDATA[Deutsche Sprache diesem Installationsanleitung hinzugefügt.]]></change>
+					<change><![CDATA[Änderung der Rangberechnung auf Spieler, Fahrer, Team Statistik und Profil Seite]]></change>
+					<change><![CDATA[Achtung: Wenn Ihr von Version 0.1.20 updatet: Änderung an der memberlist.php beachten! Kopiere formel.php nach ROOT/formel.php]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2007-06-06</date>
+				<rev-version>0.1.22</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Changes for meeting the new coding guidelines: != bad.]]></change>
+					<change><![CDATA[Added french language files. Thank to the translator fafa]]></change>
+					<change><![CDATA[Changed package to the MODX Guideline http://www.phpbb.com/mods/documentation/modx/packaging/index.php]]></change>
+					<change><![CDATA[Style changes are now located in the subfolder templates]]></change>
+					<change><![CDATA[Additonal languages german and french are now located in the subfolder language]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Änderung Aufgrund neuer Coding Guidelines: != schlecht.]]></change>
+					<change><![CDATA[Französische Sprachdateien hinzugefügt. Danke an den Übersetzer fafa.]]></change>
+					<change><![CDATA[MOD Paket angepasst auf die MODX Richtlinien. Siehe auch  http://www.phpbb.com/mods/documentation/modx/packaging/index.php]]></change>
+					<change><![CDATA[Anleitung für Änderungen an den Styles findet Ihr im Ordner templates]]></change>
+					<change><![CDATA[Die Anleitung für deutsche und französische Sprachdateien findet Ihr im Ordner language]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2007-08-04</date>
+				<rev-version>0.1.23</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Change: unsecure $_POST replaced with request_var() in formel.php]]></change>
+					<change><![CDATA[Change: Installfile install_f1webtipp.php meets now the Coding Guidelines]]></change>
+					<change><![CDATA[fix: template input fields used not XHTML self closing tags]]></change>
+					<change><![CDATA[fix: Typo in this installer]]></change>
+					<change><![CDATA[fix: removed some empty INSERT statements for strikt mysql databases]]></change>
+					<change><![CDATA[Changed files: formel.php and includes/acp/acp_formel.php]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Aktualisiert: Unsichere $_POST ersetzt durch request_var() in der formel.php]]></change>
+					<change><![CDATA[Aktualisiert: Installationsdatei install_f1webtipp.php den Coding Guidelines angepasst]]></change>
+					<change><![CDATA[Fix: Template INPUT Felder benutzen bisher keine XHTML selbst schliessende TAGS]]></change>
+					<change><![CDATA[Fix: Tippfehler in dieser Anleitung korrigiert]]></change>
+					<change><![CDATA[Fix: Es wurden einige leere INSERT Befehle für strikt eingestellte MySQL Datenbanken entfernt]]></change>
+					<change><![CDATA[Aktualisierte Dateien: formel.php und includes/acp/acp_formel.php]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2007-09-15</date>
+				<rev-version>0.1.24</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Change: unsecure $_POST replaced with request_var() in includes/acp/acp_formel.php]]></change>
+					<change><![CDATA[Fix: Path corrected for installerfile templates prosilver and subsilver2]]></change>
+					<change><![CDATA[Changed files: includes/acp/acp_formel.php]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Aktualisiert: Unsichere $_POST ersetzt durch request_var() in der includes/acp/acp_formel.php]]></change>
+					<change><![CDATA[Fix: Pfadangabe in Installationsdatei für die Templates prosilver und subsilver2 angepasst]]></change>
+					<change><![CDATA[Aktualisierte Dateien: includes/acp/acp_formel.php]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2007-10-06</date>
+				<rev-version>0.1.25</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Added: New installer. Now (hopefully) support for all databases.]]></change>
+					<change><![CDATA[Added: add_form_key() and check_form_key() functions ( salt functions for submit security ).]]></change>
+					<change><![CDATA[Removed some xml files for modx install files.]]></change>
+					<change><![CDATA[Important for Updaters: replace all files (except the images). Security functions are added.]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Hinzugefügt: Neue Installationsroutine. Unterstützt nun (hoffentlich) alle Datenbanktypen.]]></change>
+					<change><![CDATA[Hinzugefügt: add_form_key() und check_form_key() Funktionen ( Sicherheitsfunktionen für übermittelte Daten )]]></change>
+					<change><![CDATA[Entfernt: Überflüssige XML Dateien für das MODX Format dieser Installationsanleitung]]></change>
+					<change><![CDATA[Wichtig für Updater: Ersetze alle Dateien (ausser den Bildern). Es wurden zusätzliche Sicherheitsfunktionen hinzugefügt.]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2008-02-09</date>
+				<rev-version>0.1.26</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Added: user and admin logs.]]></change>
+					<change><![CDATA[Important for Updaters: replace formel.php, includes/acp/acp_formel.php, language/en/mods/info_acp_formel.php]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Hinzugefügt: Benutzer und Admin Logfunktion.]]></change>
+					<change><![CDATA[Wichtig für Updater: Ersetze formel.php, includes/acp/acp_formel.php, language/de/mods/info_acp_formel.php]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2008-03-30</date>
+				<rev-version>0.1.27</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Fix: Show avatar on user statistic.]]></change>
+					<change><![CDATA[Fix: HTML error in formel_body.html fixed. Thanks for the fix to: -=[LCW]=-ExXtReMe]]></change>
+					<change><![CDATA[Added: Confirm box for saison reset in acp.]]></change>
+					<change><![CDATA[Added: log-action for saison reset.]]></change>
+					<change><![CDATA[Changed: language vars in all files to meet the coding guidelines.]]></change>
+					<change><![CDATA[Important for all Updaters: replace ALL files ( images are not in need to change ) ! Re-do the changes in the memberlist.php and memberlist_view.html !]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Fix: Zeige Avatar auf Spieler Statistik.]]></change>
+					<change><![CDATA[Fix: HTML Fehler in der fomel_body.html behoben. Danke für den Fix an: -=[LCW]=-ExXtReMe]]></change>
+					<change><![CDATA[Hinzugefügt: Bestätigungsabfrage für "Saison zurücksetzen" im ACP.]]></change>
+					<change><![CDATA[Hinzugefügt: Log-Aktion für "Saison zurücksetzen".]]></change>
+					<change><![CDATA[Änderung: Es wurden alle Sprachvariablen den Coding Guidelines angepasst.]]></change>
+					<change><![CDATA[Wichtig für alle Updater: Ersetze ALLE Dateien außer den mitgelieferten Bildern! Führe die Änderungen an der memberlist.php und memberlist_view.html erneut durch.]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2008-05-09</date>
+				<rev-version>0.1.28</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Cleaned up some code. Added $phpbb_root_path to most of URLs]]></change>
+					<change><![CDATA[Important for all Updaters: replace root/formel.php , root/includes/functions_formel.php and root/includes/acp/acp_formel.php]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Codebereinigung. Die Variable $phpbb_root_path den meisten URLs angefügt.]]></change>
+					<change><![CDATA[Wichtig für alle Updater: Ersetze die Dateien root/formel.php , root/includes/functions_formel.php und root/includes/acp/acp_formel.php]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2008-07-25</date>
+				<rev-version>0.1.29</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Changed install instructions to MODX 1.2.0]]></change>
+					<change><![CDATA[Style prosilver goes xhtml strict]]></change>
+					<change><![CDATA[Style subsilver2 goes xhtml transitional]]></change>
+					<change><![CDATA[Feature added: Penalty system for teams and drivers in ACP]]></change>
+					<change><![CDATA[Fix: missing phpbb_root_path added in includes/functions_formel.php]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Installationsanleitung auf MODX 1.2.0 aktualisiert]]></change>
+					<change><![CDATA[Style prosilver xhtml strict valide]]></change>
+					<change><![CDATA[Style subsilver2 xhtml transitional valide]]></change>
+					<change><![CDATA[Funktion hinzugefügt: Strafpunkte System für Teams und Fahrer im Admin-Bereich]]></change>
+					<change><![CDATA[Fix: fehlende phpbb_root_path Variable in includes/functions_formel.php hinzugefügt]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2008-08-02</date>
+				<rev-version>0.1.30</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Changed: complete rewritten installer file.]]></change>
+					<change><![CDATA[Added: MOD Version check]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Aktualisiert: Komplett neue Installationsroutine.]]></change>
+					<change><![CDATA[Hinzugefügt: MOD Versions Check]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-04-16</date>
+				<rev-version>0.3.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[NEW: Using now the UMIL installer. Complete new written installer.]]></change>
+					<change><![CDATA[Fixed: Corrected the popup link in usertipp window.]]></change>
+					<change><![CDATA[Changed: reduced the driver count in qualifying from 22 to 20.]]></change>
+					<change><![CDATA[Changed: Show your "own" tip in usertipp popup even the deadline is not hit.]]></change>
+					<change><![CDATA[Changed: You are now able to add half penalty points.]]></change>
+					<change><![CDATA[Layout prosilver: Corrected the rules page. There was a missing width value.]]></change>
+					<change><![CDATA[Layout prosilver: Changed alignment of top 5 users, drivers and teams.]]></change>
+					<change><![CDATA[Layout prosilver and subsilver2: Changed row colours in qualifying table. Corrected some tiny placeholders and nowraps]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[NEU: Komplett neu geschriebene Installationsroutine. Es wird nun der UMIL Installer benutzt.]]></change>
+					<change><![CDATA[BugFix: Usertipp Seite korrigiert. Der PopUp Link zum Benutzerprofil war nicht korrekt.]]></change>
+					<change><![CDATA[Aktualisiert: Anzahl der Fahrer beim Qualifying von 22 auf 20 reduziert.]]></change>
+					<change><![CDATA[Aktualisiert: Der "eigene" Tipp wird nun im Usertipp PopUp angezeigt, auch wenn die Deadline noch nicht erreicht wurde.]]></change>
+					<change><![CDATA[Aktualisiert: Man kann nun halbe Strafpunkte vergeben.]]></change>
+					<change><![CDATA[Layout prosilver: Spielregel Seite korrigiert. Es fehlte eine Breiten-Angabe.]]></change>
+					<change><![CDATA[Layout prosilver: Anordnung der Top 5 Spieler, Fahrer, Teams angepasst.]]></change>
+					<change><![CDATA[Layout prosilver und subsilver2: Zeilenfarben in der Qualifying Tabelle angepasst. Kleinere Abstandskorrekturen durchgeführt]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-04-26</date>
+				<rev-version>0.3.1</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[BugFix: Top 5 stats on formel index corrected ( Thx for z4reg )]]></change>
+					<change><![CDATA[Added: Option - WebTipp visible for guests]]></change>
+					<change><![CDATA[Removed: Old javascript code removed from overall_header.html]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[BugFix: Top 5 Statistik auf der Formel Index Seite korrigiert ( Danke an z4reg )]]></change>
+					<change><![CDATA[Hinzugefügt: Option - WebTipp sichtbar für Gäste]]></change>
+					<change><![CDATA[Entfernt: Alten Javascript Code aus der overall_header.html entfernt]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-06-14</date>
+				<rev-version>0.3.2</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Added support for Ultimate Points MOD]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Support für Ultimate Points MOD hinzugefügt.]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-09-06</date>
+				<rev-version>0.3.3</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Cosmetic change in acp modul]]></change>
+					<change><![CDATA[Added option to disable a driver]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Kosmetische Änderung im ACP Modul]]></change>
+					<change><![CDATA[Option zum Deaktivieren von Fahrern hinzugefügt]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2010-02-03</date>
+				<rev-version>0.3.4</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Changed Points calculating according to new 2010 F1 rules (25-18-15-12-10-8-6-4-2-1)]]></change>
+					<change><![CDATA[Changed Qualify design. We have now 26 drivers. In Q1 and Q2 eight driver will drop out]]></change>
+					<change><![CDATA[BugFix: Module ACP Team/Driver language button.]]></change>
+					<change><![CDATA[Added: Saison reset in ACP will remove driver and team penalty points.]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Punktberechnung an die neuen F1 Regeln von 2010 angepasst (25-18-15-12-10-8-6-4-2-1)]]></change>
+					<change><![CDATA[Qualify Ergebnis Ansicht angepasst.Wir haben nun 26 Fahrer. In Q1 und Q2 werden acht Fahrer ausscheiden]]></change>
+					<change><![CDATA[BugFix: Modul ACP Team/Driver Sprachbutton.]]></change>
+					<change><![CDATA[Hinzugefügt: Saison zurücksetzen im ACP entfernt nun auch vorhandene Fahrer und Team Strafpunkte.]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2010-10-17</date>
+				<rev-version>0.3.5</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Changed design. We have now 24 drivers (12 teams). In Q1 and Q2 seven driver will drop out]]></change>
+					<change><![CDATA[Changed design. Replaced the "#" with "place" on statistic pages. (femu's idea)]]></change>
+					<change><![CDATA[BugFix: Added missing language vars to MCP / User Notes. (Thanks to femu for finding this issue and thanks to Unimatrix_0 for helping me on github)]]></change>
+					<change><![CDATA[BugFix: If two or more drive have the same WM points, the driver with most 1st places will take the lead.]]></change>
+					<change><![CDATA[Added feature: Give half points if race aborted. (Thanks to Dungeonwatcher for his idea)]]></change>
+					<change><![CDATA[Added feature: "Safety Car Deployment". Default: 2 additional points]]></change>
+					<change><![CDATA[UMIL update to 1.0.4]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Design angepasst. Wir haben nun 24 Fahrer (12 Teams). In Q1 und Q2 werden sieben Fahrer ausscheiden]]></change>
+					<change><![CDATA[Design angepasst. Auf den Statistik Seiten wurde das "#" Zeichen durch "Platz" ersetzt. (femu's Idee)]]></change>
+					<change><![CDATA[BugFix: Fehlende Sprachvariablen im MCP / Benutzer-Notizen hinzugefügt (Danke an femu für das finden des Bugs und auch Danke an Unimatrix_0 für die Unterstützung auf github)]]></change>
+					<change><![CDATA[BugFix: Wenn zwei oder mehr Fahrer in der WM Tabelle Punktgleich sind, übernimmt der Fahrer mit den meisten Siegen (1. Platz) die Führung.]]></change>
+					<change><![CDATA[Hinzugefügt: Halbe Punkte Vergabe bei Rennabbruch. (Danke an Dungeonwatcher für die Idee)]]></change>
+					<change><![CDATA[Hinzugefügt: "Safety Car Einsätze". Standard: 2 Zusatzpunkte.]]></change>
+					<change><![CDATA[UMIL aktualisiert auf 1.0.4]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-XX-YY</date>
+				<rev-version>0.3.6</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) add by default]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) standardmäßig hinzugefügt]]></change>
+				</changelog>
+			</entry>
+		</history>
+		<link-group>
+			<link type="parent" href="../install.xml" lang="en">Main installation instruction</link>
+			<link type="parent" href="../install.xml" lang="de">Installations Anleitung</link>
+			<link type="language" href="../contrib/de.xml" lang="en">Manual for german language-set</link>
+			<link type="language" href="../contrib/de.xml" lang="de">Anleitung für das deutsche Sprachpaket</link>
+			<link type="language" href="../contrib/fr.xml" lang="en">Manual for french language-set</link>
+			<link type="language" href="../contrib/fr.xml" lang="de">Anleitung für das französische Sprachpaket</link>
+			<link type="template" href="../contrib/subsilver2.xml" lang="en">Manual for subsilver2 style</link>
+			<link type="template" href="../contrib/subsilver2.xml" lang="de">Anleitung für das Style subsilver2</link>
+			<link type="contrib" href="../contrib/update_f1.xml" lang="en">F1-Season Update 2011</link>
+			<link type="contrib" href="../contrib/update_f1.xml" lang="de">F1-Saison Update 2011</link>
+		</link-group>
+	</header>
+	<action-group/>
 </mod>

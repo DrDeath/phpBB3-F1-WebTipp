@@ -1,77 +1,63 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<?xml-stylesheet type="text/xsl" href="../contrib/modx.prosilver.en.xsl"?>
-<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
-	
-		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
-		
-		<title lang="en-gb">Formula 1 WebTip update from 0.3.1 to 0.3.2</title>
-		<title lang="de">Formel 1 WebTipp Update von 0.3.1 auf 0.3.2</title>
-		
-		<description lang="en-gb"><![CDATA[With this mod you can update your Formula 1 tipp game from version 0.3.1 to 0.3.2.]]></description>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[Formula 1 WebTip update from 0.3.1 to 0.3.2]]></title>
+		<title lang="de"><![CDATA[Formel 1 WebTipp Update von 0.3.1 auf 0.3.2]]></title>
+		<description lang="en"><![CDATA[With this mod you can update your Formula 1 tipp game from version 0.3.1 to 0.3.2.]]></description>
 		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel von Version 0.3.1 auf 0.3.2.]]></description>
-		
 		<author-group>
 			<author>
-				<realname>Stefan Temath</realname>
-				<email>dr.death@lpi-clan.de</email>
-				<username>Dr.Death</username>
-				<homepage>http://www.lpi-clan.de</homepage>
+				<realname><![CDATA[Stefan Temath]]></realname>
+				<username><![CDATA[Dr.Death]]></username>
+				<homepage><![CDATA[http://www.lpi-clan.de]]></homepage>
+				<email><![CDATA[dr.death@lpi-clan.de]]></email>
 				<contributions-group>
 					<contributions status="past" from="2006-01-01" position="Developer"/>
 				</contributions-group>
 			</author>
 		</author-group>
-		
 		<mod-version>0.3.2</mod-version>
-		
 		<installation>
 			<level>easy</level>
 			<time>300</time>
 			<target-version>3.0.8</target-version>
 		</installation>
-		
 		<history>
 			<entry>
 				<date>2009-06-14</date>
 				<rev-version>0.3.2</rev-version>
-				<changelog lang="en-gb">
-					<change>Added support for Ultimate Points MOD</change>
+				<changelog lang="en">
+					<change><![CDATA[Added support for Ultimate Points MOD]]></change>
 				</changelog>
 				<changelog lang="de">
-					<change>Support für Ultimate Points MOD hinzugefügt.</change>
+					<change><![CDATA[Support für Ultimate Points MOD hinzugefügt.]]></change>
 				</changelog>
 			</entry>
 		</history>
-    
-		<meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
 	</header>
-
 	<action-group>
-	    <copy>
-			<file from="root/umil/*.*" to="umil/*.*" />
-			<file from="root/install/index.php" to="install/index.php" />
-			<file from="root/formel.php" to="formel.php" />
-			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html" />
-			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php" />
-			
-			<file from="root/language/en/mods/acp_formel.php" to="language/en/mods/acp_formel.php" />
-			<file from="root/language/de/mods/acp_formel.php" to="language/de/mods/acp_formel.php" />
-			<file from="root/language/gr/mods/acp_formel.php" to="language/fr/mods/acp_formel.php" />
-			
-			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php" />
+		<copy>
+			<file from="root/umil/*.*" to="umil/*.*"/>
+			<file from="root/install/index.php" to="install/index.php"/>
+			<file from="root/formel.php" to="formel.php"/>
+			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html"/>
+			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php"/>
+			<file from="root/language/en/mods/acp_formel.php" to="language/en/mods/acp_formel.php"/>
+			<file from="root/language/de/mods/acp_formel.php" to="language/de/mods/acp_formel.php"/>
+			<file from="root/language/gr/mods/acp_formel.php" to="language/fr/mods/acp_formel.php"/>
+			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php"/>
 		</copy>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
-		<diy-instructions lang="en-gb"><![CDATA[After copying these files, you have to clear your chache, refresh your template files and delete the "install" folder from your webspace.
+		<diy-instructions lang="en"><![CDATA[After copying these files, you have to clear your chache and refresh your template files.
 
 And now: Have fun!]]></diy-instructions>
-		<diy-instructions lang="de"><![CDATA[Nach dem Kopieren der o.g. Dateien musst Du noch Deinen Style aktualisieren, den Cache leeren und den Ordner "install" von Deinem Webspace löschen.
+		<diy-instructions lang="de"><![CDATA[Nach dem Kopieren der o.g. Dateien musst Du noch Deinen Style aktualisieren und den Cache leeren.
 
 
-Und nun: Viel Spass !
-]]></diy-instructions>
+Und nun: Viel Spass !]]></diy-instructions>
 	</action-group>
 </mod>
-
- 
