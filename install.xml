@@ -4,6 +4,7 @@
 <!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (phpBB version)"/>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
 		<title lang="en"><![CDATA[Formula 1 WebTip]]></title>
 		<title lang="de"><![CDATA[Formel 1 WebTipp]]></title>
@@ -86,6 +87,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<file from="root/umil/*.*" to="umil/*.*"/>
 			<file from="root/install/index.php" to="install/index.php"/>
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html"/>
+			<file from="root/styles/prosilver/theme/images/icon_f1.png" to="/styles/prosilver/theme/images/icon_f1.png"/>
 		</copy>
 		<open src="memberlist.php">
 			<edit>
@@ -169,19 +171,11 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		</open>
 		<open src="viewonline.php">
 			<edit>
-				<find><![CDATA[// Start session management
-$user->session_begin();
-$auth->acl($user->data);
-$user->setup('memberlist');]]></find>
-				<action type="after-add"><![CDATA[$user->add_lang('mods/formel');]]></action>
-			</edit>
-			<edit>
 				<find><![CDATA[		default:
 			$location = $user->lang['INDEX'];
 			$location_url = append_sid("{$phpbb_root_path}index.$phpEx");
 		break;]]></find>
-				<action type="before-add"><![CDATA[
-		case 'formel':
+				<action type="before-add"><![CDATA[		case 'formel':
 			$location = $user->lang['VIEWING_F1WEBTIPP'];
 			$location_url = append_sid("{$phpbb_root_path}formel.$phpEx");
 		break;]]></action>
@@ -198,6 +192,37 @@ define('FORMEL_TIPPS_TABLE', 		$table_prefix . 'formel_tipps');
 define('FORMEL_CONFIG_TABLE', 		$table_prefix . 'formel_config');
 define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 // F1 WebTipp End
+]]></action>
+			</edit>
+		</open>
+		<open src="includes/functions.php">
+			<edit>
+				<find><![CDATA[	// The following assigns all _common_ variables that may be used at any point in a template.
+	$template->assign_vars(array(]]></find>
+				<action type="before-add"><![CDATA[
+	//Check if the mod is already installed, if not skip this to avoid errors
+	if (isset($config['f1webtipp_version']))
+	{
+		include_once($phpbb_root_path . 'includes/functions_formel.' . $phpEx);
+		$user->add_lang('mods/formel');
+		// Get formel config
+		$formel_config 			= get_formel_config();
+		$formel_guests_allowed	= ($formel_config['guest_viewing'] == '1') ? true : false;
+		$formel_forum_id 		= $formel_config['forum_id'];
+		$formel_group_id 		= $formel_config['restrict_to'];
+		$formel_mod_id 			= $formel_config['mod_id'];		
+		$is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_teams', 'a_formel_races');
+		if (!function_exists('group_memberships'))
+		{
+			include_once($phpbb_root_path . 'includes/functions_user.' . $phpEx);
+		}
+		$is_in_group = group_memberships($formel_group_id, $user->data['user_id'], true);
+	}
+]]></action>
+				<action type="after-add"><![CDATA[
+
+		'U_FORMEL1'						=> append_sid("{$phpbb_root_path}formel.$phpEx"),
+		'S_FORMEL1'						=> (isset($config['f1webtipp_version']) && ((!$formel_guests_allowed && !$user->data['is_registered']) || ($formel_group_id <> 0 && !$is_in_group && $is_admin <> 1 && $user->data['user_id'] <> $formel_mod_id))) ? false : true,
 ]]></action>
 			</edit>
 		</open>
@@ -229,8 +254,29 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 		<open src="styles/prosilver/template/overall_header.html">
 			<edit>
 				<find><![CDATA[</head>]]></find>
-				<action type="replace-with"><![CDATA[{COUNTDOWN}
-</head>]]></action>
+				<action type="before-add"><![CDATA[{COUNTDOWN}]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[				<li class="icon-faq"><a href="{U_FAQ}" title="{L_FAQ_EXPLAIN}">{L_FAQ}</a></li>]]></find>
+				<action type="before-add"><![CDATA[				<!-- IF not S_IS_BOT  and S_FORMEL1 --><li class="icon-f1"><a href="{U_FORMEL1}" title="{L_FORMEL_TITLE}">{L_FORMEL_TITLE}</a></li><!-- ENDIF -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/theme/buttons.css">
+			<edit>
+				<find><![CDATA[/* Icon images
+---------------------------------------- */
+.sitehome, .icon-faq, .icon-members, .icon-home, .icon-ucp, .icon-register, .icon-logout,
+.icon-bookmark, .icon-bump, .icon-subscribe, .icon-unsubscribe, .icon-pages, .icon-search]]></find>
+				<inline-edit>
+					<inline-find><![CDATA[ .icon-search]]></inline-find>
+					<inline-action type="after-add"><![CDATA[ , .icon-f1]]></inline-action>
+				</inline-edit>
+			</edit>
+		</open>
+		<open src="styles/prosilver/theme/colours.css">
+			<edit>
+				<find><![CDATA[.icon-search					{ background-image: url("{T_THEME_PATH}/images/icon_search.gif"); }]]></find>
+				<action type="after-add"><![CDATA[.icon-f1						{ background-image: url("{T_THEME_PATH}/images/icon_f1.png"); }]]></action>
 			</edit>
 		</open>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
