@@ -2,12 +2,8 @@
 /** 
 *
 * @package phpbb3f1webtipp
-* $LastChangedDate: 2010-10-17 20:25:50 +0200 (So, 17 Okt 2010) $
-* $LastChangedBy: stoffel04 $
-* $Id: formel.php 174 2010-10-17 18:25:50Z stoffel04 $
-* $Revision: 174 $
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
-* language/en/mods/formel.php - [Language - English]
+* language/en/mods/formel.php - [Language - Formel 1 WebTipp][English]
 *
 */
 
@@ -129,6 +125,7 @@ $lang = array_merge($lang, array(
 	'FORMEL_GUESTS_PLACE_NO_TIP'	=> '<strong>Guests cannot place a tip.</strong><br /><br />In order to place a tip you have to be registered and logged in.<br />',
 	'FORMEL_RACE_ABORD'				=> 'Race aborted (half points!)',
 
+	'VIEWING_F1WEBTIPP'				=> 'Viewing Formel 1 WebTipp',
 ));
 
 ?>

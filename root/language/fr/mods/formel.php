@@ -2,13 +2,9 @@
 /** 
 *
 * @package phpbb3f1webtipp
-* $LastChangedDate: 2010-10-18 09:24:50 +0200 (Mo, 18 Okt 2010) $
-* $LastChangedBy: stoffel04 $
-* $Id: formel.php 175 2010-10-18 07:24:50Z stoffel04 $
-* $Revision: 175 $
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* language/fr/mods/formel.php - [Language - Formel 1 WebTipp][French]
 * French translation: Fafa ( fafa@ufolep62tt.net )
-* language/fr/mods/formel.php - [Language - french]
 *
 */
 
@@ -129,6 +125,8 @@ $lang = array_merge($lang, array(
 	'INSERT_F1_CONFIG'						=> 'Insérer les données dans les tables formel_config',
 	'FORMEL_GUESTS_PLACE_NO_TIP'			=> '<strong>Les invités ne peuvent pas faire de pronostics.</strong><br /><br />Pour placer un pronostic vous devez être enregistrés et connectés.<br />',
 	'FORMEL_RACE_ABORD'						=> 'Course interrompue. (Demi de points.)',
+
+	'VIEWING_F1WEBTIPP'						=> 'Consulte de Formula 1 WebTip',
 ));
 
 ?>

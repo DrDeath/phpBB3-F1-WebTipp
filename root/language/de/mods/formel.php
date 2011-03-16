@@ -1,11 +1,9 @@
 <?php
 /** 
 *
-* \language\de\mods\formel.php - [Language - Formel 1 WebTipp][German]
-*
-* @package language
-* @version $Id: formel.php 174 2010-10-17 18:25:50Z stoffel04 $
+* @package phpbb3f1webtipp
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* language/de/mods/formel.php - [Language - Formel 1 WebTipp][German]
 *
 */
 
@@ -131,6 +129,7 @@ $lang = array_merge($lang, array(
 	'FORMEL_GUESTS_PLACE_NO_TIP'			=> '<strong>Gäste können keinen Tipp abgeben.</strong><br /><br />Um Tipps abgeben zu können, musst du registriert und angemeldet sein.<br />',
 	'FORMEL_RACE_ABORD'						=> 'Rennabruch (halbe Punktzahl!)',
 
+	'VIEWING_F1WEBTIPP'						=> 'Betrachtet den Formel 1 WebTipp',
 ));
-// Formel 1 WebTipp END
+
 ?>

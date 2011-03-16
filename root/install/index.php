@@ -249,6 +249,11 @@ $versions = array(
 		// Version 0.3.5- adding feature "Safety Car Deployment". Default points 2
 		'custom'	=> 'fill_0_3_5',
 	),
+	
+	// Version 0.3.6
+	'0.3.6' => array(
+		// Version 0.3.6- nothing to change
+	),
 
 );
 

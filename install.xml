@@ -44,10 +44,10 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<email><![CDATA[webmaster@oxpus.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>0.3.5</mod-version>
+		<mod-version>0.3.6</mod-version>
 		<installation>
 			<level>easy</level>
-			<time>720</time>
+			<time>900</time>
 			<target-version>3.0.8</target-version>
 		</installation>
 		<link-group>
@@ -158,6 +158,26 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		// END of F1 WebTipp
 		//
 		]]></action>
+			</edit>
+		</open>
+		<open src="viewonline.php">
+			<edit>
+				<find><![CDATA[// Start session management
+$user->session_begin();
+$auth->acl($user->data);
+$user->setup('memberlist');]]></find>
+				<action type="after-add"><![CDATA[$user->add_lang('mods/formel');]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[		default:
+			$location = $user->lang['INDEX'];
+			$location_url = append_sid("{$phpbb_root_path}index.$phpEx");
+		break;]]></find>
+				<action type="before-add"><![CDATA[
+		case 'formel':
+			$location = $user->lang['VIEWING_F1WEBTIPP'];
+			$location_url = append_sid("{$phpbb_root_path}formel.$phpEx");
+		break;]]></action>
 			</edit>
 		</open>
 		<open src="includes/constants.php">
