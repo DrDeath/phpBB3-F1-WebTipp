@@ -26,6 +26,15 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				</contributions-group>
 			</author>
 			<author>
+				<realname><![CDATA[Falk Seidel]]></realname>
+				<username><![CDATA[Unimatrix_0]]></username>
+				<homepage><![CDATA[http://un1matr1x.de/]]></homepage>
+				<email><![CDATA[admin@un1matr1x.de]]></email>
+				<contributions-group>
+					<contributions status="current" from="2011-02-22" position="Co-Developer"/>
+				</contributions-group>
+			</author>
+			<author>
 				<realname><![CDATA[Christian Neumann]]></realname>
 				<username><![CDATA[AceVentura]]></username>
 				<homepage><![CDATA[http://www.uptempo.de.vu]]></homepage>
@@ -36,15 +45,6 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<username><![CDATA[OXPUS]]></username>
 				<homepage><![CDATA[http://www.oxpus.de]]></homepage>
 				<email><![CDATA[webmaster@oxpus.de]]></email>
-			</author>
-			<author>
-				<realname><![CDATA[Falk Seidel]]></realname>
-				<username><![CDATA[Unimatrix_0]]></username>
-				<homepage><![CDATA[http://un1matr1x.de/]]></homepage>
-				<email><![CDATA[admin@un1matr1x.de]]></email>
-				<contributions-group>
-					<contributions status="current" from="2011-02-22" position="Co-Developer"/>
-				</contributions-group>
 			</author>
 		</author-group>
 		<mod-version>0.3.6</mod-version>
