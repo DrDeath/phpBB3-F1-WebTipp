@@ -1,18 +1,14 @@
 <?php
-/** 
+/**
 *
 * @package phpbb3f1webtipp
-* $LastChangedDate: 2010-10-17 09:41:57 +0200 (So, 17 Okt 2010) $
-* $LastChangedBy: stoffel04 $
-* $Id: acp_formel.php 173 2010-10-17 07:41:57Z stoffel04 $
-* $Revision: 173 $
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License*
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 * includes/acp/acp_formel.php
 *
 */
 
-/*
- * @ignore 
+/**
+* @ignore 
 */ 
 if (!defined('IN_PHPBB')) 
 { 

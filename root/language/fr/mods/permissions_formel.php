@@ -1,19 +1,15 @@
 <?php
-/** 
+/**
 *
 * @package phpbb3f1webtipp
-* $LastChangedDate$
-* $LastChangedBy$
-* $Id$
-* $Revision$
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* language/fr/mods/acp_permissions
 * French translation: Fafa ( fafa@ufolep62tt.net )
-* language/fr/mods/acp_permissions [Language ACP - french]
 *
 */
 
 /**
-* DO NOT CHANGE
+* @ignore
 */
 if (!defined('IN_PHPBB')) 
 { 

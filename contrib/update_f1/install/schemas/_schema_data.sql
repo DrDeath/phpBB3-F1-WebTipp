@@ -1,8 +1,3 @@
-#
-# $Id: schema_data.sql,v 1.257 2007/09/20 21:19:00 stoffel04 Exp $
-#
-
-# POSTGRES BEGIN #
 
 # -- Races -- 2011 (missing local start times for India)
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES(1, 'Australien / Melbourne', '', '0', '0', 1301205600, '5,303', 58, '307,574', 1996);
@@ -101,5 +96,3 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (32, 'Bottas, Valtteri', '', 6);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (33, 'Hülkenberg, Nico', '', 7);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (34, 'Gutierrez, Esteban', '', 8);
-
-# POSTGRES COMMIT #

@@ -1,15 +1,15 @@
 <?php
-/** 
+/**
 *
 * @package phpbb3f1webtipp
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
-* language/fr/mods/formel.php - [Language - Formel 1 WebTipp][French]
+* language/fr/mods/formel.php - [Language - F1 WebTipp][French]
 * French translation: Fafa ( fafa@ufolep62tt.net )
 *
 */
 
 /**
-* DO NOT CHANGE
+* @ignore
 */
 if (!defined('IN_PHPBB')) 
 { 

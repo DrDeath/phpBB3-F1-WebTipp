@@ -1,19 +1,15 @@
 <?php
-/** 
+/**
 *
 * @package phpbb3f1webtipp
-* $LastChangedDate: 2010-10-17 20:25:50 +0200 (So, 17 Okt 2010) $
-* $LastChangedBy: stoffel04 $
-* $Id: acp_formel.php 174 2010-10-17 18:25:50Z stoffel04 $
-* $Revision: 174 $
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* language/fr/mods/acp_formel.php
 * French translation: Fafa ( fafa@ufolep62tt.net )
-* language/fr/mods/acp_formel.php - [Language ACP - french]
 *
 */
 
 /**
-* DO NOT CHANGE
+* @ignore
 */
 if (!defined('IN_PHPBB')) 
 { 

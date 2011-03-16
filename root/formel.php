@@ -1,12 +1,9 @@
 <?php
-/** 
+/**
 *
 * @package phpbb3f1webtipp
-* $LastChangedDate: 2010-11-27 10:24:03 +0100 (Sa, 27 Nov 2010) $
-* $LastChangedBy: stoffel04 $
-* $Id: formel.php 176 2010-11-27 09:24:03Z stoffel04 $
-* $Revision: 176 $
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* formel.php
 *
 */
 

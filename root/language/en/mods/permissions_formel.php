@@ -1,18 +1,14 @@
 <?php
-/** 
+/**
 *
 * @package phpbb3f1webtipp
-* $LastChangedDate$
-* $LastChangedBy$
-* $Id$
-* $Revision$
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
-* language/en/mods/acp_permissions [Language ACP - English]
+* language/en/mods/acp_permissions
 *
 */
 
 /**
-* DO NOT CHANGE
+* @ignore
 */
 if (!defined('IN_PHPBB')) 
 { 

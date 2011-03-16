@@ -1,12 +1,9 @@
 <?php
-/** 
+/**
 *
 * @package phpbb3f1webtipp
-* $LastChangedDate: 2009-04-16 22:16:34 +0200 (Do, 16 Apr 2009) $
-* $LastChangedBy: stoffel04 $
-* $Id: install_f1.php 121 2009-04-16 20:16:34Z stoffel04 $
-* $Revision: 121 $
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* install/index.php - [UMIL install-File]
 *
 */
 

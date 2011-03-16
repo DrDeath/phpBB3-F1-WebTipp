@@ -1,14 +1,14 @@
 <?php
-/** 
+/**
 *
 * @package phpbb3f1webtipp
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
-* language/en/mods/formel.php - [Language - Formel 1 WebTipp][English]
+* language/en/mods/formel.php - [Language - F1 WebTipp][English]
 *
 */
 
 /**
-* DO NOT CHANGE
+* @ignore
 */
 if (!defined('IN_PHPBB')) 
 { 

@@ -1,10 +1,9 @@
 <?php
 /**
 *
-* @package acp
-* @version $Id$
-* @copyright (c) 2005 phpBB Group
+* @package phpbb3f1webtipp
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* adm/mods/formel1webtipp_version.php - [Check-File for MOD Version Check by Handyman`]
 *
 */
 

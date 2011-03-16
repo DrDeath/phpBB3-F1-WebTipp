@@ -1,13 +1,9 @@
 <?php
-/** 
+/**
 *
 * @package phpbb3f1webtipp
-* $LastChangedDate: 2010-11-28 11:17:09 +0100 (So, 28 Nov 2010) $
-* $LastChangedBy: stoffel04 $
-* $Id: update_2011.php 177 2010-11-28 10:17:09Z stoffel04 $
-* $Revision: 177 $
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
-* contrib/update_f1/update_2011.php - [Updater for saison 2010]
+* contrib/update_f1/update_2011.php - [Updater for saison 2011]
 *
 */
 
