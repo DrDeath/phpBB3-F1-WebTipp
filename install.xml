@@ -76,18 +76,18 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<file from="root/formel.php" to="formel.php"/>
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php"/>
 			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html"/>
+			<file from="root/images/formel/*.*" to="images/formel/*.*"/>
 			<file from="root/includes/acp/info/acp_formel.php" to="includes/acp/info/acp_formel.php"/>
 			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php"/>
 			<file from="root/includes/functions_formel.php" to="includes/functions_formel.php"/>
+			<file from="root/install/index.php" to="install/index.php"/>
 			<file from="root/language/en/mods/acp_formel.php" to="language/en/mods/acp_formel.php"/>
 			<file from="root/language/en/mods/info_acp_formel.php" to="language/en/mods/info_acp_formel.php"/>
 			<file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php"/>
 			<file from="root/language/en/mods/permissions_formel.php" to="language/en/mods/permissions_formel.php"/>
-			<file from="root/images/formel/*.*" to="images/formel/*.*"/>
-			<file from="root/umil/*.*" to="umil/*.*"/>
-			<file from="root/install/index.php" to="install/index.php"/>
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html"/>
 			<file from="root/styles/prosilver/theme/images/icon_f1.png" to="/styles/prosilver/theme/images/icon_f1.png"/>
+			<file from="root/umil/*.*" to="umil/*.*"/>
 		</copy>
 		<open src="memberlist.php">
 			<edit>
@@ -199,8 +199,7 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 			<edit>
 				<find><![CDATA[	// The following assigns all _common_ variables that may be used at any point in a template.
 	$template->assign_vars(array(]]></find>
-				<action type="before-add"><![CDATA[
-	//Check if the mod is already installed, if not skip this to avoid errors
+				<action type="before-add"><![CDATA[	//Check if the mod is already installed, if not skip this to avoid errors
 	if (isset($config['f1webtipp_version']))
 	{
 		include_once($phpbb_root_path . 'includes/functions_formel.' . $phpEx);
@@ -219,9 +218,7 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 		$is_in_group = group_memberships($formel_group_id, $user->data['user_id'], true);
 	}
 ]]></action>
-				<action type="after-add"><![CDATA[
-
-		'U_FORMEL1'						=> append_sid("{$phpbb_root_path}formel.$phpEx"),
+				<action type="after-add"><![CDATA[		'U_FORMEL1'						=> append_sid("{$phpbb_root_path}formel.$phpEx"),
 		'S_FORMEL1'						=> (isset($config['f1webtipp_version']) && ((!$formel_guests_allowed && !$user->data['is_registered']) || ($formel_group_id <> 0 && !$is_in_group && $is_admin <> 1 && $user->data['user_id'] <> $formel_mod_id))) ? false : true,
 ]]></action>
 			</edit>
@@ -280,7 +277,13 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 			</edit>
 		</open>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
-		<diy-instructions lang="en"><![CDATA[Now your are able to give ACP permissions to certain users/groups.
+		<diy-instructions lang="en"><![CDATA[Clear your cache in the "Administration Control Panel" (ACP) > "General" > "Purge the cache"
+
+Refresh your Styles:
+		"Administration Control Panel" (ACP) > "Styles" > "Templates" > each > "refresh"
+		"Administration Control Panel" (ACP) > "Styles" > "Themes" > each > "refresh"
+
+Now your are able to give ACP permissions to certain users/groups.
 You'll find the new permission in:
 ACP - Permissions - Administrative Permissions  - F1:
 Can alter Formular 1 settings
@@ -288,28 +291,20 @@ Can alter Formular 1 driver
 Can alter Formular 1 teams
 Can alter Formular 1 races
 
-Finaly you have to create a link for your users to reach the new formula 1 webtip mod.
-Go to your ACP - Forums - Manage forums - Create new forum.
-Select Forum-ype : "Link" 
-Select a parent forum
-Insert a name for the link ( i.e ) : "Formula 1 WebTip"
-Insert in the field Forums-link : "formel.php"
-
 And now: Have fun!]]></diy-instructions>
-		<diy-instructions lang="de"><![CDATA[Nun kannst Du im ACP Berechtigunen fuer Deinen Gruppen/Benutzer vergeben.
+		<diy-instructions lang="de"><![CDATA[Leere den Cache im "Administrations-Bereich" (ACP) > "Allgemein" > "Den Cache leeren"
+
+Aktualisiere deine Styles:
+		"Administrations-Bereich" (ACP) > "Styles" > "Templates" > jedes > "Aktualisieren"
+		"Administrations-Bereich" (ACP) > "Styles" > "Themes" > jedes > "Aktualisieren"
+
+Nun kannst Du im ACP Berechtigunen fuer Deinen Gruppen/Benutzer vergeben.
 Du findest die neuen Berechtigungen unter:
 ACP - Berechtigungen - Allgemeine Berechtigungen - Administratoren - F1
 Kann Formel 1 Fahrer verwalten
 Kann Formel 1 Rennen verwalten
 Kann Formel 1 Einstellungen verwalten
 Kann Formel 1 Teams verwalten
-
-Schlussendlich musst Du nun einen Link für Deine Benutzer erstellen, damit sie den Formel 1 WebTipp auch erreichen können.
-Im Adminbereich: Foren - Verwalte Foren - Neues Forum erstellen.
-Wähle als Forum-Typ : "Link" 
-Wähle ein Übergeordnetes Forum Deiner Wahl
-Vergebe einen Namen für den Link ( Beispiel ) : "Formel 1 WebTipp"
-Als Forums-Link : "formel.php"
 
 Und nun: Viel Spass !]]></diy-instructions>
 	</action-group>

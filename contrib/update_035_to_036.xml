@@ -51,33 +51,85 @@
 			<file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php"/>
 			<file from="root/language/de/mods/formel.php" to="language/de/mods/formel.php"/>
 			<file from="root/language/fr/mods/formel.php" to="language/fr/mods/formel.php"/>
+			<file from="root/styles/prosilver/theme/images/icon_f1.png" to="/styles/prosilver/theme/images/icon_f1.png"/>
 		</copy>
 		<open src="viewonline.php">
-			<edit>
-				<find><![CDATA[// Start session management
-$user->session_begin();
-$auth->acl($user->data);
-$user->setup('memberlist');]]></find>
-				<action type="after-add"><![CDATA[$user->add_lang('mods/formel');]]></action>
-			</edit>
 			<edit>
 				<find><![CDATA[		default:
 			$location = $user->lang['INDEX'];
 			$location_url = append_sid("{$phpbb_root_path}index.$phpEx");
 		break;]]></find>
-				<action type="before-add"><![CDATA[
-		case 'formel':
+				<action type="before-add"><![CDATA[		case 'formel':
 			$location = $user->lang['VIEWING_F1WEBTIPP'];
 			$location_url = append_sid("{$phpbb_root_path}formel.$phpEx");
 		break;]]></action>
 			</edit>
 		</open>
+		<open src="includes/functions.php">
+			<edit>
+				<find><![CDATA[	// The following assigns all _common_ variables that may be used at any point in a template.
+	$template->assign_vars(array(]]></find>
+				<action type="before-add"><![CDATA[	//Check if the mod is already installed, if not skip this to avoid errors
+	if (isset($config['f1webtipp_version']))
+	{
+		include_once($phpbb_root_path . 'includes/functions_formel.' . $phpEx);
+		$user->add_lang('mods/formel');
+		// Get formel config
+		$formel_config 			= get_formel_config();
+		$formel_guests_allowed	= ($formel_config['guest_viewing'] == '1') ? true : false;
+		$formel_forum_id 		= $formel_config['forum_id'];
+		$formel_group_id 		= $formel_config['restrict_to'];
+		$formel_mod_id 			= $formel_config['mod_id'];		
+		$is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_teams', 'a_formel_races');
+		if (!function_exists('group_memberships'))
+		{
+			include_once($phpbb_root_path . 'includes/functions_user.' . $phpEx);
+		}
+		$is_in_group = group_memberships($formel_group_id, $user->data['user_id'], true);
+	}
+]]></action>
+				<action type="after-add"><![CDATA[		'U_FORMEL1'						=> append_sid("{$phpbb_root_path}formel.$phpEx"),
+		'S_FORMEL1'						=> (isset($config['f1webtipp_version']) && ((!$formel_guests_allowed && !$user->data['is_registered']) || ($formel_group_id <> 0 && !$is_in_group && $is_admin <> 1 && $user->data['user_id'] <> $formel_mod_id))) ? false : true,
+]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/overall_header.html">
+			<edit>
+				<find><![CDATA[				<li class="icon-faq"><a href="{U_FAQ}" title="{L_FAQ_EXPLAIN}">{L_FAQ}</a></li>]]></find>
+				<action type="before-add"><![CDATA[				<!-- IF not S_IS_BOT  and S_FORMEL1 --><li class="icon-f1"><a href="{U_FORMEL1}" title="{L_FORMEL_TITLE}">{L_FORMEL_TITLE}</a></li><!-- ENDIF -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/theme/buttons.css">
+			<edit>
+				<find><![CDATA[/* Icon images
+---------------------------------------- */
+.sitehome, .icon-faq, .icon-members, .icon-home, .icon-ucp, .icon-register, .icon-logout,
+.icon-bookmark, .icon-bump, .icon-subscribe, .icon-unsubscribe, .icon-pages, .icon-search]]></find>
+				<inline-edit>
+					<inline-find><![CDATA[ .icon-search]]></inline-find>
+					<inline-action type="after-add"><![CDATA[ , .icon-f1]]></inline-action>
+				</inline-edit>
+			</edit>
+		</open>
+		<open src="styles/prosilver/theme/colours.css">
+			<edit>
+				<find><![CDATA[.icon-search					{ background-image: url("{T_THEME_PATH}/images/icon_search.gif"); }]]></find>
+				<action type="after-add"><![CDATA[.icon-f1						{ background-image: url("{T_THEME_PATH}/images/icon_f1.png"); }]]></action>
+			</edit>
+		</open>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
-		<diy-instructions lang="en"><![CDATA[After copying these files, you have to clear your chache and refresh your template files.
+		<diy-instructions lang="en"><![CDATA[Clear your cache in the "Administration Control Panel" (ACP) > "General" > "Purge the cache"
+
+Refresh your Styles:
+		"Administration Control Panel" (ACP) > "Styles" > "Templates" > each > "refresh"
+		"Administration Control Panel" (ACP) > "Styles" > "Themes" > each > "refresh"
 
 And now: Have fun!]]></diy-instructions>
-		<diy-instructions lang="de"><![CDATA[Nach dem Kopieren der o.g. Dateien musst Du noch Deinen Style aktualisieren und den Cache leeren.
+		<diy-instructions lang="de"><![CDATA[Leere den Cache im "Administrations-Bereich" (ACP) > "Allgemein" > "Den Cache leeren"
 
+Aktualisiere deine Styles:
+		"Administrations-Bereich" (ACP) > "Styles" > "Templates" > jedes > "Aktualisieren"
+		"Administrations-Bereich" (ACP) > "Styles" > "Themes" > jedes > "Aktualisieren"
 
 Und nun: Viel Spass !]]></diy-instructions>
 	</action-group>

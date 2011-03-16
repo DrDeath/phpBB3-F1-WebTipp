@@ -325,9 +325,11 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<rev-version>0.3.6</rev-version>
 				<changelog lang="en">
 					<change><![CDATA[[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) add by default]]></change>
+					<change><![CDATA[[Add On] a link with image in the header add by default]]></change>
 				</changelog>
 				<changelog lang="de">
 					<change><![CDATA[[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) standardmäßig hinzugefügt]]></change>
+					<change><![CDATA[[Add On] ein Link mit Bild im phpBB-Kopf standardmäßig hinzugefügt]]></change>
 				</changelog>
 			</entry>
 		</history>
