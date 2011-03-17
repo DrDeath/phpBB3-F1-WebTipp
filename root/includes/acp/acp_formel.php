@@ -61,6 +61,7 @@ class acp_formel
 				$car_img_width		= request_var('car_img_width',		0	);
 				$car_img_height		= request_var('car_img_height',		0	);
 				$show_in_profile	= request_var('show_in_profile',	0	);
+				$show_in_viewtopic	= request_var('show_in_viewtopic',	0	);
 				$show_avatar		= request_var('show_avatar',		0	);
 				$points_mentioned	= request_var('points_mentioned',	0	);
 				$points_placed		= request_var('points_placed',		0	);
@@ -185,6 +186,9 @@ class acp_formel
 				
 				$show_in_profile_yes 	= ($new['show_in_profile']) ? "checked=\"checked\"" : "";
 				$show_in_profile_no 	= (!$new['show_in_profile']) ? "checked=\"checked\"" : "";
+				
+				$show_in_viewtopic_yes 	= ($new['show_in_viewtopic']) ? "checked=\"checked\"" : "";
+				$show_in_viewtopic_no 	= (!$new['show_in_viewtopic']) ? "checked=\"checked\"" : "";
 
 				$show_gfx_yes 			= ($new['show_gfx']) ? "checked=\"checked\"" : "";
 				$show_gfx_no 			= (!$new['show_gfx']) ? "checked=\"checked\"" : "";
@@ -321,6 +325,8 @@ class acp_formel
 					'S_SHOW_AVATAR_NO'					=> $show_avatar_no,
 					'S_SHOW_IN_PROFILE_YES'				=> $show_in_profile_yes,
 					'S_SHOW_IN_PROFILE_NO'				=> $show_in_profile_no,
+					'S_SHOW_IN_VIEWTOPIC_YES'			=> $show_in_viewtopic_yes,
+					'S_SHOW_IN_VIEWTOPIC_NO'			=> $show_in_viewtopic_no,
 					'S_SHOW_HEADBANNER_NO'				=> $show_headbanner_no,
 					'S_SHOW_HEADBANNER_YES'				=> $show_headbanner_yes,
 					'S_SHOW_GFXR_NO'					=> $show_gfxr_no,
@@ -338,6 +344,7 @@ class acp_formel
 					'ACP_F1_SETTING_RACEOFFSET'				=> $formel_config['event_change'],
 					'ACP_F1_SETTING_FORUM'					=> $formel_config['forum_id'],
 					'ACP_F1_SETTING_SHOW_IN_PROFILE'		=> $new['show_in_profile'],
+					'ACP_F1_SETTING_SHOW_IN_VIEWTOPIC'		=> $new['show_in_viewtopic'],
 					'ACP_F1_SETTING_POINTS_MENTIONED'		=> $new['points_mentioned'],
 					'ACP_F1_SETTING_POINTS_PLACED'			=> $new['points_placed'],
 					'ACP_F1_SETTING_POINTS_FASTEST'			=> $new['points_fastest'],

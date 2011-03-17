@@ -80,7 +80,7 @@ $versions = array(
 
 		// Now to add the tables (this uses the layout from develop/create_schema_files.php and from phpbb_db_tools)
 		'table_add' => array(
-			
+
 			array('phpbb_formel_config', array(
 					'COLUMNS'		=> array(
 						'config_name'		=> array('VCHAR', ''),
@@ -89,7 +89,7 @@ $versions = array(
 					'PRIMARY_KEY'	=> 'config_name',
 				),
 			),
-			
+
 			array('phpbb_formel_drivers', array(
 					'COLUMNS'		=> array(
 						'driver_id'			=> array('UINT', NULL, 'auto_increment'),
@@ -101,7 +101,7 @@ $versions = array(
 					'PRIMARY_KEY'	=> 'driver_id',
 				),
 			),
-			
+
 			array('phpbb_formel_teams', array(
 					'COLUMNS'		=> array(
 						'team_id'			=> array('UINT', NULL, 'auto_increment'),
@@ -113,7 +113,7 @@ $versions = array(
 					'PRIMARY_KEY'	=> 'team_id',
 				),
 			),
-			
+
 			array('phpbb_formel_races', array(
 					'COLUMNS'		=> array(
 						'race_id'			=> array('UINT', NULL, 'auto_increment'),
@@ -130,7 +130,7 @@ $versions = array(
 					'PRIMARY_KEY'	=> 'race_id',
 				),
 			),
-			
+
 			array('phpbb_formel_wm', array(
 					'COLUMNS'		=> array(
 						'wm_id'				=> array('UINT', NULL, 'auto_increment'),
@@ -142,7 +142,7 @@ $versions = array(
 					'PRIMARY_KEY'	=> 'wm_id',
 				),
 			),
-			
+
 			array('phpbb_formel_tipps', array(
 					'COLUMNS'		=> array(
 						'tipp_id'			=> array('UINT', NULL, 'auto_increment'),
@@ -160,36 +160,36 @@ $versions = array(
 		'module_add' => array(
 			// First, lets add a new category named ACP_FORMEL_MANAGEMENT to ACP_CAT_DOT_MODS
 			array('acp', 'ACP_CAT_DOT_MODS', 'ACP_FORMEL_MANAGEMENT'),
-			
+
 			// Now we will add the settings mode to the ACP_FORMEL_MANAGEMENT category using the "manual" method.
-            array('acp', 'ACP_FORMEL_MANAGEMENT', array(
+			array('acp', 'ACP_FORMEL_MANAGEMENT', array(
 					'module_basename'	=> 'formel',
 					'module_langname'	=> 'ACP_FORMEL_SETTINGS',
 					'module_mode'		=> 'settings',
 					'module_auth'		=> 'acl_a_formel_settings',
 				),
 			),
-			
+
 			// Now we will add the races mode to the ACP_FORMEL_MANAGEMENT category using the "manual" method.
-            array('acp', 'ACP_FORMEL_MANAGEMENT', array(
+			array('acp', 'ACP_FORMEL_MANAGEMENT', array(
 					'module_basename'	=> 'formel',
 					'module_langname'	=> 'ACP_FORMEL_RACES',
 					'module_mode'		=> 'races',
 					'module_auth'		=> 'acl_a_formel_races',
 				),
 			),
-			
+
 			// Now we will add the teams mode to the ACP_FORMEL_MANAGEMENT category using the "manual" method.
-            array('acp', 'ACP_FORMEL_MANAGEMENT', array(
+			array('acp', 'ACP_FORMEL_MANAGEMENT', array(
 					'module_basename'	=> 'formel',
 					'module_langname'	=> 'ACP_FORMEL_TEAMS',
 					'module_mode'		=> 'teams',
 					'module_auth'		=> 'acl_a_formel_teams',
 				),
 			),
-			
+
 			// Now we will add the drivers mode to the ACP_FORMEL_MANAGEMENT category using the "manual" method.
-            array('acp', 'ACP_FORMEL_MANAGEMENT', array(
+			array('acp', 'ACP_FORMEL_MANAGEMENT', array(
 					'module_basename'	=> 'formel',
 					'module_langname'	=> 'ACP_FORMEL_DRIVERS',
 					'module_mode'		=> 'drivers',
@@ -205,19 +205,18 @@ $versions = array(
 		'custom'	=> 'first_fill_0_3_0',
 	),
 
-
 	// Version 0.3.1
 	'0.3.1' => array(
 		// Version 0.3.1 - adding feature "Guests are allowed to view the f1webtipp". Default is false.
 		'custom'	=> 'fill_0_3_1',
 	),
-	
+
 	// Version 0.3.2
 	'0.3.2' => array(
 		// Version 0.3.2- adding support for Ultimate Point System. Default is point systems disabled and point value 50.00
 		'custom'	=> 'fill_0_3_2',
 	),
-	
+
 	// Version 0.3.3
 	'0.3.3' => array(
 		// Version 0.3.3- adding option to disable drivers
@@ -228,12 +227,12 @@ $versions = array(
 			),
 		),
 	),
-	
+
 	// Version 0.3.4
 	'0.3.4' => array(
 		// Version 0.3.4- nothing to change
 	),
-	
+
 	// Version 0.3.5
 	'0.3.5' => array(
 		// Version 0.3.5- adding option for race abort - change table column to decimal
@@ -246,10 +245,11 @@ $versions = array(
 		// Version 0.3.5- adding feature "Safety Car Deployment". Default points 2
 		'custom'	=> 'fill_0_3_5',
 	),
-	
+
 	// Version 0.3.6
 	'0.3.6' => array(
-		// Version 0.3.6- nothing to change
+		// Version 0.3.6- adding AddOn "Viewtopic statistic".
+		'custom'	=> 'fill_0_3_6',
 	),
 
 );
@@ -279,7 +279,7 @@ function first_fill_0_3_0($action, $version)
 				$db->sql_query('TRUNCATE TABLE ' . $table_prefix . 'formel_config');
 				
 				$sql_ary = array();
-				
+
 				$sql_ary[] = array('config_name' => 'mod_id', 				'config_value' => '2',);
 				$sql_ary[] = array('config_name' => 'deadline_offset',		'config_value' => '600',);
 				$sql_ary[] = array('config_name' => 'forum_id',				'config_value' => '0',);
@@ -315,7 +315,7 @@ function first_fill_0_3_0($action, $version)
 				$sql_ary[] = array('config_name' => 'headbanner3_url',		'config_value' => 'formel.php?mode=stats',);
 				$sql_ary[] = array('config_name' => 'show_countdown',		'config_value' => '1',);
 				$sql_ary[] = array('config_name' => 'show_avatar',			'config_value' => '1',);
-				
+
 				$db->sql_multi_insert($table_prefix . 'formel_config ', $sql_ary);
 			}
 			
@@ -323,9 +323,9 @@ function first_fill_0_3_0($action, $version)
 			{
 				// before we fill anything in this table, we truncate it. Maybe someone missed an old installation.
 				$db->sql_query('TRUNCATE TABLE ' . $table_prefix . 'formel_drivers');
-				
+
 				$sql_ary = array();
-				
+
 				# -- Team 1 Red Bull Racing
 				$sql_ary[] = array('driver_id' => 1,  'driver_name' => 'Vettel, Sebastian', 	'driver_img' => '', 'driver_team' => 1,);
 				$sql_ary[] = array('driver_id' => 2,  'driver_name' => 'Webber, Mark',			'driver_img' => '',	'driver_team' => 1,);
@@ -379,7 +379,7 @@ function first_fill_0_3_0($action, $version)
 			{
 				// before we fill anything in this table, we truncate it. Maybe someone missed an old installation.
 				$db->sql_query('TRUNCATE TABLE ' . $table_prefix . 'formel_teams');
-				
+
 				$sql_ary = array();
 
 				$sql_ary[] = array('team_id' => 1,  'team_name' => 'Red Bull Racing', 			'team_img' => '', 'team_car' => '',);
@@ -397,12 +397,12 @@ function first_fill_0_3_0($action, $version)
 
 				$db->sql_multi_insert($table_prefix . 'formel_teams ', $sql_ary);
 			}
-			
+
 			if ($umil->table_exists($table_prefix . 'formel_races'))
 			{
 				// before we fill anything in this table, we truncate it. Maybe someone missed an old installation.
 				$db->sql_query('TRUNCATE TABLE ' . $table_prefix . 'formel_races');
-				
+
 				$sql_ary = array();
 
 				$sql_ary[] = array('race_id' => 1,  'race_name' => 'Melbourne / Australien', 		'race_img' => '', 'race_quali' => '0', 'race_result' => '0', 'race_time' => 1301205600, 'race_length' => '5,303', 'race_laps' => 58, 'race_distance' => '307,574', 'race_debut' => 1996,);
@@ -425,7 +425,7 @@ function first_fill_0_3_0($action, $version)
 				$sql_ary[] = array('race_id' => 18, 'race_name' => 'Arabische Emirate / Abu Dhabi', 'race_img' => '', 'race_quali' => '0', 'race_result' => '0', 'race_time' => 1321189200, 'race_length' => '5,554', 'race_laps' => 55, 'race_distance' => '305,361', 'race_debut' => 2009,);
 				$sql_ary[] = array('race_id' => 19, 'race_name' => 'Brasilien / São Paulo', 		'race_img' => '', 'race_quali' => '0', 'race_result' => '0', 'race_time' => 1322409600, 'race_length' => '4,309', 'race_laps' => 71, 'race_distance' => '305,909', 'race_debut' => 1973,);
 				$sql_ary[] = array('race_id' => 20, 'race_name' => 'Bahrain / Manama',				'race_img' => '', 'race_quali' => '0', 'race_result' => '0', 'race_time' => 1322956800, 'race_length' => '5,412', 'race_laps' => 57, 'race_distance' => '308,238', 'race_debut' => 2004,);
-				
+
 				$db->sql_multi_insert($table_prefix . 'formel_races ', $sql_ary);
 			}
 			// Method 1 of displaying the command (and Success for the result)
@@ -460,7 +460,7 @@ function fill_0_3_1($action, $version)
 				
 				$db->sql_multi_insert($table_prefix . 'formel_config ', $sql_ary);
 			}
-			
+
 			// Method 1 of displaying the command (and Success for the result)
 			return 'INSERT_F1_CONFIG';
 		break;
@@ -473,7 +473,7 @@ function fill_0_3_1($action, $version)
 				WHERE config_name = 'guest_viewing'";
 			$db->sql_query($sql);
 			}
-			
+
 			// Method 1 of displaying the command (and Success for the result)
 			return 'INSERT_F1_CONFIG';
 		break;
@@ -520,7 +520,7 @@ function fill_0_3_2($action, $version)
 				WHERE config_name = 'points_value'";
 				$db->sql_query($sql);
 			}
-			
+
 			// Method 1 of displaying the command (and Success for the result)
 			return 'INSERT_F1_CONFIG';
 		break;
@@ -550,7 +550,7 @@ function fill_0_3_5($action, $version)
 				
 				$db->sql_multi_insert($table_prefix . 'formel_config ', $sql_ary);
 			}
-			
+
 			// Method 1 of displaying the command (and Success for the result)
 			return 'INSERT_F1_CONFIG';
 		break;
@@ -563,7 +563,50 @@ function fill_0_3_5($action, $version)
 					WHERE config_name = 'points_safety_car'";
 				$db->sql_query($sql);
 			}
+
+			// Method 1 of displaying the command (and Success for the result)
+			return 'INSERT_F1_CONFIG';
+		break;
+	}
+}
+
+/*
+* Here is our custom function that will be called for version 0.3.6.
+*
+* @param string $action The action (install|update|uninstall) will be sent through this.
+* @param string $version The version this is being run for will be sent through this.
+*/
+function fill_0_3_6($action, $version)
+{
+	global $db, $table_prefix, $umil;
+
+	switch ($action)
+	{
+		case 'install' :
+		case 'update' :
+			// Run this when installing/updating
+			if ($umil->table_exists($table_prefix . 'formel_config'))
+			{
+				$sql_ary = array();
+
+				$sql_ary[] = array('config_name' => 'show_in_viewtopic', 'config_value' => '1',);
+
+				$db->sql_multi_insert($table_prefix . 'formel_config ', $sql_ary);
+			}
 			
+			// Method 1 of displaying the command (and Success for the result)
+			return 'INSERT_F1_CONFIG';
+		break;
+
+		case 'uninstall' :
+			// Run this when uninstalling
+			if ($umil->table_exists($table_prefix . 'formel_config'))
+			{
+				$sql = 'DELETE FROM ' . $table_prefix . "formel_config
+					WHERE config_name = 'show_in_viewtopic'";
+				$db->sql_query($sql);
+			}
+
 			// Method 1 of displaying the command (and Success for the result)
 			return 'INSERT_F1_CONFIG';
 		break;
