@@ -61,15 +61,110 @@ $user->setup('memberlist');]]></find>
 				<action type="after-add"><![CDATA[$user->add_lang('mods/formel');]]></action>
 			</edit>
 			<edit>
+				<comment lang="en"><![CDATA[You should do this edit only when you didn't have the viewtopic modification already build in.]]></comment>
+				<comment lang="de"><![CDATA[Du solltest diesen Bearbeitungsschritt nur dann machen, wenn du nicht schon viewtopic Modifikation eingebaut hast.]]></comment>
 				<find><![CDATA[		default:
 			$location = $user->lang['INDEX'];
 			$location_url = append_sid("{$phpbb_root_path}index.$phpEx");
 		break;]]></find>
-				<action type="before-add"><![CDATA[
-		case 'formel':
+				<action type="before-add"><![CDATA[		case 'formel':
 			$location = $user->lang['VIEWING_F1WEBTIPP'];
 			$location_url = append_sid("{$phpbb_root_path}formel.$phpEx");
 		break;]]></action>
+			</edit>
+		</open>
+		<open src="viewtopic.php">
+			<edit>
+				<comment lang="en"><![CDATA[You should do this edit only when you didn't have the viewtopic modification already build in.]]></comment>
+				<comment lang="de"><![CDATA[Du solltest diesen Bearbeitungsschritt nur dann machen, wenn du nicht schon viewtopic Modifikation eingebaut hast.]]></comment>
+				<find><![CDATA[	// Dump vars into template
+	$template->assign_block_vars('postrow', $postrow);]]></find>
+				<action type="before-add"><![CDATA[	//
+	// F1 WebTipp
+	//
+	include_once($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
+	$formel_config  = get_formel_config();
+	$user->setup('mods/formel');
+
+	if ( $formel_config['show_in_profile'] ) 
+	{
+		// Check if this user has one of the formular 1 admin permission. If this user has one or more of these permissions, he gets also moderator permissions.
+		$is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_teams', 'a_formel_races');
+
+		if ( $formel_config['restrict_to'] == 0 || get_formel_auth() || $is_admin == 1 || $user->data['user_id'] == $formel_config['mod_id'] ) 
+		{
+			$tippers_rank   = $user->lang['FORMEL_PROFILE_NORANK'];
+			$tippers_points = 0;
+			$race_done	  = 0;
+
+			// Get tipp data for this user
+			$sql = 'SELECT *, sum(tipp_points) as total_points, count(tipp_points) as tipps_made 
+				FROM ' . FORMEL_TIPPS_TABLE . '
+				GROUP BY tipp_user
+				ORDER BY total_points DESC';
+			$result = $db->sql_query($sql);
+
+			$rank_count = $real_rank  = 1;
+			$previous_points = false;
+			while ($row_f1 = $db->sql_fetchrow($result)) 
+			{ 
+
+				if($row_f1['total_points'] != $previous_points) 
+				{ 
+					$rank_count = $real_rank; 
+					$previous_points = $row_f1['total_points']; 
+				}
+
+				if ( $row_f1['tipp_user'] == $poster_id ) 
+				{
+					$tippers_points = $row_f1['total_points'];
+					$race_done	  = $row_f1['tipps_made'];
+					$tippers_rank   = sprintf($user->lang['FORMEL_PROFILE_RANK'], $rank_count);
+					break;
+				}
+				$real_rank++; 
+			}
+			$db->sql_freeresult($result);
+
+			// Count total races with existing results
+			$sql = 'SELECT * 
+				FROM ' . FORMEL_RACES_TABLE . '
+				WHERE race_result <> 0';
+			$result = $db->sql_query($sql);
+
+			$race_total = $db->sql_affectedrows($result);
+			$db->sql_freeresult($result);
+
+			$formel1 = array(
+				'TIPPER_POINTS'	 => $tippers_points,
+				'TIPPER_RANK'	   => $tippers_rank,
+				'RACE_DONE'		 => sprintf($user->lang['FORMEL_PROFILE_TIPSS'], $race_done, $race_total),
+				'U_FORMEL_STATS'	=> append_sid("formel.$phpEx?mode=stats"),
+				'U_FORMEL_WEB_TIPP'	=> append_sid("formel.$phpEx"),
+			);
+			
+			$postrow = array_merge($postrow, $formel1);
+		}
+	}		
+	//
+	// END of F1 WebTipp
+	//]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/viewtopic_body.html">
+			<edit>
+				<comment lang="en"><![CDATA[You should do this edit only when you didn't have the viewtopic modification already build in.]]></comment>
+				<comment lang="de"><![CDATA[Du solltest diesen Bearbeitungsschritt nur dann machen, wenn du nicht schon viewtopic Modifikation eingebaut hast.]]></comment>
+				<find><![CDATA[		<!-- IF postrow.POSTER_FROM --><dd><strong>{L_LOCATION}:</strong> {postrow.POSTER_FROM}</dd><!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[		<!-- IF postrow.TIPPER_POINTS --><dd><br/><strong><a href="{postrow.U_FORMEL_WEB_TIPP}" class="genmed">{L_FORMEL_TITLE}</a><br/>{L_FORMEL_PROFILE_WEBTIPP} : {postrow.TIPPER_POINTS}<br /><a href="{postrow.U_FORMEL_STATS}" class="genmed">{postrow.TIPPER_RANK}</a></strong><br />({postrow.RACE_DONE})</dd><!-- ENDIF -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/subsilver2/template/viewtopic_body.html">
+			<edit>
+				<comment lang="en"><![CDATA[You should do this edit only when you didn't have the viewtopic modification already build in and you're using subsilver2 or a subsilver2 based style.]]></comment>
+				<comment lang="de"><![CDATA[Du solltest diesen Bearbeitungsschritt nur dann machen, wenn du nicht schon viewtopic Modifikation eingebaut hast und Subsilver2 oder ein auf Subsilver2 basierenden Style verwendest.]]></comment>
+				<find><![CDATA[					<!-- IF postrow.POSTER_FROM --><br /><b>{L_LOCATION}:</b> {postrow.POSTER_FROM}<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[					<!-- IF postrow.TIPPER_POINTS --><br /><br /><b><a href="{postrow.U_FORMEL_WEB_TIPP}" class="genmed">{L_FORMEL_TITLE}</a><br />{L_FORMEL_PROFILE_WEBTIPP} : {postrow.TIPPER_POINTS}<br /><a href="{postrow.U_FORMEL_STATS}" class="genmed">{postrow.TIPPER_RANK}</a></b><br />({postrow.RACE_DONE})<!-- ENDIF -->]]></action>
 			</edit>
 		</open>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
