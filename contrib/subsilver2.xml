@@ -63,8 +63,7 @@
 		<open src="styles/subsilver2/template/viewtopic_body.html">
 			<edit>
 				<find><![CDATA[					<!-- IF postrow.POSTER_FROM --><br /><b>{L_LOCATION}:</b> {postrow.POSTER_FROM}<!-- ENDIF -->]]></find>
-				<action type="after-add"><![CDATA[					<!-- IF postrow.TIPPER_POINTS --><br /><br /><b><a href="{postrow.U_FORMEL_WEB_TIPP}" class="genmed">{L_FORMEL_TITLE}</a><br />{L_FORMEL_PROFILE_WEBTIPP} : {postrow.TIPPER_POINTS}<br /><a href="{postrow.U_FORMEL_STATS}" class="genmed">{postrow.TIPPER_RANK}</a></b><br />({postrow.RACE_DONE})<!-- ENDIF -->]]></action>
-			</edit>
+				<action type="after-add"><![CDATA[					<!-- IF postrow.TIPPER_POINTS --><br /><br /><b><!-- IF not S_IS_BOT  and S_FORMEL1 --><a href="{postrow.U_FORMEL_WEB_TIPP}" class="genmed"><!-- ENDIF -->{L_FORMEL_TITLE}<!-- IF not S_IS_BOT  and S_FORMEL1 --></a><!-- ENDIF --><br />{L_FORMEL_PROFILE_WEBTIPP} : {postrow.TIPPER_POINTS}<br /><!-- IF not S_IS_BOT  and S_FORMEL1 --><a href="{postrow.U_FORMEL_STATS}" class="genmed"><!-- ENDIF -->{postrow.TIPPER_RANK}<!-- IF not S_IS_BOT  and S_FORMEL1 --></a><!-- ENDIF --></b><br />({postrow.RACE_DONE})<!-- ENDIF -->]]></action>			</edit>
 		</open>
 	</action-group>
 </mod>

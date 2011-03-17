@@ -82,10 +82,6 @@ $user->setup('memberlist');]]></find>
 				<action type="before-add"><![CDATA[	//
 	// F1 WebTipp
 	//
-	include_once($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
-	$formel_config  = get_formel_config();
-	$user->setup('mods/formel');
-
 	if ( $formel_config['show_in_profile'] && $formel_config['show_in_viewtopic'] ) 
 	{
 		// Check if this user has one of the formular 1 admin permission. If this user has one or more of these permissions, he gets also moderator permissions.
@@ -156,7 +152,7 @@ $user->setup('memberlist');]]></find>
 				<comment lang="en"><![CDATA[You should do this edit only when you didn't have the viewtopic modification already build in.]]></comment>
 				<comment lang="de"><![CDATA[Du solltest diesen Bearbeitungsschritt nur dann machen, wenn du nicht schon viewtopic Modifikation eingebaut hast.]]></comment>
 				<find><![CDATA[		<!-- IF postrow.POSTER_FROM --><dd><strong>{L_LOCATION}:</strong> {postrow.POSTER_FROM}</dd><!-- ENDIF -->]]></find>
-				<action type="after-add"><![CDATA[		<!-- IF postrow.TIPPER_POINTS --><dd><br/><strong><a href="{postrow.U_FORMEL_WEB_TIPP}" class="genmed">{L_FORMEL_TITLE}</a><br/>{L_FORMEL_PROFILE_WEBTIPP} : {postrow.TIPPER_POINTS}<br /><a href="{postrow.U_FORMEL_STATS}" class="genmed">{postrow.TIPPER_RANK}</a></strong><br />({postrow.RACE_DONE})</dd><!-- ENDIF -->]]></action>
+				<action type="after-add"><![CDATA[		<!-- IF postrow.TIPPER_POINTS --><dd><br/><strong><!-- IF not S_IS_BOT  and S_FORMEL1 --><a href="{postrow.U_FORMEL_WEB_TIPP}" class="genmed"><!-- ENDIF -->{L_FORMEL_TITLE}<!-- IF not S_IS_BOT  and S_FORMEL1 --></a><!-- ENDIF --><br/>{L_FORMEL_PROFILE_WEBTIPP} : {postrow.TIPPER_POINTS}<br /><!-- IF not S_IS_BOT  and S_FORMEL1 --><a href="{postrow.U_FORMEL_STATS}" class="genmed"><!-- ENDIF -->{postrow.TIPPER_RANK}<!-- IF not S_IS_BOT  and S_FORMEL1 --></a><!-- ENDIF --></strong><br />({postrow.RACE_DONE})</dd><!-- ENDIF -->]]></action>
 			</edit>
 		</open>
 		<open src="styles/subsilver2/template/viewtopic_body.html">
@@ -164,8 +160,7 @@ $user->setup('memberlist');]]></find>
 				<comment lang="en"><![CDATA[You should do this edit only when you didn't have the viewtopic modification already build in and you're using subsilver2 or a subsilver2 based style.]]></comment>
 				<comment lang="de"><![CDATA[Du solltest diesen Bearbeitungsschritt nur dann machen, wenn du nicht schon viewtopic Modifikation eingebaut hast und Subsilver2 oder ein auf Subsilver2 basierenden Style verwendest.]]></comment>
 				<find><![CDATA[					<!-- IF postrow.POSTER_FROM --><br /><b>{L_LOCATION}:</b> {postrow.POSTER_FROM}<!-- ENDIF -->]]></find>
-				<action type="after-add"><![CDATA[					<!-- IF postrow.TIPPER_POINTS --><br /><br /><b><a href="{postrow.U_FORMEL_WEB_TIPP}" class="genmed">{L_FORMEL_TITLE}</a><br />{L_FORMEL_PROFILE_WEBTIPP} : {postrow.TIPPER_POINTS}<br /><a href="{postrow.U_FORMEL_STATS}" class="genmed">{postrow.TIPPER_RANK}</a></b><br />({postrow.RACE_DONE})<!-- ENDIF -->]]></action>
-			</edit>
+				<action type="after-add"><![CDATA[					<!-- IF postrow.TIPPER_POINTS --><br /><br /><b><!-- IF not S_IS_BOT  and S_FORMEL1 --><a href="{postrow.U_FORMEL_WEB_TIPP}" class="genmed"><!-- ENDIF -->{L_FORMEL_TITLE}<!-- IF not S_IS_BOT  and S_FORMEL1 --></a><!-- ENDIF --><br />{L_FORMEL_PROFILE_WEBTIPP} : {postrow.TIPPER_POINTS}<br /><!-- IF not S_IS_BOT  and S_FORMEL1 --><a href="{postrow.U_FORMEL_STATS}" class="genmed"><!-- ENDIF -->{postrow.TIPPER_RANK}<!-- IF not S_IS_BOT  and S_FORMEL1 --></a><!-- ENDIF --></b><br />({postrow.RACE_DONE})<!-- ENDIF -->]]></action>			</edit>
 		</open>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
 		<diy-instructions lang="en"><![CDATA[After copying these files, you have to clear your chache and refresh your template files.
