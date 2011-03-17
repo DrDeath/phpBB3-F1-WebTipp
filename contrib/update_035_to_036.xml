@@ -95,12 +95,16 @@
 		</open>
 		<open src="styles/prosilver/template/overall_header.html">
 			<edit>
+				<comment lang="en"><![CDATA[You should do this edit only when you don't have any link already build in.]]></comment>
+				<comment lang="de"><![CDATA[Du solltest diesen Bearbeitungsschritt nur dann machen, wenn du nicht schon einen andere Art der Verlinkung eingebaut hast.]]></comment>
 				<find><![CDATA[				<li class="icon-faq"><a href="{U_FAQ}" title="{L_FAQ_EXPLAIN}">{L_FAQ}</a></li>]]></find>
 				<action type="before-add"><![CDATA[				<!-- IF not S_IS_BOT  and S_FORMEL1 --><li class="icon-f1"><a href="{U_FORMEL1}" title="{L_FORMEL_TITLE}">{L_FORMEL_TITLE}</a></li><!-- ENDIF -->]]></action>
 			</edit>
 		</open>
 		<open src="styles/prosilver/theme/buttons.css">
 			<edit>
+				<comment lang="en"><![CDATA[You should do this edit only when you don't have any link already build in.]]></comment>
+				<comment lang="de"><![CDATA[Du solltest diesen Bearbeitungsschritt nur dann machen, wenn du nicht schon einen andere Art der Verlinkung eingebaut hast.]]></comment>
 				<find><![CDATA[/* Icon images
 ---------------------------------------- */
 .sitehome, .icon-faq, .icon-members, .icon-home, .icon-ucp, .icon-register, .icon-logout,
@@ -113,8 +117,18 @@
 		</open>
 		<open src="styles/prosilver/theme/colours.css">
 			<edit>
+				<comment lang="en"><![CDATA[You should do this edit only when you don't have any link already build in.]]></comment>
+				<comment lang="de"><![CDATA[Du solltest diesen Bearbeitungsschritt nur dann machen, wenn du nicht schon einen andere Art der Verlinkung eingebaut hast.]]></comment>
 				<find><![CDATA[.icon-search					{ background-image: url("{T_THEME_PATH}/images/icon_search.gif"); }]]></find>
 				<action type="after-add"><![CDATA[.icon-f1						{ background-image: url("{T_THEME_PATH}/images/icon_f1.png"); }]]></action>
+			</edit>
+		</open>
+		<open src="styles/subsilver2/template/overall_header.html">
+			<edit>
+				<comment lang="en"><![CDATA[You should do this edit only when you don't have any link already build in and you're using subsilver2 or a subsilver2 based style.]]></comment>
+				<comment lang="de"><![CDATA[Du solltest diesen Bearbeitungsschritt nur dann machen, wenn du nicht schon einen andere Art der Verlinkung eingebaut hast und Subsilver2 oder ein auf Subsilver2 basierenden Style verwendest.]]></comment>
+				<find><![CDATA[				<a href="{U_FAQ}"><img src="{T_THEME_PATH}/images/icon_mini_faq.gif" width="12" height="13" alt="*" /> {L_FAQ}</a>]]></find>
+				<action type="before-add"><![CDATA[				<!-- IF not S_IS_BOT  and S_FORMEL1 --><a href="{U_FORMEL1}"><img src="{T_THEME_PATH}/images/icon_mini_f1.gif" width="12" height="13" alt="*" /> {L_FORMEL_TITLE}</a>&nbsp; &nbsp;<!-- ENDIF -->]]></action>
 			</edit>
 		</open>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
