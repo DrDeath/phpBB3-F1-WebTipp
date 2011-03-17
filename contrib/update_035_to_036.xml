@@ -82,7 +82,7 @@ $user->setup('memberlist');]]></find>
 				<action type="before-add"><![CDATA[	//
 	// F1 WebTipp
 	//
-	if ( $formel_config['show_in_profile'] && $formel_config['show_in_viewtopic'] ) 
+	if ( $formel_config['show_in_viewtopic'] ) 
 	{
 		// Check if this user has one of the formular 1 admin permission. If this user has one or more of these permissions, he gets also moderator permissions.
 		$is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_teams', 'a_formel_races');
