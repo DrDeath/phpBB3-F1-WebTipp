@@ -52,9 +52,9 @@
 			<file from="root/language/de/mods/formel.php" to="language/de/mods/formel.php"/>
 			<file from="root/language/fr/mods/formel.php" to="language/fr/mods/formel.php"/>
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html"/>
-			<file from="root/styles/prosilver/theme/images/F1WebTippButton.png" to="/styles/prosilver/theme/images/F1WebTippButton.png"/>
-			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html"/>
-			<file from="root/styles/subsilver2/theme/images/F1WebTippButton.png" to="/styles/subsilver2/theme/images/F1WebTippButton.png"/>
+			<file from="root/styles/prosilver/theme/images/F1WebTippButton.png" to="styles/prosilver/theme/images/F1WebTippButton.png"/>
+			<file from="root/styles/subsilver2/template/formel_body.html" to="stylessubsilver2/template/formel_body.html"/>
+			<file from="root/styles/subsilver2/theme/images/F1WebTippButton.png" to="styles/subsilver2/theme/images/F1WebTippButton.png"/>
 		</copy>
 		<open src="viewonline.php">
 			<edit>
