@@ -4,6 +4,7 @@
 <!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (phpBB version)"/>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
 		<title lang="en"><![CDATA[Formula 1 WebTip - subsilver2 modifications]]></title>
 		<title lang="de"><![CDATA[Formel 1 WebTipp - subsilver2 Änderungen]]></title>
@@ -57,6 +58,12 @@
 				<find><![CDATA[</head>]]></find>
 				<action type="replace-with"><![CDATA[{COUNTDOWN}
 </head>]]></action>
+			</edit>
+		</open>
+		<open src="styles/subsilver2/template/viewtopic_body.html">
+			<edit>
+				<find><![CDATA[					<!-- IF postrow.POSTER_FROM --><br /><b>{L_LOCATION}:</b> {postrow.POSTER_FROM}<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[					<!-- IF postrow.TIPPER_POINTS --><br /><br /><b><a href="{postrow.U_FORMEL_WEB_TIPP}" class="genmed">{L_FORMEL_TITLE}</a><br />{L_FORMEL_PROFILE_WEBTIPP} : {postrow.TIPPER_POINTS}<br /><a href="{postrow.U_FORMEL_STATS}" class="genmed">{postrow.TIPPER_RANK}</a></b><br />({postrow.RACE_DONE})<!-- ENDIF -->]]></action>
 			</edit>
 		</open>
 	</action-group>
