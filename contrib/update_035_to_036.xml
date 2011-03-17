@@ -51,7 +51,8 @@
 			<file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php"/>
 			<file from="root/language/de/mods/formel.php" to="language/de/mods/formel.php"/>
 			<file from="root/language/fr/mods/formel.php" to="language/fr/mods/formel.php"/>
-			<file from="root/styles/prosilver/theme/images/icon_f1.png" to="/styles/prosilver/theme/images/icon_f1.png"/>
+			<file from="root/styles/prosilver/theme/images/icon_f1.png" to="styles/prosilver/theme/images/icon_f1.png"/>
+			<file from="root/styles/subsilver2/theme/images/icon_mini_f1.gif" to="styles/subsilver2/theme/images/icon_mini_f1.gif"/>
 		</copy>
 		<open src="viewonline.php">
 			<edit>
