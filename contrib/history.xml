@@ -325,9 +325,11 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<rev-version>0.3.6</rev-version>
 				<changelog lang="en">
 					<change><![CDATA[[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) add by default]]></change>
+					<change><![CDATA[own PayPal-Link added, no SF-Link anymore]]></change>
 				</changelog>
 				<changelog lang="de">
 					<change><![CDATA[[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) standardmäßig hinzugefügt]]></change>
+					<change><![CDATA[eigenen PayPal-Link hinzugefügt, keinen SF-Link mehr]]></change>
 				</changelog>
 			</entry>
 		</history>

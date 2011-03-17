@@ -86,6 +86,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<file from="root/umil/*.*" to="umil/*.*"/>
 			<file from="root/install/index.php" to="install/index.php"/>
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html"/>
+			<file from="root/styles/prosilver/theme/images/F1WebTippButton.png" to="/styles/prosilver/theme/images/F1WebTippButton.png"/>
 		</copy>
 		<open src="memberlist.php">
 			<edit>

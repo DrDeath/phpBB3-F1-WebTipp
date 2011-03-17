@@ -65,11 +65,51 @@ $user->setup('memberlist');]]></find>
 			$location = $user->lang['INDEX'];
 			$location_url = append_sid("{$phpbb_root_path}index.$phpEx");
 		break;]]></find>
-				<action type="before-add"><![CDATA[
-		case 'formel':
+				<action type="before-add"><![CDATA[		case 'formel':
 			$location = $user->lang['VIEWING_F1WEBTIPP'];
 			$location_url = append_sid("{$phpbb_root_path}formel.$phpEx");
 		break;]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/formel_body.html">
+			<edit>
+				<find><![CDATA[<div style="text-align: center;"><a href="http://sourceforge.net/project/project_donations.php?group_id=176449"><img src="http://images.sourceforge.net/images/project-support.jpg" width="88" height="32" alt="Support This Project" /> </a></div>
+]]></find>
+				<action type="replace-with"><![CDATA[<div style="text-align: center;">
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		<input type="hidden" name="cmd" value="_donations">
+		<input type="hidden" name="business" value="stefan_temath@hotmail.com">
+		<input type="hidden" name="lc" value="DZ">
+		<input type="hidden" name="item_name" value="phpbb3f1webtipp">
+		<input type="hidden" name="no_note" value="0">
+		<input type="hidden" name="currency_code" value="EUR">
+		<input type="hidden" name="bn" value="PP-DonationsBF:images_logo_lg.gif:NonHostedGuest">
+		<input type="image" src="{T_THEME_PATH}/images/F1WebTippButton.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	</form>
+</div>]]></action>
+			</edit>
+		</open>
+		<open src="styles/subsilver2/template/formel_body.html">
+			<edit>
+				<comment lang="en"><![CDATA[You should do this edit only if you're using subsilver2 or a subsilver2 based style.]]></comment>
+				<comment lang="de"><![CDATA[Du solltest diesen Bearbeitungsschritt nur dann machen, wenn du Subsilver2 oder ein auf Subsilver2 basierenden Style verwendest.]]></comment>
+				<find><![CDATA[<center>
+	<a href="http://sourceforge.net/project/project_donations.php?group_id=176449">
+		<img src="http://images.sourceforge.net/images/project-support.jpg" width="88" height="32" border="0" alt="Support This Project" />
+	</a>
+</center>]]></find>
+				<action type="replace-with"><![CDATA[<center>
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		<input type="hidden" name="cmd" value="_donations">
+		<input type="hidden" name="business" value="stefan_temath@hotmail.com">
+		<input type="hidden" name="lc" value="DZ">
+		<input type="hidden" name="item_name" value="phpbb3f1webtipp">
+		<input type="hidden" name="no_note" value="0">
+		<input type="hidden" name="currency_code" value="EUR">
+		<input type="hidden" name="bn" value="PP-DonationsBF:images_logo_lg.gif:NonHostedGuest">
+		<input type="image" src="{T_THEME_PATH}/images/F1WebTippButton.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	</form>
+</center>]]></action>
 			</edit>
 		</open>
 		<php-installer><![CDATA[install/index.php]]></php-installer>

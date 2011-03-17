@@ -40,6 +40,7 @@
 	<action-group>
 		<copy>
 			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html"/>
+			<file from="root/styles/subsilver2/theme/images/F1WebTippButton.png" to="/styles/subsilver2/theme/images/F1WebTippButton.png"/>
 		</copy>
 		<open src="styles/subsilver2/template/memberlist_view.html">
 			<edit>
