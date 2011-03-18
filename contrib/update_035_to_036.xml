@@ -41,13 +41,15 @@
 				<date>2011-XX-YY</date>
 				<rev-version>0.3.6</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27]]></change>
-					<change><![CDATA[own PayPal-Link added, no SF-Link anymore]]></change>
+					<change><![CDATA[Changed design. Own PayPal-Link added, no SF-Link anymore]]></change>
+					<change><![CDATA[[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) add by default]]></change>
+					<change><![CDATA[[Add On] viewtopic (http://www.lpi-clan.de/viewtopic.php?f=27&t=3504) add by default]]></change>
 					<change><![CDATA[[Add On] a link with image in the header add by default]]></change>
 				</changelog>
 				<changelog lang="de">
+					<change><![CDATA[Design angepasst. Eigenen PayPal-Link hinzugefügt, keinen SF-Link mehr]]></change>
 					<change><![CDATA[[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) standardmäßig hinzugefügt]]></change>
-					<change><![CDATA[eigenen PayPal-Link hinzugefügt, keinen SF-Link mehr]]></change>
+					<change><![CDATA[[Add On] viewtopic (http://www.lpi-clan.de/viewtopic.php?f=27&t=3504) standardmäßig hinzugefügt]]></change>					
 					<change><![CDATA[[Add On] ein Link mit Bild im phpBB-Kopf standardmäßig hinzugefügt]]></change>
 				</changelog>
 			</entry>
