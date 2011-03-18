@@ -20,6 +20,15 @@
 					<contributions status="past" from="2006-01-01" position="Developer"/>
 				</contributions-group>
 			</author>
+			<author>
+				<realname><![CDATA[Falk Seidel]]></realname>
+				<username><![CDATA[Unimatrix_0]]></username>
+				<homepage><![CDATA[http://un1matr1x.de/]]></homepage>
+				<email><![CDATA[admin@un1matr1x.de]]></email>
+				<contributions-group>
+					<contributions status="current" from="2011-02-22" position="Co-Developer"/>
+				</contributions-group>
+			</author>
 		</author-group>
 		<mod-version>0.3.6</mod-version>
 		<installation>
@@ -65,15 +74,19 @@
 				<action type="before-add"><![CDATA[				<!-- IF not S_IS_BOT  and S_FORMEL1 --><a href="{U_FORMEL1}"><img src="{T_THEME_PATH}/images/icon_mini_f1.gif" width="12" height="13" alt="*" /> {L_FORMEL_TITLE}</a>&nbsp; &nbsp;<!-- ENDIF -->]]></action>
 			</edit>
 		</open>
+		<open src="styles/subsilver2/template/viewtopic_body.html">
+			<edit>
+				<find><![CDATA[					<!-- IF postrow.POSTER_FROM --><br /><b>{L_LOCATION}:</b> {postrow.POSTER_FROM}<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[					<!-- IF postrow.TIPPER_POINTS --><br /><br /><b><a href="{postrow.U_FORMEL_WEB_TIPP}" class="genmed">{L_FORMEL_TITLE}</a><br />{L_FORMEL_PROFILE_WEBTIPP} : {postrow.TIPPER_POINTS}<br /><a href="{postrow.U_FORMEL_STATS}" class="genmed">{postrow.TIPPER_RANK}</a></b><br />({postrow.RACE_DONE})<!-- ENDIF -->]]></action>
+			</edit>
+		</open>
 		<diy-instructions lang="en"><![CDATA[Clear your cache in the "Administration Control Panel" (ACP) > "General" > "Purge the cache"
 
 Refresh your Styles:
-
-		"Administration Control Panel" (ACP) > "Styles" > "Templates" > each > "refresh"]]></diy-instructions>
-		<diy-instructions lang="de"><![CDATA[Leere den Cache im "Administrations-Bereich" (ACP) > "Allgemein" > "Den Cache leeren"
+"Administration Control Panel" (ACP) > "Styles" > "Templates" > each > "refresh"]]></diy-instructions>
+		<diy-instructions lang="de"><![CDATA[		Leere den Cache im "Administrations-Bereich" (ACP) > "Allgemein" > "Den Cache leeren"
 
 Aktualisiere deine Styles:
-
-		"Administrations-Bereich" (ACP) > "Styles" > "Templates" > jedes > "Aktualisieren"]]></diy-instructions>
+"Administrations-Bereich" (ACP) > "Styles" > "Templates" > jedes > "Aktualisieren"]]></diy-instructions>
 	</action-group>
 </mod>
