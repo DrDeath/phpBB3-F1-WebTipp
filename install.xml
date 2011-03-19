@@ -100,19 +100,22 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<action type="before-add"><![CDATA[		//
 		// F1 WebTipp
 		//
-		include($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
-		$formel_config  = get_formel_config();
+		if (!function_exists('get_formel_config'))
+		{
+			include ($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
+		}
 
-		if ( $formel_config['show_in_viewtopic'] ) 
+		$formel_config  = get_formel_config();
+		if ($formel_config['show_in_profile']) 
 		{
 			// Check if this user has one of the formular 1 admin permission. If this user has one or more of these permissions, he gets also moderator permissions.
 			$is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_teams', 'a_formel_races');
 			
 			//Is the user member of the restricted group?
-			include_once($phpbb_root_path . 'includes/functions_user.'.$phpEx);
+			include_once($phpbb_root_path . 'includes/functions_user.' . $phpEx);
 			$is_in_group = group_memberships($formel_config['restrict_to'], $user->data['user_id'], true);			
 
-			if ( $formel_config['restrict_to'] == 0 || $is_in_group || $is_admin == 1 || $user->data['user_id'] == $formel_config['mod_id'] )  
+			if ($formel_config['restrict_to'] == 0 || $is_in_group || $is_admin == 1 || $user->data['user_id'] == $formel_config['mod_id'])  
 			{
 				$tippers_rank   = $user->lang['FORMEL_PROFILE_NORANK'];
 				$tippers_points = 0;
@@ -127,16 +130,16 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 
 				$rank_count = $real_rank  = 1;
 				$previous_points = false;
+				
 				while ($row = $db->sql_fetchrow($result)) 
 				{ 
-					
-					if($row['total_points'] != $previous_points) 
+					if ($row['total_points'] != $previous_points) 
 					{ 
 						$rank_count = $real_rank; 
 						$previous_points = $row['total_points']; 
 					}
 
-					if ( $row['tipp_user'] == $member['user_id'] ) 
+					if ($row['tipp_user'] == $member['user_id']) 
 					{
 						$tippers_points = $row['total_points'];
 						$race_done      = $row['tipps_made'];
@@ -145,6 +148,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 					}
 					$real_rank++; 
 				}
+				
 				$db->sql_freeresult($result);
 
 				// Count total races with existing results
@@ -189,16 +193,20 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<action type="before-add"><![CDATA[	//
 	// F1 WebTipp
 	//
-	include_once($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
+	if (!function_exists('get_formel_config'))
+	{
+ 	   include ($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
+	}
+    
 	$formel_config  = get_formel_config();
 	$user->setup('mods/formel');
 
-	if ( $formel_config['show_in_profile'] && $formel_config['show_in_viewtopic'] ) 
+	if ($formel_config['show_in_viewtopic']) 
 	{
 		// Check if this user has one of the formular 1 admin permission. If this user has one or more of these permissions, he gets also moderator permissions.
 		$is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_teams', 'a_formel_races');
 
-		if ( $formel_config['restrict_to'] == 0 || get_formel_auth() || $is_admin == 1 || $user->data['user_id'] == $formel_config['mod_id'] ) 
+		if ($formel_config['restrict_to'] == 0 || get_formel_auth() || $is_admin == 1 || $user->data['user_id'] == $formel_config['mod_id']) 
 		{
 			$tippers_rank   = $user->lang['FORMEL_PROFILE_NORANK'];
 			$tippers_points = 0;
@@ -213,16 +221,16 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 
 			$rank_count = $real_rank  = 1;
 			$previous_points = false;
+			
 			while ($row_f1 = $db->sql_fetchrow($result)) 
 			{ 
-
-				if($row_f1['total_points'] != $previous_points) 
+				if ($row_f1['total_points'] != $previous_points) 
 				{ 
 					$rank_count = $real_rank; 
 					$previous_points = $row_f1['total_points']; 
 				}
 
-				if ( $row_f1['tipp_user'] == $poster_id ) 
+				if ($row_f1['tipp_user'] == $poster_id) 
 				{
 					$tippers_points = $row_f1['total_points'];
 					$race_done	  = $row_f1['tipps_made'];
@@ -231,6 +239,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				}
 				$real_rank++; 
 			}
+			
 			$db->sql_freeresult($result);
 
 			// Count total races with existing results
@@ -243,9 +252,9 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			$db->sql_freeresult($result);
 
 			$formel1 = array(
-				'TIPPER_POINTS'	 => $tippers_points,
-				'TIPPER_RANK'	   => $tippers_rank,
-				'RACE_DONE'		 => sprintf($user->lang['FORMEL_PROFILE_TIPSS'], $race_done, $race_total),
+				'TIPPER_POINTS'		=> $tippers_points,
+				'TIPPER_RANK'		=> $tippers_rank,
+				'RACE_DONE'			=> sprintf($user->lang['FORMEL_PROFILE_TIPSS'], $race_done, $race_total),
 				'U_FORMEL_STATS'	=> append_sid("formel.$phpEx?mode=stats"),
 				'U_FORMEL_WEB_TIPP'	=> append_sid("formel.$phpEx"),
 			);
@@ -279,7 +288,11 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 				<action type="before-add"><![CDATA[	//Check if the mod is already installed, if not skip this to avoid errors
 	if (isset($config['f1webtipp_version']))
 	{
-		include_once($phpbb_root_path . 'includes/functions_formel.' . $phpEx);
+		if (!function_exists('get_formel_config'))
+		{
+			include ($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
+		}
+		
 		$user->add_lang('mods/formel');
 		// Get formel config
 		$formel_config 			= get_formel_config();

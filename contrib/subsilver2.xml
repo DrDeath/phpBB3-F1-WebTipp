@@ -71,7 +71,7 @@
 			</edit>
 			<edit>
 				<find><![CDATA[				<a href="{U_FAQ}"><img src="{T_THEME_PATH}/images/icon_mini_faq.gif" width="12" height="13" alt="*" /> {L_FAQ}</a>]]></find>
-				<action type="before-add"><![CDATA[				<!-- IF not S_IS_BOT  and S_FORMEL1 --><a href="{U_FORMEL1}"><img src="{T_THEME_PATH}/images/icon_mini_f1.gif" width="12" height="13" alt="*" /> {L_FORMEL_TITLE}</a>&nbsp; &nbsp;<!-- ENDIF -->]]></action>
+				<action type="before-add"><![CDATA[				<!-- IF not S_IS_BOT and S_FORMEL1 --><a href="{U_FORMEL1}"><img src="{T_THEME_PATH}/images/icon_mini_f1.gif" width="12" height="13" alt="*" /> {L_FORMEL_TITLE}</a>&nbsp; &nbsp;<!-- ENDIF -->]]></action>
 			</edit>
 		</open>
 		<open src="styles/subsilver2/template/viewtopic_body.html">

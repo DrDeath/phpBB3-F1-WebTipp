@@ -94,7 +94,11 @@
 				<action type="before-add"><![CDATA[	//Check if the mod is already installed, if not skip this to avoid errors
 	if (isset($config['f1webtipp_version']))
 	{
-		include_once($phpbb_root_path . 'includes/functions_formel.' . $phpEx);
+		if (!function_exists('get_formel_config'))
+		{
+			include ($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
+		}
+		
 		$user->add_lang('mods/formel');
 		// Get formel config
 		$formel_config 			= get_formel_config();
@@ -162,16 +166,20 @@
 				<action type="before-add"><![CDATA[	//
 	// F1 WebTipp
 	//
-	include_once($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
+	if (!function_exists('get_formel_config'))
+	{
+ 	   include ($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
+	}
+    
 	$formel_config  = get_formel_config();
 	$user->setup('mods/formel');
 
-	if ( $formel_config['show_in_viewtopic'] ) 
+	if ($formel_config['show_in_viewtopic']) 
 	{
 		// Check if this user has one of the formular 1 admin permission. If this user has one or more of these permissions, he gets also moderator permissions.
 		$is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_teams', 'a_formel_races');
 
-		if ( $formel_config['restrict_to'] == 0 || get_formel_auth() || $is_admin == 1 || $user->data['user_id'] == $formel_config['mod_id'] ) 
+		if ($formel_config['restrict_to'] == 0 || get_formel_auth() || $is_admin == 1 || $user->data['user_id'] == $formel_config['mod_id']) 
 		{
 			$tippers_rank   = $user->lang['FORMEL_PROFILE_NORANK'];
 			$tippers_points = 0;
@@ -186,16 +194,16 @@
 
 			$rank_count = $real_rank  = 1;
 			$previous_points = false;
+			
 			while ($row_f1 = $db->sql_fetchrow($result)) 
 			{ 
-
-				if($row_f1['total_points'] != $previous_points) 
+				if ($row_f1['total_points'] != $previous_points) 
 				{ 
 					$rank_count = $real_rank; 
 					$previous_points = $row_f1['total_points']; 
 				}
 
-				if ( $row_f1['tipp_user'] == $poster_id ) 
+				if ($row_f1['tipp_user'] == $poster_id) 
 				{
 					$tippers_points = $row_f1['total_points'];
 					$race_done	  = $row_f1['tipps_made'];
@@ -204,6 +212,7 @@
 				}
 				$real_rank++; 
 			}
+			
 			$db->sql_freeresult($result);
 
 			// Count total races with existing results
@@ -216,9 +225,9 @@
 			$db->sql_freeresult($result);
 
 			$formel1 = array(
-				'TIPPER_POINTS'	 => $tippers_points,
-				'TIPPER_RANK'	   => $tippers_rank,
-				'RACE_DONE'		 => sprintf($user->lang['FORMEL_PROFILE_TIPSS'], $race_done, $race_total),
+				'TIPPER_POINTS'		=> $tippers_points,
+				'TIPPER_RANK'		=> $tippers_rank,
+				'RACE_DONE'			=> sprintf($user->lang['FORMEL_PROFILE_TIPSS'], $race_done, $race_total),
 				'U_FORMEL_STATS'	=> append_sid("formel.$phpEx?mode=stats"),
 				'U_FORMEL_WEB_TIPP'	=> append_sid("formel.$phpEx"),
 			);
