@@ -348,6 +348,12 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 				<action type="before-add"><![CDATA[				<!-- IF not S_IS_BOT  and S_FORMEL1 --><li class="icon-f1"><a href="{U_FORMEL1}" title="{L_FORMEL_TITLE}">{L_FORMEL_TITLE}</a></li><!-- ENDIF -->]]></action>
 			</edit>
 		</open>
+		<open src="styles/prosilver/template/viewtopic_body.html">
+			<edit>
+				<find><![CDATA[		<!-- IF postrow.POSTER_FROM --><dd><strong>{L_LOCATION}:</strong> {postrow.POSTER_FROM}</dd><!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[		<!-- IF postrow.TIPPER_POINTS --><dd><br/><strong><a href="{postrow.U_FORMEL_WEB_TIPP}" class="genmed">{L_FORMEL_TITLE}</a><br/>{L_FORMEL_PROFILE_WEBTIPP} : {postrow.TIPPER_POINTS}<br /><a href="{postrow.U_FORMEL_STATS}" class="genmed">{postrow.TIPPER_RANK}</a></strong><br />({postrow.RACE_DONE})</dd><!-- ENDIF -->]]></action>
+			</edit>
+		</open>
 		<open src="styles/prosilver/theme/buttons.css">
 			<edit>
 				<find><![CDATA[/* Icon images
@@ -364,12 +370,6 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 			<edit>
 				<find><![CDATA[.icon-search					{ background-image: url("{T_THEME_PATH}/images/icon_search.gif"); }]]></find>
 				<action type="after-add"><![CDATA[.icon-f1						{ background-image: url("{T_THEME_PATH}/images/icon_f1.png"); }]]></action>
-			</edit>
-		</open>
-		<open src="styles/prosilver/template/viewtopic_body.html">
-			<edit>
-				<find><![CDATA[		<!-- IF postrow.POSTER_FROM --><dd><strong>{L_LOCATION}:</strong> {postrow.POSTER_FROM}</dd><!-- ENDIF -->]]></find>
-				<action type="after-add"><![CDATA[		<!-- IF postrow.TIPPER_POINTS --><dd><br/><strong><a href="{postrow.U_FORMEL_WEB_TIPP}" class="genmed">{L_FORMEL_TITLE}</a><br/>{L_FORMEL_PROFILE_WEBTIPP} : {postrow.TIPPER_POINTS}<br /><a href="{postrow.U_FORMEL_STATS}" class="genmed">{postrow.TIPPER_RANK}</a></strong><br />({postrow.RACE_DONE})</dd><!-- ENDIF -->]]></action>
 			</edit>
 		</open>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
