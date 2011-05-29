@@ -321,7 +321,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				</changelog>
 			</entry>
 			<entry>
-				<date>2011-XX-YY</date>
+				<date>2011-05-26</date>
 				<rev-version>0.3.6</rev-version>
 				<changelog lang="en">
 					<change><![CDATA[Changed design. Own PayPal-Link added, no SF-Link anymore.]]></change>
@@ -334,6 +334,16 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 					<change><![CDATA[[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) standardmäßig hinzugefügt.]]></change>
 					<change><![CDATA[[Add On] viewtopic (http://www.lpi-clan.de/viewtopic.php?f=27&t=3504) standardmäßig hinzugefügt.]]></change>					
 					<change><![CDATA[[Add On] ein Link mit Bild im phpBB-Kopf standardmäßig hinzugefügt.]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-XX-YY</date>
+				<rev-version>0.3.7</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Version raised to 0.3.7.]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Versionsnummer angehoben auf 0.3.7.]]></change>
 				</changelog>
 			</entry>
 		</history>

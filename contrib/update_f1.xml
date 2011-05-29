@@ -32,7 +32,7 @@ Der Updater wird zuerst alle Renn- , Team- und Fahrer Tabellen leeren und anschl
 				</contributions-group>
 			</author>
 		</author-group>
-		<mod-version>0.3.6</mod-version>
+		<mod-version>0.3.7</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>120</time>

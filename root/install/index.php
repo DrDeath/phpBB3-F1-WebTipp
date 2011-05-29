@@ -252,6 +252,11 @@ $versions = array(
 		'custom'	=> 'fill_0_3_6',
 	),
 
+	// Version 0.3.7
+	'0.3.7' => array(
+		// Version 0.3.7- nothing to change
+	),
+
 );
 
 // Include the UMIF Auto file and everything else will be handled automatically.
