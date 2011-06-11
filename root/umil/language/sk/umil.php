@@ -90,7 +90,7 @@ $lang = array_merge($lang, array(
 	'PERMISSION_SET_ROLE'			=> 'Nastavenie oprávnení pre %s rolu.',
 	'PERMISSION_UNSET_GROUP'		=> 'Odnastavovanie oprávnení pre %s skupinu.',
 	'PERMISSION_UNSET_ROLE'			=> 'Odnastavenie oprávnení pre %s rolu.',
-	
+
 	'PERMISSION_ROLE_ADD'         => 'Pridávanie novej roly oprávnení: %s',
   'PERMISSION_ROLE_UPDATE'      => 'Aktualizovanie roly oprávnení: %s',
   'PERMISSION_ROLE_REMOVE'      => 'Odstraňovanie roy oprávnení: %s',

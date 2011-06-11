@@ -7,7 +7,7 @@
  * @version $Id: umil.php 179 2010-12-21 09:34:56Z stoffel04 $
  * @copyright (c) 2010 Suporte phpBB < http://www.suportephpbb.com.br >
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * Original copyright (c) 2008 phpBB Group  
+ * Original copyright (c) 2008 phpBB Group
  *
  */
 

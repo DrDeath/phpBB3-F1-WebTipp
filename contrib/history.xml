@@ -332,7 +332,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<changelog lang="de">
 					<change><![CDATA[Design angepasst. Eigenen PayPal-Link hinzugefügt, keinen SF-Link mehr.]]></change>
 					<change><![CDATA[[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) standardmäßig hinzugefügt.]]></change>
-					<change><![CDATA[[Add On] viewtopic (http://www.lpi-clan.de/viewtopic.php?f=27&t=3504) standardmäßig hinzugefügt.]]></change>					
+					<change><![CDATA[[Add On] viewtopic (http://www.lpi-clan.de/viewtopic.php?f=27&t=3504) standardmäßig hinzugefügt.]]></change>
 					<change><![CDATA[[Add On] ein Link mit Bild im phpBB-Kopf standardmäßig hinzugefügt.]]></change>
 				</changelog>
 			</entry>

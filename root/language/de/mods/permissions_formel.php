@@ -2,7 +2,7 @@
 /**
 *
 * @package phpbb3f1webtipp
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 * language/de/mods/permissions_formel.php - [Language ACP - Deutsch]
 *
 */
@@ -10,10 +10,10 @@
 /**
 * @ignore
 */
-if (!defined('IN_PHPBB')) 
-{ 
-	exit; 
-} 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
 
 if (empty($lang) || !is_array($lang))
 {
