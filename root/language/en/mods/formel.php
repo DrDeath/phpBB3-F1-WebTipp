@@ -10,17 +10,17 @@
 /**
 * @ignore
 */
-if (!defined('IN_PHPBB')) 
-{ 
-	exit; 
-} 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
 
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
 
-// DEVELOPERS PLEASE NOTE 
+// DEVELOPERS PLEASE NOTE
 //
 // All language files should use UTF-8 as their encoding and the files must not contain a BOM.
 //
@@ -119,7 +119,7 @@ $lang = array_merge($lang, array(
 	'FORMEL_HIDDEN'					=> 'Hidden till deadline',
 	'FORMEL_COUNTDOWN_DEADLINE'		=> 'Countdown till deadline',
 	'FORMEL_DEADLINE_REACHED'		=> 'Deadline reached',
-	
+
 	'INSERT_F1_FIRST_FILL'			=> 'Insert rows into the tables formel_config, formel_drivers, formel_teams and formel_races.',
 	'INSERT_F1_CONFIG'				=> 'Insert rows into the tables formel_config.',
 	'FORMEL_GUESTS_PLACE_NO_TIP'	=> '<strong>Guests cannot place a tip.</strong><br /><br />In order to place a tip you have to be registered and logged in.<br />',

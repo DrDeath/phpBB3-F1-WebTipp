@@ -282,7 +282,7 @@ function first_fill_0_3_0($action, $version)
 			{
 				// before we fill anything in this table, we truncate it. Maybe someone missed an old installation.
 				$db->sql_query('TRUNCATE TABLE ' . $table_prefix . 'formel_config');
-				
+
 				$sql_ary = array();
 
 				$sql_ary[] = array('config_name' => 'mod_id', 				'config_value' => '2',);
@@ -323,7 +323,7 @@ function first_fill_0_3_0($action, $version)
 
 				$db->sql_multi_insert($table_prefix . 'formel_config ', $sql_ary);
 			}
-			
+
 			if ($umil->table_exists($table_prefix . 'formel_drivers'))
 			{
 				// before we fill anything in this table, we truncate it. Maybe someone missed an old installation.
@@ -376,7 +376,7 @@ function first_fill_0_3_0($action, $version)
 				# -- Team 12 Marussia Virgin Racing
 				$sql_ary[] = array('driver_id' => 24, 'driver_name' => "D'Ambrosio, Jérôme",	'driver_img' => '',	'driver_team' => 12,);
 				$sql_ary[] = array('driver_id' => 25, 'driver_name' => 'Glock, Timo',			'driver_img' => '',	'driver_team' => 12,);
-				
+
 				$db->sql_multi_insert($table_prefix . 'formel_drivers ', $sql_ary);
 			}
 
@@ -460,9 +460,9 @@ function fill_0_3_1($action, $version)
 			if ($umil->table_exists($table_prefix . 'formel_config'))
 			{
 				$sql_ary = array();
-				
+
 				$sql_ary[] = array('config_name' => 'guest_viewing', 'config_value' => '0',);
-				
+
 				$db->sql_multi_insert($table_prefix . 'formel_config ', $sql_ary);
 			}
 
@@ -503,13 +503,13 @@ function fill_0_3_2($action, $version)
 			if ($umil->table_exists($table_prefix . 'formel_config'))
 			{
 				$sql_ary = array();
-				
+
 				$sql_ary[] = array('config_name' => 'points_enabled', 'config_value' => '0',);
 				$sql_ary[] = array('config_name' => 'points_value', 'config_value' => '50.00',);
-				
+
 				$db->sql_multi_insert($table_prefix . 'formel_config ', $sql_ary);
 			}
-			
+
 			// Method 1 of displaying the command (and Success for the result)
 			return 'INSERT_F1_CONFIG';
 		break;
@@ -550,9 +550,9 @@ function fill_0_3_5($action, $version)
 			if ($umil->table_exists($table_prefix . 'formel_config'))
 			{
 				$sql_ary = array();
-				
+
 				$sql_ary[] = array('config_name' => 'points_safety_car', 'config_value' => '2',);
-				
+
 				$db->sql_multi_insert($table_prefix . 'formel_config ', $sql_ary);
 			}
 
@@ -598,7 +598,7 @@ function fill_0_3_6($action, $version)
 
 				$db->sql_multi_insert($table_prefix . 'formel_config ', $sql_ary);
 			}
-			
+
 			// Method 1 of displaying the command (and Success for the result)
 			return 'INSERT_F1_CONFIG';
 		break;

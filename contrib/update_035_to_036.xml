@@ -49,7 +49,7 @@
 				<changelog lang="de">
 					<change><![CDATA[Design angepasst. Eigenen PayPal-Link hinzugefügt, keinen SF-Link mehr.]]></change>
 					<change><![CDATA[[Add On] viewonline (http://lpi-clan.de/viewtopic.php?f=27&t=3503) standardmäßig hinzugefügt.]]></change>
-					<change><![CDATA[[Add On] viewtopic (http://www.lpi-clan.de/viewtopic.php?f=27&t=3504) standardmäßig hinzugefügt.]]></change>					
+					<change><![CDATA[[Add On] viewtopic (http://www.lpi-clan.de/viewtopic.php?f=27&t=3504) standardmäßig hinzugefügt.]]></change>
 					<change><![CDATA[[Add On] ein Link mit Bild im phpBB-Kopf standardmäßig hinzugefügt.]]></change>
 				</changelog>
 			</entry>
@@ -101,11 +101,11 @@
 	{
  	   include ($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
 	}
-    
+
 	$formel_config  = get_formel_config();
 	$user->setup('mods/formel');
 
-	if ($formel_config['show_in_viewtopic']) 
+	if ($formel_config['show_in_viewtopic'])
 	{
 		// Check if this user has one of the formular 1 admin permission. If this user has one or more of these permissions, he gets also moderator permissions.
 		$is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_teams', 'a_formel_races');
@@ -125,7 +125,7 @@
 			$race_done	  = 0;
 
 			// Get tipp data for this user
-			$sql = 'SELECT *, sum(tipp_points) as total_points, count(tipp_points) as tipps_made 
+			$sql = 'SELECT *, sum(tipp_points) as total_points, count(tipp_points) as tipps_made
 				FROM ' . FORMEL_TIPPS_TABLE . '
 				GROUP BY tipp_user
 				ORDER BY total_points DESC';
@@ -133,29 +133,29 @@
 
 			$rank_count = $real_rank  = 1;
 			$previous_points = false;
-			
-			while ($row_f1 = $db->sql_fetchrow($result)) 
-			{ 
-				if ($row_f1['total_points'] != $previous_points) 
-				{ 
-					$rank_count = $real_rank; 
-					$previous_points = $row_f1['total_points']; 
+
+			while ($row_f1 = $db->sql_fetchrow($result))
+			{
+				if ($row_f1['total_points'] != $previous_points)
+				{
+					$rank_count = $real_rank;
+					$previous_points = $row_f1['total_points'];
 				}
 
-				if ($row_f1['tipp_user'] == $poster_id) 
+				if ($row_f1['tipp_user'] == $poster_id)
 				{
 					$tippers_points = $row_f1['total_points'];
 					$race_done	  = $row_f1['tipps_made'];
 					$tippers_rank   = sprintf($user->lang['FORMEL_PROFILE_RANK'], $rank_count);
 					break;
 				}
-				$real_rank++; 
+				$real_rank++;
 			}
-			
+
 			$db->sql_freeresult($result);
 
 			// Count total races with existing results
-			$sql = 'SELECT * 
+			$sql = 'SELECT *
 				FROM ' . FORMEL_RACES_TABLE . '
 				WHERE race_result <> 0';
 			$result = $db->sql_query($sql);
@@ -170,10 +170,10 @@
 				'U_FORMEL_STATS'	=> append_sid("formel.$phpEx?mode=stats"),
 				'U_FORMEL_WEB_TIPP'	=> append_sid("formel.$phpEx"),
 			);
-			
+
 			$postrow = array_merge($postrow, $formel1);
 		}
-	}		
+	}
 	//
 	// END of F1 WebTipp
 	//]]></action>
@@ -190,14 +190,14 @@
 		{
 			include ($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
 		}
-		
+
 		$user->add_lang('mods/formel');
 		// Get formel config
 		$formel_config 			= get_formel_config();
 		$formel_guests_allowed	= ($formel_config['guest_viewing'] == '1') ? true : false;
 		$formel_forum_id 		= $formel_config['forum_id'];
 		$formel_group_id 		= $formel_config['restrict_to'];
-		$formel_mod_id 			= $formel_config['mod_id'];		
+		$formel_mod_id 			= $formel_config['mod_id'];
 		$is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_teams', 'a_formel_races');
 		if (!function_exists('group_memberships'))
 		{

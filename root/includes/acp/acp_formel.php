@@ -8,11 +8,11 @@
 */
 
 /**
-* @ignore 
-*/ 
-if (!defined('IN_PHPBB')) 
-{ 
-	exit; 
+* @ignore
+*/
+if (!defined('IN_PHPBB'))
+{
+	exit;
 }
 
 /**
@@ -27,7 +27,7 @@ class acp_formel
 		global $db, $user, $auth, $template, $cache;
 		global $config, $phpbb_root_path, $phpbb_admin_path, $phpEx;
 
-		$user->add_lang('mods/acp_formel');    
+		$user->add_lang('mods/acp_formel');
 
 		include($phpbb_root_path . 'includes/functions_formel.' . $phpEx);
 
@@ -36,12 +36,12 @@ class acp_formel
 
 		// Salting the form...yumyum ...
 		add_form_key('acp_formel');
-		
+
 		// What are we working on?
 		switch ($mode)
 		{
 			case 'settings':
-			
+
 				$reset_all			= request_var('reset_all',			0	);
 				$forum_id			= request_var('forum_id', 			0	);
 				$mod_id				= request_var('mod_id',				0	);
@@ -76,7 +76,7 @@ class acp_formel
 				$this->page_title = $lang;
 
 				$reset_all = (isset($_POST['reset_all'])) ? true : false;
-				
+
 				// Reset all config data
 				if ($reset_all)
 				{
@@ -94,30 +94,30 @@ class acp_formel
 							'race_quali'		=> 0,
 						);
 
-						$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
+						$sql = 'UPDATE ' . FORMEL_RACES_TABLE . '
 							SET ' . $db->sql_build_array('UPDATE', $sql_ary) ;
 						$db->sql_query($sql);
-						
+
 						//remove penalty from drivers
 						$sql_ary = array(
 							'driver_penalty'	=> 0,
 						);
 
-						$sql = 'UPDATE ' . FORMEL_DRIVERS_TABLE . ' 
+						$sql = 'UPDATE ' . FORMEL_DRIVERS_TABLE . '
 							SET ' . $db->sql_build_array('UPDATE', $sql_ary) ;
 						$db->sql_query($sql);
-						
+
 						//remove penalty from teams
 						$sql_ary = array(
 							'team_penalty'	=> 0,
 						);
 
-						$sql = 'UPDATE ' . FORMEL_TEAMS_TABLE . ' 
+						$sql = 'UPDATE ' . FORMEL_TEAMS_TABLE . '
 							SET ' . $db->sql_build_array('UPDATE', $sql_ary) ;
 						$db->sql_query($sql);
-						
+
 						add_log('admin', 'LOG_FORMEL_SAISON_RESET');
-						
+
 						$error = $user->lang[$lang . '_SEASON_RESETTED'];
 						trigger_error($error . adm_back_link($this->u_action));
 					}
@@ -128,7 +128,7 @@ class acp_formel
 							'reset_all'		=> true,
 							)
 						);
-						
+
 						// display mode
 						confirm_box(false, $user->lang[$lang . '_SEASON_RESET_EXPLAIN'], $s_hidden_fields);
 					}
@@ -138,10 +138,10 @@ class acp_formel
 				$formel_config = get_formel_config();
 
 				// Pull all config data
-				$sql = 'SELECT * 
+				$sql = 'SELECT *
 					FROM ' . FORMEL_CONFIG_TABLE;
 				$result = $db->sql_query($sql);
-				
+
 				while ($row = $db->sql_fetchrow($result))
 				{
 					$config_name = $row['config_name'];
@@ -156,24 +156,24 @@ class acp_formel
 						{
 							trigger_error('FORM_INVALID');
 						}
-						
+
 						$sql_ary = array(
 							'config_value'		=> $new[$config_name],
 						);
-						
-						$sql = 'UPDATE ' . FORMEL_CONFIG_TABLE . ' 
-							SET ' . $db->sql_build_array('UPDATE', $sql_ary) . " 
+
+						$sql = 'UPDATE ' . FORMEL_CONFIG_TABLE . '
+							SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
 							WHERE config_name = '$config_name'" ;
 						$db->sql_query($sql);
 					}
 				}
-				
+
 				$db->sql_freeresult($result);
-				
+
 				if (isset($_POST['submit']))
 				{
 					add_log('admin', 'LOG_FORMEL_SETTINGS');
-					
+
 					$error = $user->lang[$lang . '_UPDATED'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
@@ -183,10 +183,10 @@ class acp_formel
 
 				$show_avatar_yes 		= ($new['show_avatar']) ? "checked=\"checked\"" : "";
 				$show_avatar_no 		= (!$new['show_avatar']) ? "checked=\"checked\"" : "";
-				
+
 				$show_in_profile_yes 	= ($new['show_in_profile']) ? "checked=\"checked\"" : "";
 				$show_in_profile_no 	= (!$new['show_in_profile']) ? "checked=\"checked\"" : "";
-				
+
 				$show_in_viewtopic_yes 	= ($new['show_in_viewtopic']) ? "checked=\"checked\"" : "";
 				$show_in_viewtopic_no 	= (!$new['show_in_viewtopic']) ? "checked=\"checked\"" : "";
 
@@ -198,49 +198,49 @@ class acp_formel
 
 				$show_headbanner_yes 	= ($new['show_headbanner']) ? "checked=\"checked\"" : "";
 				$show_headbanner_no 	= (!$new['show_headbanner']) ? "checked=\"checked\"" : "";
-			
+
 				$show_countdown_yes 	= ($new['show_countdown']) ? "checked=\"checked\"" : "";
 				$show_countdown_no 		= (!$new['show_countdown']) ? "checked=\"checked\"" : "";
 
 				$guest_viewing_yes 		= ($new['guest_viewing']) ? "checked=\"checked\"" : "";
 				$guest_viewing_no 		= (!$new['guest_viewing']) ? "checked=\"checked\"" : "";
-				
+
 				$points_enabled_yes		= ($new['points_enabled']) ? "checked=\"checked\"" : "";
 				$points_enabled_no 		= (!$new['points_enabled']) ? "checked=\"checked\"" : "";
 
 				//Get all possible moderators
 				$sql = 'SELECT u.username, u.user_id
-					FROM	' . MODERATOR_CACHE_TABLE . ' mc, ' . USER_GROUP_TABLE . ' ug, 	' . USERS_TABLE. ' u 
-					WHERE ug.group_id = mc.group_id 
-						AND ug.user_id = u.user_id 
+					FROM	' . MODERATOR_CACHE_TABLE . ' mc, ' . USER_GROUP_TABLE . ' ug, 	' . USERS_TABLE. ' u
+					WHERE ug.group_id = mc.group_id
+						AND ug.user_id = u.user_id
 						AND ug.user_pending = 0
-					GROUP BY ug.user_id 
+					GROUP BY ug.user_id
 					ORDER BY u.username';
 
 				$result = $db->sql_query($sql);
-				
+
 				while ($row = $db->sql_fetchrow($result))
 				{
 					$selected = ($row['user_id'] == $new['mod_id']) ? 'selected' : '';
 					$combo_mod_entries .= '<option value="' . $row['user_id'] . '" ' . $selected . '>' . $row['username'] . '</option>';
 				}
-				
+
 				// If no normal moderator was found, select all possible founders.
 				if (empty($combo_mod_entries))
 				{
 					$sql = ' SELECT username, user_id, user_type
-						FROM	' . USERS_TABLE. '  
-						WHERE user_type = ' . USER_FOUNDER . '  
+						FROM	' . USERS_TABLE. '
+						WHERE user_type = ' . USER_FOUNDER . '
 						ORDER BY username';
 					$result = $db->sql_query($sql);
-					
+
 					while ($row = $db->sql_fetchrow($result))
 					{
 						$selected = ($row['user_id'] == $new['mod_id'] ) ? 'selected' : '';
 						$combo_mod_entries .= '<option value="' . $row['user_id'] . '" ' . $selected . '>' . $row['username'] . '</option>';
 					}
 				}
-				
+
 				// Generate possible mods combobox
 				$mods_combo		 = '<select name="mod_id">';
 				$mods_combo		.= $combo_mod_entries;
@@ -250,18 +250,18 @@ class acp_formel
 				// Don't select the default phpBB3 groups
 				// If choosen "deactivated" - all "registered user" have access.
 				$combo_groups_entries = '';
-				
-				$sql = 'SELECT * 
-					FROM ' . GROUPS_TABLE . ' 
+
+				$sql = 'SELECT *
+					FROM ' . GROUPS_TABLE . '
 					WHERE group_type <> ' . GROUP_SPECIAL ;
 				$result = $db->sql_query($sql);
-				
+
 				while ($row = $db->sql_fetchrow($result))
 				{
 					$selected = ($row['group_id'] == $formel_config['restrict_to']) ? 'selected' : '';
 					$combo_groups_entries .= '<option value="' . $row['group_id'] . '" ' . $selected . '>' . $row['group_name'] . '</option>';
 				}
-				
+
 				$db->sql_freeresult($result);
 
 				// Generate groups combobox
@@ -273,14 +273,14 @@ class acp_formel
 
 				// Get all forum data - Don't select categories or links
 				$combo_forums_entries = '';
-				
-				$sql = 'SELECT forum_id, forum_name, forum_type 
-					FROM ' . FORUMS_TABLE . ' 
-					WHERE forum_type <> ' . FORUM_CAT . ' 
+
+				$sql = 'SELECT forum_id, forum_name, forum_type
+					FROM ' . FORUMS_TABLE . '
+					WHERE forum_type <> ' . FORUM_CAT . '
 						AND forum_type <> ' . FORUM_LINK . '
 					ORDER BY forum_name ASC';
 				$result = $db->sql_query($sql);
-				
+
 				while ($row = $db->sql_fetchrow($result))
 				{
 					$selected = ($row['forum_id'] == $new['forum_id'] ) ? 'selected' : '';
@@ -299,17 +299,17 @@ class acp_formel
 				{
 					$template->assign_block_vars('headbanner_on', array());
 				}
-				
+
 				if ($new['show_gfxr'])
 				{
 					$template->assign_block_vars('gfxr_on', array());
 				}
-				
+
 				if ($new['show_gfx'])
 				{
 					$template->assign_block_vars('gfx_on', array());
 				}
-				
+
 				if ($new['points_enabled'])
 				{
 					$template->assign_block_vars('points_on', array());
@@ -357,9 +357,9 @@ class acp_formel
 					'ACP_F1_SETTING_HEADBANNER2_IMG'		=> $new['headbanner2_img'],
 					'ACP_F1_SETTING_HEADBANNER2_URL'		=> $new['headbanner2_url'],
 					'ACP_F1_SETTING_HEADBANNER3_IMG'		=> $new['headbanner3_img'],
-					'ACP_F1_SETTING_HEADBANNER3_URL'		=> $new['headbanner3_url'],	
+					'ACP_F1_SETTING_HEADBANNER3_URL'		=> $new['headbanner3_url'],
 					'ACP_F1_SETTING_NO_RACE_IMG'			=> $new['no_race_img'],
-					'ACP_F1_SETTING_RACE_IMG_HEIGHT'		=> $new['race_img_height'],	
+					'ACP_F1_SETTING_RACE_IMG_HEIGHT'		=> $new['race_img_height'],
 					'ACP_F1_SETTING_RACE_IMG_WIDTH'			=> $new['race_img_width'],
 					'ACP_F1_SETTING_NO_CAR_IMG'				=> $new['no_car_img'],
 					'ACP_F1_SETTING_CAR_IMG_HEIGHT'			=> $new['car_img_height'],
@@ -376,16 +376,16 @@ class acp_formel
 					'ACP_F1_SETTING_SHOW_AVATAR'			=> $new['show_avatar'],
 					)
 				);
-				
+
 			break;
 
 			case 'drivers':
-			
+
 				$lang = 'ACP_F1_DRIVERS';
 				$this->page_title = $lang;
-				
+
 				$reset_all = (isset($_POST['reset_all'])) ? true : false;
-				
+
 				// Check buttons
 				$button_adddriver 	= (isset($_POST['adddriver'])) 	? true : false;
 				$button_add 		= (isset($_POST['add'])) 		? true : false;
@@ -411,7 +411,7 @@ class acp_formel
 					{
 						trigger_error('FORM_INVALID');
 					}
-					
+
 					if ($driver_id == 0)
 					{
 						$sql_ary = array(
@@ -421,12 +421,12 @@ class acp_formel
 							'driver_penalty'	=> $driver_penalty,
 							'driver_disabled'	=> $driver_disabled,
 						);
-						
+
 						$db->sql_query('INSERT INTO ' . FORMEL_DRIVERS_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
-						
+
 						add_log('admin', 'LOG_FORMEL_DRIVER_ADDED');
 					}
-					else 
+					else
 					{
 						if ($formel_config['show_gfx'] == 1)
 						{
@@ -437,13 +437,13 @@ class acp_formel
 								'driver_penalty'	=> $driver_penalty,
 								'driver_disabled'	=> $driver_disabled,
 							);
-							
-							$sql = 'UPDATE ' . FORMEL_DRIVERS_TABLE . ' 
+
+							$sql = 'UPDATE ' . FORMEL_DRIVERS_TABLE . '
 								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
 								WHERE driver_id = $driver_id";
 							$db->sql_query($sql);
 						}
-						else 
+						else
 						{
 							$sql_ary = array(
 								'driver_name'		=> $drivername,
@@ -451,16 +451,16 @@ class acp_formel
 								'driver_penalty'	=> $driver_penalty,
 								'driver_disabled'	=> $driver_disabled,
 							);
-							
-							$sql = 'UPDATE ' . FORMEL_DRIVERS_TABLE . ' 
+
+							$sql = 'UPDATE ' . FORMEL_DRIVERS_TABLE . '
 								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
 								WHERE driver_id = $driver_id";
 							$db->sql_query($sql);
 						}
-						
+
 						add_log('admin', 'LOG_FORMEL_DRIVER_EDITED', $driver_id);
 					}
-					
+
 					$error = $user->lang[$lang . '_DRIVER_UPDATED'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
@@ -473,13 +473,13 @@ class acp_formel
 					{
 						trigger_error('FORM_INVALID');
 					}
-					
-					$sql = 'DELETE FROM ' . FORMEL_DRIVERS_TABLE . ' 
+
+					$sql = 'DELETE FROM ' . FORMEL_DRIVERS_TABLE . '
 							WHERE driver_id = ' . (int) $driver_id;
 					$db->sql_query($sql);
 
 					add_log('admin', 'LOG_FORMEL_DRIVER_DELETED', $driver_id);
-					
+
 					$error = $user->lang[$lang . '_DRIVER_DELETED'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
@@ -509,30 +509,30 @@ class acp_formel
 						$title 		= $user->lang[$lang . '_TITEL_EDIT_DRIVER'];
 
 						// Get drivers data
-						$sql = 'SELECT * 
-							FROM ' . FORMEL_DRIVERS_TABLE . ' 
+						$sql = 'SELECT *
+							FROM ' . FORMEL_DRIVERS_TABLE . '
 							WHERE driver_id = ' . (int) $driver_id . '
 								ORDER BY driver_name';
 						$result = $db->sql_query($sql);
-						
+
 						$row = $db->sql_fetchrow($result);
-						
-						if ($button_edit) 
+
+						if ($button_edit)
 						{
 							$drivername 	= $row['driver_name'];
 						}
-						
+
 						$driverimg 			= $row['driver_img'];
 						$preselected_id 	= $row['driver_team'];
 						$driver_penalty 	= $row['driver_penalty'];
 						$driver_disabled 	= $row['driver_disabled'];
-						
+
 						$db->sql_freeresult($result);
 					}
 
 					// Get all teams data
-					$sql = 'SELECT * 
-						FROM ' . FORMEL_TEAMS_TABLE . ' 
+					$sql = 'SELECT *
+						FROM ' . FORMEL_TEAMS_TABLE . '
 						ORDER BY team_name';
 					$result = $db->sql_query($sql);
 
@@ -540,7 +540,7 @@ class acp_formel
 					while ($row = $db->sql_fetchrow($result))
 					{
 						$preselected = ($row['team_id'] == $preselected_id) ? 'selected' : '';
-						
+
 						$template->assign_block_vars('teamrow', array(
 							'TEAMNAME'		=> $row['team_name'],
 							'TEAM_ID'		=> $row['team_id'],
@@ -548,7 +548,7 @@ class acp_formel
 							)
 						);
 					}
-					
+
 					$db->sql_freeresult($result);
 
 					// Generate page
@@ -572,12 +572,12 @@ class acp_formel
 						)
 					);
 				}
-				else 
+				else
 				{
 					// Load the driver overview page
 					// Get all teams data
-					$sql = 'SELECT * 
-						FROM ' . FORMEL_TEAMS_TABLE . ' 
+					$sql = 'SELECT *
+						FROM ' . FORMEL_TEAMS_TABLE . '
 						ORDER BY team_name';
 					$result = $db->sql_query($sql);
 
@@ -586,12 +586,12 @@ class acp_formel
 						$teams[$row['team_id']]		= $row['team_name'];
 						$teamlogos[$row['team_id']]	= $row['team_img'];
 					}
-					
+
 					$db->sql_freeresult($result);
 
 					// Get all drivers data
-					$sql = 'SELECT * 
-						FROM ' . FORMEL_DRIVERS_TABLE . ' 
+					$sql = 'SELECT *
+						FROM ' . FORMEL_DRIVERS_TABLE . '
 						ORDER BY driver_name';
 					$result = $db->sql_query($sql);
 
@@ -603,16 +603,16 @@ class acp_formel
 						$driver_penalty 	= $row['driver_penalty'];
 						$driver_disabled 	= $row['driver_disabled'];
 
-						$pointssql = 'SELECT SUM(wm_points) AS total_points 
-							FROM ' . FORMEL_WM_TABLE . ' 
+						$pointssql = 'SELECT SUM(wm_points) AS total_points
+							FROM ' . FORMEL_WM_TABLE . '
 							WHERE wm_driver = ' . (int) $current_user_id;
 						$user_points = $db->sql_query($pointssql);
 
 						$driver_points = $db->sql_fetchrow($user_points);
 						$points = ($driver_points['total_points'] <> '') ? $driver_points['total_points'] - $driver_penalty : 0 - $driver_penalty;
-						
+
 						$db->sql_freeresult($user_points);
-						
+
 						if ($formel_config['show_gfx'] == 1)
 						{
 							$template->assign_block_vars('driverrow_gfx', array(
@@ -626,7 +626,7 @@ class acp_formel
 								)
 							);
 						}
-						else 
+						else
 						{
 							$template->assign_block_vars('driverrow', array(
 								'DRIVERNAME'		=> $row['driver_name'],
@@ -640,11 +640,11 @@ class acp_formel
 							);
 						}
 					}
-					
+
 					$db->sql_freeresult($result);
 
 					$colspan = 7;
-					
+
 					if ($formel_config['show_gfx'] == 1)
 					{
 						$colspan = 8;
@@ -661,11 +661,11 @@ class acp_formel
 						)
 					);
 				}
-				
+
 			break;
 
 			case 'teams':
-			
+
 				$lang = 'ACP_F1_TEAMS';
 
 				$this->page_title = $lang;
@@ -674,14 +674,14 @@ class acp_formel
 				$button_addteam 	= (isset($_POST['addteam'])) 	? true : false;
 				$button_add 		= (isset($_POST['add'])) 		? true : false;
 				$button_del 		= (isset($_POST['del'])) 		? true : false;
-				$button_edit 		= (isset($_POST['edit'])) 		? true : false;				
+				$button_edit 		= (isset($_POST['edit'])) 		? true : false;
 
 				$teamimg 			= request_var('teamimg'		,	''	,	true	);
 				$teamcar 			= request_var('teamcar'		,	''	,	true	);
 				$teamname 			= request_var('teamname'	,	''	,	true	);
 				$team_id 			= request_var('team_id'		,	0	);
 				$team_penalty		= request_var('team_penalty',	0.0	);
-				
+
 				// Init some vars
 				$formel_config = get_formel_config();
 
@@ -693,7 +693,7 @@ class acp_formel
 					{
 						trigger_error('FORM_INVALID');
 					}
-					
+
 					if ($team_id == 0)
 					{
 						$sql_ary = array(
@@ -702,12 +702,12 @@ class acp_formel
 							'team_car'		=> $teamcar,
 							'team_penalty'	=> $team_penalty,
 						);
-						
+
 						$db->sql_query('INSERT INTO ' . FORMEL_TEAMS_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
-						
+
 						add_log('admin', 'LOG_FORMEL_TEAM_ADDED');
 					}
-					else 
+					else
 					{
 						if ($formel_config['show_gfx'] == 1)
 						{
@@ -718,29 +718,29 @@ class acp_formel
 								'team_penalty'	=> $team_penalty,
 							);
 
-							$sql = 'UPDATE ' . FORMEL_TEAMS_TABLE . ' 
+							$sql = 'UPDATE ' . FORMEL_TEAMS_TABLE . '
 								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 								WHERE team_id = ' . (int) $team_id;
-								
+
 							$db->sql_query($sql);
 						}
-						else 
+						else
 						{
 							$sql_ary = array(
 								'team_name'		=> $teamname,
 								'team_penalty'	=> $team_penalty,
 							);
 
-							$sql = 'UPDATE ' . FORMEL_TEAMS_TABLE . ' 
+							$sql = 'UPDATE ' . FORMEL_TEAMS_TABLE . '
 								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 								WHERE team_id = ' . (int) $team_id;
-								
+
 							$db->sql_query($sql);
 						}
-						
+
 						add_log('admin', 'LOG_FORMEL_TEAM_EDITED', $team_id);
 					}
-					
+
 					$error = $user->lang[$lang . '_TEAM_UPDATED'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
@@ -753,13 +753,13 @@ class acp_formel
 					{
 						trigger_error('FORM_INVALID');
 					}
-					
-					$sql = 'DELETE FROM ' . FORMEL_TEAMS_TABLE . ' 
+
+					$sql = 'DELETE FROM ' . FORMEL_TEAMS_TABLE . '
 							WHERE team_id = ' . (int) $team_id;
 					$db->sql_query($sql);
 
 					add_log('admin', 'LOG_FORMEL_TEAM_DELETED', $team_id);
-					
+
 					$error = $user->lang[$lang . '_TEAM_DELETED'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
@@ -782,20 +782,20 @@ class acp_formel
 					{
 						$title_exp = $user->lang[$lang . '_EDITTEAM_TITLE_EXPLAIN'];
 						$title = $user->lang[$lang . '_EDITTEAM_TITLE'];
-						
-						$sql = 'SELECT * 
-							FROM ' . FORMEL_TEAMS_TABLE . ' 
-							WHERE team_id = ' . (int) $team_id . ' 
+
+						$sql = 'SELECT *
+							FROM ' . FORMEL_TEAMS_TABLE . '
+							WHERE team_id = ' . (int) $team_id . '
 							ORDER BY team_name';
 						$result = $db->sql_query($sql);
 
 						$row = $db->sql_fetchrow($result);
-						
+
 						$teamname		= $row['team_name'];
 						$teamimg		= $row['team_img'];
 						$teamcar		= $row['team_car'];
 						$team_penalty 	= $row['team_penalty'];
-						
+
 						$db->sql_freeresult($result);
 					}
 
@@ -818,12 +818,12 @@ class acp_formel
 						)
 					);
 				}
-				else 
+				else
 				{
 					// Load the team overview page
 					// Fetch all teams
-					$sql = 'SELECT * 
-						FROM ' . FORMEL_TEAMS_TABLE . ' 
+					$sql = 'SELECT *
+						FROM ' . FORMEL_TEAMS_TABLE . '
 						ORDER BY team_name';
 					$result = $db->sql_query($sql);
 
@@ -835,16 +835,16 @@ class acp_formel
 						$team_img		= ($team_img == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_team_img'] . '" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" alt="">' : '<img src="' . $phpbb_root_path . 'images/formel/' . $team_img . '" width="' . $formel_config['team_img_width'] . '" height="' . $formel_config['team_img_height'] . '" alt="">';
 						$team_car		= ($team_car == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="">' : '<img src="' . $phpbb_root_path . 'images/formel/' . $team_car . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="">';
 						$team_penalty 	= $row['team_penalty'];
-						
-						$pointssql		= '	SELECT SUM(wm_points) AS total_points 
-											FROM ' . FORMEL_WM_TABLE . ' 
+
+						$pointssql		= '	SELECT SUM(wm_points) AS total_points
+											FROM ' . FORMEL_WM_TABLE . '
 											WHERE wm_team = ' . (int) $current_team;
 						$team_points = $db->sql_query($pointssql);
 
 						$current_points = $db->sql_fetchrow($team_points);
-						
+
 						$points = ($current_points['total_points'] <> '') ? $current_points['total_points'] - $team_penalty: 0 - $team_penalty;
-						
+
 						$db->sql_freeresult($team_points);
 
 						if ($formel_config['show_gfx'] == 1)
@@ -859,7 +859,7 @@ class acp_formel
 								)
 							);
 						}
-						else 
+						else
 						{
 							$template->assign_block_vars('teamrow', array(
 								'TEAMNAME'		=> $row['team_name'],
@@ -872,12 +872,12 @@ class acp_formel
 							);
 						}
 					}
-					
+
 					$db->sql_freeresult($result);
 
 					// Generate page
 					$colspan = 5;
-					
+
 					if ($formel_config['show_gfx'] == 1)
 					{
 						$colspan = 7;
@@ -895,7 +895,7 @@ class acp_formel
 			break;
 
 			case 'races':
-			
+
 				$lang = 'ACP_F1_RACES';
 
 				$this->page_title = $lang;
@@ -905,7 +905,7 @@ class acp_formel
 				$button_add 	= (isset($_POST['add'])) 		? true : false;
 				$button_del 	= (isset($_POST['del'])) 		? true : false;
 				$button_edit 	= (isset($_POST['edit'])) 		? true : false;
-				
+
 				$b_day 			= request_var('c_day'			,	$user->format_date(time(),"d")	);
 				$b_month 		= request_var('c_month'			,	$user->format_date(time(),"n")	);
 				$b_year 		= request_var('c_year'			,	$user->format_date(time(),"Y")	);
@@ -931,7 +931,7 @@ class acp_formel
 					$error  = $user->lang[$lang . '_ERROR_RACENAME'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
-				
+
 				if ($button_add && $racename <> '')
 				{
 					// Is it salty ?
@@ -939,9 +939,9 @@ class acp_formel
 					{
 						trigger_error('FORM_INVALID');
 					}
-					
+
 					$racetime = mktime($b_hour, $b_minute, $b_second, $b_month, $b_day, $b_year, date("I"));
-					
+
 					if ( $race_id == 0 )
 					{
 						$sql_ary = array(
@@ -953,12 +953,12 @@ class acp_formel
 							'race_distance'	=> $racedistance,
 							'race_debut'	=> $racedebut
 						);
-						
+
 						$db->sql_query('INSERT INTO ' . FORMEL_RACES_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
-						
+
 						add_log('admin', 'LOG_FORMEL_RACE_ADDED');
 					}
-					else 
+					else
 					{
 						if ($formel_config['show_gfxr'] == 1)
 						{
@@ -971,13 +971,13 @@ class acp_formel
 								'race_distance'	=> $racedistance,
 								'race_debut'	=> $racedebut
 							);
-							
-							$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
+
+							$sql = 'UPDATE ' . FORMEL_RACES_TABLE . '
 								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 								WHERE race_id = ' . (int) $race_id;
 							$db->sql_query($sql);
 						}
-						else 
+						else
 						{
 							$sql_ary = array(
 								'race_name'		=> $racename,
@@ -987,16 +987,16 @@ class acp_formel
 								'race_distance'	=> $racedistance,
 								'race_debut'	=> $racedebut
 							);
-							
-							$sql = 'UPDATE ' . FORMEL_RACES_TABLE . ' 
+
+							$sql = 'UPDATE ' . FORMEL_RACES_TABLE . '
 								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 								WHERE race_id = ' . (int) $race_id;
 							$db->sql_query($sql);
 						}
-						
+
 						add_log('admin', 'LOG_FORMEL_RACE_EDITED', $race_id);
 					}
-					
+
 					$error = $user->lang[$lang . '_RACE_UPDATED'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
@@ -1008,14 +1008,14 @@ class acp_formel
 					if (!check_form_key('acp_formel'))
 					{
 						trigger_error('FORM_INVALID');
-					}				
+					}
 
-					$sql = 'DELETE FROM ' . FORMEL_RACES_TABLE . ' 
+					$sql = 'DELETE FROM ' . FORMEL_RACES_TABLE . '
 							WHERE race_id = ' . (int) $race_id;
 					$db->sql_query($sql);
 
 					add_log('admin', 'LOG_FORMEL_RACE_DELETED', $race_id);
-					
+
 					$error = $user->lang[$lang . '_RACE_DELETED'];
 					trigger_error($error . adm_back_link($this->u_action));
 				}
@@ -1031,9 +1031,9 @@ class acp_formel
 					{
 						$title_exp 		= $user->lang[$lang . '_TITEL_EDIT_RACE_EXPLAIN'];
 						$title 			= $user->lang[$lang . '_TITEL_EDIT_RACE'];
-						
-						$sql 			= '	SELECT * 
-											FROM ' . FORMEL_RACES_TABLE . ' 
+
+						$sql 			= '	SELECT *
+											FROM ' . FORMEL_RACES_TABLE . '
 											WHERE race_id = ' . (int) $race_id;
 						$result = $db->sql_query($sql);
 
@@ -1059,12 +1059,12 @@ class acp_formel
 
 					// Day month year hour minute second comboboxes
 					$c_day = '<select name="c_day" size="1" class="gensmall">';
-					
+
 					for ($i = 1; $i < 32; ++$i)
 					{
 						$c_day .= '<option value="' . $i . '">&nbsp;' . $i . '&nbsp;</option>';
 					}
-					
+
 					$c_day .= '</select>';
 					$c_month = '<select name="c_month" size="1" class="gensmall">
 								<option value="1">&nbsp;' . $user->lang['datetime']['January'] . '&nbsp;</option>
@@ -1086,7 +1086,7 @@ class acp_formel
 					{
 						$c_hour .= '<option value="' . $i . '">&nbsp;' . $i . '&nbsp;</option>';
 					}
-					
+
 					$c_hour .= '</select>';
 
 					$c_minute = '<select name="c_minute" size="1" class="gensmall">';
@@ -1098,7 +1098,7 @@ class acp_formel
 						$c_minute .= '<option value="' . $i . '">&nbsp;' . $j . $i . '&nbsp;</option>';
 						$c_second .= '<option value="' . $i . '">&nbsp;' . $j . $i .'&nbsp;</option>';
 					}
-					
+
 					$c_minute .= '</select>';
 					$c_second .= '</select>';
 
@@ -1134,12 +1134,12 @@ class acp_formel
 						)
 					);
 				}
-				else 
+				else
 				{
 					// Load the race page
 					// Get all race data
-					$sql = 'SELECT * 
-							FROM ' . FORMEL_RACES_TABLE . ' 
+					$sql = 'SELECT *
+							FROM ' . FORMEL_RACES_TABLE . '
 								ORDER BY race_time ASC';
 					$result = $db->sql_query($sql);
 
@@ -1158,7 +1158,7 @@ class acp_formel
 								'RACEDEAD' 	=> $user->format_date( $row['race_time'] - $formel_config['deadline_offset'] )
 							));
 						}
-						else 
+						else
 						{
 							$template->assign_block_vars('racerow', array(
 								'RACENAME' 	=> $row['race_name'],
@@ -1168,12 +1168,12 @@ class acp_formel
 							));
 						}
 					}
-					
+
 					$db->sql_freeresult($result);
 
 					// Generate page
 					$colspan = 5;
-					
+
 					if ($formel_config['show_gfxr'] == 1)
 					{
 						$colspan = 6;
@@ -1188,14 +1188,14 @@ class acp_formel
 						)
 					);
 				}
-				
+
 			break;
-			
+
 			default:
-			
+
 				$error_msg = 'You should never reach this point ;-)';
 				trigger_error($error_msg);
-				
+
 			break;
 		}
 	}

@@ -5,10 +5,10 @@
 <!-- IF S_STANDARD -->
 <script type="text/javascript">
 // <![CDATA[
-function showtipps(showtipps) 
-{ 
+function showtipps(showtipps)
+{
 	window.open(showtipps, "_showtipps", "width=400, height=630, resizable=yes");
-} 
+}
 // ]]>
 </script>
 
@@ -35,7 +35,7 @@ function showtipps(showtipps)
 
 	<div class="navbar bg2" style=" margin-top: 3px;">
 		<div class="inner"><span class="corners-top"><span></span></span>
-		
+
 			<div class="navbar bg2" style="float: left; margin-top: 3px; margin-right: 15px; border-right-width: 1px; border-right-style: solid; border-right-color: #FFFFFF; width: 30%;">
 				<table cellspacing="1">
 					<thead>
@@ -62,7 +62,7 @@ function showtipps(showtipps)
 					</tbody>
 				</table>
 			</div>
-			
+
 			<div class="navbar bg2" style="float: right; margin-top: 3px; margin-left: 15px; border-left-width: 1px; border-left-style: solid; border-left-color: #FFFFFF; width: 30%;">
 				<table cellspacing="1">
 					<thead>
@@ -118,18 +118,18 @@ function showtipps(showtipps)
 			</div>
 
 		<span class="corners-bottom"><span></span></span></div>
-	</div>	
-	
+	</div>
+
 	<p style="clear:both;" />
-	
+
 	<!-- BEGIN racerow -->
 	<h2>{L_FORMEL_CURRENT_RACE}:&nbsp;&nbsp;&nbsp;{racerow.RACENAME}</h2>
-	
+
 	<div style="float: left; clear: left; width: 39%;">
 
 		<div class="forumbg">
 			<div class="inner"><span class="corners-top"><span></span></span>
-			
+
 					<br/>
 					<!-- BEGIN racegfx -->
 					<div style="text-align: center;">
@@ -137,22 +137,22 @@ function showtipps(showtipps)
 						<br/><br/>
 					</div>
 					<!-- END racegfx -->
-			
+
 					<div class="column1" style="text-align: center;">
 						<input class="button1" type="submit" name="prev" value="{L_FORMEL_PREV_RACE}" />
 						<br/><br/>
 					</div>
-					
+
 					<div class="column2" style="text-align: center;">
 						<input class="button1" type="submit" name="next" value="{L_FORMEL_NEXT_RACE}" />
 						<br/><br/>
 					</div>
-							
+
 			<span class="corners-bottom"><span></span></span></div>
 		</div>
 
-	</div>	
-	
+	</div>
+
 	<div style="float: right; clear: right;	width: 59%;">
 
 		<div class="forumbg">
@@ -164,8 +164,8 @@ function showtipps(showtipps)
 							<dt style="padding: 2px 10px; font-size : 1.2em;">{racerow.RACENAME}</dt>
 						</dl>
 					</li>
-				</ul>				
-				<ul class="topiclist forums">	
+				</ul>
+				<ul class="topiclist forums">
 					<li class="row">
 						<dl style="font-size : 1.1em; font-weight: bold;">
 							<dt style="padding: 2px 10px; width : 40%;">
@@ -243,19 +243,19 @@ function showtipps(showtipps)
 					<script type="text/javascript">countdown();</script>
 				<!-- ENDIF -->
 				<br/>
-			
+
 			<span class="corners-bottom"><span></span></span></div>
-		</div>	
+		</div>
 
 	</div>
-	
+
 	<p style="clear: both;" />
 
 
-	<!-- END racerow -->	
-	
+	<!-- END racerow -->
+
 	<div><img src="images/spacer.gif" alt="" width="264" height="4"/></div>
-	
+
 	<div class="navbar bg3">
 		<div class="inner"><span class="corners-top"><span></span></span>
 
@@ -274,7 +274,7 @@ function showtipps(showtipps)
 
 	<div class="navbar ucprowbg">
 		<div class="inner"><span class="corners-top"><span></span></span>
-					
+
 			<table width="100%" cellpadding="0" cellspacing="1">
 				<tr>
 					<td valign="top" style="width: 30%;">
@@ -408,7 +408,7 @@ function showtipps(showtipps)
 									<th colspan="3" align="center" ><strong>{L_FORMEL_YOUR_TIPP}</strong></th>
 								</tr>
 							</thead>
-							<tbody>							
+							<tbody>
 								<!-- BEGIN users_tipp -->
 								<!-- IF users_tipp.S_ROW_COUNT < 3 -->
 								<tr class="bg1">
@@ -483,7 +483,7 @@ function showtipps(showtipps)
 								<!-- BEGIN extended_add_tipp -->
 								<tr class="bg1">
 									<td style="width: 40%; white-space:nowrap;" align="right"><span class="gen"><strong>&nbsp;{L_FORMEL_PACE}:</strong></span></td>
-									
+
 									<td style="width: 50%;" align="left"><span class="gen">&nbsp;{extended_add_tipp.DRIVERCOMBO}&nbsp;</span></td>
 									<td style="width: 10%;" align="left">&nbsp;</td>
 								</tr>
@@ -522,17 +522,17 @@ function showtipps(showtipps)
 			<input type="hidden" name="race_id" value="{RACE_ID}" />
 			<input type="hidden" name="tipp_time" value="{RACE_TIME}" />
 			{S_FORM_TOKEN}
-			
+
 			<!-- BEGIN place_tipp -->
 			<div style="text-align: center;"><input class="button1" type="submit" name="{place_tipp.PLACE_TIPP}" value="{place_tipp.L_PLACE_TIPP}" />{place_tipp.DELETE_TIPP}</div>
 			<!-- END place_tipp -->
 			<!-- BEGIN game_over -->
 			<div style="text-align: center;">{L_FORMEL_GAME_OVER}</div>
-			<!-- END game_over -->	
+			<!-- END game_over -->
 
 		<span class="corners-bottom"><span></span></span></div>
 	</div>
-	
+
 </form>
 
 <!-- ENDIF -->
@@ -620,7 +620,7 @@ function showtipps(showtipps)
 			<!-- END racerow -->
 			</tbody>
 		</table>
-			
+
 	<span class="corners-bottom"><span></span></span></div>
 </div>
 <!-- ENDIF -->
@@ -706,7 +706,7 @@ function showtipps(showtipps)
 			{S_FORM_TOKEN}
 			</div>
 		</form>
-		
+
 	<span class="corners-bottom"><span></span></span></div>
 </div>
 <!-- ENDIF -->
@@ -716,7 +716,7 @@ function showtipps(showtipps)
 
 <div class="forumbg">
 	<div class="inner"><span class="corners-top"><span></span></span>
-	
+
 		<div style="text-align: center;">
 			<!-- BEGIN head_on -->
 			<br/>
@@ -733,7 +733,7 @@ function showtipps(showtipps)
 			</form>
 			<br/>&nbsp;
 		</div>
-		
+
 	<span class="corners-bottom"><span></span></span></div>
 </div>
 
@@ -741,7 +741,7 @@ function showtipps(showtipps)
 
 <div class="forumbg">
 	<div class="inner"><span class="corners-top"><span></span></span>
-	
+
 		<table class="table1">
 			<!-- BEGIN top_tippers -->
 			<!-- IF top_tippers.S_ROW_COUNT == 0 -->
@@ -767,7 +767,7 @@ function showtipps(showtipps)
 					<td align="center" valign="middle" ><span class="gen">{top_tippers.TIPPER_POINTS}</span></td>
 				</tr>
 			<!-- END top_tippers -->
-			
+
 			<!-- BEGIN top_drivers_gfx -->
 			<!-- IF top_drivers_gfx.S_ROW_COUNT == 0 -->
 			<thead>
@@ -792,7 +792,7 @@ function showtipps(showtipps)
 					<td align="center" valign="middle">{top_drivers_gfx.WM_POINTS}</td>
 				</tr>
 			<!-- END top_drivers_gfx -->
-			
+
 			<!-- BEGIN top_drivers -->
 			<!-- IF top_drivers.S_ROW_COUNT == 0 -->
 			<thead>
@@ -814,7 +814,7 @@ function showtipps(showtipps)
 					<td align="center">{top_drivers.WM_POINTS}</td>
 				</tr>
 			<!-- END top_drivers -->
-			
+
 			<!-- BEGIN top_teams_gfx -->
 			<!-- IF top_teams_gfx.S_ROW_COUNT == 0 -->
 			<thead>
@@ -838,7 +838,7 @@ function showtipps(showtipps)
 					<td align="center" valign="middle">{top_teams_gfx.WM_POINTS}</td>
 				</tr>
 			<!-- END top_teams_gfx -->
-			
+
 			<!-- BEGIN top_teams -->
 			<!-- IF top_teams.S_ROW_COUNT == 0 -->
 			<thead>
@@ -873,7 +873,7 @@ function showtipps(showtipps)
 
 <div class="forumbg">
 	<div class="inner"><span class="corners-top"><span></span></span>
-	
+
 		<div style="text-align: center;">
 			<!-- BEGIN head_on -->
 			<br/>
@@ -886,7 +886,7 @@ function showtipps(showtipps)
 			</form>
 			<br/><br/>
 		</div>
-		
+
 	<span class="corners-bottom"><span></span></span></div>
 </div>
 
@@ -900,7 +900,7 @@ function showtipps(showtipps)
 				</dl>
 			</li>
 		</ul>
-		<ul class="topiclist forums">	
+		<ul class="topiclist forums">
 			<li class="row">
 				<dl>
 					<dt style="padding: 5px 12px; width : 15%; font-size : 1.2em; font-weight: bold; text-align : right;">
@@ -911,7 +911,7 @@ function showtipps(showtipps)
 					</dd>
 				</dl>
 			</li>
-	
+
 			<li class="row">
 				<dl>
 					<dt style="padding: 5px 12px; width : 15%; font-size : 1.2em; font-weight: bold; text-align : right;">
@@ -964,7 +964,7 @@ Please leave the copyright information at the bottom of your page for our mod.
 
 <div class="forumbg">
 	<div class="inner"><span class="corners-top"><span></span></span>
-	
+
 		<table class="table1">
 			<thead>
 				<tr>

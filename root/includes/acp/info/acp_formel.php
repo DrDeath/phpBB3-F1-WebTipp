@@ -8,11 +8,11 @@
 */
 
 /**
-* @ignore 
-*/ 
-if (!defined('IN_PHPBB')) 
-{ 
-	exit; 
+* @ignore
+*/
+if (!defined('IN_PHPBB'))
+{
+	exit;
 }
 
 /**

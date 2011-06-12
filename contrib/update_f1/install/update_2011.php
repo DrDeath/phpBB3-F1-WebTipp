@@ -62,7 +62,7 @@ function split_sql_file($sql, $delimiter)
 	return $data;
 }
 
-if ($submit == 'continue') 
+if ($submit == 'continue')
 {
 	// What sql_layer should we use?
 	switch ($db->sql_layer)
@@ -93,22 +93,22 @@ if ($submit == 'continue')
 			$db_schema = 'mssql';
 			$delimiter = 'GO';
 		break;
-		
+
 		case 'postgres':
 			$db_schema = 'postgres';
 			$delimiter = ';';
 		break;
-		
+
 		case 'sqlite':
 			$db_schema = 'sqlite';
 			$delimiter = ';';
 		break;
-		
+
 		case 'firebird':
 			$db_schema = 'firebird';
 			$delimiter = ';;';
 		break;
-		
+
 		case 'oracle':
 			$db_schema = 'oracle';
 			$delimiter = '/';
@@ -118,13 +118,13 @@ if ($submit == 'continue')
 			trigger_error('Sorry, unsupportet Databases found.');
 		break;
 	}
-	
+
 
 	// Cleanup the formel_drivers table
 	$sql = 'TRUNCATE TABLE '.$table_prefix.'formel_drivers';
 	$result = $db->sql_query($sql);
 	$db->sql_freeresult($result);
-	
+
 	// Cleanup the formel_teams table
 	$sql = 'TRUNCATE TABLE '.$table_prefix.'formel_teams';
 	$result = $db->sql_query($sql);
@@ -137,7 +137,7 @@ if ($submit == 'continue')
 
 	// Ok tables are now clean. let's fill in the basic information
 	$sql_query = file_get_contents('schemas/_schema_data.sql');
-	
+
 	// Deal with any special comments
 	switch ($db->sql_layer)
 	{
@@ -150,16 +150,16 @@ if ($submit == 'continue')
 			$sql_query = preg_replace('#\# POSTGRES (BEGIN|COMMIT) \##s', '\1; ', $sql_query);
 		break;
 	}
-	
+
 	// Change prefix
 	$sql_query = preg_replace('#phpbb_#i', $table_prefix, $sql_query);
 
 	// Remove all remarks ( # )
 	$sql_query = preg_replace('/\n{2,}/', "\n", preg_replace('/^#.*$/m', "\n", $sql_query));
-	
+
 	// Splitt all SQL Statements into an array
 	$sql_query = split_sql_file($sql_query, ';');
-	
+
 	// Tadaa! Fill all data in ;-)
 	foreach ($sql_query as $sql)
 	{
@@ -171,7 +171,7 @@ if ($submit == 'continue')
 		}
 	}
 	unset($sql_query);
-	
+
 
 	$message = '<span style="color:green; font-weight: bold;font-size: 1.5em;">Formula 1 WebTip database successfully updated.</span><br />
 				Don\'t forget to reset the old saison in ACP!.<br />
@@ -179,8 +179,8 @@ if ($submit == 'continue')
 				<span style="color:green; font-weight: bold;font-size: 1.5em;">Formel 1 WebTipp Datenbank erfolgreich aktualisiert.</span><br />
 				Vergiss nicht die Saison im ACP zu resetten!';
 	trigger_error($message);
-} 
-else 
+}
+else
 {
 	$message = '<span style="color:green; font-weight: bold;font-size: 1.5em;">Update F1 WebTipp Saison 2011 </span><br />
 				<br />
@@ -200,7 +200,7 @@ else
 				';
 	$message .= '%sContinue / Weiter%s ----- %sCancel / Abbrechen%s';
 	$message  = sprintf($message, '<a href="'.append_sid("update_2011.$phpEx?update=continue").'" class="gen">', '</a>', '<a href="'.append_sid( $phpbb_root_path . "index.$phpEx").'" class="gen">', '</a>');
-	
+
 	trigger_error( $message);
 }
 ?>

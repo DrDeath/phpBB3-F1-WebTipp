@@ -11,17 +11,17 @@
 /**
 * @ignore
 */
-if (!defined('IN_PHPBB')) 
-{ 
-	exit; 
-} 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
 
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
 
-// DEVELOPERS PLEASE NOTE 
+// DEVELOPERS PLEASE NOTE
 //
 // All language files should use UTF-8 as their encoding and the files must not contain a BOM.
 //
@@ -33,7 +33,7 @@ if (empty($lang) || !is_array($lang))
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
-// BBCodes 
+// BBCodes
 // Note to translators: you can translate everything but what's between { and }
 
 $lang = array_merge($lang, array(
@@ -106,7 +106,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_CAR_IMG_HEIGHT'				=> 'Hauteur de l\'image des voitures',
 	'ACP_F1_SETTINGS_CAR_IMG_HEIGHT_EXPLAIN'		=> 'Ici vous pouvez définir la <strong>hauteur en px</strong> des images des voitures',
 	'ACP_F1_SETTINGS_CAR_IMG_WIDTH'					=> 'Longueur des images des voitures',
-	'ACP_F1_SETTINGS_CAR_IMG_WIDTH_EXPLAIN'			=> 'Ici vous pouvez définir la <strong>longueur en px</strong> pour les images des voitures', 
+	'ACP_F1_SETTINGS_CAR_IMG_WIDTH_EXPLAIN'			=> 'Ici vous pouvez définir la <strong>longueur en px</strong> pour les images des voitures',
 	'ACP_F1_SETTINGS_NO_DRIVER_IMG'					=> 'Images standarts des pilotes',
 	'ACP_F1_SETTINGS_NO_DRIVER_IMG_EXPLAIN'			=> 'Ici vous pouvez définir les images standarts des pilotes, vide pour pas d\'image',
 	'ACP_F1_SETTINGS_DRIVER_IMG_HEIGHT'				=> 'Hauteur des images des pilotes',
