@@ -2,7 +2,7 @@
 /**
 *
 * @package phpbb3f1webtipp
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 * language/de/mods/formel.php - [Language - F1 WebTipp][German]
 *
 */
@@ -10,17 +10,17 @@
 /**
 * @ignore
 */
-if (!defined('IN_PHPBB')) 
-{ 
-	exit; 
-} 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
 
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
 
-// DEVELOPERS PLEASE NOTE 
+// DEVELOPERS PLEASE NOTE
 //
 // All language files should use UTF-8 as their encoding and the files must not contain a BOM.
 //
@@ -32,10 +32,10 @@ if (empty($lang) || !is_array($lang))
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
-// BBCodes 
+// BBCodes
 // Note to translators: you can translate everything but what's between { and }
 
-// Formel 1 WebTipp 
+// Formel 1 WebTipp
 $lang = array_merge($lang, array(
 	'FORMEL_TITLE'							=> 'Formel 1 WebTipp',
 	'FORMEL_CURRENT_RACE'					=> 'Aktuelles Rennen',
@@ -123,7 +123,7 @@ $lang = array_merge($lang, array(
 	'FORMEL_HIDDEN'							=> 'Verdeckt bis Deadline',
 	'FORMEL_COUNTDOWN_DEADLINE'				=> 'Countdown bis Deadline',
 	'FORMEL_DEADLINE_REACHED'				=> 'Countdown beendet',
-	
+
 	'INSERT_F1_FIRST_FILL'					=> 'Daten wurden in die Tabellen formel_config, formel_drivers, formel_teams und formel_races eingefügt.',
 	'INSERT_F1_CONFIG'						=> 'Daten wurden in Tabelle formel_config eingefügt.',
 	'FORMEL_GUESTS_PLACE_NO_TIP'			=> '<strong>Gäste können keinen Tipp abgeben.</strong><br /><br />Um Tipps abgeben zu können, musst du registriert und angemeldet sein.<br />',

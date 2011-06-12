@@ -10,17 +10,17 @@
 /**
 * @ignore
 */
-if (!defined('IN_PHPBB')) 
-{ 
-	exit; 
-} 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
 
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
 
-// DEVELOPERS PLEASE NOTE 
+// DEVELOPERS PLEASE NOTE
 //
 // All language files should use UTF-8 as their encoding and the files must not contain a BOM.
 //
@@ -32,7 +32,7 @@ if (empty($lang) || !is_array($lang))
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
-// BBCodes 
+// BBCodes
 // Note to translators: you can translate everything but what's between { and }
 
 $lang = array_merge($lang, array(
@@ -105,7 +105,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_CAR_IMG_HEIGHT'				=> 'Autobild Höhe',
 	'ACP_F1_SETTINGS_CAR_IMG_HEIGHT_EXPLAIN'		=> 'Hier kannst Du die <strong>Höhe in Px</strong> angeben,<br />in der das Autobild dargestellt werden soll',
 	'ACP_F1_SETTINGS_CAR_IMG_WIDTH'					=> 'Autobild Breite',
-	'ACP_F1_SETTINGS_CAR_IMG_WIDTH_EXPLAIN'			=> 'Hier kannst Du die <strong>Breite in Px</strong> angeben,<br />in der das Autobild dargestellt werden soll', 
+	'ACP_F1_SETTINGS_CAR_IMG_WIDTH_EXPLAIN'			=> 'Hier kannst Du die <strong>Breite in Px</strong> angeben,<br />in der das Autobild dargestellt werden soll',
 	'ACP_F1_SETTINGS_NO_DRIVER_IMG'					=> 'Standart Fahrerbild',
 	'ACP_F1_SETTINGS_NO_DRIVER_IMG_EXPLAIN'			=> 'Hier kannst Du das Bild angeben, welches angezeigt wird,<br />wenn kein Fahrerbild vorhanden ist',
 	'ACP_F1_SETTINGS_DRIVER_IMG_HEIGHT'				=> 'Fahrerbild Höhe',
@@ -119,7 +119,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_TEAM_IMG_WIDTH'				=> 'Teamlogo Breite',
 	'ACP_F1_SETTINGS_TEAM_IMG_WIDTH_EXPLAIN'		=> 'Hier kannst Du die <strong>Breite in Px</strong> angeben,<br />in der das Teamlogo dargestellt werden soll',
 	'ACP_F1_SETTINGS_SEASON_RESET'					=> 'Saison zurücksetzen',
-	'ACP_F1_SETTINGS_SEASON_RESET_EXPLAIN'			=> '<strong>Achtung:</strong> Wenn Du auf den Button klickst, wird die Saison unwiderruflich zurückgesetzt!<br /><br />Nach dem Reset müssen noch die Renntermine der neuen Saison angepasst werden. Der <a href="http://www.lpi-clan.de">Support</a> dieses Mods bietet hierfür SQL-Updates an.',	
+	'ACP_F1_SETTINGS_SEASON_RESET_EXPLAIN'			=> '<strong>Achtung:</strong> Wenn Du auf den Button klickst, wird die Saison unwiderruflich zurückgesetzt!<br /><br />Nach dem Reset müssen noch die Renntermine der neuen Saison angepasst werden. Der <a href="http://www.lpi-clan.de">Support</a> dieses Mods bietet hierfür SQL-Updates an.',
 	'ACP_F1_SETTINGS_SEASON_RESETTED'				=> 'Saison zurückgesetzt. Renntermine aktualisieren!',
 	'ACP_F1_SETTING_GUEST_VIEWING'					=> 'WebTipp sichtbar für Gäste',
 	'ACP_F1_SETTING_GUEST_VIEWING_EXPLAIN'			=> 'Nur möglich wenn Zugriff für <strong>WebTipp Gruppe</strong> deaktiviert ist.',
@@ -127,7 +127,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_POINTS_ENABLED_EXPLAIN'		=> 'Hier kannst Du angeben, ob für abgegebene Tipps Punkte vergeben werden sollen.<br /><strong>Hinweis: </strong>Funktioniert nur, wenn zuvor das Ultimate Points MOD installiert worden ist.',
 	'ACP_F1_SETTINGS_POINTS_VALUE'					=> 'Punkte pro abgegebenen Tipp',
 	'ACP_F1_SETTINGS_POINTS_VALUE_EXPLAIN'			=> 'Hier kannst Du angeben, wieviel <strong>Punkte</strong> ein abgegebener Tipp wert ist.',
-	
+
 	'ACP_F1_DRIVERS'								=> 'Formel 1 Fahrer',
 	'ACP_F1_DRIVERS_EXPLAIN'						=> 'Hier kannst Du neue Formel 1 Fahrer erstellen oder vorhandene bearbeiten',
 	'ACP_F1_DRIVERS_ADD'							=> 'Eintragen',
@@ -172,8 +172,8 @@ $lang = array_merge($lang, array(
 	'ACP_F1_RACES'									=> 'Formel 1 Rennen',
 	'ACP_F1_RACES_EXPLAIN'							=> 'Hier kannst Du neue Formel 1 Rennen erstellen oder vorhandene bearbeiten',
 	'ACP_F1_RACES_ADD_RACE'							=> 'Neues Rennen',
-	'ACP_F1_RACES_TITEL_ADD_RACE'					=> 'Formel 1 Rennen eintragen',	
-	'ACP_F1_RACES_TITEL_ADD_RACE_EXPLAIN'			=> 'Hier kannst Du ein neues Formel 1 Rennen erstellen',	
+	'ACP_F1_RACES_TITEL_ADD_RACE'					=> 'Formel 1 Rennen eintragen',
+	'ACP_F1_RACES_TITEL_ADD_RACE_EXPLAIN'			=> 'Hier kannst Du ein neues Formel 1 Rennen erstellen',
 	'ACP_F1_RACES_RACENAME'							=> 'Austragungsort',
 	'ACP_F1_RACES_RACEIMAGE'						=> 'Strecken Logo',
 	'ACP_F1_RACES_RACELENGTH'						=> 'Streckenlänge',
@@ -183,15 +183,15 @@ $lang = array_merge($lang, array(
 	'ACP_F1_RACES_RACETIME'							=> 'Rennbeginn',
 	'ACP_F1_RACES_RACEDEAD'							=> 'Deadline',
 	'ACP_F1_RACES_EDIT_RACE'						=> 'Bearbeiten',
-	'ACP_F1_RACES_TITEL_EDIT_RACE'					=> 'Formel 1 Rennen bearbeiten',	
-	'ACP_F1_RACES_TITEL_EDIT_RACE_EXPLAIN'			=> 'Hier kannst Du ein Formel 1 Rennen bearbeiten',	
+	'ACP_F1_RACES_TITEL_EDIT_RACE'					=> 'Formel 1 Rennen bearbeiten',
+	'ACP_F1_RACES_TITEL_EDIT_RACE_EXPLAIN'			=> 'Hier kannst Du ein Formel 1 Rennen bearbeiten',
 	'ACP_F1_RACES_DELETE_RACE'						=> 'Löschen',
 	'ACP_F1_RACES_ADD'								=> 'Eintragen',
 	'ACP_F1_RACES_RACE_UPDATED'						=> 'Renn Datenbank erfolgreich aktualisiert',
 	'ACP_F1_RACES_RACE_DELETED'						=> 'Der Eintrag wurde erfolgreich gelöscht',
 	'ACP_F1_RACES_ERROR_RACENAME'					=> 'Bitte gib alle benötigten Felder an',
-	
-	'ACP_F1_SETTINGS_COUNTDOWN'						=> 'Countdown',	
+
+	'ACP_F1_SETTINGS_COUNTDOWN'						=> 'Countdown',
 	'ACP_F1_SETTINGS_SHOW_COUNTDOWN'				=> 'Countdown anzeigen',
 	'ACP_F1_SETTINGS_SHOW_COUNTDOWN_EXPLAIN'		=> 'Hier kannst Du festlegen, ob der Countdown im WebTipp gezeigt werden soll.',
 	'ACP_F1_SETTINGS_SHOW_COUNTDOWN_TITLE'			=> 'Countdown Titel',

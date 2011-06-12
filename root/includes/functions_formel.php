@@ -8,12 +8,12 @@
 */
 
 /**
-* @ignore 
-*/ 
-if (!defined('IN_PHPBB')) 
-{ 
-	exit; 
-} 
+* @ignore
+*/
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
 
 /**
 * checkarrayforvalue
@@ -25,8 +25,8 @@ if (!defined('IN_PHPBB'))
 function checkarrayforvalue($wert, $array)
 {
 	$ret = false;
-	
-	if ($wert <> 0) 
+
+	if ($wert <> 0)
 	{
 		for ($i = 0; $i < count($array); ++$i)
 		{
@@ -36,7 +36,7 @@ function checkarrayforvalue($wert, $array)
 			}
 		}
 	}
-	
+
 	return $ret;
 }
 
@@ -50,9 +50,9 @@ function formel_del_tip($user_id, $race_id)
 {
 	global $db, $user, $phpEx, $phpbb_root_path;
 
-	$sql = 'DELETE 
-		FROM ' . FORMEL_TIPPS_TABLE . ' 
-		WHERE tipp_user = ' . (int) $user_id . ' 
+	$sql = 'DELETE
+		FROM ' . FORMEL_TIPPS_TABLE . '
+		WHERE tipp_user = ' . (int) $user_id . '
 			AND tipp_race = ' . (int) $race_id;
 	$db->sql_query($sql);
 
@@ -71,8 +71,8 @@ function get_formel_config()
 	global $db;
 
 	$config = array();
-	
-	$sql = 'SELECT * 
+
+	$sql = 'SELECT *
 		FROM ' . FORMEL_CONFIG_TABLE;
 	$result = $db->sql_query($sql);
 
@@ -80,7 +80,7 @@ function get_formel_config()
 	{
 		$config[$row['config_name']] = $row['config_value'];
 	}
-	
+
 	$db->sql_freeresult($result);
 
 	return $config;
@@ -97,14 +97,14 @@ function get_formel_races()
 	global $db;
 
 	$races = array();
-	
-	$sql = 'SELECT * 
+
+	$sql = 'SELECT *
 		FROM ' . FORMEL_RACES_TABLE . '
 		ORDER BY race_time ASC';
 	$result = $db->sql_query($sql);
 
 	$races = $db->sql_fetchrowset($result);
-	
+
 	$db->sql_freeresult($result);
 
 	return $races;
@@ -121,16 +121,16 @@ function get_formel_teams()
 	global $db;
 
 	$teams = array();
-	
-	$sql = 'SELECT * 
+
+	$sql = 'SELECT *
 		FROM ' . FORMEL_TEAMS_TABLE;
 	$result = $db->sql_query($sql);
 
-	while ($row = $db->sql_fetchrow($result)) 
+	while ($row = $db->sql_fetchrow($result))
 	{
 		$teams[$row['team_id']] = $row;
 	}
-	
+
 	$db->sql_freeresult($result);
 
 	return $teams;
@@ -148,31 +148,31 @@ function get_formel_drivers()
 	global $phpEx, $phpbb_root_path;
 
 	$drivers = array();
-	
-	$sql = 'SELECT * 
+
+	$sql = 'SELECT *
 		FROM ' . FORMEL_DRIVERS_TABLE . '
 		ORDER BY driver_id ASC';
 	$result = $db->sql_query($sql);
 
-	while ($row = $db->sql_fetchrow($result)) 
+	while ($row = $db->sql_fetchrow($result))
 	{
-		if ($row['driver_team'] <> 0) 
+		if ($row['driver_team'] <> 0)
 		{
 			$drivercar = ($teams[$row['driver_team']]['team_car'] <> '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $teams[$row['driver_team']]['team_car'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="" />';
 		}
-		else 
+		else
 		{
 			$drivercar = '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_car_img'] . '" width="' . $formel_config['car_img_width'] . '" height="' . $formel_config['car_img_height'] . '" alt="" />';
 		}
-		
+
 		$row['driver_img'] 			= ($row['driver_img'] == '') ? '<img src="' . $phpbb_root_path . 'images/formel/' . $formel_config['no_driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="" />' : '<img src="' . $phpbb_root_path . 'images/formel/' . $row['driver_img'] . '" width="' . $formel_config['driver_img_width'] . '" height="' . $formel_config['driver_img_height'] . '" alt="" />';
 		$row['driver_car'] 			= $drivercar;
 		$row['driver_team_name'] 	= $teams[$row['driver_team']]['team_name'];
 		$drivers[$row['driver_id']]	= $row;
 	}
-	
+
 	$db->sql_freeresult($result);
-	
+
 	return $drivers;
 }
 
@@ -187,26 +187,26 @@ function get_formel_drivers_data()
 	global $db, $teams, $formel_config, $user;
 
 	$drivers = array();
-	
-	$sql = 'SELECT * 
+
+	$sql = 'SELECT *
 		FROM ' . FORMEL_DRIVERS_TABLE . '
 		WHERE driver_disabled <> 1
 		ORDER BY driver_name ASC';
 	$result = $db->sql_query($sql);
 
 	$counter = 1;
-	
-	while ($row = $db->sql_fetchrow($result)) 
+
+	while ($row = $db->sql_fetchrow($result))
 	{
 		$drivers[$counter] = $row;
 		++$counter;
 	}
-	
+
 	$drivers['0']['driver_id']   = '0';
 	$drivers['0']['driver_name'] = $user->lang['FORMEL_DEFINE'];
-	
+
 	$db->sql_freeresult($result);
-	
+
 	return $drivers;
 }
 
@@ -222,7 +222,7 @@ function get_formel_userdata($user_id)
 
 	$sql = 'SELECT user_id, username, user_colour, user_avatar, user_avatar_type, user_avatar_width, user_avatar_height
 		FROM ' . USERS_TABLE . '
-		WHERE user_id = ' . (int) $user_id . ' 
+		WHERE user_id = ' . (int) $user_id . '
 			AND user_id <> ' . ANONYMOUS;
 	$result = $db->sql_query($sql);
 

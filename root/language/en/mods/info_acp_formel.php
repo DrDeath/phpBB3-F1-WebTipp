@@ -10,17 +10,17 @@
 /**
 * @ignore
 */
-if (!defined('IN_PHPBB')) 
-{ 
-	exit; 
-} 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
 
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
 
-// DEVELOPERS PLEASE NOTE 
+// DEVELOPERS PLEASE NOTE
 //
 // All language files should use UTF-8 as their encoding and the files must not contain a BOM.
 //
@@ -32,14 +32,14 @@ if (empty($lang) || !is_array($lang))
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
-// BBCodes 
+// BBCodes
 // Note to translators: you can translate everything but what's between { and }
 
 // Formular 1 Modules
 $lang = array_merge($lang, array(
 	'ACP_FORMEL_MANAGEMENT'			=> 'Formula 1 WebTip',
 	'ACP_FORMEL_SETTINGS'			=> 'Formula 1 Settings',
-	'ACP_FORMEL_DRIVERS'			=> 'Formula 1 Drivers',	
+	'ACP_FORMEL_DRIVERS'			=> 'Formula 1 Drivers',
 	'ACP_FORMEL_TEAMS'				=> 'Formula 1 Teams',
 	'ACP_FORMEL_RACES'				=> 'Formula 1 Races',
 	'LOG_FORMEL_TIP_GIVEN'			=> 'Formula 1 webtip for race %s added.',

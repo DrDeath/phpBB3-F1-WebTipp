@@ -45,11 +45,11 @@
 				</tr>
 				<tr class="row2">
 					<td nowrap="nowrap"><strong>{L_ACP_F1_SETTINGS_SHOW_PROFILE}:</strong><br />{L_ACP_F1_SETTINGS_SHOW_PROFILE_EXPLAIN}</td>
-					<td><input type="radio" class="radio" name="show_in_profile" value="1" {S_SHOW_IN_PROFILE_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" class="radio" name="show_in_profile" value="0" {S_SHOW_IN_PROFILE_NO} /> {L_NO}</td>		
+					<td><input type="radio" class="radio" name="show_in_profile" value="1" {S_SHOW_IN_PROFILE_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" class="radio" name="show_in_profile" value="0" {S_SHOW_IN_PROFILE_NO} /> {L_NO}</td>
 				</tr>
 				<tr class="row1">
 					<td nowrap="nowrap"><strong>{L_ACP_F1_SETTINGS_SHOW_VIEWTOPIC}:</strong><br />{L_ACP_F1_SETTINGS_SHOW_VIEWTOPIC_EXPLAIN}</td>
-					<td><input type="radio" class="radio" name="show_in_viewtopic" value="1" {S_SHOW_IN_VIEWTOPIC_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" class="radio" name="show_in_viewtopic" value="0" {S_SHOW_IN_VIEWTOPIC_NO} /> {L_NO}</td>		
+					<td><input type="radio" class="radio" name="show_in_viewtopic" value="1" {S_SHOW_IN_VIEWTOPIC_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" class="radio" name="show_in_viewtopic" value="0" {S_SHOW_IN_VIEWTOPIC_NO} /> {L_NO}</td>
 				</tr>
 				<tr class="row2">
 					<td nowrap="nowrap"><strong>{L_ACP_F1_SETTINGS_SHOW_COUNTDOWN}:</strong><br />{L_ACP_F1_SETTINGS_SHOW_COUNTDOWN_EXPLAIN}</td>
@@ -65,7 +65,7 @@
 				<tr class="row1">
 					<td nowrap="nowrap"><strong>{L_ACP_F1_SETTINGS_POINTS_PLACED}:</strong><br />{L_ACP_F1_SETTINGS_POINTS_PLACED_EXPLAIN}</td>
 					<td><input type="text" class="post" maxsize="64" size="8" name="points_placed" value="{ACP_F1_SETTING_POINTS_PLACED}" /></td>
-				</tr>	
+				</tr>
 				<tr class="row2">
 					<td nowrap="nowrap"><strong>{L_ACP_F1_SETTINGS_POINTS_FASTEST}:</strong><br />{L_ACP_F1_SETTINGS_POINTS_FASTEST_EXPLAIN}</td>
 					<td><input type="text" class="post" maxsize="64" size="8" name="points_fastest" value="{ACP_F1_SETTING_POINTS_FASTEST}" /></td>
@@ -87,7 +87,7 @@
 					<td nowrap="nowrap"><strong>{L_ACP_F1_SETTINGS_POINTS_VALUE}:</strong><br />{L_ACP_F1_SETTINGS_POINTS_VALUE_EXPLAIN}</td>
 					<td><input type="text" class="post" maxsize="64" size="30" name="points_value" value="{ACP_F1_SETTING_POINTS_VALUE}" /></td>
 				</tr>
-				<!-- END points_on -->				
+				<!-- END points_on -->
 				<tr>
 					<th colspan="2">{L_ACP_F1_SETTINGS_PICS}</th>
 				</tr>
@@ -193,7 +193,7 @@
 					<td><input type="text" class="post" maxsize="64" size="8" name="team_img_width" value="{ACP_F1_SETTING_TEAM_IMG_WIDTH}" /></td>
 				</tr>
 				<!-- END gfx_on -->
-			</tbody>	
+			</tbody>
 		</table>
 		<p class="submit-buttons">
 			<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
@@ -220,11 +220,11 @@
 		</table>
 		<p class="submit-buttons">
 		<input class="button1" type="submit" name="reset_all" value="{L_ACP_F1_SETTINGS_SEASON_RESET}" />
-		</p>	
+		</p>
 	</fieldset>
 	{S_FORM_TOKEN}
 	</form>
-<!-- ENDIF -->	
+<!-- ENDIF -->
 
 <!-- IF S_DRIVERS -->
 
@@ -286,9 +286,9 @@
 			<!-- END driverrow -->
 		</tbody>
 	</table>
-	
+
 	<br />
-	
+
 	<p class="submit-buttons">
 		<form method="POST" enctype="multipart/form-data">
 			<input class="button1" type="submit" name="adddriver" value="{L_ACP_F1_DRIVERS_ADD_DRIVER}" />
@@ -301,9 +301,9 @@
 <!-- IF S_ADDDRIVERS -->
 	<fieldset class="tabulated">
 	<legend>{L_ACP_F1_DRIVERS}</legend>
-	
+
 	<form id="acp_formel" method="post" action="{U_ACTION}">
-	
+
 	<table cellspacing="1">
 	    <thead>
 			<tr>
@@ -338,12 +338,12 @@
 			<tr>
 				<td class="row1" align="right" width="50%" valign="middle"  nowrap="nowrap"><span class="genmed"><strong>{L_ACP_F1_DRIVERS_DISABLED}:</strong></span>&nbsp;</td>
 				<td><input type="radio" class="radio" name="driver_disabled" value="0" {S_DRIVER_ENABLED} /> {L_YES}&nbsp;&nbsp;<input type="radio" class="radio" name="driver_disabled" value="1" {S_DRIVER_DISABLED} /> {L_NO}</td>
-			</tr>			
+			</tr>
 		</tbody>
 	</table>
-	
+
 	</fieldset>
-	    
+
 	<p class="submit-buttons">
 	    <form method="POST" enctype="multipart/form-data">
 			<input class="button1" type="submit" name="add" value="{L_ACP_F1_DRIVERS_ADD}" />
@@ -357,7 +357,7 @@
 <!-- IF S_TEAMS -->
 	<fieldset class="tabulated">
 	<legend>{L_ACP_F1_TEAMS}</legend>
-	
+
 	<table cellspacing="1">
 	    <thead>
 			<tr>
@@ -389,7 +389,7 @@
 				<td align="center" valign="middle" nowrap="nowrap"><input class="button2" type="submit" name="del"  value="{L_ACP_F1_TEAMS_DELETE_TEAM}" />{S_FORM_TOKEN}</td>
 			</tr>
 			</form>
-			<!-- END teamrow -->   
+			<!-- END teamrow -->
 			<!-- BEGIN teamrow_gfx -->
 			<form action="{U_ACTION}" method="POST" enctype="multipart/form-data">
 			<!-- IF teamrow_gfx.S_ROW_COUNT is even -->
@@ -409,9 +409,9 @@
 			<!-- END teamrow_gfx -->
 		</tbody>
 	</table>
-	
+
 	</fieldset>
-	
+
 	<p class="submit-buttons">
 		<form action="{U_ACTION}" method="POST" enctype="multipart/form-data">
 			<input class="button1" type="submit" name="addteam" value="{L_ACP_F1_TEAMS_ADD_TEAM}" />
@@ -422,9 +422,9 @@
 <!-- IF S_ADDTEAM -->
 	<fieldset class="tabulated">
 	<legend>{L_ACP_F1_TEAMS}</legend>
-	
+
 	<form action="{U_ACTION}" method="POST" enctype="multipart/form-data">
-	
+
 	<table cellspacing="1">
 		<thead>
 			<tr>
@@ -452,9 +452,9 @@
 			</tr>
 		</tbody>
 	</table>
-	
+
 	</fieldset>
-	
+
 	<p class="submit-buttons">
 		<input class="button1" type="submit" name="add" value="{L_ACP_F1_TEAMS_ADD}" />
 		<input type="hidden" name="team_id" value="{PREDEFINED_ID}" />
@@ -466,7 +466,7 @@
 <!-- IF S_RACES -->
 	<fieldset class="tabulated">
 	<legend>{L_ACP_F1_RACES}</legend>
-	
+
 	<table cellspacing="1">
 		<thead>
 			<tr>
@@ -516,9 +516,9 @@
 			<!-- END racerow -->
 		</tbody>
 	</table>
-	
+
 	</fieldset>
-	
+
 	<form action="{U_ACTION}" method="POST" enctype="multipart/form-data">
 		<p class="submit-buttons">
 			<input class="button1" type="submit" name="addrace" value="{L_ACP_F1_RACES_ADD_RACE}" />
@@ -529,9 +529,9 @@
 <!-- IF S_ADD_RACES -->
 	<fieldset class="tabulated">
 	<legend>{L_ACP_F1_RACES}</legend>
-	
+
 	<form action="{U_ACTION}" method="POST" enctype="multipart/form-data">
-	
+
 	<table cellspacing="1">
 		<thead>
 			<tr>
@@ -571,9 +571,9 @@
 			</tr>
 		</tbody>
 	</table>
-	
+
 	</fieldset>
-	
+
 	<p class="submit-buttons">
 		<input class="button1" type="submit" name="add" value="{L_ACP_F1_RACES_ADD}" />
 		<input type="hidden" name="race_id" value="{PREDEFINED_ID}" />
@@ -581,5 +581,5 @@
 	</p>
 	</form>
 <!-- ENDIF -->
-	
+
 <!-- INCLUDE overall_footer.html -->

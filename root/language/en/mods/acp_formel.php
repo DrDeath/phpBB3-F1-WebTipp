@@ -2,7 +2,7 @@
 /**
 *
 * @package phpbb3f1webtipp
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 * language/en/mods/acp_formel.php - [Language ACP - English]
 *
 */
@@ -10,17 +10,17 @@
 /**
 * @ignore
 */
-if (!defined('IN_PHPBB')) 
-{ 
-	exit; 
-} 
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
 
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
 
-// DEVELOPERS PLEASE NOTE 
+// DEVELOPERS PLEASE NOTE
 //
 // All language files should use UTF-8 as their encoding and the files must not contain a BOM.
 //
@@ -32,7 +32,7 @@ if (empty($lang) || !is_array($lang))
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
-// BBCodes 
+// BBCodes
 // Note to translators: you can translate everything but what's between { and }
 
 $lang = array_merge($lang, array(
@@ -105,7 +105,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_CAR_IMG_HEIGHT'				=> 'Car image height',
 	'ACP_F1_SETTINGS_CAR_IMG_HEIGHT_EXPLAIN'		=> 'Here you can define the <strong>height in px</strong> for the car image',
 	'ACP_F1_SETTINGS_CAR_IMG_WIDTH'					=> 'Car image width',
-	'ACP_F1_SETTINGS_CAR_IMG_WIDTH_EXPLAIN'			=> 'Here you can define the <strong>width in px</strong> for the car image', 
+	'ACP_F1_SETTINGS_CAR_IMG_WIDTH_EXPLAIN'			=> 'Here you can define the <strong>width in px</strong> for the car image',
 	'ACP_F1_SETTINGS_NO_DRIVER_IMG'					=> 'Standard driver image',
 	'ACP_F1_SETTINGS_NO_DRIVER_IMG_EXPLAIN'			=> 'Here you can define the standard image, for an empty driver image entry',
 	'ACP_F1_SETTINGS_DRIVER_IMG_HEIGHT'				=> 'Driver image height',
@@ -119,7 +119,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_TEAM_IMG_WIDTH'				=> 'Team image width',
 	'ACP_F1_SETTINGS_TEAM_IMG_WIDTH_EXPLAIN'		=> 'Here you can define the <strong>width in px</strong> for the team image',
 	'ACP_F1_SETTINGS_SEASON_RESET'					=> 'Reset season',
-	'ACP_F1_SETTINGS_SEASON_RESET_EXPLAIN'			=> '<strong>Attention:</strong> If you click the button, all season data will be lost!<br /><br />After resetting the season, you have to update all race start times.',	
+	'ACP_F1_SETTINGS_SEASON_RESET_EXPLAIN'			=> '<strong>Attention:</strong> If you click the button, all season data will be lost!<br /><br />After resetting the season, you have to update all race start times.',
 	'ACP_F1_SETTINGS_SEASON_RESETTED'				=> 'Season resettet. Update race start times!',
 	'ACP_F1_SETTING_GUEST_VIEWING'					=> 'WebTipp visible for guests',
 	'ACP_F1_SETTING_GUEST_VIEWING_EXPLAIN'			=> 'Only possible if permission for a <strong>WebTip Group</strong> is <strong>de-activated</strong>.',
@@ -127,7 +127,7 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_POINTS_ENABLED_EXPLAIN'		=> 'Here you can define whether to enable giving points for WebTipps or not.<br /><strong>Hint: </strong>Only operational if you have installed the Ultimate Points MOD.',
 	'ACP_F1_SETTINGS_POINTS_VALUE'					=> 'Points for given WebTipps',
 	'ACP_F1_SETTINGS_POINTS_VALUE_EXPLAIN'			=> 'Here you can define how much <strong>Points</strong> a given WebTipp is worth.',
-	
+
 	'ACP_F1_DRIVERS'								=> 'Formula 1 Drivers',
 	'ACP_F1_DRIVERS_EXPLAIN'						=> 'Here you can add or edit the drivers',
 	'ACP_F1_DRIVERS_ADD'							=> 'Send',
@@ -172,8 +172,8 @@ $lang = array_merge($lang, array(
 	'ACP_F1_RACES'									=> 'Formula 1 Races',
 	'ACP_F1_RACES_EXPLAIN'							=> 'Here you can add or edit Races',
 	'ACP_F1_RACES_ADD_RACE'							=> 'New Race',
-	'ACP_F1_RACES_TITEL_ADD_RACE'					=> 'Add Formula 1 Race',	
-	'ACP_F1_RACES_TITEL_ADD_RACE_EXPLAIN'			=> 'Here you can add a new Race',	
+	'ACP_F1_RACES_TITEL_ADD_RACE'					=> 'Add Formula 1 Race',
+	'ACP_F1_RACES_TITEL_ADD_RACE_EXPLAIN'			=> 'Here you can add a new Race',
 	'ACP_F1_RACES_RACENAME'							=> 'Location',
 	'ACP_F1_RACES_RACEIMAGE'						=> 'Logo',
 	'ACP_F1_RACES_RACELENGTH'						=> 'Lap Length',
@@ -183,8 +183,8 @@ $lang = array_merge($lang, array(
 	'ACP_F1_RACES_RACETIME'							=> 'Race start',
 	'ACP_F1_RACES_RACEDEAD'							=> 'Deadline',
 	'ACP_F1_RACES_EDIT_RACE'						=> 'Edit',
-	'ACP_F1_RACES_TITEL_EDIT_RACE'					=> 'Edit Formula 1 Race',	
-	'ACP_F1_RACES_TITEL_EDIT_RACE_EXPLAIN'			=> 'Here you can edit a Formular 1 Race',	
+	'ACP_F1_RACES_TITEL_EDIT_RACE'					=> 'Edit Formula 1 Race',
+	'ACP_F1_RACES_TITEL_EDIT_RACE_EXPLAIN'			=> 'Here you can edit a Formular 1 Race',
 	'ACP_F1_RACES_DELETE_RACE'						=> 'Delete',
 	'ACP_F1_RACES_ADD'								=> 'Send',
 	'ACP_F1_RACES_RACE_UPDATED'						=> 'Race data saved',
