@@ -5,12 +5,12 @@
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
-		<title lang="en"><![CDATA[Formula 1 WebTip Update to Saison 2011]]></title>
-		<title lang="de"><![CDATA[Formel 1 WebTipp Update auf Saison 2011]]></title>
-		<description lang="en"><![CDATA[With this mod you can update your Formula 1 tipp game to the saison 2011.
+		<title lang="en"><![CDATA[Formula 1 WebTip Update to Saison 2012]]></title>
+		<title lang="de"><![CDATA[Formel 1 WebTipp Update auf Saison 2012]]></title>
+		<description lang="en"><![CDATA[With this mod you can update your Formula 1 tipp game to the saison 2012.
 The updater will first truncate all Formular 1 Webtipp Race, Teams and Driver Tables.
 After that it will fill in the actual Race, Teams and Driver data.]]></description>
-		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel auf die Saison 2011.
+		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel auf die Saison 2012.
 Der Updater wird zuerst alle Renn- , Team- und Fahrer Tabellen leeren und anschliessend die Renn- , Team- und Fahrer Tabellen mit den aktiuellen Saison Daten füllen..]]></description>
 		<author-group>
 			<author>
@@ -45,10 +45,10 @@ Der Updater wird zuerst alle Renn- , Team- und Fahrer Tabellen leeren und anschl
 	</header>
 	<action-group>
 		<copy>
-			<file from="contrib/update_f1/install/update_2011.php" to="install/update_2011.php"/>
+			<file from="contrib/update_f1/install/update_2012.php" to="install/update_2012.php"/>
 			<file from="contrib/update_f1/install/schemas/_schema_data.sql" to="install/schemas/_schema_data.sql"/>
 		</copy>
-		<php-installer><![CDATA[install/update_2011.php]]></php-installer>
+		<php-installer><![CDATA[install/update_2012.php]]></php-installer>
 		<diy-instructions lang="en"><![CDATA[Have fun!]]></diy-instructions>
 		<diy-instructions lang="de"><![CDATA[Viel Spass !]]></diy-instructions>
 	</action-group>
