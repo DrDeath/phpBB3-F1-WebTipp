@@ -51,7 +51,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		<installation>
 			<level>easy</level>
 			<time>900</time>
-			<target-version>3.0.8</target-version>
+			<target-version>3.0.10</target-version>
 		</installation>
 		<history>
 			<entry>
@@ -337,7 +337,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				</changelog>
 			</entry>
 			<entry>
-				<date>2011-XX-YY</date>
+				<date>2012-02-20</date>
 				<rev-version>0.3.7</rev-version>
 				<changelog lang="en">
 					<change><![CDATA[Version raised to 0.3.7.]]></change>

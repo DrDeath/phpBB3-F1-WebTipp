@@ -34,11 +34,11 @@
 		<installation>
 			<level>easy</level>
 			<time>300</time>
-			<target-version>3.0.8</target-version>
+			<target-version>3.0.10</target-version>
 		</installation>
 		<history>
 			<entry>
-				<date>2011-XX-YY</date>
+				<date>2011-05-26</date>
 				<rev-version>0.3.6</rev-version>
 				<changelog lang="en">
 					<change><![CDATA[Changed design. Own PayPal-Link added, no SF-Link anymore.]]></change>
