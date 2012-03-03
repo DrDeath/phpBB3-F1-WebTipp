@@ -52,7 +52,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<email><![CDATA[webmaster@oxpus.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>0.3.7</mod-version>
+		<mod-version>0.3.8</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>900</time>
@@ -67,8 +67,8 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<link type="language" href="contrib/fr.xml" lang="de">Anleitung für das französische Sprachpaket</link>
 			<link type="template" href="contrib/subsilver2.xml" lang="en">Manual for subsilver2 style</link>
 			<link type="template" href="contrib/subsilver2.xml" lang="de">Anleitung für das Style subsilver2</link>
-			<link type="contrib" href="contrib/update_f1.xml" lang="en">F1-Season Update 2011</link>
-			<link type="contrib" href="contrib/update_f1.xml" lang="de">F1-Saison Update 2011</link>
+			<link type="contrib" href="contrib/update_f1.xml" lang="en">F1-Season Update 2012</link>
+			<link type="contrib" href="contrib/update_f1.xml" lang="de">F1-Saison Update 2012</link>
 		</link-group>
 	</header>
 	<action-group>
