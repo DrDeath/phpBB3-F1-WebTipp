@@ -743,8 +743,8 @@ switch ($mode)
 						//Count Tired DropDown
 						$tiredcombo = '<select name="place12" size="1">';
 
-						//We have 12 Teams with 2 cars each --> 24 drivers
-						for ($k = 0; $k < 25; ++$k)
+						//We have 11 Teams with 2 cars each --> 22 drivers
+						for ($k = 0; $k < 23; ++$k)
 						{
 							$selected 			 = ($k == $tipp_array['11']) ? 'selected' : '';
 							$tiredcombo 		.= '<option value="' . $k . '" ' . $selected . '>' . $k . '</option>';
@@ -841,8 +841,8 @@ switch ($mode)
 							//Count Tired DropDown
 							$tiredcombo = '<select name="place12" size="1">';
 
-							//We have 12 Teams with 2 cars each --> 24 drivers
-							for ($k = 0; $k < 25; ++$k)
+							//We have 11 Teams with 2 cars each --> 22 drivers
+							for ($k = 0; $k < 23; ++$k)
 							{
 								$tiredcombo .= '<option value="' . $k . '">' . $k . '</option>';
 							}
@@ -1257,8 +1257,8 @@ switch ($mode)
 
 			if ($race_id <> 0)
 			{
-				//We have 12 Teams with 2 cars each --> 24 drivers
-				for ($i = 0; $i < 24; ++$i)
+				//We have 11 Teams with 2 cars each --> 22 drivers
+				for ($i = 0; $i < 22; ++$i)
 				{
 					$value = request_var('place' . ( $i + 1 ), 0);
 
@@ -1510,8 +1510,8 @@ switch ($mode)
 			$drivers['0']['driver_id'] = '0';
 			$drivers['0']['driver_name'] = $user->lang['FORMEL_DEFINE'];
 
-			//We have 12 Teams with 2 cars each --> 24 drivers
-			for ($i = 0; $i < 24; ++$i)
+			//We have 11 Teams with 2 cars each --> 22 drivers
+			for ($i = 0; $i < 22; ++$i)
 			{
 				$position = ($i == 0) ? $user->lang['FORMEL_POLE'] : $i + 1 . '. ' . $user->lang['FORMEL_PLACE'];
 				$box_name = 'place' . ($i + 1);
@@ -1638,8 +1638,8 @@ switch ($mode)
 
 			$combo_tired = '<select name="place12" size="1">';
 
-			//We have 12 Teams with 2 cars each --> 24 drivers
-			for ($k = 0; $k < 25; ++$k)
+			//We have 11 Teams with 2 cars each --> 22 drivers
+			for ($k = 0; $k < 23; ++$k)
 			{
 				if (isset($result_array['11']))
 				{
