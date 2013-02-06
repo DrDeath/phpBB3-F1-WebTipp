@@ -57,20 +57,21 @@
 			<file from="root/formel.php" to="formel.php"/>
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html"/>
 			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html"/>
+			<file from="root/umil/*.*" to="umil/*.*"/>
 		</copy>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
 		<diy-instructions lang="en"><![CDATA[Clear your cache in the "Administration Control Panel" (ACP) > "General" > "Purge the cache"
 
 Refresh your Styles:
-		"Administration Control Panel" (ACP) > "Styles" > "Templates" 	> each > "refresh"
-		"Administration Control Panel" (ACP) > "Styles" > "Themes" 		> each > "refresh"
+		"Administration Control Panel" (ACP) > "Styles" > "Templates" > each > "refresh"
+		"Administration Control Panel" (ACP) > "Styles" > "Themes"    > each > "refresh"
 
 And now: Have fun!]]></diy-instructions>
 		<diy-instructions lang="de"><![CDATA[Leere den Cache im "Administrations-Bereich" (ACP) > "Allgemein" > "Den Cache leeren"
 
 Aktualisiere deine Styles:
-		"Administrations-Bereich" (ACP) > "Styles" > "Templates" 	> jedes > "Aktualisieren"
-		"Administrations-Bereich" (ACP) > "Styles" > "Themes" 		> jedes > "Aktualisieren"
+		"Administrations-Bereich" (ACP) > "Styles" > "Templates" > jedes > "Aktualisieren"
+		"Administrations-Bereich" (ACP) > "Styles" > "Themes"    > jedes > "Aktualisieren"
 
 Und nun: Viel Spass !]]></diy-instructions>
 	</action-group>
