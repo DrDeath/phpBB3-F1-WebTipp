@@ -6,17 +6,17 @@ INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_r
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (5, 'Spanien / Barcelona', '', '0', '0', 1368360000, '4,655', 66, '307,104', 1991);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (6, 'Monaco / Monte Carlo', '', '0', '0', 1369569600, '3,340', 78, '260,520', 1950);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (7, 'Kanada / Montreal', '', '0', '0', 1370800800, '4,361', 70, '305,270', 1967);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (8, 'Großbritannien / Silverstone', '', '0', '0', 1372593600, '5,891', 52, '306,227', 1950);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (9, 'Deutschland / Nürburgring', '', '0', '0', 1373198400, '5,148', 60, '308,863', 1984);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (8, 'Großbritannien / Silverstone', '', '0', '0', 1372593600, '5,891', 52, '306,198', 1950);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (9, 'Deutschland / Nürburgring', '', '0', '0', 1373198400, '5,148', 60, '308,623', 1984);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (10, 'Ungarn / Budapest', '', '0', '0', 1375012800, '4,381', 70, '306,630', 1986);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (11, 'Belgien / Spa-Francorchamps', '', '0', '0', 1377432000, '7,004', 44, '308,052', 1950);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (12, 'Italien / Monza', '', '0', '0', 1378641600, '5,793', 53, '306,720', 1950);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (13, 'Singapur / Singapur', '', '0', '0', 1379851200, '5,073', 61, '309,316', 2008);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (14, 'Korea / Yeongum', '', '0', '0', 1381039200, '5,615', 55, '308,630', 2010);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (15, 'Japan / Suzuka', '', '0', '0', 1381644000, '5,807', 53, '307,471', 1987);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (16, 'Indien / Greater Noida', '', '0', '0', 1382866200, '5,125', 60, '307,500', 2011);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (17, 'Arabische Emirate / Abu Dhabi', '', '0', '0', 1383483600, '5,554', 55, '305,361', 2009);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (18, 'USA / Austin', '', '0', '0', 1384714800, '5,516', 56, '308,896', 2012);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (16, 'Indien / Greater Noida', '', '0', '0', 1382866200, '5,125', 60, '307,249', 2011);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (17, 'Arabische Emirate / Abu Dhabi', '', '0', '0', 1383483600, '5,554', 55, '305,355', 2009);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (18, 'USA / Austin', '', '0', '0', 1384714800, '5,513', 56, '308,405', 2012);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (19, 'Brasilien / São Paulo', '', '0', '0', 1385308800, '4,309', 71, '305,909', 1973);
 
 
@@ -61,7 +61,7 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 
 # -- Team 7 Force India F1 Team
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (14, 'Resta di, Paul', '', 7);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (15, 'Bianchi, Jules', '', 7);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (15, 'Sutil, Adrian', '', 7);
 
 # -- Team 8 Williams
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (16, 'Maldonado, Pastor', '', 8);
@@ -89,5 +89,5 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (35, 'Valsecchi, Davide', '', 4);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (36, 'Prost, Nicolas', '', 4);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (37, 'Frijns, Robin', '', 6);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (38, 'Sutil, Adrian', '', 7);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (38, 'Bianchi, Jules', '', 7);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (39, 'Wolff, Susie', '', 8);
