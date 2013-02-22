@@ -1,98 +1,93 @@
-# -- Races -- 2012 in progress - dates and start times are missing..... new USA circuit data missing....
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (1, 'Australien / Melbourne', '', '0', '0', 1332050400, '5,303', 58, '307,574', 1996);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (2, 'Malaysia / Kuala Lumpur', '', '0', '0', 1332666000, '5,543', 56, '310,408', 1999);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (3, 'China / Shanghai', '', '0', '0', 1334473200, '5,451', 56, '305,066', 2004);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (4, 'Bahrain / Manama', '', '0', '0', 1335096000, '5,412', 57, '308,238', 2004);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (5, 'Spanien / Barcelona', '', '0', '0', 1336910400, '4,655', 66, '307,104', 1991);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (6, 'Monaco / Monte Carlo', '', '0', '0', 1338120000, '3,340', 78, '260,520', 1950);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (7, 'Kanada / Montreal', '', '0', '0', 1339351200, '4,361', 70, '305,270', 1967);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (8, 'Europa / Valencia', '', '0', '0', 1340539200, '5,419', 57, '308,883', 2008);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (9, 'Großbritannien / Silverstone', '', '0', '0', 1341748800, '5,891', 52, '306,747', 1950);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (10, 'Deutschland / Hockenheim', '', '0', '0', 1342958400, '4,574', 67, '306,458', 1970);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (11, 'Ungarn / Budapest', '', '0', '0', 1343563200, '4,381', 70, '306,630', 1986);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (12, 'Belgien / Spa-Francorchamps', '', '0', '0', 1346587200, '7,004', 44, '308,052', 1950);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (13, 'Italien / Monza', '', '0', '0', 1347192000, '5,793', 53, '306,720', 1950);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (14, 'Singapur / Singapur', '', '0', '0', 1348401600, '5,073', 61, '309,316', 2008);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (15, 'Japan / Suzuka', '', '0', '0', 1349589600, '5,807', 53, '307,471', 1987);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (16, 'Korea / Yeongum', '', '0', '0', 1350194400, '5,615', 55, '309,155', 2010);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (17, 'Indien / Greater Noida', '', '0', '0', 1351413000, '5,125', 60, '307,500', 2011);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (18, 'Arabische Emirate / Abu Dhabi', '', '0', '0', 1352034000, '5,554', 55, '305,361', 2009);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (19, 'USA / Austin', '', '0', '0', 1353265200, '5,500', 0, '0', 2012);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (20, 'Brasilien / São Paulo', '', '0', '0', 1353859200, '4,309', 71, '305,909', 1973);
+# -- Races -- 2013 in progress - dates and start times maybe not correct....
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (1, 'Australien / Melbourne', '', '0', '0', 1363500000, '5,303', 58, '307,574', 1996);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (2, 'Malaysia / Kuala Lumpur', '', '0', '0', 1364112000, '5,543', 56, '310,408', 1999);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (3, 'China / Shanghai', '', '0', '0', 1365922800, '5,451', 56, '305,066', 2004);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (4, 'Bahrain / Manama', '', '0', '0', 1366545600, '5,412', 57, '308,238', 2004);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (5, 'Spanien / Barcelona', '', '0', '0', 1368360000, '4,655', 66, '307,104', 1991);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (6, 'Monaco / Monte Carlo', '', '0', '0', 1369569600, '3,340', 78, '260,520', 1950);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (7, 'Kanada / Montreal', '', '0', '0', 1370800800, '4,361', 70, '305,270', 1967);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (8, 'Großbritannien / Silverstone', '', '0', '0', 1372593600, '5,891', 52, '306,198', 1950);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (9, 'Deutschland / Nürburgring', '', '0', '0', 1373198400, '5,148', 60, '308,623', 1984);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (10, 'Ungarn / Budapest', '', '0', '0', 1375012800, '4,381', 70, '306,630', 1986);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (11, 'Belgien / Spa-Francorchamps', '', '0', '0', 1377432000, '7,004', 44, '308,052', 1950);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (12, 'Italien / Monza', '', '0', '0', 1378641600, '5,793', 53, '306,720', 1950);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (13, 'Singapur / Singapur', '', '0', '0', 1379851200, '5,073', 61, '309,316', 2008);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (14, 'Korea / Yeongum', '', '0', '0', 1381039200, '5,615', 55, '308,630', 2010);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (15, 'Japan / Suzuka', '', '0', '0', 1381644000, '5,807', 53, '307,471', 1987);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (16, 'Indien / Greater Noida', '', '0', '0', 1382866200, '5,125', 60, '307,249', 2011);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (17, 'Arabische Emirate / Abu Dhabi', '', '0', '0', 1383483600, '5,554', 55, '305,355', 2009);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (18, 'USA / Austin', '', '0', '0', 1384714800, '5,513', 56, '308,405', 2012);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (19, 'Brasilien / São Paulo', '', '0', '0', 1385308800, '4,309', 71, '305,909', 1973);
 
 
-# -- Teams -- 2012
+# -- Teams -- 2013
 INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (1, 'Red Bull Racing', '', '', 0.00);
-INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (2, 'McLaren Mercedes', '', '', 0.00);
-INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (3, 'Scuderia Ferrari', '', '', 0.00);
-INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (4, 'Mercedes F1 Team', '', '', 0.00);
-INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (5, 'Lotus F1 Team', '', '', 0.00);
-INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (6, 'Force India F1 Team', '', '', 0.00);
-INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (7, 'Sauber F1 Team', '', '', 0.00);
-INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (8, 'Scuderia Toro Rosso', '', '', 0.00);
-INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (9, 'Williams F1 Team', '', '', 0.00);
+INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (2, 'Scuderia Ferrari', '', '', 0.00);
+INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (3, 'McLaren Mercedes', '', '', 0.00);
+INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (4, 'Lotus F1 Team', '', '', 0.00);
+INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (5, 'Mercedes F1 Team', '', '', 0.00);
+INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (6, 'Sauber F1 Team', '', '', 0.00);
+INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (7, 'Force India F1 Team', '', '', 0.00);
+INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (8, 'Williams F1 Team', '', '', 0.00);
+INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (9, 'Scuderia Toro Rosso', '', '', 0.00);
 INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (10, 'Caterham F1 Team', '', '', 0.00);
-INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (11, 'HRT F1 Team', '', '', 0.00);
-INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (12, 'Marussia F1 Team', '', '', 0.00);
+INSERT INTO phpbb_formel_teams (team_id, team_name, team_img, team_car, team_penalty) VALUES (11, 'Marussia F1 Team', '', '', 0.00);
 
 
-# -- Drivers -- 2012 - in progress (missing drivers can be added in the ACP modul)
+# -- Drivers -- 2013 - (missing drivers can be added in the ACP modul)
 # -- Team 1 Red Bull Racing
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (1, 'Vettel, Sebastian', '', 1);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (2, 'Webber, Mark', '', 1);
 
-# -- Team 2 McLaren Mercedes
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (3, 'Button, Jenson', '', 2);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (4, 'Hamilton, Lewis', '', 2);
+# -- Team 2 Scuderia Ferrari
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (3, 'Alonso, Fernando', '', 2);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (4, 'Massa, Felipe', '', 2);
 
-# -- Team 3 Scuderia Ferrari
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (5, 'Alonso, Fernando', '', 3);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (6, 'Massa, Felipe', '', 3);
+# -- Team 3 McLaren Mercedes
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (5, 'Button, Jenson', '', 3);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (6, 'Pérez, Sergio', '', 3);
 
-# -- Team 4 Mercedes F1 Team
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (7, 'Schumacher, Michael', '', 4);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (8, 'Rosberg, Nico', '', 4);
+# -- Team 4 Lotus F1 Team
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (7, 'Räikkönen, Kimi', '', 4);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (8, 'Grosjean, Romain', '', 4);
 
-# -- Team 5 Lotus F1 Team
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (9, 'Räikkönen, Kimi', '', 5);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (10, 'Grosjean, Romain', '', 5);
+# -- Team 5 Mercedes F1 Team
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (9, 'Rosberg, Nico', '', 5);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (10, 'Hamilton, Lewis', '', 5);
 
-# -- Team 6 Force India F1 Team
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (11, 'Resta di, Paul', '', 6);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (12, 'Hülkenberg, Nico', '', 6);
+# -- Team 6 Sauber F1 Team
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (11, 'Hülkenberg, Nico', '', 6);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (12, 'Gutiérrez, Esteban', '', 6);
 
-# -- Team 7 Sauber F1 Team
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (14, 'Kobayashi, Kamui', '', 7);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (15, 'Pérez, Sergio', '', 7);
+# -- Team 7 Force India F1 Team
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (14, 'Resta di, Paul', '', 7);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (15, 'Sutil, Adrian', '', 7);
 
-# -- Team 8 Scuderia Toro Rosso
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (16, 'Ricciardo, Daniel', '', 8);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (17, 'Vergne, Jean-Eric', '', 8);
+# -- Team 8 Williams
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (16, 'Maldonado, Pastor', '', 8);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (17, 'Bottas, Valtteri', '', 8);
 
-# -- Team 9 Williams
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (18, 'Maldonado, Pastor', '', 9);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (19, 'Senna, Bruno', '', 9);
+# -- Team 9 Scuderia Toro Rosso
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (18, 'Ricciardo, Daniel', '', 9);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (19, 'Vergne, Jean-Eric', '', 9);
 
 # -- Team 10 Caterham F1 Team
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (20, 'Kovalainen, Heikki', '', 10);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (21, 'Petrow, Witali', '', 10);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (20, 'Pic, Charles', '', 10);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (21, 'Garde van der, Giedo', '', 10);
 
-# -- Team 11 HRT F1 Team
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (22, 'Rosa de la, Pedro', '', 11);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (23, 'Karthikeyan, Narain', '', 11);
+# -- Team 11 Marussia Virgin Racing
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (22, 'Chilton, Max', '', 11);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (23, 'Razia, Luiz', '', 11);
 
-# -- Team 12 Marussia Virgin Racing
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (24, 'Glock, Timo', '', 12);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (25, 'Pic, Charles', '', 12);
 
-# -- Testdrivers
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (26, 'Buemi, Sebastien', '', 1);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (27, 'Paffett, Gary', '', 2);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (28, 'Fisichella, Giancarlo', '', 3);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (29, 'Gene, Marc', '', 3);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (30, 'Bertolini, Andrea', '', 3);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (31, 'D\'Ambrosio, Jerome', '', 5);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (32, 'Bianchi, Jules', '', 6);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (33, 'Gutiérrez, Esteban', '', 7);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (34, 'Bottas, Valtteri', '', 9);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (35, 'Garde van der, Giedo', '', 10);
+# -- Test Drivers
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (30, 'Buemi, Sebastien', '', 1);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (31, 'Rosa de la, Pedro', '', 2);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (32, 'Paffett, Gary', '', 3);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (33, 'Turvey, Oliver', '', 3);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (34, 'D\'Ambrosio, Jerome', '', 4);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (35, 'Valsecchi, Davide', '', 4);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (36, 'Prost, Nicolas', '', 4);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (37, 'Frijns, Robin', '', 6);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (38, 'Bianchi, Jules', '', 7);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (39, 'Wolff, Susie', '', 8);

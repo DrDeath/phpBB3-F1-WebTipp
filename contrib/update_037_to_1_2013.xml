@@ -6,10 +6,10 @@
 	<header>
 		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (phpBB version)"/>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
-		<title lang="en"><![CDATA[Formula 1 WebTip update from 0.3.6 to 0.3.7]]></title>
-		<title lang="de"><![CDATA[Formel 1 WebTipp Update von 0.3.6 auf 0.3.7]]></title>
-		<description lang="en"><![CDATA[With this mod you can update your Formula 1 tipp game from version 0.3.6 to 0.3.7.]]></description>
-		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel von Version 0.3.6 auf 0.3.7.]]></description>
+		<title lang="en"><![CDATA[Formula 1 WebTip update from 0.3.7 to 1.2013.0]]></title>
+		<title lang="de"><![CDATA[Formel 1 WebTipp Update von 0.3.7 auf 1.2013.0]]></title>
+		<description lang="en"><![CDATA[With this mod you can update your Formula 1 tipp game from version 0.3.7 to 1.2013.0]]></description>
+		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel von Version 0.3.7 auf 1.2013.0]]></description>
 		<github>https://github.com/DrDeath/phpBB3-F1-WebTipp</github>
 		<author-group>
 			<author>
@@ -31,7 +31,7 @@
 				</contributions-group>
 			</author>
 		</author-group>
-		<mod-version>0.3.7</mod-version>
+		<mod-version>1.2013.0</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>300</time>
@@ -39,13 +39,13 @@
 		</installation>
 		<history>
 			<entry>
-				<date>2012-02-20</date>
-				<rev-version>0.3.7</rev-version>
+				<date>2012-12-23</date>
+				<rev-version>1.2013.0</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Version raised to 0.3.7.]]></change>
+					<change><![CDATA[Changed Qualify design. We have now 22 drivers. In Q1 and Q2 six driver will drop out]]></change>
 				</changelog>
 				<changelog lang="de">
-					<change><![CDATA[Versionsnummer angehoben auf 0.3.7.]]></change>
+					<change><![CDATA[Qualify Ergebnis Ansicht angepasst.Wir haben nun 22 Fahrer. In Q1 und Q2 werden sechs Fahrer ausscheiden]]></change>
 				</changelog>
 			</entry>
 		</history>
@@ -54,20 +54,24 @@
 		<copy>
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php"/>
 			<file from="root/install/index.php" to="install/index.php"/>
+			<file from="root/formel.php" to="formel.php"/>
+			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html"/>
+			<file from="root/styles/subsilver2/template/formel_body.html" to="styles/subsilver2/template/formel_body.html"/>
+			<file from="root/umil/*.*" to="umil/*.*"/>
 		</copy>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
 		<diy-instructions lang="en"><![CDATA[Clear your cache in the "Administration Control Panel" (ACP) > "General" > "Purge the cache"
 
 Refresh your Styles:
-		"Administration Control Panel" (ACP) > "Styles" > "Templates" 	> each > "refresh"
-		"Administration Control Panel" (ACP) > "Styles" > "Themes" 		> each > "refresh"
+		"Administration Control Panel" (ACP) > "Styles" > "Templates" > each > "refresh"
+		"Administration Control Panel" (ACP) > "Styles" > "Themes"    > each > "refresh"
 
 And now: Have fun!]]></diy-instructions>
 		<diy-instructions lang="de"><![CDATA[Leere den Cache im "Administrations-Bereich" (ACP) > "Allgemein" > "Den Cache leeren"
 
 Aktualisiere deine Styles:
-		"Administrations-Bereich" (ACP) > "Styles" > "Templates" 	> jedes > "Aktualisieren"
-		"Administrations-Bereich" (ACP) > "Styles" > "Themes" 		> jedes > "Aktualisieren"
+		"Administrations-Bereich" (ACP) > "Styles" > "Templates" > jedes > "Aktualisieren"
+		"Administrations-Bereich" (ACP) > "Styles" > "Themes"    > jedes > "Aktualisieren"
 
 Und nun: Viel Spass !]]></diy-instructions>
 	</action-group>

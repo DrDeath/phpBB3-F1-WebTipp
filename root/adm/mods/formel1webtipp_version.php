@@ -23,7 +23,7 @@ class formel1webtipp_version
 			'author'	=> 'Dr.Death',
 			'title'		=> 'Formel1WebTipp',
 			'tag'		=> 'formel1webtipp',
-			'version'	=> '0.3.7',
+			'version'	=> '1.2013.0',
 			'file'		=> array('www.lpi-clan.de', 'updatecheck', 'formel1webtipp.xml'),
 		);
 	}

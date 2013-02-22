@@ -4,9 +4,8 @@
  * @author Nathan Guse (EXreaction) http://lithiumstudios.org
  * @author David Lewis (Highway of Life) highwayoflife@gmail.com
  * @package umil
- * @version $Id$
  * @copyright (c) 2008 phpBB Group
- * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
  *
  * Translated By: (ESQARE) http://www.phpbbturkey.com
  *
@@ -88,7 +87,7 @@ $lang = array_merge($lang, array(
 	'PERMISSION_REMOVE'				=> 'İzin seçeneği kaldırılıyor: %s',
 	'PERMISSION_ROLE_ADD'			=> 'Yeni izin rolü ekleniyor: %s',
 	'PERMISSION_ROLE_UPDATE'		=> 'İzin rolü güncelleniyor: %s',
-	'PERMISSION_ROLE_REMOVE'		=> 'İzin rolü kaldırılıyor: %s',
+	'PERMISSION_ROLE_REMOVE'		=> 'İzin rolü kaldırılıyor: %s',	
 	'PERMISSION_SET_GROUP'			=> '%s grubu için izinler ayarlanıyor.',
 	'PERMISSION_SET_ROLE'			=> '%s rolü için izinler ayarlanıyor.',
 	'PERMISSION_UNSET_GROUP'		=> '%s grubu için izin ayarları kaldırılıyor.',

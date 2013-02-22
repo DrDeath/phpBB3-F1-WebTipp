@@ -4,9 +4,8 @@
  * @author Nathan Guse (EXreaction) http://lithiumstudios.org
  * @author David Lewis (Highway of Life) highwayoflife@gmail.com
  * @package umil
- * @version $Id: umil.php 179 2010-12-21 09:34:56Z stoffel04 $
  * @copyright (c) 2008 phpBB Group
- * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
  *
  * Translated By:
  *
@@ -90,7 +89,7 @@ $lang = array_merge($lang, array(
 	'PERMISSION_SET_ROLE'			=> 'Nastavenie oprávnení pre %s rolu.',
 	'PERMISSION_UNSET_GROUP'		=> 'Odnastavovanie oprávnení pre %s skupinu.',
 	'PERMISSION_UNSET_ROLE'			=> 'Odnastavenie oprávnení pre %s rolu.',
-
+	
 	'PERMISSION_ROLE_ADD'         => 'Pridávanie novej roly oprávnení: %s',
   'PERMISSION_ROLE_UPDATE'      => 'Aktualizovanie roly oprávnení: %s',
   'PERMISSION_ROLE_REMOVE'      => 'Odstraňovanie roy oprávnení: %s',

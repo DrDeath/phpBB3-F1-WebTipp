@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
 <!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
 <!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
-<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.phpbb.com/mods/xml/modx-1.2.6.xsd">
 	<header>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
 		<title lang="en"><![CDATA[Formula 1 WebTip]]></title>
@@ -15,6 +15,7 @@ Deine Benutzer können auf die Rennergebnisse tippen und erhalten dadurch Punkte
 Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den eingebauten Statistikseiten und im Benutzerprofil begutachten.]]></description>
 		<author-notes lang="en"><![CDATA[This file contains all parts of the History, all Developers, a.s.o.]]></author-notes>
 		<author-notes lang="de"><![CDATA[Diese Datei enthält alle Teile der History, alle Entickler, usw.]]></author-notes>
+		<github>https://github.com/DrDeath/phpBB3-F1-WebTipp</github>
 		<author-group>
 			<author>
 				<realname><![CDATA[Stefan Temath]]></realname>
@@ -47,11 +48,11 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<email><![CDATA[webmaster@oxpus.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>0.3.7</mod-version>
+		<mod-version>1.2013.0</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>900</time>
-			<target-version>3.0.10</target-version>
+			<target-version>3.0.11</target-version>
 		</installation>
 		<history>
 			<entry>
@@ -344,6 +345,16 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				</changelog>
 				<changelog lang="de">
 					<change><![CDATA[Versionsnummer angehoben auf 0.3.7.]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2012-12-23</date>
+				<rev-version>1.2013.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Changed Qualify design. We have now 22 drivers. In Q1 and Q2 six driver will drop out]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Qualify Ergebnis Ansicht angepasst.Wir haben nun 22 Fahrer. In Q1 und Q2 werden sechs Fahrer ausscheiden]]></change>
 				</changelog>
 			</entry>
 		</history>

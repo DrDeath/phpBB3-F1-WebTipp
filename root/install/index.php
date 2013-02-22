@@ -256,6 +256,11 @@ $versions = array(
 	'0.3.7' => array(
 		// Version 0.3.7- nothing to change
 	),
+	
+	// Version 0.3.8
+	'0.3.8' => array(
+		// Version 0.3.8- nothing to change
+	),
 
 );
 
