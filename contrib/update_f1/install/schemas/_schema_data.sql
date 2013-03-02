@@ -77,7 +77,7 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 
 # -- Team 11 Marussia Virgin Racing
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (22, 'Chilton, Max', '', 11);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (23, 'Razia, Luiz', '', 11);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (38, 'Bianchi, Jules', '', 11);
 
 
 # -- Test Drivers
@@ -89,5 +89,5 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (35, 'Valsecchi, Davide', '', 4);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (36, 'Prost, Nicolas', '', 4);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (37, 'Frijns, Robin', '', 6);
-INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (38, 'Bianchi, Jules', '', 7);
+INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (23, 'Razia, Luiz', '', 11);
 INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_team) VALUES (39, 'Wolff, Susie', '', 8);
