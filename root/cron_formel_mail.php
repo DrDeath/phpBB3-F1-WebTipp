@@ -7,10 +7,6 @@
 *
 * Cronjob called from index.php
 *
-* TODO:
-* - Edit language files for proper translations
-* - French translation for email template
-*
 */
 
 /**
@@ -142,7 +138,7 @@ foreach ($races as $race)
 		if (!($messenger->send($used_method)))
 		{
 			$usernames .= (($usernames != '') ? ', ' : '') . $row['username']. '!';
-			$message = '<strong>F1 WebTipp - Erinnerungsmail an ' . $row['user_email'] . ' nicht erfolgreich.</strong>';
+			$message = sprintf($user->lang['FORMEL_LOG_ERROR'], $row['user_email']);
 			add_log('critical', 'LOG_ERROR_EMAIL', $message);
 		}
 		else
@@ -155,25 +151,25 @@ foreach ($races as $race)
 	// Only if some emails have already been sent previously.
 	if ($usernames <> '')
 	{
-		$message = 'F1WebTipp Erinnerungs-Mail an: ' . $usernames ;
+		$message = sprintf($user->lang['FORMEL_LOG'], $usernames) ;
 		add_log('admin', 'LOG_MASS_EMAIL', $message);
 
 		//send admin email
 		$used_lang 	= $user->data['user_lang'];
-		$subject 	= "ADMIN INFO: " . $user->lang['FORMEL_TITLE'] . " - " . $user->lang['FORMEL_CURRENT_RACE']  . " : " . $race_name;
+		$subject 	= sprintf($user->lang['FORMEL_MAIL_ADMIN'], $race_name);
 
 		$messenger->to($config['board_email'], $config['sitename']);
 		$messenger->subject(htmlspecialchars_decode($subject));
 		$messenger->template('admin_send_email', $used_lang);
 		$messenger->assign_vars(array(
 			'CONTACT_EMAIL' => $config['board_contact'],
-			'MESSAGE'		=> "Mail wurde an folgende User gesendet: " . $usernames,
+			'MESSAGE'		=> sprintf($user->lang['FORMEL_MAIL_ADMIN_MESSAGE'], $usernames),
 			)
 		);
 
 		if (!($messenger->send($used_method)))
 		{
-			$message = '<strong>F1 WebTipp - Erinnerungsmail an ' . $config['board_email'] . ' nicht erfolgreich.</strong>';
+			$message = sprintf($user->lang['FORMEL_LOG_ERROR'], $config['board_email']);
 			add_log('critical', 'LOG_ERROR_EMAIL', $message);
 		}
     }

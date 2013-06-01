@@ -74,6 +74,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 	</header>
 	<action-group>
 		<copy>
+			<file from="root/cron_formel_mail.php" to="cron_formel_mail.php"/>
 			<file from="root/formel.php" to="formel.php"/>
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php"/>
 			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html"/>
@@ -86,7 +87,6 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<file from="root/language/en/mods/info_acp_formel.php" to="language/en/mods/info_acp_formel.php"/>
 			<file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php"/>
 			<file from="root/language/en/mods/permissions_formel.php" to="language/en/mods/permissions_formel.php"/>
-			<file from="root/cron_formel_mail.php" to="cron_formel_mail.php"/>
 			<file from="root/language/en/email/cron_formel.txt" to="language/en/email/cron_formel.txt"/>
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html"/>
 			<file from="root/styles/prosilver/theme/images/F1WebTippButton.png" to="styles/prosilver/theme/images/F1WebTippButton.png"/>
@@ -95,6 +95,8 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		</copy>
 		<open src="index.php">
 			<edit>
+				<comment lang="de"><![CDATA[Achtung, bevor die editierte index.php hochgeladen wird, sollte die "PHP-Installationsdatei" aufgerufen werden]]></comment>
+				<comment lang="en"><![CDATA[Attention, please run the "PHP install file" bevor uploading the edited index.php]]></comment>
 				<find><![CDATA[// Output page
 page_header($user->lang['INDEX']);]]></find>
 				<action type="before-add"><![CDATA[// START Formula 1 WebTip cronjob
