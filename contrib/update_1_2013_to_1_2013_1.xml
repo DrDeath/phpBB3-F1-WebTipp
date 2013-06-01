@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.phpbb.com/mods/xml/modx-1.2.6.xsd">
+	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (phpBB version)"/>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[Formula 1 WebTip update from 1.2013.0 to 1.2013.1]]></title>
+		<title lang="de"><![CDATA[Formel 1 WebTipp Update von 1.2013 auf 1.2013.1]]></title>
+		<description lang="en"><![CDATA[With this mod you can update your Formula 1 tipp game from version 1.2013.0 to 1.2013.1]]></description>
+		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel von Version 1.2013.0 auf 1.2013.1]]></description>
+		<github>https://github.com/DrDeath/phpBB3-F1-WebTipp</github>
+		<author-group>
+			<author>
+				<realname><![CDATA[Stefan Temath]]></realname>
+				<username><![CDATA[Dr.Death]]></username>
+				<homepage><![CDATA[http://www.lpi-clan.de]]></homepage>
+				<email><![CDATA[dr.death@lpi-clan.de]]></email>
+				<contributions-group>
+					<contributions status="current" position="Developer"/>
+				</contributions-group>
+			</author>
+			<author>
+				<realname><![CDATA[Falk Seidel]]></realname>
+				<username><![CDATA[Unimatrix_0]]></username>
+				<homepage><![CDATA[http://un1matr1x.de/]]></homepage>
+				<email><![CDATA[admin@un1matr1x.de]]></email>
+				<contributions-group>
+					<contributions status="current" from="2011-02-22" position="Co-Developer"/>
+				</contributions-group>
+			</author>
+		</author-group>
+		<mod-version>1.2013.1</mod-version>
+		<installation>
+			<level>easy</level>
+			<time>300</time>
+			<target-version>3.0.11</target-version>
+		</installation>
+		<history>
+			<entry>
+				<date>2013-06-01</date>
+				<rev-version>1.2013.1</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Added cronjob for sending reminder emails]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Cronjob zur Versendung von Erinnerungsmails hinzugefügt.]]></change>
+				</changelog>
+			</entry>
+		</history>
+	</header>
+	<action-group>
+		<copy>
+			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php"/>
+			<file from="root/install/index.php" to="install/index.php"/>
+			<file from="root/cron_formel_mail.php" to="cron_formel_mail.php"/>
+			<file from="root/language/de/email/cron_formel.txt" to="language/de/email/cron_formel.txt"/>
+			<file from="root/language/en/email/cron_formel.txt" to="language/en/email/cron_formel.txt"/>
+			<file from="root/language/fr/email/cron_formel.txt" to="language/fr/email/cron_formel.txt"/>
+			<file from="root/umil/*.*" to="umil/*.*"/>
+		</copy>
+		<open src="index.php">
+			<edit>
+				<find><![CDATA[// Output page
+page_header($user->lang['INDEX']);]]></find>
+				<action type="before-add"><![CDATA[// START Formula 1 WebTip cronjob
+include($phpbb_root_path . 'cron_formel_mail.' . $phpEx);
+// END Formula 1 WebTip cronjob]]></action>
+			</edit>
+		</open>
+		<php-installer><![CDATA[install/index.php]]></php-installer>
+		<diy-instructions lang="en"><![CDATA[Clear your cache in the "Administration Control Panel" (ACP) > "General" > "Purge the cache"
+
+Refresh your Styles:
+		"Administration Control Panel" (ACP) > "Styles" > "Templates" > each > "refresh"
+		"Administration Control Panel" (ACP) > "Styles" > "Themes"    > each > "refresh"
+
+And now: Have fun!]]></diy-instructions>
+		<diy-instructions lang="de"><![CDATA[Leere den Cache im "Administrations-Bereich" (ACP) > "Allgemein" > "Den Cache leeren"
+
+Aktualisiere deine Styles:
+		"Administrations-Bereich" (ACP) > "Styles" > "Templates" > jedes > "Aktualisieren"
+		"Administrations-Bereich" (ACP) > "Styles" > "Themes"    > jedes > "Aktualisieren"
+
+Und nun: Viel Spass !]]></diy-instructions>
+	</action-group>
+</mod>
