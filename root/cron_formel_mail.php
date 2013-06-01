@@ -10,9 +10,6 @@
 * TODO:
 * - Edit language files for proper translations
 * - French translation for email template
-* - Writing update instructions
-* - Writing install instructions
-* - Extend the install script for database changes on phpbb_formel_races (race_mail)
 *
 */
 

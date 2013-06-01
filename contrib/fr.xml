@@ -19,7 +19,7 @@
 				</contributions-group>
 			</author>
 		</author-group>
-		<mod-version>1.2013.0</mod-version>
+		<mod-version>1.2013.1</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>60</time>
@@ -42,6 +42,7 @@
 			<file from="root/language/fr/mods/info_acp_formel.php" to="language/fr/mods/info_acp_formel.php"/>
 			<file from="root/language/fr/mods/formel.php" to="language/fr/mods/formel.php"/>
 			<file from="root/language/fr/mods/permissions_formel.php" to="language/fr/mods/permissions_formel.php"/>
+			<file from="root/language/fr/email/cron_formel.txt" to="language/fr/email/cron_formel.txt"/>
 		</copy>
 	</action-group>
 </mod>

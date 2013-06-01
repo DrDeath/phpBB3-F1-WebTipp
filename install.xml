@@ -53,11 +53,11 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<email><![CDATA[webmaster@oxpus.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>1.2013.0</mod-version>
+		<mod-version>1.2013.1</mod-version>
 		<installation>
 			<level>easy</level>
-			<time>900</time>
-			<target-version>3.0.10</target-version>
+			<time>1200</time>
+			<target-version>3.0.11</target-version>
 		</installation>
 		<link-group>
 			<link type="parent" href="contrib/history.xml" lang="en">History</link>
@@ -68,8 +68,8 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<link type="language" href="contrib/fr.xml" lang="de">Anleitung für das französische Sprachpaket</link>
 			<link type="template" href="contrib/subsilver2.xml" lang="en">Manual for subsilver2 style</link>
 			<link type="template" href="contrib/subsilver2.xml" lang="de">Anleitung für das Style subsilver2</link>
-			<link type="contrib" href="contrib/update_f1.xml" lang="en">F1-Season Update 2012</link>
-			<link type="contrib" href="contrib/update_f1.xml" lang="de">F1-Saison Update 2012</link>
+			<link type="contrib" href="contrib/update_f1.xml" lang="en">F1-Season Update 2013</link>
+			<link type="contrib" href="contrib/update_f1.xml" lang="de">F1-Saison Update 2013</link>
 		</link-group>
 	</header>
 	<action-group>
@@ -86,11 +86,22 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<file from="root/language/en/mods/info_acp_formel.php" to="language/en/mods/info_acp_formel.php"/>
 			<file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php"/>
 			<file from="root/language/en/mods/permissions_formel.php" to="language/en/mods/permissions_formel.php"/>
+			<file from="root/cron_formel_mail.php" to="cron_formel_mail.php"/>
+			<file from="root/language/en/email/cron_formel.txt" to="language/en/email/cron_formel.txt"/>
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html"/>
 			<file from="root/styles/prosilver/theme/images/F1WebTippButton.png" to="styles/prosilver/theme/images/F1WebTippButton.png"/>
 			<file from="root/styles/prosilver/theme/images/icon_f1.png" to="/styles/prosilver/theme/images/icon_f1.png"/>
 			<file from="root/umil/*.*" to="umil/*.*"/>
 		</copy>
+		<open src="index.php">
+			<edit>
+				<find><![CDATA[// Output page
+page_header($user->lang['INDEX']);]]></find>
+				<action type="before-add"><![CDATA[// START Formula 1 WebTip cronjob
+include($phpbb_root_path . 'cron_formel_mail.' . $phpEx);
+// END Formula 1 WebTip cronjob]]></action>
+			</edit>
+		</open>
 		<open src="memberlist.php">
 			<edit>
 				<find><![CDATA[$user->setup(array('memberlist', 'groups'));]]></find>
