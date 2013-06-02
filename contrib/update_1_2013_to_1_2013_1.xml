@@ -69,9 +69,16 @@
 				<comment lang="en"><![CDATA[Attention, please run the "PHP install file" bevor uploading the edited index.php]]></comment>
 				<find><![CDATA[// Output page
 page_header($user->lang['INDEX']);]]></find>
-				<action type="before-add"><![CDATA[// START Formula 1 WebTip cronjob
-include($phpbb_root_path . 'cron_formel_mail.' . $phpEx);
-// END Formula 1 WebTip cronjob]]></action>
+				<action type="before-add"><![CDATA[//
+// F1 WebTipp
+//
+if ($config['cron_f1_reminder_enabled'] && ($config['cron_f1_reminder_last_run'] < time() - 60*60*24))
+{
+	include($phpbb_root_path . 'cron_formel_mail.' . $phpEx);
+}
+//
+// F1 WebTipp
+//]]></action>
 			</edit>
 		</open>
 		<php-installer><![CDATA[install/index.php]]></php-installer>

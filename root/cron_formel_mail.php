@@ -18,14 +18,14 @@ if (!defined('IN_PHPBB'))
 }
 
 
-// Run the cronjob only once a day
-if ($config['cron_formel_mail'] > time() - 60*60*24 )
+// Run the cronjob only once a day (double check)
+if ($config['cron_f1_reminder_last_run'] > time() - 60*60*24)
 {
 	return ;
 }
 
 // Update the last run timestamp
-set_config('cron_formel_mail', time(), true);
+set_config('cron_f1_reminder_last_run', time(), true);
 
 // Setup the language for the f1webtipp
 $user->setup('mods/formel');
