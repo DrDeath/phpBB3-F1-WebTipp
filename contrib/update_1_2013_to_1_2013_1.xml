@@ -54,13 +54,22 @@
 		<copy>
 			<file from="root/cron_formel_mail.php" to="cron_formel_mail.php"/>
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php"/>
+			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html"/>
+			<file from="root/includes/acp/acp_formel.php" to="includes/acp/acp_formel.php"/>
 			<file from="root/install/index.php" to="install/index.php"/>
+			
 			<file from="root/language/de/mods/formel.php" to="language/de/mods/formel.php"/>
+			<file from="root/language/de/mods/acp_formel.php" to="language/de/mods/acp_formel.php"/>
 			<file from="root/language/de/email/cron_formel.txt" to="language/de/email/cron_formel.txt"/>
+			
 			<file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php"/>
+			<file from="root/language/en/mods/acp_formel.php" to="language/en/mods/acp_formel.php"/>
 			<file from="root/language/en/email/cron_formel.txt" to="language/en/email/cron_formel.txt"/>
+			
 			<file from="root/language/fr/mods/formel.php" to="language/fr/mods/formel.php"/>
+			<file from="root/language/fr/mods/acp_formel.php" to="language/fr/mods/acp_formel.php"/>
 			<file from="root/language/fr/email/cron_formel.txt" to="language/fr/email/cron_formel.txt"/>
+			
 			<file from="root/umil/*.*" to="umil/*.*"/>
 		</copy>
 		<open src="index.php">

@@ -127,6 +127,8 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_POINTS_ENABLED_EXPLAIN'		=> 'Here you can define whether to enable giving points for WebTipps or not.<br /><strong>Hint: </strong>Only operational if you have installed the Ultimate Points MOD.',
 	'ACP_F1_SETTINGS_POINTS_VALUE'					=> 'Points for given WebTipps',
 	'ACP_F1_SETTINGS_POINTS_VALUE_EXPLAIN'			=> 'Here you can define how much <strong>Points</strong> a given WebTipp is worth.',
+	'ACP_F1_SETTINGS_REMINDER_ENABLED'				=> 'Activate Cronjob for reminder mails',
+	'ACP_F1_SETTINGS_REMINDER_ENABLED_EXPLAIN'		=> 'Here you can specify whether an email reminder to be sent 2-3 days prior to the start of the race.<br /><strong>Hint: </strong>Can only be activated when the WebTip was limited to a particular group.',
 
 	'ACP_F1_DRIVERS'								=> 'Formula 1 Drivers',
 	'ACP_F1_DRIVERS_EXPLAIN'						=> 'Here you can add or edit the drivers',
