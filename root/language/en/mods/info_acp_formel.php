@@ -63,6 +63,7 @@ $lang = array_merge($lang, array(
 	'LOG_FORMEL_DRIVER_ADDED'		=> 'Formula 1 driver added.',
 	'LOG_FORMEL_DRIVER_EDITED'		=> 'Formula 1 driver ID %s edited.',
 	'LOG_FORMEL_DRIVER_DELETED'		=> 'Formula 1 driver ID %s deleted.',
+	'LOG_FORMEL_CRON'				=> 'Formula 1 WebTip Cronjob was executed.',
 ));
 
 ?>

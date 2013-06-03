@@ -175,4 +175,7 @@ foreach ($races as $race)
     }
 }
 
+// Log the cronjob run
+add_log('admin', 'LOG_FORMEL_CRON');
+
 ?>
