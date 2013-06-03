@@ -42,8 +42,8 @@ $priority 		= MAIL_NORMAL_PRIORITY;
 $formel_config 			= get_formel_config();
 $formel_group_id 		= $formel_config['restrict_to'];
 
-// Extra settings for internal test group only ;-)
-$formel_group_id		= 114;
+// Uncomment the next line for sending the reminder mail to a special group. Replace 114 with the special group ID
+// $formel_group_id		= 114;
 
 // Time slot will be 3 days before the next race starts
 $current_time 		= time();
