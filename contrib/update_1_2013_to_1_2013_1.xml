@@ -75,22 +75,35 @@
 
 			<file from="root/umil/*.*" to="umil/*.*"/>
 		</copy>
-		<open src="index.php">
+		<open src="cron.php">
 			<edit>
-				<comment lang="de"><![CDATA[Achtung, bevor die editierte index.php hochgeladen wird, sollte die "PHP-Installationsdatei" aufgerufen werden]]></comment>
-				<comment lang="en"><![CDATA[Attention, please run the "PHP install file" bevor uploading the edited index.php]]></comment>
-				<find><![CDATA[// Output page
-page_header($user->lang['INDEX']);]]></find>
-				<action type="before-add"><![CDATA[//
-// F1 WebTipp
-//
-if ($config['cron_f1_reminder_enabled'] && ($config['cron_f1_reminder_last_run'] < time() - 60*60*24))
-{
-	include($phpbb_root_path . 'cron_formel_mail.' . $phpEx);
-}
-//
-// F1 WebTipp
-//]]></action>
+				<find><![CDATA[switch ($cron_type)
+{]]></find>
+				<action type="after-add"><![CDATA[	case 'cron_formel_mail':
+
+		if ($config['cron_f1_reminder_enabled'] && ($config['cron_f1_reminder_last_run'] < time() - 60*60*24))
+		{
+			include($phpbb_root_path . 'cron_formel_mail.' . $phpEx);
+		}
+
+	break;
+
+]]></action>
+			</edit>
+		</open>
+		<open src="includes/functions.php">
+			<edit>
+				<comment lang="de"><![CDATA[Achtung, bevor die editierte functions.php hochgeladen wird, sollte die "PHP-Installationsdatei" aufgerufen werden]]></comment>
+				<comment lang="en"><![CDATA[Attention, please run the "PHP install file" bevor uploading the edited functions.php]]></comment>
+				<find><![CDATA[		else if ($time_now - $config['session_gc'] > $config['session_last_gc'])
+		{
+			$cron_type = 'tidy_sessions';
+		}]]></find>
+				<action type="after-add"><![CDATA[		else if ($config['cron_f1_reminder_enabled'] && ($config['cron_f1_reminder_last_run'] < time() - 60*60*24))
+		{
+			// F1 WebTipp - Cronjob F1 Reminder Mail
+			$cron_type = 'cron_formel_mail';
+		}]]></action>
 			</edit>
 		</open>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
