@@ -1,10 +1,10 @@
 Hallo {USERNAME},
 
-Vergiss bitte nicht Deinen Formel 1 WebbTipp auf {SITENAME}.
+vergiss bitte nicht Deinen Formel 1 WebTipp auf {SITENAME}.
 
 Das nächste Rennen findet an diesem Wochende statt !!!
 
-Deadline für das Rennen in {RACENAME} ist am 
+Deadline für das Rennen in {RACENAME} ist am
 Datum: 	{DEADLINEDATE}
 Uhrzeit:  {DEADLINETIME}
 
