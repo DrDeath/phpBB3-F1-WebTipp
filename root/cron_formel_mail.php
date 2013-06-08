@@ -30,8 +30,7 @@ set_config('cron_f1_reminder_last_run', time(), true);
 // Setup the language for the f1webtipp
 $user->setup('mods/formel');
 
-include($phpbb_root_path . 'includes/functions_user.' . $phpEx);
-include($phpbb_root_path . 'includes/functions_formel.' . $phpEx);
+include_once($phpbb_root_path . 'includes/functions_formel.' . $phpEx);
 
 //Mail Settings
 $use_queue 		= false;
