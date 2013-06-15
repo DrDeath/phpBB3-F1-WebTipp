@@ -19,6 +19,7 @@ if (!defined('IN_PHPBB'))
 
 
 // If the cronjob is not enabled or the last run was within the last 24 hours..... do nothing and return.
+// If you want to shorten the time frame for running the cronjob, you can change here the "24".... but you must also change it in the file "includes/functions.php" 
 if (!$config['cron_f1_reminder_enabled'] || $config['cron_f1_reminder_last_run'] > time() - 60*60*24)
 {
 	return ;
