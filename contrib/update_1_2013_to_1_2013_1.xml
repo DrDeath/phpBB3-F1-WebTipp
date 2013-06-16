@@ -81,7 +81,7 @@
 				<comment lang="en"><![CDATA[Attention, please run the "PHP install file" bevor uploading the edited functions.php]]></comment>
 				<find><![CDATA[	// Call cron-type script
 	$call_cron = false;]]></find>
-				<action type="after-add"><![CDATA[				
+				<action type="before-add"><![CDATA[				
 	if ($config['cron_f1_reminder_enabled'] && ($config['cron_f1_reminder_last_run'] < time() - 60*60*24))	
 	{
 		include($phpbb_root_path . 'cron_formel_mail.' . $phpEx);
