@@ -1,14 +1,14 @@
 Bonjour {USERNAME},
 
-S'il vous plaît n'oubliez pas votre Formel 1 WebTip sur {SITENAME}.
+S'il vous plaît, n'oubliez pas vos pronos F1 sur {SITENAME}.
 
-La prochaine course débutera ce week-end !!!
+Le prochain grand prix débutera ce week-end !!!
 
-Date limite pour la course à {RACENAME} est
-Date d' :	{DEADLINEDATE}
+Date limite pour des pronos du grand prix de {RACENAME} est
+Date :	{DEADLINEDATE}
 Temps:  {DEADLINETIME}
 
-Cliquez ici pour accéder à la WebTipp: {U_BOARD}
+Cliquez ici pour accéder aux pronos: {U_BOARD}
 
 
 {EMAIL_SIG}
