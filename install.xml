@@ -345,8 +345,8 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 		<open src="styles/prosilver/template/memberlist_view.html">
 			<edit>
 				<find><![CDATA[			<!-- IF S_SHOW_ACTIVITY and POSTS -->
-				<dt>{L_ACTIVE_IN_FORUM}:</dt> <dd><!-- IF ACTIVE_FORUM --><strong><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br />({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
-				<dt>{L_ACTIVE_IN_TOPIC}:</dt> <dd><!-- IF ACTIVE_TOPIC --><strong><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br />({ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+				<dt>{L_ACTIVE_IN_FORUM}:</dt> <dd><!-- IF ACTIVE_FORUM != '' --><strong><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br />({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+				<dt>{L_ACTIVE_IN_TOPIC}:</dt> <dd><!-- IF ACTIVE_TOPIC != '' --><strong><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br />({ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
 			<!-- ENDIF -->
 		</dl>
 	</div>]]></find>
@@ -367,7 +367,7 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 			</edit>
 			<edit>
 				<find><![CDATA[				<li class="icon-faq"><a href="{U_FAQ}" title="{L_FAQ_EXPLAIN}">{L_FAQ}</a></li>]]></find>
-				<action type="before-add"><![CDATA[				<!-- IF not S_IS_BOT  and S_FORMEL1 --><li class="icon-f1"><a href="{U_FORMEL1}" title="{L_FORMEL_TITLE}">{L_FORMEL_TITLE}</a></li><!-- ENDIF -->]]></action>
+				<action type="before-add"><![CDATA[				<!-- IF not S_IS_BOT and S_FORMEL1 --><li class="icon-f1"><a href="{U_FORMEL1}" title="{L_FORMEL_TITLE}">{L_FORMEL_TITLE}</a></li><!-- ENDIF -->]]></action>
 			</edit>
 		</open>
 		<open src="styles/prosilver/template/viewtopic_body.html">
