@@ -127,6 +127,8 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_POINTS_ENABLED_EXPLAIN'		=> 'Hier kannst Du angeben, ob für abgegebene Tipps Punkte vergeben werden sollen.<br /><strong>Hinweis: </strong>Funktioniert nur, wenn zuvor das Ultimate Points MOD installiert worden ist.',
 	'ACP_F1_SETTINGS_POINTS_VALUE'					=> 'Punkte pro abgegebenen Tipp',
 	'ACP_F1_SETTINGS_POINTS_VALUE_EXPLAIN'			=> 'Hier kannst Du angeben, wieviel <strong>Punkte</strong> ein abgegebener Tipp wert ist.',
+	'ACP_F1_SETTINGS_REMINDER_ENABLED'				=> 'Cronjob für Erinnerungsmail aktivieren',
+	'ACP_F1_SETTINGS_REMINDER_ENABLED_EXPLAIN'		=> 'Hier kannst Du angeben, ob 2 bis 3 Tage vor dem Rennbeginn eine Erinnerungsmail versendet werden soll.<br /><strong>Hinweis: </strong>Kann nur aktiviert werden, wenn der WebTipp auf eine bestimmte Gruppe beschränkt worden ist.',
 
 	'ACP_F1_DRIVERS'								=> 'Formel 1 Fahrer',
 	'ACP_F1_DRIVERS_EXPLAIN'						=> 'Hier kannst Du neue Formel 1 Fahrer erstellen oder vorhandene bearbeiten',

@@ -53,11 +53,11 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<email><![CDATA[webmaster@oxpus.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>1.2013.0</mod-version>
+		<mod-version>1.2013.1</mod-version>
 		<installation>
 			<level>easy</level>
-			<time>900</time>
-			<target-version>3.0.10</target-version>
+			<time>1200</time>
+			<target-version>3.0.11</target-version>
 		</installation>
 		<link-group>
 			<link type="parent" href="contrib/history.xml" lang="en">History</link>
@@ -68,12 +68,13 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<link type="language" href="contrib/fr.xml" lang="de">Anleitung für das französische Sprachpaket</link>
 			<link type="template" href="contrib/subsilver2.xml" lang="en">Manual for subsilver2 style</link>
 			<link type="template" href="contrib/subsilver2.xml" lang="de">Anleitung für das Style subsilver2</link>
-			<link type="contrib" href="contrib/update_f1.xml" lang="en">F1-Season Update 2012</link>
-			<link type="contrib" href="contrib/update_f1.xml" lang="de">F1-Saison Update 2012</link>
+			<link type="contrib" href="contrib/update_f1.xml" lang="en">F1-Season Update 2013</link>
+			<link type="contrib" href="contrib/update_f1.xml" lang="de">F1-Saison Update 2013</link>
 		</link-group>
 	</header>
 	<action-group>
 		<copy>
+			<file from="root/cron_formel_mail.php" to="cron_formel_mail.php"/>
 			<file from="root/formel.php" to="formel.php"/>
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php"/>
 			<file from="root/adm/style/acp_formel.html" to="adm/style/acp_formel.html"/>
@@ -86,6 +87,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			<file from="root/language/en/mods/info_acp_formel.php" to="language/en/mods/info_acp_formel.php"/>
 			<file from="root/language/en/mods/formel.php" to="language/en/mods/formel.php"/>
 			<file from="root/language/en/mods/permissions_formel.php" to="language/en/mods/permissions_formel.php"/>
+			<file from="root/language/en/email/cron_formel.txt" to="language/en/email/cron_formel.txt"/>
 			<file from="root/styles/prosilver/template/formel_body.html" to="styles/prosilver/template/formel_body.html"/>
 			<file from="root/styles/prosilver/theme/images/F1WebTippButton.png" to="styles/prosilver/theme/images/F1WebTippButton.png"/>
 			<file from="root/styles/prosilver/theme/images/icon_f1.png" to="/styles/prosilver/theme/images/icon_f1.png"/>
@@ -321,6 +323,16 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 				<action type="after-add"><![CDATA[		'U_FORMEL1'						=> append_sid("{$phpbb_root_path}formel.$phpEx"),
 		'S_FORMEL1'						=> (isset($config['f1webtipp_version']) && ((!$formel_guests_allowed && !$user->data['is_registered']) || ($formel_group_id <> 0 && !$is_in_group && $is_admin <> 1 && $user->data['user_id'] <> $formel_mod_id))) ? false : true,
 ]]></action>
+				<find><![CDATA[	// Call cron-type script
+	$call_cron = false;]]></find>
+				<action type="before-add"><![CDATA[				
+	if ($config['cron_f1_reminder_enabled'] && ($config['cron_f1_reminder_last_run'] < time() - 60*60*24))	
+	{
+		include($phpbb_root_path . 'cron_formel_mail.' . $phpEx);
+	}
+	
+
+]]></action>
 			</edit>
 		</open>
 		<open src="includes/mcp/mcp_notes.php">
@@ -333,8 +345,8 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 		<open src="styles/prosilver/template/memberlist_view.html">
 			<edit>
 				<find><![CDATA[			<!-- IF S_SHOW_ACTIVITY and POSTS -->
-				<dt>{L_ACTIVE_IN_FORUM}:</dt> <dd><!-- IF ACTIVE_FORUM --><strong><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br />({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
-				<dt>{L_ACTIVE_IN_TOPIC}:</dt> <dd><!-- IF ACTIVE_TOPIC --><strong><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br />({ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+				<dt>{L_ACTIVE_IN_FORUM}:</dt> <dd><!-- IF ACTIVE_FORUM != '' --><strong><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br />({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+				<dt>{L_ACTIVE_IN_TOPIC}:</dt> <dd><!-- IF ACTIVE_TOPIC != '' --><strong><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br />({ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
 			<!-- ENDIF -->
 		</dl>
 	</div>]]></find>
@@ -355,7 +367,7 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 			</edit>
 			<edit>
 				<find><![CDATA[				<li class="icon-faq"><a href="{U_FAQ}" title="{L_FAQ_EXPLAIN}">{L_FAQ}</a></li>]]></find>
-				<action type="before-add"><![CDATA[				<!-- IF not S_IS_BOT  and S_FORMEL1 --><li class="icon-f1"><a href="{U_FORMEL1}" title="{L_FORMEL_TITLE}">{L_FORMEL_TITLE}</a></li><!-- ENDIF -->]]></action>
+				<action type="before-add"><![CDATA[				<!-- IF not S_IS_BOT and S_FORMEL1 --><li class="icon-f1"><a href="{U_FORMEL1}" title="{L_FORMEL_TITLE}">{L_FORMEL_TITLE}</a></li><!-- ENDIF -->]]></action>
 			</edit>
 		</open>
 		<open src="styles/prosilver/template/viewtopic_body.html">

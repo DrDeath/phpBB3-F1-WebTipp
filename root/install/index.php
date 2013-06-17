@@ -257,9 +257,22 @@ $versions = array(
 		// Version 0.3.7- nothing to change
 	),
 	
-	// Version 0.3.8
-	'0.3.8' => array(
-		// Version 0.3.8- nothing to change
+	// Version 1.2013.0
+	'1.2013.0' => array(
+		// Version 1.2013.0- nothing to change
+	),
+	
+	// Version 1.2013.1
+	'1.2013.1' => array(
+		// Version 1.2013.1- adding "cron_formel_mail"
+		//Add new field race_mail into formel_races table for cron mail information
+		'table_column_add' => array(
+			array('phpbb_formel_races', 'race_mail', array('BOOL', 0)),
+		),
+		'config_add' => array(
+			array('cron_f1_reminder_enabled', '0', false),
+			array('cron_f1_reminder_last_run', '1', true),
+		),
 	),
 
 );

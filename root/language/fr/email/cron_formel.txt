@@ -1,0 +1,14 @@
+Bonjour {USERNAME},
+
+S'il vous plaît, n'oubliez pas vos pronos F1 sur {SITENAME}.
+
+Le prochain grand prix débutera ce week-end !!!
+
+Date limite pour des pronos du grand prix de {RACENAME} est
+Date :	{DEADLINEDATE}
+Temps:  {DEADLINETIME}
+
+Cliquez ici pour accéder aux pronos: {U_BOARD}
+
+
+{EMAIL_SIG}

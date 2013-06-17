@@ -127,6 +127,11 @@ $lang = array_merge($lang, array(
 	'FORMEL_RACE_ABORD'						=> 'Course interrompue. (Demi de points.)',
 
 	'VIEWING_F1WEBTIPP'						=> 'Consulte de Formula 1 WebTip',
+
+	'FORMEL_MAIL_ADMIN'						=> 'Pronos F1 - les mails de rappel pour le grand prix de %1$s ont été envoyés',
+	'FORMEL_MAIL_ADMIN_MESSAGE'				=> 'Les mails ont été envoyés aux utilisateurs suivants: %1$s',
+	'FORMEL_LOG'							=> 'Pronos F1 - Rappel e-mail envoyé à: %1$s',
+	'FORMEL_LOG_ERROR'						=> '<strong>Pronos F1 - Rappel mail à %1$s n\'a pas réussi.</strong>',
 ));
 
 ?>

@@ -128,6 +128,8 @@ $lang = array_merge($lang, array(
 	'ACP_F1_SETTINGS_POINTS_ENABLED_EXPLAIN'		=> 'Ici vous pouvez définir s il faut permettre l octroi de points pour WebTipps ou non.<br /><strong>Hint: </strong>Seulement opérationnel si vous avez installé le mod ultimate point.',
 	'ACP_F1_SETTINGS_POINTS_VALUE'					=> 'Points pour un prono donné',
 	'ACP_F1_SETTINGS_POINTS_VALUE_EXPLAIN'			=> 'Ici vous pouvez définir combien <strong>de points</strong> vaut un bon prono.',
+	'ACP_F1_SETTINGS_REMINDER_ENABLED'				=> 'Activer Cronjob pour les mails de rappel',
+	'ACP_F1_SETTINGS_REMINDER_ENABLED_EXPLAIN'		=> 'Ici vous pouvez spécifier si un courriel de rappel doit être envoyé 2-3 jours avant le début du grand prix.<br /><strong>Attention: </strong>Ne peut être activé que lorsque les pronos F1 ont été limitée à un groupe particulier.',
 
 	'ACP_F1_DRIVERS'								=> 'Formula 1 Pilotes',
 	'ACP_F1_DRIVERS_EXPLAIN'						=> 'Ici vous pouvez ajouter ou éditer des pilotes',

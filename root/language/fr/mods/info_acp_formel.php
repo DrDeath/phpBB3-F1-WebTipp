@@ -64,6 +64,7 @@ $lang = array_merge($lang, array(
 	'LOG_FORMEL_DRIVER_ADDED'		=> 'Pilote ajouté.',
 	'LOG_FORMEL_DRIVER_EDITED'		=> 'ID du pilote %s édité.',
 	'LOG_FORMEL_DRIVER_DELETED'		=> 'ID du pilote %s effacé.',
+	'LOG_FORMEL_CRON'				=> 'Formel 1 WebTip Cronjob a été exécuté.',
 ));
 
 ?>

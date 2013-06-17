@@ -70,6 +70,7 @@ class acp_formel
 				$points_enabled		= request_var('points_enabled',		0	);
 				$points_per_tip		= request_var('points_per_tip',		0	);
 				$points_safety_car	= request_var('points_safety_car',	0	);
+				$reminder_enabled	= request_var('reminder_enabled',	$config['cron_f1_reminder_enabled']	);
 
 				$lang = 'ACP_F1_SETTINGS';
 
@@ -172,6 +173,16 @@ class acp_formel
 
 				if (isset($_POST['submit']))
 				{
+					// Cron Reminder can only be activated, if the F1 WebTipp is restricted to a specific group
+					if ($new['restrict_to'] <> 0)
+					{
+						set_config('cron_f1_reminder_enabled', $reminder_enabled, false);
+					}
+					else
+					{
+						set_config('cron_f1_reminder_enabled', '0', false);
+					}
+					
 					add_log('admin', 'LOG_FORMEL_SETTINGS');
 
 					$error = $user->lang[$lang . '_UPDATED'];
@@ -207,6 +218,9 @@ class acp_formel
 
 				$points_enabled_yes		= ($new['points_enabled']) ? "checked=\"checked\"" : "";
 				$points_enabled_no 		= (!$new['points_enabled']) ? "checked=\"checked\"" : "";
+				
+				$reminder_enabled_yes	= ($config['cron_f1_reminder_enabled']) ? "checked=\"checked\"" : "";
+				$reminder_enabled_no 	= (!$config['cron_f1_reminder_enabled']) ? "checked=\"checked\"" : "";
 
 				//Get all possible moderators
 				$sql = 'SELECT u.username, u.user_id
@@ -314,6 +328,7 @@ class acp_formel
 				{
 					$template->assign_block_vars('points_on', array());
 				}
+				
 
 				$template->assign_vars(array(
 					'D_MODERATOR'						=> $mods_combo,
@@ -339,6 +354,8 @@ class acp_formel
 					'S_GUEST_VIEWING_NO'				=> $guest_viewing_no,
 					'S_POINTS_ENABLED_YES'				=> $points_enabled_yes,
 					'S_POINTS_ENABLED_NO'				=> $points_enabled_no,
+					'S_REMINDER_ENABLED_YES'			=> $reminder_enabled_yes,
+					'S_REMINDER_ENABLED_NO'				=> $reminder_enabled_no,
 
 					'ACP_F1_SETTING_OFFSET'					=> $formel_config['deadline_offset'],
 					'ACP_F1_SETTING_RACEOFFSET'				=> $formel_config['event_change'],

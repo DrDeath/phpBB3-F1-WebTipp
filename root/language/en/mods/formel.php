@@ -126,6 +126,11 @@ $lang = array_merge($lang, array(
 	'FORMEL_RACE_ABORD'				=> 'Race aborted (half points!)',
 
 	'VIEWING_F1WEBTIPP'				=> 'Viewing Formel 1 WebTipp',
+
+	'FORMEL_MAIL_ADMIN'				=> 'Formula 1 WebTip - Sent reminder mails for race in %1$s',
+	'FORMEL_MAIL_ADMIN_MESSAGE'		=> 'Mail was sent to following users: %1$s',
+	'FORMEL_LOG'					=> 'Formula 1 WebTip - Reminder mail sent to: %1$s',
+	'FORMEL_LOG_ERROR'				=> '<strong>Formula 1 WebTip - Reminder mail to %1$s was not successful.</strong>',
 ));
 
 ?>

@@ -63,6 +63,7 @@ $lang = array_merge($lang, array(
 	'LOG_FORMEL_DRIVER_ADDED'		=> 'F1 WebTipp Fahrer hinzugefügt',
 	'LOG_FORMEL_DRIVER_EDITED'		=> 'F1 WebTipp Fahrer-ID %s bearbeitet',
 	'LOG_FORMEL_DRIVER_DELETED'		=> 'F1 WebTipp Fahrer-ID %s gelöscht',
+	'LOG_FORMEL_CRON'				=> 'F1 WebTipp Cronjob wurde ausgeführt.',
 ));
 
 ?>
