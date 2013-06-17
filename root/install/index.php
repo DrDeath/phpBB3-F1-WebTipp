@@ -270,7 +270,7 @@ $versions = array(
 			array('phpbb_formel_races', 'race_mail', array('BOOL', 0)),
 		),
 		'config_add' => array(
-			array('cron_f1_reminder_enabled', '1', false),
+			array('cron_f1_reminder_enabled', '0', false),
 			array('cron_f1_reminder_last_run', '1', true),
 		),
 	),
