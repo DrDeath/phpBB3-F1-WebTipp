@@ -98,12 +98,18 @@ Refresh your Styles:
 		"Administration Control Panel" (ACP) > "Styles" > "Templates" > each > "refresh"
 		"Administration Control Panel" (ACP) > "Styles" > "Themes"    > each > "refresh"
 
+To enable the new cronjob for email reminders, you have to go to:
+		"Administration Control Panel" (ACP) > ".MODS" > "Formular 1 WebTip" > "Formular 1 Settings" > "Activate Cronjob for reminder mails"
+
 And now: Have fun!]]></diy-instructions>
 		<diy-instructions lang="de"><![CDATA[Leere den Cache im "Administrations-Bereich" (ACP) > "Allgemein" > "Den Cache leeren"
 
 Aktualisiere deine Styles:
 		"Administrations-Bereich" (ACP) > "Styles" > "Templates" > jedes > "Aktualisieren"
 		"Administrations-Bereich" (ACP) > "Styles" > "Themes"    > jedes > "Aktualisieren"
+
+Um den neuen Cronjob für die eMail Erinnerungen aktivieren zu können, musst Du folgende Option einschalten:
+		"Administrations-Bereich" (ACP) > "Mods" > "Formel 1 WebTipp" > "Formel 1 Einstellungen" > "Cronjob für Erinnerungsmail aktivieren"
 
 Und nun: Viel Spass !]]></diy-instructions>
 	</action-group>
