@@ -82,16 +82,16 @@
 				<find><![CDATA[	// Call cron-type script
 	$call_cron = false;]]></find>
 				<action type="before-add"><![CDATA[
-        if ($config['cron_f1_reminder_enabled'])
-        {
-                // Set the timestamp to today (i.e. 6192013 --> 06.19.2013)
+	if ($config['cron_f1_reminder_enabled'])
+	{
+		// Set the timestamp to today (i.e. 6192013 --> 06.19.2013)
 		$check_time = (int) gmdate('mdY',time() + (3600 * ($config['board_timezone'] + $config['board_dst'])));
 
-                if ( $config['cron_f1_reminder_last_run'] <> $check_time)
-                {
-                        include($phpbb_root_path . 'cron_formel_mail.' . $phpEx);
-                }
-        }
+		if ( $config['cron_f1_reminder_last_run'] <> $check_time)
+		{
+			include($phpbb_root_path . 'cron_formel_mail.' . $phpEx);
+		}
+	}
 
 
 ]]></action>

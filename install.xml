@@ -99,7 +99,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<action type="after-add"><![CDATA[$user->add_lang('mods/formel');]]></action>
 			</edit>
 			<edit>
-				<find><![CDATA[	// Now generate page title]]></find>
+				<find><![CDATA[		// Now generate page title]]></find>
 				<action type="before-add"><![CDATA[		//
 		// F1 WebTipp
 		//
@@ -198,7 +198,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 	//
 	if (!function_exists('get_formel_config'))
 	{
- 	   include ($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
+		include ($phpbb_root_path . 'includes/functions_formel.'.$phpEx);
 	}
 
 	$formel_config  = get_formel_config();
@@ -209,13 +209,13 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 		// Check if this user has one of the formular 1 admin permission. If this user has one or more of these permissions, he gets also moderator permissions.
 		$is_admin = $auth->acl_gets('a_formel_settings', 'a_formel_drivers', 'a_formel_teams', 'a_formel_races');
 
-    	//Is the user member of the restricted group?
+		//Is the user member of the restricted group?
 		if (!function_exists('group_memberships'))
 		{
 			include ($phpbb_root_path . 'includes/functions_user.'.$phpEx);
 		}
 
-        $is_in_group = group_memberships($formel_config['restrict_to'], $user->data['user_id'], true);
+		$is_in_group = group_memberships($formel_config['restrict_to'], $user->data['user_id'], true);
 
 		if ($formel_config['restrict_to'] == 0 || $is_in_group || $is_admin == 1 || $user->data['user_id'] == $formel_config['mod_id'])
 		{
@@ -326,16 +326,16 @@ define('FORMEL_WM_TABLE', 		$table_prefix . 'formel_wm');
 				<find><![CDATA[	// Call cron-type script
 	$call_cron = false;]]></find>
 				<action type="before-add"><![CDATA[
-        if ($config['cron_f1_reminder_enabled'])
-        {
-                // Set the timestamp to today (i.e. 6192013 --> 06.19.2013)
+	if ($config['cron_f1_reminder_enabled'])
+	{
+		// Set the timestamp to today (i.e. 6192013 --> 06.19.2013)
 		$check_time = (int) gmdate('mdY',time() + (3600 * ($config['board_timezone'] + $config['board_dst'])));
 
-                if ( $config['cron_f1_reminder_last_run'] <> $check_time)
-                {
-                        include($phpbb_root_path . 'cron_formel_mail.' . $phpEx);
-                }
-        }
+		if ( $config['cron_f1_reminder_last_run'] <> $check_time)
+		{
+			include($phpbb_root_path . 'cron_formel_mail.' . $phpEx);
+		}
+	}
 
 
 ]]></action>

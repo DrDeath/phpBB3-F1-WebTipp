@@ -23,7 +23,7 @@ $check_time = (int) gmdate('mdY',time() + (3600 * ($config['board_timezone'] + $
 // If the cronjob is not enabled or it was executed today already --> return
 if (!$config['cron_f1_reminder_enabled'] || $config['cron_f1_reminder_last_run'] == $check_time)
 {
-        return ;
+	return ;
 }
 
 // Update the last run timestamp to today (i.e. 6192013 --> 06.19.2013)
@@ -113,15 +113,15 @@ foreach ($races as $race)
 					 	u.username,
 					 	u.user_lang,
 					 	u.user_email
-    		FROM 		' . USERS_TABLE . ' u , ' . USER_GROUP_TABLE . ' ug
-        	WHERE 		ug.group_id = ' . $formel_group_id . '
-        		AND 	u.user_id = ug.user_id
-        	GROUP BY	u.user_id
-        	ORDER BY 	u. username_clean ASC';
+			FROM 		' . USERS_TABLE . ' u , ' . USER_GROUP_TABLE . ' ug
+			WHERE 		ug.group_id = ' . $formel_group_id . '
+			AND 	u.user_id = ug.user_id
+			GROUP BY	u.user_id
+			ORDER BY 	u. username_clean ASC';
 
-    $result = $db->sql_query($sql);
+	$result = $db->sql_query($sql);
 
-   	while ($row = $db->sql_fetchrow($result))
+	while ($row = $db->sql_fetchrow($result))
 	{
 		// Send the messages
 		$used_lang = $row['user_lang'];
@@ -173,7 +173,7 @@ foreach ($races as $race)
 			$message = sprintf($user->lang['FORMEL_LOG_ERROR'], $config['board_email']);
 			add_log('critical', 'LOG_ERROR_EMAIL', $message);
 		}
-    }
+	}
 }
 
 // Log the cronjob run
