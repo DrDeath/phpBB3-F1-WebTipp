@@ -5,7 +5,7 @@
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 * cron_formel_mail.php
 *
-* Cronjob called from index.php
+* Cronjob called from includes/functions.php
 *
 */
 
@@ -115,7 +115,7 @@ foreach ($races as $race)
 					 	u.user_email
 			FROM 		' . USERS_TABLE . ' u , ' . USER_GROUP_TABLE . ' ug
 			WHERE 		ug.group_id = ' . $formel_group_id . '
-			AND 	u.user_id = ug.user_id
+				AND 	u.user_id = ug.user_id
 			GROUP BY	u.user_id
 			ORDER BY 	u. username_clean ASC';
 
