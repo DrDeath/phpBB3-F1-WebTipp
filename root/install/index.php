@@ -274,6 +274,11 @@ $versions = array(
 			array('cron_f1_reminder_last_run', '1', true),
 		),
 	),
+	
+	// Version 1.2013.2
+	'1.2013.2' => array(
+		// Version 1.2013.2- nothing to change
+	),
 
 );
 
