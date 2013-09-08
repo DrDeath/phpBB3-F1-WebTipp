@@ -108,14 +108,15 @@ foreach ($races as $race)
 	$messenger->subject(htmlspecialchars_decode($subject));
 	$messenger->set_mail_priority($priority);
 
-	// Get all the f1webtipp user (what user exactly ? All member of the restrict_to group)
+	// Get all the f1webtipp user (what user exactly ? All member of the restrict_to group and admin mails allowed)
 	$sql = 'SELECT 		u.user_id,
 					 	u.username,
 					 	u.user_lang,
 					 	u.user_email
 			FROM 		' . USERS_TABLE . ' u , ' . USER_GROUP_TABLE . ' ug
 			WHERE 		ug.group_id = ' . $formel_group_id . '
-			AND 	u.user_id = ug.user_id
+				AND 	u.user_id = ug.user_id
+				AND		u.user_allow_massemail = 1
 			GROUP BY	u.user_id
 			ORDER BY 	u. username_clean ASC';
 
