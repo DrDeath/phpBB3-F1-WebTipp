@@ -39,19 +39,22 @@
 		</installation>
 		<history>
 			<entry>
-				<date>2013-07-27</date>
+				<date>2013-09-08</date>
 				<rev-version>1.2013.2</rev-version>
 				<changelog lang="en">
 					<change><![CDATA[Replaced some "Back" links to the Webtipp itself, instead of the forum index.]]></change>
+					<change><![CDATA[Send cronjob reminder mails only if user has allowed to receive mass emails in UCP]]></change>
 				</changelog>
 				<changelog lang="de">
 					<change><![CDATA[Anstelle zum Foren Index zurückzukehren, zeigen nun einige "Zurück" Links auf den WebTipp]]></change>
+					<change><![CDATA[Erinnerungsmail werden durch den Cronjob nur dann versendet, wenn der Benutzer den Empfang von Informationen durch den Administrator erlaubt hat]]></change>
 				</changelog>
 			</entry>
 		</history>
 	</header>
 	<action-group>
 		<copy>
+			<file from="root/cron_formel_mail.php" to="cron_formel_mail.php"/>
 			<file from="root/formel.php" to="formel.php"/>
 			<file from="root/adm/mods/formel1webtipp_version.php" to="adm/mods/formel1webtipp_version.php"/>
 			<file from="root/install/index.php" to="install/index.php"/>
