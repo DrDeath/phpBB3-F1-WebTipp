@@ -1194,7 +1194,7 @@ switch ($mode)
 
 			add_log('mod', $user->data['user_id'], 'LOG_FORMEL_QUALI_DELETED', $race_id);
 
-			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
+			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>');
 			trigger_error($tipp_msg);
 		}
 
@@ -1236,13 +1236,13 @@ switch ($mode)
 			// Pull out a success message
 			add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_DELETED', $race_id);
 
-			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
+			$tipp_msg = sprintf($user->lang['FORMEL_RESULTS_DELETED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>');
 			trigger_error($tipp_msg);
 		}
 
 		if (($reset || $resetresult || $resetquali) && $race_id == 0)
 		{
-			$reset_msg = sprintf($user->lang['FORMEL_RESULTS_ERROR'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
+			$reset_msg = sprintf($user->lang['FORMEL_RESULTS_ERROR'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>');
 			trigger_error($reset_msg);
 		}
 
@@ -1266,7 +1266,7 @@ switch ($mode)
 					{
 						add_log('user', $user->data['user_id'], 'LOG_FORMEL_QUALI_NOT_VALID', $race_id);
 
-						$quali_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
+						$quali_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>');
 						trigger_error($quali_msg);
 					}
 
@@ -1286,7 +1286,7 @@ switch ($mode)
 
 				add_log('user', $user->data['user_id'], 'LOG_FORMEL_QUALI_ADDED', $race_id);
 
-				$quali_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
+				$quali_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>');
 				trigger_error($quali_msg);
 			}
 		}
@@ -1318,7 +1318,7 @@ switch ($mode)
 					{
 						add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_NOT_VALID', $race_id);
 
-						$result_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
+						$result_msg = sprintf($user->lang['FORMEL_RESULTS_DOUBLE'], '<a href="javascript:history.back()" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>');
 						trigger_error($result_msg);
 					}
 
@@ -1470,7 +1470,7 @@ switch ($mode)
 
 				add_log('user', $user->data['user_id'], 'LOG_FORMEL_RESULT_ADDED', $race_id);
 
-				$result_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '" class="gen">', '</a>');
+				$result_msg = sprintf($user->lang['FORMEL_RESULTS_ACCEPTED'], '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx?mode=results") . '" class="gen">', '</a>', '<a href="' . append_sid("{$phpbb_root_path}formel.$phpEx") . '" class="gen">', '</a>');
 				trigger_error($result_msg);
 			}
 		}

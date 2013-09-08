@@ -377,6 +377,16 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 					<change><![CDATA[Cronjob zur Versendung von Erinnerungsmails hinzugefügt.]]></change>
 				</changelog>
 			</entry>
+			<entry>
+				<date>2013-07-27</date>
+				<rev-version>1.2013.2</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Replaced some "Back" links to the Webtipp itself, instead of the forum index.]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Anstelle zum Foren Index zurückzukehren, zeigen nun einige "Zurück" Links auf den WebTipp]]></change>
+				</changelog>
+			</entry>
 		</history>
 		<link-group>
 			<link type="parent" href="../install.xml" lang="en">Main installation instruction</link>
