@@ -6,10 +6,10 @@
 	<header>
 		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (phpBB version)"/>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
-		<title lang="en"><![CDATA[Formula 1 WebTip update from 1.2013.1 to 1.2014.1]]></title>
-		<title lang="de"><![CDATA[Formel 1 WebTipp Update von 1.2013.1 auf 1.2014.1]]></title>
-		<description lang="en"><![CDATA[With this mod you can update your Formula 1 tipp game from version 1.2013.1 to 1.2014.1]]></description>
-		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel von Version 1.2013.1 auf 1.2014.1]]></description>
+		<title lang="en"><![CDATA[Formula 1 WebTip update from 1.2013.1 to 1.2014.0]]></title>
+		<title lang="de"><![CDATA[Formel 1 WebTipp Update von 1.2013.1 auf 1.2014.0]]></title>
+		<description lang="en"><![CDATA[With this mod you can update your Formula 1 tipp game from version 1.2013.1 to 1.2014.0]]></description>
+		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel von Version 1.2013.1 auf 1.2014.0]]></description>
 		<github>https://github.com/DrDeath/phpBB3-F1-WebTipp</github>
 		<author-group>
 			<author>
@@ -31,7 +31,7 @@
 				</contributions-group>
 			</author>
 		</author-group>
-		<mod-version>1.2014.1</mod-version>
+		<mod-version>1.2014.0</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>300</time>
@@ -40,7 +40,7 @@
 		<history>
 			<entry>
 				<date>2013-09-08</date>
-				<rev-version>1.2013.2</rev-version>
+				<rev-version>1.2014.0</rev-version>
 				<changelog lang="en">
 					<change><![CDATA[Replaced some "Back" links to the Webtipp itself, instead of the forum index.]]></change>
 					<change><![CDATA[Send cronjob reminder mails only if user has allowed to receive mass emails in UCP]]></change>

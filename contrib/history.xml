@@ -48,7 +48,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<email><![CDATA[webmaster@oxpus.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>1.2014.1</mod-version>
+		<mod-version>1.2014.0</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>900</time>
@@ -379,7 +379,7 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 			</entry>
 			<entry>
 				<date>2013-09-08</date>
-				<rev-version>1.2013.2</rev-version>
+				<rev-version>1.2014.0</rev-version>
 				<changelog lang="en">
 					<change><![CDATA[Replaced some "Back" links to the Webtipp itself, instead of the forum index.]]></change>
 					<change><![CDATA[Send cronjob reminder mails only if user has allowed to receive mass emails in UCP]]></change>
