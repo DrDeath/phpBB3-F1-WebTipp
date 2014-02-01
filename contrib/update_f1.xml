@@ -5,12 +5,12 @@
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.phpbb.com/mods/xml/modx-1.2.6.xsd">
 	<header>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
-		<title lang="en"><![CDATA[Formula 1 WebTip Update to Saison 2013]]></title>
-		<title lang="de"><![CDATA[Formel 1 WebTipp Update auf Saison 2013]]></title>
-		<description lang="en"><![CDATA[With this mod you can update your Formula 1 tipp game to the saison 2013.
+		<title lang="en"><![CDATA[Formula 1 WebTip Update to Saison 2014]]></title>
+		<title lang="de"><![CDATA[Formel 1 WebTipp Update auf Saison 2014]]></title>
+		<description lang="en"><![CDATA[With this mod you can update your Formula 1 tipp game to the saison 2014.
 The updater will first truncate all Formular 1 Webtipp Race, Teams and Driver Tables.
 After that it will fill in the actual Race, Teams and Driver data.]]></description>
-		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel auf die Saison 2013.
+		<description lang="de"><![CDATA[Mit diesem MOD aktualisierst Du Dein Formel 1 WebTipp Spiel auf die Saison 2014.
 Der Updater wird zuerst alle Renn-, Team- und Fahrer Tabellen leeren und anschliessend die Renn-, Team- und Fahrer Tabellen mit den aktuellen Saison Daten füllen..]]></description>
 		<github>https://github.com/DrDeath/phpBB3-F1-WebTipp</github>
 		<author-group>
@@ -33,7 +33,7 @@ Der Updater wird zuerst alle Renn-, Team- und Fahrer Tabellen leeren und anschli
 				</contributions-group>
 			</author>
 		</author-group>
-		<mod-version>1.2013.2</mod-version>
+		<mod-version>1.2014.1</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>120</time>
@@ -46,10 +46,10 @@ Der Updater wird zuerst alle Renn-, Team- und Fahrer Tabellen leeren und anschli
 	</header>
 	<action-group>
 		<copy>
-			<file from="contrib/update_f1/install/update_2013.php" to="install/update_2013.php"/>
+			<file from="contrib/update_f1/install/update_2014.php" to="install/update_2014.php"/>
 			<file from="contrib/update_f1/install/schemas/_schema_data.sql" to="install/schemas/_schema_data.sql"/>
 		</copy>
-		<php-installer><![CDATA[install/update_2013.php]]></php-installer>
+		<php-installer><![CDATA[install/update_2014.php]]></php-installer>
 		<diy-instructions lang="en"><![CDATA[Have fun!]]></diy-instructions>
 		<diy-instructions lang="de"><![CDATA[Viel Spass !]]></diy-instructions>
 	</action-group>
