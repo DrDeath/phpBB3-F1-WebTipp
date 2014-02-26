@@ -53,11 +53,11 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<email><![CDATA[webmaster@oxpus.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>1.2013.1</mod-version>
+		<mod-version>1.2014.0</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>1200</time>
-			<target-version>3.0.11</target-version>
+			<target-version>3.0.12</target-version>
 		</installation>
 		<link-group>
 			<link type="parent" href="contrib/history.xml" lang="en">History</link>

@@ -48,11 +48,11 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				<email><![CDATA[webmaster@oxpus.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>1.2013.0</mod-version>
+		<mod-version>1.2014.0</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>900</time>
-			<target-version>3.0.11</target-version>
+			<target-version>3.0.12</target-version>
 		</installation>
 		<history>
 			<entry>
@@ -375,6 +375,18 @@ Aktuelle Saison Statistiken ( Benutzer / Fahrer / Teams ) lassen sich auf den ei
 				</changelog>
 				<changelog lang="de">
 					<change><![CDATA[Cronjob zur Versendung von Erinnerungsmails hinzugefügt.]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2013-09-08</date>
+				<rev-version>1.2014.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Replaced some "Back" links to the Webtipp itself, instead of the forum index.]]></change>
+					<change><![CDATA[Send cronjob reminder mails only if user has allowed to receive mass emails in UCP]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Anstelle zum Foren Index zurückzukehren, zeigen nun einige "Zurück" Links auf den WebTipp]]></change>
+					<change><![CDATA[Erinnerungsmail werden durch den Cronjob nur dann versendet, wenn der Benutzer den Empfang von Informationen durch den Administrator erlaubt hat]]></change>
 				</changelog>
 			</entry>
 		</history>
