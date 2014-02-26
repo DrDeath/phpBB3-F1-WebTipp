@@ -256,12 +256,12 @@ $versions = array(
 	'0.3.7' => array(
 		// Version 0.3.7- nothing to change
 	),
-	
+
 	// Version 1.2013.0
 	'1.2013.0' => array(
 		// Version 1.2013.0- nothing to change
 	),
-	
+
 	// Version 1.2013.1
 	'1.2013.1' => array(
 		// Version 1.2013.1- adding "cron_formel_mail"
@@ -274,10 +274,10 @@ $versions = array(
 			array('cron_f1_reminder_last_run', '1', true),
 		),
 	),
-	
-	// Version 1.2013.2
-	'1.2013.2' => array(
-		// Version 1.2013.2- nothing to change
+
+	// Version 1.2014.0
+	'1.2014.0' => array(
+		// Version 1.2014.0- nothing to change
 	),
 
 );
