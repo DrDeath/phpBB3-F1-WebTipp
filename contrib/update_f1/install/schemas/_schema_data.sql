@@ -6,7 +6,7 @@ INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_r
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (5, 'Spanien / Barcelona', '', '0', '0', 1399809600, '4,655', 66, '307,104', 1991);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (6, 'Monaco / Monte Carlo', '', '0', '0', 1401019200, '3,340', 78, '260,520', 1950);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (7, 'Kanada / Montreal', '', '0', '0', 1402250400, '4,361', 70, '305,270', 1967);
-INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (8, 'Österreich / Spielberg', '', '0', '0', 1403438400, '4,326', 0, '0', 2014);
+INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (8, 'Österreich / Spielberg', '', '0', '0', 1403438400, '4,326', 71, '307,020', 2014);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (9, 'Großbritannien / Silverstone', '', '0', '0', 1404648000, '5,891', 52, '306,198', 1950);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (10, 'Deutschland / Hockenheim', '', '0', '0', 1405771200, '4,574', 67, '306,485', 1970);
 INSERT INTO phpbb_formel_races (race_id, race_name, race_img, race_quali, race_result, race_time, race_length, race_laps, race_distance, race_debut) VALUES (11, 'Ungarn / Budapest', '', '0', '0', 1406462400, '4,381', 70, '306,630', 1986);
@@ -86,4 +86,4 @@ INSERT INTO phpbb_formel_drivers (driver_id, driver_name, driver_img, driver_tea
 
 
 # -- Test Drivers
-# -- not known 
+# -- not known
