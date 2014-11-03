@@ -124,6 +124,7 @@ $lang = array_merge($lang, array(
 	'INSERT_F1_CONFIG'				=> 'Insert rows into the tables formel_config.',
 	'FORMEL_GUESTS_PLACE_NO_TIP'	=> '<strong>Guests cannot place a tip.</strong><br /><br />In order to place a tip you have to be registered and logged in.<br />',
 	'FORMEL_RACE_ABORD'				=> 'Race aborted (half points!)',
+	'FORMEL_RACE_DOUBLE'			=> 'Race with double points',
 
 	'VIEWING_F1WEBTIPP'				=> 'Viewing Formel 1 WebTipp',
 

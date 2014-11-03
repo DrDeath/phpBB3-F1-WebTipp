@@ -1168,6 +1168,7 @@ switch ($mode)
 
 		$results		= request_var('result'			,	''	);
 		$race_abort 	= request_var('race_abort'		,	0	);
+		$race_double 	= request_var('race_double'		,	0	);
 		$race_id		= request_var('race_id'			,	0	);
 
 		// Init some vars
@@ -1446,6 +1447,15 @@ switch ($mode)
 					$wm['7'] = 2;		// eighth place
 					$wm['8'] = 1;		// ninth place
 					$wm['9'] = 0.5;		// tenth place
+				}
+				
+				if ($race_double == true)
+				{
+				// the race has double points, i.e. it is the last race of the season
+					for ($i = 0; $i < count($wm) ; ++$i)
+					{
+						$wm[$i] = $wm[$i] *2;
+					}
 				}
 
 				for ($i = 0; $i < count($result_array) - 3; ++$i)
